@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Assets.Script
+{
+    public class GameManager
+    {
+        static GameManager _manger = null;
+
+        #region Variables
+
+        private PlayerManager m_players;
+        public PlayerManager _players
+        {
+            get { return m_players; }
+            set { m_players = value; }
+        }
+
+        private UIManager m_UIManager;
+        public UIManager _UIManager
+        {
+            get { return m_UIManager; }
+            set { m_UIManager = value; }
+        }
+
+        private LevelManager m_levelManager;
+        public LevelManager _levelManager
+        {
+            get { return m_levelManager; }
+            set { m_levelManager = value; }
+        }
+
+        private SoundManager m_soundManager;
+        public SoundManager _soundManager
+        {
+            get { return m_soundManager; }
+            set { m_soundManager = value; }
+        }
+        #endregion
+
+        public static GameManager GetManager()
+        {
+            if (_manger == null)
+            {
+                _manger = new GameManager(); // patern singleton
+            }
+            return _manger;
+        }
+
+    }
+}
