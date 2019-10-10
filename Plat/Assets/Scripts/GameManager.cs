@@ -37,6 +37,19 @@ namespace Assets.Script
             get { return m_soundManager; }
             set { m_soundManager = value; }
         }
+
+        private InputManager m_inputManager;
+        public InputManager _inputManager
+        {
+            get { return m_inputManager; }
+            set { m_inputManager = value; }
+        }
+        private PeonManager m_peonManager;
+        public PeonManager _peonManager
+        {
+            get { return m_peonManager; }
+            set { m_peonManager = value; }
+        }
         #endregion
 
         public static GameManager GetManager()
