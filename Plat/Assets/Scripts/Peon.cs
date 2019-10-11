@@ -18,6 +18,12 @@ public class Peon : MonoBehaviour
         get { return m_destination; }
         set { m_destination = value; }
     }
+    private Vector3 m_subDestination;
+    public Vector3 _subDestination
+    {
+        get { return m_subDestination; }
+        set { m_subDestination = value; }
+    }
     private bool m_canMove = false;
     public bool _canMove
     {
@@ -38,11 +44,15 @@ public class Peon : MonoBehaviour
     {
         if(m_canMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
-            if(Vector3.Distance(transform.position,m_destination) <= 1.0f)
+            if(Vector3.Distance(transform.position,m_destination) <= 0.1f)
             {
-                m_canMove = false;
+                m_destination = m_subDestination;
+                if (Vector3.Distance(transform.position, m_subDestination) <= 0.1f)
+                {
+                    m_canMove = false;
+                }
             }
+            transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
         }
     }
 }
