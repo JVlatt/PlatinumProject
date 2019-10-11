@@ -19,13 +19,12 @@ public class Carriage : MonoBehaviour
         set { m_peons = value; }
     }
 
-
     [SerializeField]
     private Transform m_mainDestination;
 
     private void OnMouseDown()
     {
-        if(m_peons.Count <= m_capacity)
+        if(m_peons.Count < m_capacity)
         {
             GameManager.GetManager()._peonManager._activePeon._destination = m_mainDestination.position;
             m_peons.Add(GameManager.GetManager()._peonManager._activePeon);
@@ -45,8 +44,13 @@ public class Carriage : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //Ajouter les tags des différents rôles
         if(other.tag == "Peon")
         {
+            if(m_peons.Contains(other.GetComponent<Peon>()))
+            {
+                m_peons.Remove(other.GetComponent<Peon>());
+            }
             other.transform.parent = null;
         }
     }
