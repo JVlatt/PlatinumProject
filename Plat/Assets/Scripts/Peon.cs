@@ -5,6 +5,7 @@ using Assets.Script;
 
 public class Peon : MonoBehaviour
 {
+    #region Variables
     [SerializeField]
     private float m_speed = 1.0f;
     public float _speed
@@ -30,8 +31,21 @@ public class Peon : MonoBehaviour
         get { return m_canMove; }
         set { m_canMove = value; }
     }
+    private float m_mentalHealth;
+    public float _mentalHealth
+    {
+        get { return m_mentalHealth; }
+        set
+        {
+            m_mentalHealth = value;
+            GameManager.GetManager()._UIManager.UpdateMentalBar();
+        }
+    }
+    #endregion
+
     void Start()
     {
+        _mentalHealth = 100;
         GameManager.GetManager()._peonManager._peons.Add(this);        
     }
 
