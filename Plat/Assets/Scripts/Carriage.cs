@@ -6,20 +6,30 @@ public class Carriage : MonoBehaviour
 {
     [SerializeField]
     private int m_capacity = 3;
+
     [SerializeField]
     private List<Transform> m_subDestinations = new List<Transform>(3);
+
+
     [SerializeField]
-    private List<Peon> m_Peons = new List<Peon>(3);
+    private List<Peon> m_peons = new List<Peon>(3);
+    public List<Peon> _peons
+    {
+        get { return m_peons; }
+        set { m_peons = value; }
+    }
+
+
     [SerializeField]
-    private Transform _mainDestination;
+    private Transform m_mainDestination;
 
     private void OnMouseDown()
     {
-        if(m_Peons.Count <= m_capacity)
+        if(m_peons.Count <= m_capacity)
         {
-            GameManager.GetManager()._peonManager._activePeon._destination = _mainDestination.position;
-            m_Peons.Add(GameManager.GetManager()._peonManager._activePeon);
-            GameManager.GetManager()._peonManager._activePeon._subDestination = m_subDestinations[m_Peons.IndexOf(GameManager.GetManager()._peonManager._activePeon)].position;
+            GameManager.GetManager()._peonManager._activePeon._destination = m_mainDestination.position;
+            m_peons.Add(GameManager.GetManager()._peonManager._activePeon);
+            GameManager.GetManager()._peonManager._activePeon._subDestination = m_subDestinations[m_peons.IndexOf(GameManager.GetManager()._peonManager._activePeon)].position;
             GameManager.GetManager()._peonManager._activePeon._canMove = true;
             GameManager.GetManager()._peonManager._activePeon = null;
         }
