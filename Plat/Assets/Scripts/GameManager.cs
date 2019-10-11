@@ -50,6 +50,12 @@ namespace Assets.Script
             get { return m_peonManager; }
             set { m_peonManager = value; }
         }
+        private TrainManager m_trainManager;
+        public TrainManager _trainManager
+        {
+            get { return m_trainManager; }
+            set { m_trainManager = value; }
+        }
         #endregion
 
         public static GameManager GetManager()
