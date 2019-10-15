@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         GameManager.GetManager()._UIManager = this;
-        UpdateMentalBar();
     }
 
     public void UpdateMentalBar()
@@ -31,6 +30,6 @@ public class UIManager : MonoBehaviour
         {
             total += peon._mentalHealth;
         }
-        m_totalMentalHealth = (total / GameManager.GetManager()._peonManager._peons.Count)/100;
+        _totalMentalHealth = (total / GameManager.GetManager()._peonManager._peons.Count)/100;
     }
 }
