@@ -28,6 +28,7 @@ public class Carriage : MonoBehaviour
         {
             GameManager.GetManager()._peonManager._activePeon._destination = m_mainDestination.position;
             m_peons.Add(GameManager.GetManager()._peonManager._activePeon);
+            AddPeonToSpecialCarriage(GameManager.GetManager()._peonManager._activePeon);
             GameManager.GetManager()._peonManager._activePeon._subDestination = m_subDestinations[m_peons.IndexOf(GameManager.GetManager()._peonManager._activePeon)].position;
             GameManager.GetManager()._peonManager._activePeon._canMove = true;
             GameManager.GetManager()._peonManager._activePeon = null;
@@ -49,9 +50,19 @@ public class Carriage : MonoBehaviour
         {
             if(m_peons.Contains(other.GetComponent<Peon>()))
             {
-                m_peons.Remove(other.GetComponent<Peon>());
+                RemovePeon(other.GetComponent<Peon>());
             }
             other.transform.parent = null;
         }
+    }
+
+    public virtual void AddPeonToSpecialCarriage(Peon peon)
+    {
+
+    }
+
+    public virtual void RemovePeon(Peon peon)
+    {
+        m_peons.Remove(peon);
     }
 }
