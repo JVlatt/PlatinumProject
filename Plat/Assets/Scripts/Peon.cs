@@ -62,14 +62,17 @@ public class Peon : MonoBehaviour
         get { return m_type; }
     }
 
+    private HEALTHSTATE m_HEALTHSTATE;
+    public HEALTHSTATE _HEALTHSTATE
+    {
+        get { return m_HEALTHSTATE; }
+        set { m_HEALTHSTATE = value; }
+    }
+
     [Header("PV")]
-    private float _maxHP;
+    private float m_maxPV;
     [SerializeField]
     private float m_PV;
-    public float _PV
-    {
-        get { return m_PV; }
-    }
 
 
 
@@ -77,7 +80,9 @@ public class Peon : MonoBehaviour
     #region Enum
     public enum HEALTHSTATE
     {
-
+        HURT,
+        TREAT,
+        GOOD
     }
 
     public enum TYPE
@@ -117,4 +122,15 @@ public class Peon : MonoBehaviour
         }
     }
 
+    public void TreatPeon() //CEDRIC
+    {
+        _HEALTHSTATE = HEALTHSTATE.TREAT;
+        //lancer le timer de traitement;
+        //mettre a jours la vie 
+    }
+
+    public float PVLost() //CEDRIC
+    {
+        return m_maxPV - m_PV;
+    }
 }

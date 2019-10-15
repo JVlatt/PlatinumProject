@@ -3,46 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
 
-public class Infirmary : Carriage
+public class Infirmary : Carriage  //MADE BY CEDRIC
 {
-    private Peon _lowerPeon;
     private List<Healer> healers = new List<Healer>();
+    private List<Peon> PeonsToHeal = new List<Peon>();
 
-    // Update is called once per frame
-    void Update()
-    {/*
-        if(healers != null && _peons.Count>1)
-        {
-            if (peonToHeal != null)
-            {
-                timer -= Time.deltaTime;
-                if (timer == 0)
-                    ;//HealPeon
-            }
-            else
-            {
-                /*  NEED PEON PV
-                Peon peonLow;
-                foreach (var item in _peons)
-                {
-                    if (peonLow.hp > item.hp)
-                        peonLow = item;
-                }
-                peonToHeal = peonLow;
-                
-            }
-
-        }*/
-    }
 
     public override void AddPeonToSpecialCarriage(Peon peon)
     {
-        if (_lowerPeon._PV > peon._PV)
-            _lowerPeon = peon;
+        if (peon._HEALTHSTATE == Peon.HEALTHSTATE.HURT)
+            AddPeonToHeal(peon);
         if(peon._type == Peon.TYPE.HEALER)
         {
             Healer newHealer = peon.GetComponent<Healer>();
-            newHealer.Setup(this, _lowerPeon);
+            newHealer.Setup(this, PeonsToHeal[0]);
+            PeonsToHeal.RemoveAt(0);
             healers.Add(newHealer);
         }
     }
@@ -50,26 +25,40 @@ public class Infirmary : Carriage
     public override void RemovePeon(Peon peon)
     {
         base.RemovePeon(peon);
+ 
+        if (peon._HEALTHSTATE == Peon.HEALTHSTATE.HURT)
+            PeonsToHeal.Remove(peon);
+
+        //supprime le Healer si c'est le Peon a supprimer et met a jours les Healer si ils etaient en train de soigner le Peon a supprimer
         Healer ToRemove=null;
         foreach (Healer item in healers)
         {
-            if (item.RemoveHealer(peon))
-                ToRemove = item;
-        }
-        healers.Remove(ToRemove);
-
-        if(_lowerPeon._ID == peon._ID)
-        {
-            _lowerPeon = null;
-            foreach (Peon item in _peons)
+            if (item.RemoveOrUpdateHealer(peon, PeonsToHeal[0]))
             {
-                if (_lowerPeon == null)
-                    _lowerPeon = item;
-                else if(_lowerPeon._PV>item._PV)
-                    _lowerPeon = item;
+                ToRemove = item;
             }
         }
+        healers.Remove(ToRemove);
+    }
 
 
+    public void AddPeonToHeal(Peon peon)
+    {
+        int i = 0;
+        while (peon.PVLost()<PeonsToHeal[i].PVLost())
+        {
+            i++;
+        }
+        PeonsToHeal.Insert(i, peon);
+    }
+
+    public void RemovePeonToHeal(Peon peon) { PeonsToHeal.Remove(peon); }
+
+    public Peon GetPeonToHeal()
+    {
+        Peon toHeal = PeonsToHeal[0];
+        PeonsToHeal.RemoveAt(0);
+        return toHeal;
+        
     }
 }
