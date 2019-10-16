@@ -61,11 +61,20 @@ public class Carriage : MonoBehaviour
     {
         if(GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
-            GameManager.GetManager()._peonManager._activePeon._destination = m_mainDestination.position;
-            m_peons.Add(GameManager.GetManager()._peonManager._activePeon);
-            AddPeonToSpecialCarriage(GameManager.GetManager()._peonManager._activePeon);
-            GameManager.GetManager()._peonManager._activePeon._subDestination = m_subDestinations[m_peons.IndexOf(GameManager.GetManager()._peonManager._activePeon)].position;
-            GameManager.GetManager()._peonManager._activePeon._canMove = true;
+            Peon currentPeon = GameManager.GetManager()._peonManager._activePeon;
+            currentPeon._destination = m_mainDestination.position;
+            m_peons.Add(currentPeon);
+            AddPeonToSpecialCarriage(currentPeon);
+            currentPeon._subDestination = m_subDestinations[m_peons.IndexOf(currentPeon)].position;
+            currentPeon._canMove = true;
+
+            if(currentPeon._currentCarriage !=null)
+            {
+                currentPeon._currentCarriage.RemovePeon(currentPeon);
+            }
+            
+            currentPeon._currentCarriage = this;
+
             GameManager.GetManager()._peonManager._activePeon = null;
         }
     }
@@ -87,11 +96,6 @@ public class Carriage : MonoBehaviour
         //Ajouter les tags des différents rôles
         if(other.tag == "Peon")
         {
-            if(m_peons.Find(gameObject => other.gameObject))
-            {
-                RemovePeon(other.GetComponent<Peon>());
-            }
-
             other.transform.parent = null;
         }
     }
@@ -104,7 +108,10 @@ public class Carriage : MonoBehaviour
     public virtual void RemovePeon(Peon peon)
     {
         m_peons.Remove(peon);
-        m_activePeons.Remove(peon);
+        if(m_activePeons.Contains(peon))
+        {
+            m_activePeons.Remove(peon);
+        }
     }
     #endregion
 

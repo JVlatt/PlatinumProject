@@ -48,6 +48,13 @@ public class Peon : MonoBehaviour
         }
     }
 
+    private Carriage m_currentCarriage;
+    public Carriage _currentCarriage
+    {
+        get { return m_currentCarriage; }
+        set { m_currentCarriage = value; }
+    }
+
     [Header("Personnalité")]
     private int m_ID;
     public int _ID { 
