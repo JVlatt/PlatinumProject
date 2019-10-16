@@ -201,11 +201,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_capacity: 3
   m_subDestinations:
-  - {fileID: 860447174012527174}
-  - {fileID: 8383719458092067826}
-  - {fileID: 7333219411408041794}
+  - position: {fileID: 860447174012527174}
+    isAvailable: 1
+  - position: {fileID: 8383719458092067826}
+    isAvailable: 1
+  - position: {fileID: 7333219411408041794}
+    isAvailable: 1
   m_peons: []
-  m_mainDestination: {fileID: 0}
+  m_activePeons: []
+  m_mainDestination: {fileID: 2222647244091598499}
+  _timeBeforeAttack: 5
+  _attackDuration: 30
+  _fightDuration: 30
 --- !u!1 &9095914351034220180
 GameObject:
   m_ObjectHideFlags: 0
