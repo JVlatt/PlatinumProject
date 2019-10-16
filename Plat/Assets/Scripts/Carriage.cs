@@ -103,7 +103,10 @@ public class Carriage : MonoBehaviour
             other.transform.parent = this.transform;
             if(m_peons.Find(gameObject => other.gameObject))
             {
-                m_activePeons.Add(other.GetComponent<Peon>());
+                Peon peonToAdd = other.GetComponent<Peon>();
+                m_activePeons.Add(peonToAdd);
+                AddPeonToSpecialCarriage(peonToAdd);
+
             }
         }
     }

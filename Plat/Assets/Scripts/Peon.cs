@@ -56,12 +56,6 @@ public class Peon : MonoBehaviour
     }
 
     [Header("Personnalité")]
-    private int m_ID;
-    public int _ID { 
-        get { return m_ID; } 
-    }
-    static int m_nextID;
-
     [SerializeField]
     private TYPE m_type;
     public TYPE _type
@@ -69,20 +63,50 @@ public class Peon : MonoBehaviour
         get { return m_type; }
     }
 
-    private HEALTHSTATE m_HEALTHSTATE;
+    private int m_ID;
+    public int _ID { 
+        get { return m_ID; } 
+    }
+    static int m_nextID;
+    public int _nextID
+    {
+        get { return m_nextID++; }
+    }
+
+    private HEALTHSTATE m_HEALTHSTATE = HEALTHSTATE.GOOD;
     public HEALTHSTATE _HEALTHSTATE
     {
         get { return m_HEALTHSTATE; }
         set { m_HEALTHSTATE = value; }
     }
 
+    #region Gestion HP
     [Header("PV")]
-    private float m_maxPV;
     [SerializeField]
-    private float m_PV;
+    private float _HP;
+    private float _maxHP;
 
+    [SerializeField]
+    [Range(0, 100)]
+    private float m_percentHpRecoverAfterTreat;
+    private float _percentHpRecoverAfterTreat
+    {
+        get { return m_percentHpRecoverAfterTreat/100; }
+        set { m_percentHpRecoverAfterTreat = value; }
+    }
+    [SerializeField]
 
+    [Range(0, 100)]
+    private float m_percentHpRecoverPerSecond;
+    private float _percentHpRecoverPerSecond
+    {
+        get { return m_percentHpRecoverPerSecond / 100; }
+        set { m_percentHpRecoverPerSecond = value; }
+    }
 
+    private float _hpToRecover;
+    private float _recoverTimer;
+    #endregion
 
     #region Enum
     public enum HEALTHSTATE
@@ -103,9 +127,10 @@ public class Peon : MonoBehaviour
 
     void Start()
     {
-        m_ID = m_nextID;
+        m_ID = _nextID;
         _mentalHealth = 100;
-        GameManager.GetManager()._peonManager._peons.Add(this);        
+        GameManager.GetManager()._peonManager._peons.Add(this);
+        _maxHP = _HP;
     }
 
     private void OnMouseDown()
@@ -127,17 +152,39 @@ public class Peon : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
         }
+        Recover();
+        SpecialUpdate();
+    }
+
+    public void Recover()
+    {
+        if (_HEALTHSTATE != HEALTHSTATE.TREAT) return;
+        _recoverTimer += Time.deltaTime;
+        if (_recoverTimer > 1)
+        {
+            _HP += _hpToRecover * _percentHpRecoverPerSecond;
+            _recoverTimer -= 1;
+            if(_HP>=_maxHP)
+            {
+                _recoverTimer = 0;
+                _HEALTHSTATE = HEALTHSTATE.GOOD;
+                _HP = _maxHP;
+            }
+        }
     }
 
     public void TreatPeon() //CEDRIC
     {
         _HEALTHSTATE = HEALTHSTATE.TREAT;
-        //lancer le timer de traitement;
-        //mettre a jours la vie 
+        _HP += HPLost() * _percentHpRecoverAfterTreat;
+        _hpToRecover = HPLost();
     }
 
-    public float PVLost() //CEDRIC
+    public float HPLost() //CEDRIC
     {
-        return m_maxPV - m_PV;
+        return _maxHP - _HP;
     }
+
+    public virtual void SpecialUpdate() { }
+
 }

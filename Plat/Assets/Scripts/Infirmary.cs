@@ -6,7 +6,7 @@ using Assets.Script;
 public class Infirmary : Carriage  //MADE BY CEDRIC
 {
     private List<Healer> healers = new List<Healer>();
-    private List<Peon> PeonsToHeal = new List<Peon>();
+    private List<Peon> _peonsToHeal = new List<Peon>();
 
 
     public override void AddPeonToSpecialCarriage(Peon peon)
@@ -16,9 +16,8 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
         if(peon._type == Peon.TYPE.HEALER)
         {
             Healer newHealer = peon.GetComponent<Healer>();
-            newHealer.Setup(this, PeonsToHeal[0]);
-            PeonsToHeal.RemoveAt(0);
             healers.Add(newHealer);
+            newHealer.Setup(this, GetPeonToHeal());
         }
     }
 
@@ -27,13 +26,13 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
         base.RemovePeon(peon);
  
         if (peon._HEALTHSTATE == Peon.HEALTHSTATE.HURT)
-            PeonsToHeal.Remove(peon);
+            _peonsToHeal.Remove(peon);
 
         //supprime le Healer si c'est le Peon a supprimer et met a jours les Healer si ils etaient en train de soigner le Peon a supprimer
         Healer ToRemove=null;
         foreach (Healer item in healers)
         {
-            if (item.RemoveOrUpdateHealer(peon, PeonsToHeal[0]))
+            if (item.RemoveOrUpdateHealer(peon, _peonsToHeal[0]))
             {
                 ToRemove = item;
             }
@@ -44,20 +43,24 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
 
     public void AddPeonToHeal(Peon peon)
     {
+        if (_peonsToHeal.Count == 0) { _peonsToHeal.Add(peon); return; }
+
         int i = 0;
-        while (peon.PVLost()<PeonsToHeal[i].PVLost())
+        while (peon.HPLost()<_peonsToHeal[i].HPLost())
         {
             i++;
         }
-        PeonsToHeal.Insert(i, peon);
+        _peonsToHeal.Insert(i, peon);
     }
 
-    public void RemovePeonToHeal(Peon peon) { PeonsToHeal.Remove(peon); }
+    public void RemovePeonToHeal(Peon peon) { _peonsToHeal.Remove(peon); }
 
     public Peon GetPeonToHeal()
     {
-        Peon toHeal = PeonsToHeal[0];
-        PeonsToHeal.RemoveAt(0);
+        if (_peonsToHeal.Count == 0) return null;
+
+        Peon toHeal = _peonsToHeal[0];
+        _peonsToHeal.RemoveAt(0);
         return toHeal;
         
     }

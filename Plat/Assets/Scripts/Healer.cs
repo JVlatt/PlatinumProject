@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class Healer : Peon  //MADE BY CEDRIC
 {  
-
-    public float cdHeal;
+    [SerializeField]
+    private float cdHeal;
 
     private Peon _peonToHeal;
     private float _timer;
     private Infirmary _Infirmary;
 
 
-    private void Update()
+    public override void SpecialUpdate()
     {
         if (_peonToHeal && _Infirmary)
         {
             _timer -= Time.deltaTime;
-            if (_timer == 0)
+            if (_timer <= 0)
             {
                 _peonToHeal.TreatPeon();
                 _peonToHeal = _Infirmary.GetPeonToHeal();
+                _timer = cdHeal;
             }
-                   
+
+        }
+        else if (!_peonToHeal && _Infirmary)
+        {
+            _peonToHeal = _Infirmary.GetPeonToHeal();
         }
     }
 
@@ -32,6 +37,7 @@ public class Healer : Peon  //MADE BY CEDRIC
     {
         _Infirmary = Infirmary;
         _peonToHeal = peon;
+        _timer = cdHeal;
     }
         
     public bool RemoveOrUpdateHealer(Peon peon,Peon lowerPeon)
@@ -55,7 +61,6 @@ public class Healer : Peon  //MADE BY CEDRIC
             return false;
         }
     }
-    
 
 
 }
