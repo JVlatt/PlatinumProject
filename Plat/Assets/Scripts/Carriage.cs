@@ -7,6 +7,12 @@ public class Carriage : MonoBehaviour
     #region Variables
     [SerializeField]
     private int m_capacity = 3;
+    private int m_id;
+    public int id
+    {
+        get { return m_id; }
+        set { m_id = value; }
+    }
 
     [System.Serializable]
     public class positions
@@ -40,6 +46,7 @@ public class Carriage : MonoBehaviour
         get { return m_underAttack; }
         set { m_underAttack = value; }
     }
+    [SerializeField]
     private bool m_willBeAttacked = false;
     public bool _willBeAttacked
     {
@@ -68,18 +75,14 @@ public class Carriage : MonoBehaviour
     {
         if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
-            Peon currentPeon = GameManager.GetManager()._peonManager._activePeon;
-            ClearPeon(currentPeon);
-            GetFreePos(currentPeon);
-            AddPeonToSpecialCarriage(currentPeon);
-            currentPeon._canMove = true;
-            currentPeon._currentCarriage = this;
-            GameManager.GetManager()._peonManager._activePeon = null;
+            GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon,this);
         }
     }
 
     #region List Management
-    private void OnTriggerEnter(Collider other)
+
+    
+    private void OnTriggerEnter(Collider other) //Faudrait passer en TriggerStay ça parce que si tu "annule" ton déplacement il est quand même plus dans la liste de peons
     {
         if (other.tag == "Peon")
         {
@@ -89,7 +92,6 @@ public class Carriage : MonoBehaviour
                 Peon peonToAdd = other.GetComponent<Peon>();
                 m_activePeons.Add(peonToAdd);
                 AddPeonToSpecialCarriage(peonToAdd);
-
             }
         }
     }
@@ -105,7 +107,7 @@ public class Carriage : MonoBehaviour
 
     public virtual void AddPeonToSpecialCarriage(Peon peon)
     {
-        m_peons.Add(peon);
+
     }
 
     public virtual void RemovePeon(Peon peon)
@@ -168,6 +170,7 @@ public class Carriage : MonoBehaviour
             if (_attackTimer >= _attackDuration)
             {
                 //Mettre le résultat
+                DestructCarriage();
                 _timeBeforeAttack = 0f;
                 m_underAttack = false;
             }
@@ -175,25 +178,26 @@ public class Carriage : MonoBehaviour
     }
     private void Fight()
     {
+        /* Apparemment ça saute du GD genre si jamais tu veux sacrifier un gars vu que c'est celui qui prend le focus qui perd le plus d'hp demande à clement jpense il se souviendra
         m_activePeons.Sort(delegate (Peon a, Peon b)
         {
             return a._power.CompareTo(b._power);
-        });
+        });*/
         int totalpower = 0;
 
         switch(m_activePeons[0]._type)
         {
             case Peon.TYPE.FIGHTER:
-                totalpower += 70;
+                totalpower = 70;
                 break;
             case Peon.TYPE.SIMPLE:
-                totalpower += 40;
+                totalpower = 40;
                 break;
             case Peon.TYPE.MECANO:
-                totalpower += 35;
+                totalpower = 35;
                 break;
             case Peon.TYPE.HEALER:
-                totalpower += 20;
+                totalpower = 20;
                 break;
         }
         for (int i = 1; i < m_activePeons.Count; i++)
@@ -215,27 +219,42 @@ public class Carriage : MonoBehaviour
             }
         }
         int rand = Random.Range(0, 100);
+        Debug.Log("Puissance Totale = " + totalpower);
+        Debug.Log("Jet de Dés = " + rand);
         if(rand <= totalpower)
         {
+            Debug.Log("Victoire ! ");
             Victory();
         }
         else
         {
+            Debug.Log("Défaite :(");
             Defeat();
         }
+        _timerBeforeAttack = 0f;
 
     }
 
     private void Victory()
     {
-
+        m_underAttack = false;
     }
 
     private void Defeat()
     {
+        int count = m_activePeons.Count;
+        for(int i = 0; i < count; i++)
+        {
+            m_activePeons[0].HP -= 1;
+            GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
+        }
 
     }
 
+    private void DestructCarriage()
+    {
+        Debug.Log("Le wagon a été détruit");
+    }
     #endregion
 
     private void Update()

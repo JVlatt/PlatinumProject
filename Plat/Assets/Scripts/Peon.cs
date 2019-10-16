@@ -55,6 +55,7 @@ public class Peon : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private Carriage m_currentCarriage;
     public Carriage _currentCarriage
     {
@@ -91,6 +92,11 @@ public class Peon : MonoBehaviour
     [Header("PV")]
     [SerializeField]
     private float _HP;
+    public float HP
+    {
+        get { return _HP; }
+        set { _HP = value; }
+    }
     private float _maxHP;
 
     [SerializeField]
