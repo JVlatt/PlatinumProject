@@ -11,6 +11,7 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
 
     public override void AddPeonToSpecialCarriage(Peon peon)
     {
+        base.AddPeonToSpecialCarriage(peon);
         if (peon._HEALTHSTATE == Peon.HEALTHSTATE.HURT)
             AddPeonToHeal(peon);
         if(peon._type == Peon.TYPE.HEALER)

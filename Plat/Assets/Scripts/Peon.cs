@@ -16,6 +16,13 @@ public class Peon : MonoBehaviour
         set { m_speed = value; }
     }
 
+    [SerializeField]
+    private int m_power = 1;
+    public int _power
+    {
+        get { return m_power; }
+        set { m_power = value; }
+    }
     private Vector3 m_destination;
     public Vector3 _destination
     {
@@ -120,7 +127,8 @@ public class Peon : MonoBehaviour
     {
         HEALER,
         MECANO,
-        SIMPLE
+        SIMPLE,
+        FIGHTER
     }
     #endregion
     #endregion

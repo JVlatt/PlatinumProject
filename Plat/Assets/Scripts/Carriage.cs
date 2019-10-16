@@ -60,48 +60,31 @@ public class Carriage : MonoBehaviour
     private float _attackTimer = 0f;
 
     [SerializeField]
-    private float _fightDuration = 30f;
+    private float _fightDuration = 10f;
     private float _fightTimer = 0f;
     #endregion
 
-    #region List Management
     private void OnMouseDown()
     {
-        if(GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
+        if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
-
             Peon currentPeon = GameManager.GetManager()._peonManager._activePeon;
-            if (currentPeon._currentCarriage != null)
-            {
-                positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos == currentPeon);
-                lastPos.isAvailable = true;
-                lastPos.peonOnPos = null;
-                currentPeon._currentCarriage.RemovePeon(currentPeon);
-                
-            }
-            currentPeon._destination = m_mainDestination.position;
-            m_peons.Add(currentPeon);
+            ClearPeon(currentPeon);
+            GetFreePos(currentPeon);
             AddPeonToSpecialCarriage(currentPeon);
-            positions freepos = m_subDestinations.Find(x => x.isAvailable == true);
-            currentPeon._destination = m_mainDestination.position;
-            currentPeon._subDestination = freepos.position.position;
-            freepos.isAvailable = false;
-            freepos.peonOnPos = currentPeon;
             currentPeon._canMove = true;
-            
-            
             currentPeon._currentCarriage = this;
-
             GameManager.GetManager()._peonManager._activePeon = null;
         }
     }
 
+    #region List Management
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Peon")
+        if (other.tag == "Peon")
         {
             other.transform.parent = this.transform;
-            if(m_peons.Find(gameObject => other.gameObject))
+            if (m_peons.Find(gameObject => other.gameObject))
             {
                 Peon peonToAdd = other.GetComponent<Peon>();
                 m_activePeons.Add(peonToAdd);
@@ -114,7 +97,7 @@ public class Carriage : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //Ajouter les tags des différents rôles
-        if(other.tag == "Peon")
+        if (other.tag == "Peon")
         {
             other.transform.parent = null;
         }
@@ -122,47 +105,141 @@ public class Carriage : MonoBehaviour
 
     public virtual void AddPeonToSpecialCarriage(Peon peon)
     {
-
+        m_peons.Add(peon);
     }
 
     public virtual void RemovePeon(Peon peon)
     {
         m_peons.Remove(peon);
-        if(m_activePeons.Contains(peon))
+        if (m_activePeons.Contains(peon))
         {
             m_activePeons.Remove(peon);
         }
     }
     #endregion
 
+    #region Position Management
+    public void ClearPeon(Peon currentPeon)
+    {
+        if (currentPeon._currentCarriage == null) return;
+        positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos == currentPeon);
+        lastPos.isAvailable = true;
+        lastPos.peonOnPos = null;
+        currentPeon._currentCarriage.RemovePeon(currentPeon);
+    }
+    public void GetFreePos(Peon currentPeon)
+    {
+        currentPeon._destination = m_mainDestination.position;
+        positions freepos = m_subDestinations.Find(x => x.isAvailable == true);
+        currentPeon._destination = m_mainDestination.position;
+        currentPeon._subDestination = freepos.position.position;
+        freepos.isAvailable = false;
+        freepos.peonOnPos = currentPeon;
+    }
+    #endregion
+
     #region Attack Management
 
 
-
-    #endregion
-
-    private void Update()
+    private void CheckFight()
     {
-        if(m_willBeAttacked)
+        if (m_willBeAttacked)
         {
             _timerBeforeAttack += Time.deltaTime;
-            if(_timerBeforeAttack >= _timeBeforeAttack)
+            if (_timerBeforeAttack >= _timeBeforeAttack)
             {
                 m_underAttack = true;
                 m_willBeAttacked = false;
                 _attackTimer = 0f;
             }
         }
-        if(m_underAttack)
+        if (m_underAttack)
         {
             _attackTimer += Time.deltaTime;
-
-            if(_attackTimer >= _attackDuration)
+            if (m_activePeons.Count >= 1)
             {
+                _fightTimer += Time.deltaTime;
+                if (_fightTimer >= _fightDuration)
+                {
+                    Fight();
+                    _fightTimer = 0f;
+                }
+            }
+            if (_attackTimer >= _attackDuration)
+            {
+                //Mettre le résultat
                 _timeBeforeAttack = 0f;
                 m_underAttack = false;
             }
         }
+    }
+    private void Fight()
+    {
+        m_activePeons.Sort(delegate (Peon a, Peon b)
+        {
+            return a._power.CompareTo(b._power);
+        });
+        int totalpower = 0;
 
+        switch(m_activePeons[0]._type)
+        {
+            case Peon.TYPE.FIGHTER:
+                totalpower += 70;
+                break;
+            case Peon.TYPE.SIMPLE:
+                totalpower += 40;
+                break;
+            case Peon.TYPE.MECANO:
+                totalpower += 35;
+                break;
+            case Peon.TYPE.HEALER:
+                totalpower += 20;
+                break;
+        }
+        for (int i = 1; i < m_activePeons.Count; i++)
+        {
+            switch (m_activePeons[i]._type)
+            {
+                case Peon.TYPE.FIGHTER:
+                    totalpower += 20;
+                    break;
+                case Peon.TYPE.SIMPLE:
+                    totalpower += 15;
+                    break;
+                case Peon.TYPE.MECANO:
+                    totalpower += 10;
+                    break;
+                case Peon.TYPE.HEALER:
+                    totalpower += 5;
+                    break;
+            }
+        }
+        int rand = Random.Range(0, 100);
+        if(rand <= totalpower)
+        {
+            Victory();
+        }
+        else
+        {
+            Defeat();
+        }
+
+    }
+
+    private void Victory()
+    {
+
+    }
+
+    private void Defeat()
+    {
+
+    }
+
+    #endregion
+
+    private void Update()
+    {
+        CheckFight();
     }
 }
