@@ -98,7 +98,6 @@ public class Carriage : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //Ajouter les tags des différents rôles
         if (other.tag == "Peon")
         {
             other.transform.parent = null;
