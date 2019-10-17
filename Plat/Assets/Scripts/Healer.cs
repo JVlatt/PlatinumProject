@@ -7,10 +7,28 @@ public class Healer : Peon  //MADE BY CEDRIC
     [SerializeField]
     private float cdHeal;
 
-    private Peon _peonToHeal;
+    private Peon m_peonToHeal;
+    public Peon _peonToHeal
+    {
+        get { return m_peonToHeal; }
+        set 
+        { 
+            m_peonToHeal = value;
+            if (value)
+                _animator.SetBool("Healing", true);
+            else
+                _animator.SetBool("Healing", false);
+        }
+    }
     private float _timer;
     private Infirmary _Infirmary;
+    private Animator _animator;
 
+    public override void SpecialStart()
+    {
+        base.SpecialStart();
+        _animator = GetComponentInChildren<Animator>();
+    }
 
     public override void SpecialUpdate()
     {

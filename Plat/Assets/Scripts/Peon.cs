@@ -55,7 +55,6 @@ public class Peon : MonoBehaviour
         }
     }
 
-    [SerializeField]
     private Carriage m_currentCarriage;
     public Carriage _currentCarriage
     {
@@ -98,7 +97,7 @@ public class Peon : MonoBehaviour
         set 
         { 
             m_HP = value;
-            GameManager.GetManager()._UIManager.UpdateHealthBar(HPLost()/_maxHP,_ID);
+            GameManager.GetManager()._UIManager.UpdateHealthBar((_maxHP-HPLost())/_maxHP,_ID);
         }
     }
     private float _maxHP;
@@ -149,7 +148,11 @@ public class Peon : MonoBehaviour
         _mentalHealth = 100;
         GameManager.GetManager()._peonManager.AddPeon(this);
         _maxHP = m_HP;
+        SetDamage();
+        SpecialStart();
     }
+
+    public virtual void SpecialStart() { }
 
     private void OnMouseDown()
     {
@@ -174,19 +177,21 @@ public class Peon : MonoBehaviour
         SpecialUpdate();
     }
 
+    public virtual void SpecialUpdate() { }
+
     public void Recover()
     {
         if (_HEALTHSTATE != HEALTHSTATE.TREAT) return;
         _recoverTimer += Time.deltaTime;
         if (_recoverTimer > 1)
         {
-            m_HP += _hpToRecover * _percentHpRecoverPerSecond;
+            _HP += _hpToRecover * _percentHpRecoverPerSecond;
             _recoverTimer -= 1;
-            if(m_HP>=_maxHP)
+            if(_HP>=_maxHP)
             {
                 _recoverTimer = 0;
                 _HEALTHSTATE = HEALTHSTATE.GOOD;
-                m_HP = _maxHP;
+                _HP = _maxHP;
             }
         }
     }
@@ -203,6 +208,10 @@ public class Peon : MonoBehaviour
         return _maxHP - m_HP;
     }
 
-    public virtual void SpecialUpdate() { }
+    public void SetDamage()
+    {
+        _HEALTHSTATE = HEALTHSTATE.HURT;
+        _HP -= 10;
+    }
 
 }
