@@ -82,7 +82,7 @@ public class Carriage : MonoBehaviour
     #region List Management
 
     
-    private void OnTriggerEnter(Collider other) //Faudrait passer en TriggerStay ça parce que si tu "annule" ton déplacement il est quand même plus dans la liste de peons
+    private void OnTriggerEnter(Collider other) //Faudra gérer autrement genre avec les canmove comme a dit jérome parce que ça déconne si tu "annules" le déplacement
     {
         if (other.tag == "Peon")
         {
