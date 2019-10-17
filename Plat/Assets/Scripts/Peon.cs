@@ -91,11 +91,15 @@ public class Peon : MonoBehaviour
     #region Gestion HP
     [Header("PV")]
     [SerializeField]
-    private float _HP;
-    public float HP
+    private float m_HP;
+    public float _HP
     {
-        get { return _HP; }
-        set { _HP = value; }
+        get { return m_HP; }
+        set 
+        { 
+            m_HP = value;
+            GameManager.GetManager()._UIManager.UpdateHealthBar(HPLost()/_maxHP,_ID);
+        }
     }
     private float _maxHP;
 
@@ -143,8 +147,8 @@ public class Peon : MonoBehaviour
     {
         m_ID = _nextID;
         _mentalHealth = 100;
-        GameManager.GetManager()._peonManager._peons.Add(this);
-        _maxHP = _HP;
+        GameManager.GetManager()._peonManager.AddPeon(this);
+        _maxHP = m_HP;
     }
 
     private void OnMouseDown()
@@ -176,13 +180,13 @@ public class Peon : MonoBehaviour
         _recoverTimer += Time.deltaTime;
         if (_recoverTimer > 1)
         {
-            _HP += _hpToRecover * _percentHpRecoverPerSecond;
+            m_HP += _hpToRecover * _percentHpRecoverPerSecond;
             _recoverTimer -= 1;
-            if(_HP>=_maxHP)
+            if(m_HP>=_maxHP)
             {
                 _recoverTimer = 0;
                 _HEALTHSTATE = HEALTHSTATE.GOOD;
-                _HP = _maxHP;
+                m_HP = _maxHP;
             }
         }
     }
@@ -190,13 +194,13 @@ public class Peon : MonoBehaviour
     public void TreatPeon() //CEDRIC
     {
         _HEALTHSTATE = HEALTHSTATE.TREAT;
-        _HP += HPLost() * _percentHpRecoverAfterTreat;
+        m_HP += HPLost() * _percentHpRecoverAfterTreat;
         _hpToRecover = HPLost();
     }
 
     public float HPLost() //CEDRIC
     {
-        return _maxHP - _HP;
+        return _maxHP - m_HP;
     }
 
     public virtual void SpecialUpdate() { }

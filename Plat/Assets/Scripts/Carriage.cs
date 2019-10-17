@@ -244,7 +244,7 @@ public class Carriage : MonoBehaviour
         int count = m_activePeons.Count;
         for(int i = 0; i < count; i++)
         {
-            m_activePeons[0].HP -= 1;
+            m_activePeons[0]._HP -= 1;
             GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
         }
 
