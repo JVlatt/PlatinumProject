@@ -23,8 +23,8 @@ public class TrainManager : MonoBehaviour
         carriage.ClearPeon(p);
         carriage.GetFreePos(p);
         carriage._peons.Add(p);
-        p._canMove = true;
         p._currentCarriage = carriage;
+        p._canMove = true;
         GameManager.GetManager()._peonManager._activePeon = null;
     }
 
