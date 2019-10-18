@@ -157,9 +157,9 @@ public class Carriage : MonoBehaviour
             _timerBeforeAttack += Time.deltaTime;
             if (_timerBeforeAttack >= _timeBeforeAttack)
             {
-                _underAttack = true;
                 _particle.Play();
                 _willBeAttacked = false;
+                _underAttack = true;
                 _attackTimer = 0f;
             }
         }
