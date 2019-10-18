@@ -44,14 +44,20 @@ public class Carriage : MonoBehaviour
     public bool _underAttack
     {
         get { return m_underAttack; }
-        set { m_underAttack = value; }
+        set {
+            m_underAttack = value;
+            GameManager.GetManager()._UIManager._isOnAttack = value;
+        }
     }
     [SerializeField]
     private bool m_willBeAttacked = false;
     public bool _willBeAttacked
     {
         get { return m_willBeAttacked; }
-        set { m_willBeAttacked = value; }
+        set {
+            m_willBeAttacked = value;
+            GameManager.GetManager()._UIManager._isOnAttack = value;
+        }
     }
 
     [SerializeField]
@@ -69,7 +75,15 @@ public class Carriage : MonoBehaviour
     [SerializeField]
     private float _fightDuration = 10f;
     private float _fightTimer = 0f;
+
+    private ParticleSystem _particle;
     #endregion
+
+    private void Start()
+    {
+        _particle = GetComponentInChildren<ParticleSystem>();
+        _particle.Stop();
+    }
 
     private void OnMouseDown()
     {
@@ -138,13 +152,14 @@ public class Carriage : MonoBehaviour
 
     private void CheckFight()
     {
-        if (m_willBeAttacked)
+        if (_willBeAttacked)
         {
             _timerBeforeAttack += Time.deltaTime;
             if (_timerBeforeAttack >= _timeBeforeAttack)
             {
-                m_underAttack = true;
-                m_willBeAttacked = false;
+                _underAttack = true;
+                _particle.Play();
+                _willBeAttacked = false;
                 _attackTimer = 0f;
             }
         }
@@ -230,7 +245,8 @@ public class Carriage : MonoBehaviour
 
     private void Victory()
     {
-        m_underAttack = false;
+        _underAttack = false;
+        _particle.Stop();
     }
 
     private void Defeat()

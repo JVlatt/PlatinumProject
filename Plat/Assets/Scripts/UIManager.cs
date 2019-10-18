@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI _nameTagPrefab;
     [SerializeField]
     private Vector3 _nameTagOffset;
+    [SerializeField]
+    private Image _leftAttack;
+    [SerializeField]
+    private bool m_isOnAttack;
+    private float _timerAttack;
 
     public float _totalMentalHealth
     {
@@ -26,6 +31,11 @@ public class UIManager : MonoBehaviour
             m_totalMentalHealth = value;
             _mentalBar.fillAmount = value;
         }
+    }
+    public bool _isOnAttack
+    {
+        get { return m_isOnAttack; }
+        set { m_isOnAttack = value; }
     }
 
     private void Awake()
@@ -61,13 +71,32 @@ public class UIManager : MonoBehaviour
             Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
             _nameTags[i].transform.position = screenPos;
         }
+        if (_isOnAttack)
+        {
+            _timerAttack += Time.deltaTime;
+            Color color = _leftAttack.color;
+            if (_timerAttack < 1)
+                color.a = Mathf.Lerp(0, 0.2f, _timerAttack );
+            else if (_timerAttack < 2)
+                color.a = Mathf.Lerp(0, 0.2f, (1 - (_timerAttack - 1)) );
+            else
+                _timerAttack = 0;
+            _leftAttack.color = color;
+
+        }
+        else
+        {
+            Color color = _leftAttack.color;
+            color.a = 0;
+            _leftAttack.color = color;
+        }
     }
 
     public void AddLifeBar()
     {
         Image image = Instantiate(_lifeBarPrefab);
         _lifeBars.Add(image);
-        image.transform.parent = transform;
+        image.transform.SetParent( transform);
     }
 
     public void AddNameTag(Peon p)
