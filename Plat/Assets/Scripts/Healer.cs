@@ -15,19 +15,27 @@ public class Healer : Peon  //MADE BY CEDRIC
         { 
             m_peonToHeal = value;
             if (value)
+            {
                 _animator.SetBool("Healing", true);
-            else
+                _particle.Play();
+            }
+            else { 
                 _animator.SetBool("Healing", false);
+                _particle.Stop();
+            }
         }
     }
     private float _timer;
     private Infirmary _Infirmary;
     private Animator _animator;
+    private ParticleSystem _particle;
 
     public override void SpecialStart()
     {
         base.SpecialStart();
         _animator = GetComponentInChildren<Animator>();
+        _particle = GetComponentInChildren<ParticleSystem>();
+        _particle.Stop();
     }
 
     public override void SpecialUpdate()
