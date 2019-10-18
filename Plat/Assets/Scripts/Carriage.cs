@@ -81,7 +81,7 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
-        _particle = GetComponentInChildren<ParticleSystem>();
+        _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
     }
 
