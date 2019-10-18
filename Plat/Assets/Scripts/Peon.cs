@@ -56,6 +56,7 @@ public class Peon : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private Carriage m_currentCarriage;
     public Carriage _currentCarriage
     {
@@ -72,8 +73,9 @@ public class Peon : MonoBehaviour
     }
 
     private int m_ID;
-    public int _ID { 
-        get { return m_ID; } 
+    public int _ID
+    {
+        get { return m_ID; }
     }
     static int m_nextID;
     public int _nextID
@@ -95,10 +97,10 @@ public class Peon : MonoBehaviour
     public float _HP
     {
         get { return m_HP; }
-        set 
-        { 
+        set
+        {
             m_HP = value;
-            GameManager.GetManager()._UIManager.UpdateHealthBar((_maxHP-HPLost())/_maxHP,_ID);
+            GameManager.GetManager()._UIManager.UpdateHealthBar((_maxHP - HPLost()) / _maxHP, _ID);
         }
     }
     private float _maxHP;
@@ -108,7 +110,7 @@ public class Peon : MonoBehaviour
     private float m_percentHpRecoverAfterTreat;
     private float _percentHpRecoverAfterTreat
     {
-        get { return m_percentHpRecoverAfterTreat/100; }
+        get { return m_percentHpRecoverAfterTreat / 100; }
         set { m_percentHpRecoverAfterTreat = value; }
     }
     [SerializeField]
@@ -149,7 +151,7 @@ public class Peon : MonoBehaviour
         set { _nameTag = value; }
     }
     #endregion
-    
+
     void Start()
     {
         m_ID = _nextID;
@@ -177,9 +179,9 @@ public class Peon : MonoBehaviour
     }
     private void Update()
     {
-        if(m_canMove)
+        if (m_canMove)
         {
-            if(Vector3.Distance(transform.position,m_destination) <= 0.1f)
+            if (Vector3.Distance(transform.position, m_destination) <= 0.1f)
             {
                 m_destination = m_subDestination;
                 if (Vector3.Distance(transform.position, m_subDestination) <= 0.1f)
@@ -188,6 +190,11 @@ public class Peon : MonoBehaviour
                 }
             }
             transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
+        }
+        else if (m_currentCarriage!= null && !m_currentCarriage._activePeons.Contains(this) && m_currentCarriage._peons.Contains(this))
+        {
+            m_currentCarriage._activePeons.Add(this);
+            m_currentCarriage.AddPeonToSpecialCarriage(this);
         }
         Recover();
         SpecialUpdate();
@@ -203,7 +210,7 @@ public class Peon : MonoBehaviour
         {
             _HP += _hpToRecover * _percentHpRecoverPerSecond;
             _recoverTimer -= 1;
-            if(_HP>=_maxHP)
+            if (_HP >= _maxHP)
             {
                 _recoverTimer = 0;
                 _HEALTHSTATE = HEALTHSTATE.GOOD;

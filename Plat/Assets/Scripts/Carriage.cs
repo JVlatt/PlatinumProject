@@ -82,17 +82,11 @@ public class Carriage : MonoBehaviour
     #region List Management
 
     
-    private void OnTriggerEnter(Collider other) //Faudra gérer autrement genre avec les canmove comme a dit jérome parce que ça déconne si tu "annules" le déplacement
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Peon")
         {
             other.transform.parent = this.transform;
-            if (m_peons.Find(gameObject => other.gameObject))
-            {
-                Peon peonToAdd = other.GetComponent<Peon>();
-                m_activePeons.Add(peonToAdd);
-                AddPeonToSpecialCarriage(peonToAdd);
-            }
         }
     }
 
