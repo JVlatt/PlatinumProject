@@ -158,10 +158,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camSpeed: 20
-  mouseBorder: 10
-  borderLeft: -25
-  borderRight: 20
+  mouseBorder: 50
   zoom:
-    min: -10
+    min: -20
     max: -5
-    speed: 20
+  borderLeft:
+    min: -25
+    max: -27
+  borderRight:
+    min: 20
+    max: 23
+  y:
+    min: 3
+    max: 1.5
+  zoomSpeed: 20

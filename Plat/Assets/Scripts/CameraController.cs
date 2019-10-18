@@ -9,11 +9,15 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float mouseBorder;
     [SerializeField]
-    private float borderLeft;
+    private MinMax zoom;
     [SerializeField]
-    private float borderRight;
+    private MinMax borderLeft;
     [SerializeField]
-    private Zoom zoom;
+    private MinMax borderRight;
+    [SerializeField]
+    private MinMax y;
+    [SerializeField]
+    private float zoomSpeed;
     
 
     // Update is called once per frame
@@ -26,19 +30,26 @@ public class CameraController : MonoBehaviour
         
 
         if (Input.mouseScrollDelta.y > 0)
-            transform.position -= Vector3.back * Time.deltaTime * zoom.speed;
+            transform.position -= Vector3.back * Time.deltaTime * zoomSpeed;
         if (Input.mouseScrollDelta.y < 0)
-            transform.position -= Vector3.forward * Time.deltaTime * zoom.speed;
+            transform.position -= Vector3.forward * Time.deltaTime * zoomSpeed;
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, borderLeft, borderRight), transform.position.y, Mathf.Clamp(transform.position.z,zoom.min,zoom.max));
+        float lerpRatio = (zoom.min - transform.position.z) / (zoom.min - zoom.max);
+        float left = Mathf.Lerp(borderLeft.min, borderLeft.max, lerpRatio);
+        float right = Mathf.Lerp(borderRight.min, borderRight.max, lerpRatio);
+
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, left, right), 
+            Mathf.Lerp(y.min,y.max,lerpRatio), 
+            Mathf.Clamp(transform.position.z,zoom.min,zoom.max)
+            );
 
     }
 
     [System.Serializable]
-    private struct Zoom
+    private struct MinMax
     {
         public float min;
         public float max;
-        public float speed;
     }
 }
