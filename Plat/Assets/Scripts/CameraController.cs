@@ -7,7 +7,11 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float camSpeed;
     [SerializeField]
-    private float border;
+    private float mouseBorder;
+    [SerializeField]
+    private float borderLeft;
+    [SerializeField]
+    private float borderRight;
     [SerializeField]
     private Zoom zoom;
     
@@ -15,9 +19,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.mousePosition.x < border || Input.GetKey(KeyCode.A))
+        if (Input.mousePosition.x < mouseBorder || Input.GetKey(KeyCode.A))
             transform.position += Vector3.left * Time.deltaTime * camSpeed;
-        if(Input.mousePosition.x > Screen.width-border || Input.GetKey(KeyCode.D))
+        if(Input.mousePosition.x > Screen.width-mouseBorder || Input.GetKey(KeyCode.D))
             transform.position += Vector3.right * Time.deltaTime * camSpeed;
         
 
@@ -26,7 +30,7 @@ public class CameraController : MonoBehaviour
         if (Input.mouseScrollDelta.y < 0)
             transform.position -= Vector3.forward * Time.deltaTime * zoom.speed;
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -18, 18), transform.position.y, Mathf.Clamp(transform.position.z,zoom.min,zoom.max));
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, borderLeft, borderRight), transform.position.y, Mathf.Clamp(transform.position.z,zoom.min,zoom.max));
 
     }
 
