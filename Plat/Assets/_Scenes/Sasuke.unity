@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
@@ -1043,126 +1043,41 @@ PrefabInstance:
       propertyPath: m_subDestinations.Array.data[2].peonOnPos
       value: 
       objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
-      propertyPath: m_subDestinations.Array.data[0].peonOnPos
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[1].peonOnPos
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[2].peonOnPos
+      propertyPath: m_peons.Array.data[0]
       value: 
       objectReference: {fileID: 644402767}
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_peons.Array.data[1]
+      value: 
+      objectReference: {fileID: 763562784}
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_peons.Array.data[2]
+      value: 
+      objectReference: {fileID: 160393361}
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_activePeons.Array.data[0]
+      value: 
+      objectReference: {fileID: 644402767}
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_activePeons.Array.data[1]
+      value: 
+      objectReference: {fileID: 763562784}
+    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_activePeons.Array.data[2]
+      value: 
+      objectReference: {fileID: 160393361}
     - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_peons.Array.data[0]
       value: 
       objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[1]
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[2]
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[0].peonOnPos
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[1].peonOnPos
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[2].peonOnPos
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[0]
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[1]
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919000096952388, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[2]
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[0].peonOnPos
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[1].peonOnPos
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[2].peonOnPos
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[0]
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[1]
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[2]
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[0].peonOnPos
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[1].peonOnPos
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[2].peonOnPos
-      value: 
-      objectReference: {fileID: 644402767}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[0]
-      value: 
-      objectReference: {fileID: 763562784}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[1]
-      value: 
-      objectReference: {fileID: 160393361}
-    - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_peons.Array.data[2]
-      value: 
-      objectReference: {fileID: 644402767}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
 --- !u!1001 &2308779984078974722
