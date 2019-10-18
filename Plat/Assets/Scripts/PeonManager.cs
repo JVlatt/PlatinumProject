@@ -33,5 +33,6 @@ public class PeonManager : MonoBehaviour
     {
         _peons.Add(peonToAdd);
         GameManager.GetManager()._UIManager.AddLifeBar();
+        GameManager.GetManager()._UIManager.AddNameTag(peonToAdd);
     }
 }

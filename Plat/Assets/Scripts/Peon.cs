@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Assets.Script;
-
+using TMPro;
 public class Peon : MonoBehaviour
 {
     #region Variables
@@ -140,8 +141,15 @@ public class Peon : MonoBehaviour
         FIGHTER
     }
     #endregion
-    #endregion
 
+    private TextMeshProUGUI _nameTag;
+    public TextMeshProUGUI nameTag
+    {
+        get { return _nameTag; }
+        set { _nameTag = value; }
+    }
+    #endregion
+    
     void Start()
     {
         m_ID = _nextID;
@@ -150,6 +158,7 @@ public class Peon : MonoBehaviour
         _maxHP = m_HP;
         SetDamage();
         SpecialStart();
+        nameTag.gameObject.SetActive(false);
     }
 
     public virtual void SpecialStart() { }
@@ -158,7 +167,14 @@ public class Peon : MonoBehaviour
     {
         GameManager.GetManager()._peonManager._activePeon = this;
     }
-
+    private void OnMouseOver()
+    {
+        _nameTag.gameObject.SetActive(true);
+    }
+    private void OnMouseExit()
+    {
+        _nameTag.gameObject.SetActive(false);
+    }
     private void Update()
     {
         if(m_canMove)
