@@ -40,7 +40,7 @@ public class Healer : Peon  //MADE BY CEDRIC
 
     public override void SpecialUpdate()
     {
-        if (_peonToHeal && _Infirmary)
+        if (_peonToHeal && _Infirmary && !_canMove)
         {
             _timer -= Time.deltaTime;
             if (_timer <= 0)
@@ -51,7 +51,7 @@ public class Healer : Peon  //MADE BY CEDRIC
             }
 
         }
-        else if (!_peonToHeal && _Infirmary)
+        else if (!_peonToHeal && _Infirmary && !_canMove)
         {
             _peonToHeal = _Infirmary.GetPeonToHeal();
         }
