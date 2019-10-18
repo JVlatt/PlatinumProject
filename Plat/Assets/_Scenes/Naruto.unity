@@ -447,6 +447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "P\xE9on Healer"
       objectReference: {fileID: 0}
+    - target: {fileID: 5982962629978681360, guid: adf92295a8cbeb04a9c7550a877cd639,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5982962629978681371, guid: adf92295a8cbeb04a9c7550a877cd639,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -502,10 +507,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 26013681439951562, guid: adf92295a8cbeb04a9c7550a877cd639,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 408678557, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
       propertyPath: m_currentCarriage
       value: 
       objectReference: {fileID: 1319283001}
+    - target: {fileID: 775498580, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
 --- !u!1001 &726693367
@@ -964,8 +978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: e40cc5684134a674d9bf78fb5d50a686, type: 2}
   isGlobal: 1
-  blendDistance: 0
-  weight: 1
+  blendDistance: 10
+  weight: 0.848
   priority: 0
 --- !u!65 &1817424642
 BoxCollider:
@@ -1321,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 7340936634058168080, guid: 26391e2a9ecce7942818b0524ed2ff0c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.8
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 7340936634058168080, guid: 26391e2a9ecce7942818b0524ed2ff0c,
         type: 3}
@@ -1372,6 +1386,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340936634058168087, guid: 26391e2a9ecce7942818b0524ed2ff0c,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340936634058168087, guid: 26391e2a9ecce7942818b0524ed2ff0c,
+        type: 3}
+      propertyPath: m_ShowToolkit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26391e2a9ecce7942818b0524ed2ff0c, type: 3}

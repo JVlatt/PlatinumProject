@@ -33,7 +33,7 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
         Healer ToRemove=null;
         foreach (Healer item in healers)
         {
-            if (item.RemoveOrUpdateHealer(peon, _peonsToHeal[0]))
+            if (item.RemoveOrUpdateHealer(peon, _peonsToHeal.Count!=0 ? _peonsToHeal[0] : null ))
             {
                 ToRemove = item;
             }
