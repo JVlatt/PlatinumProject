@@ -16,6 +16,9 @@ public class TrainManager : MonoBehaviour
     private void Awake()
     {
         GameManager.GetManager()._trainManager = this; 
+    }
+    private void Start()
+    {
         UpdateId();
     }
     public void MovePeonToCarriage(Peon p,Carriage carriage)
@@ -31,6 +34,9 @@ public class TrainManager : MonoBehaviour
     public void UpdateId()
     {
         foreach (Carriage c in m_carriages)
+        {
             c.id = m_carriages.IndexOf(c);
+            GameManager.GetManager()._UIManager.AddCarriageName(c);
+        }
     }
 }

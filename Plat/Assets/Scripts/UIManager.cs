@@ -11,12 +11,15 @@ public class UIManager : MonoBehaviour
     private float m_totalMentalHealth;
     private List<Image> _lifeBars = new List<Image>();
     private List<TextMeshProUGUI> _nameTags = new List<TextMeshProUGUI>();
+    private List<TextMeshProUGUI> _carriagesTags = new List<TextMeshProUGUI>();
     [SerializeField]
     private Image _lifeBarPrefab;
     [SerializeField]
     private TextMeshProUGUI _nameTagPrefab;
     [SerializeField]
     private Vector3 _nameTagOffset;
+    [SerializeField]
+    private Vector3 _healthBarOffset;
     [SerializeField]
     private Image _leftAttack;
     [SerializeField]
@@ -62,7 +65,8 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < _lifeBars.Count; i++)
         {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(GameManager.GetManager()._peonManager._peons[i].transform.position + _nameTagOffset);
+            Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position + _healthBarOffset;
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
             _lifeBars[i].transform.position = screenPos; 
         }
         for (int i = 0; i < _nameTags.Count; i++)
@@ -70,6 +74,12 @@ public class UIManager : MonoBehaviour
             Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position + _nameTagOffset;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
             _nameTags[i].transform.position = screenPos;
+        }
+        for (int i = 0; i < _carriagesTags.Count; i++)
+        {
+            Vector3 offSetPos = GameManager.GetManager()._trainManager._carriages[i].transform.position + _nameTagOffset;
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
+            _carriagesTags[i].transform.position = screenPos;
         }
         if (_isOnAttack)
         {
@@ -92,11 +102,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AddLifeBar()
+    public void AddLifeBar(Peon p)
     {
         Image image = Instantiate(_lifeBarPrefab);
         _lifeBars.Add(image);
         image.transform.SetParent( transform);
+        p.healthBar = image.gameObject;
+    }
+
+    public void AddCarriageName(Carriage c)
+    {
+        TextMeshProUGUI text = Instantiate(_nameTagPrefab);
+        text.SetText(c.transform.parent.gameObject.name);
+        _carriagesTags.Add(text);
+        text.transform.SetParent(transform);
+        text.gameObject.SetActive(false);
+        c.nameTag = text;
     }
 
     public void AddNameTag(Peon p)

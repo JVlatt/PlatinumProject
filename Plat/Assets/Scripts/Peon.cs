@@ -150,6 +150,13 @@ public class Peon : MonoBehaviour
         get { return _nameTag; }
         set { _nameTag = value; }
     }
+
+    private GameObject _healthBar;
+    public GameObject healthBar
+    {
+        get { return _healthBar; }
+        set { _healthBar = value; }
+    }
     #endregion
 
     void Start()
@@ -161,6 +168,7 @@ public class Peon : MonoBehaviour
         SetDamage();
         SpecialStart();
         nameTag.gameObject.SetActive(false);
+        _healthBar.SetActive(false);
     }
 
     public virtual void SpecialStart() { }
@@ -172,10 +180,12 @@ public class Peon : MonoBehaviour
     private void OnMouseOver()
     {
         _nameTag.gameObject.SetActive(true);
+        _healthBar.SetActive(true);
     }
     private void OnMouseExit()
     {
         _nameTag.gameObject.SetActive(false);
+        _healthBar.SetActive(false);
     }
     private void Update()
     {
@@ -237,4 +247,8 @@ public class Peon : MonoBehaviour
         _HP -= 10;
     }
 
+    public void SwitchMaterial(Material mat)
+    {
+        GetComponent<MeshRenderer>().material = mat;
+    }
 }

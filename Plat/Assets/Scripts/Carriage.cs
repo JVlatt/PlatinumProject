@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
+using TMPro;
 public class Carriage : MonoBehaviour
 {
     #region Variables
@@ -77,6 +78,14 @@ public class Carriage : MonoBehaviour
     private float _fightTimer = 0f;
 
     private ParticleSystem _particle;
+
+    private TextMeshProUGUI _nameTag;
+    public TextMeshProUGUI nameTag
+    {
+        get { return _nameTag; }
+        set { _nameTag = value; }
+    }
+    
     #endregion
 
     private void Start()
@@ -93,9 +102,19 @@ public class Carriage : MonoBehaviour
         }
     }
 
+    private void OnMouseOver()
+    {
+        _nameTag.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        _nameTag.gameObject.SetActive(false);
+    }
+
     #region List Management
 
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Peon")
