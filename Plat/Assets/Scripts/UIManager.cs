@@ -13,6 +13,13 @@ public class UIManager : MonoBehaviour
     private List<TextMeshProUGUI> _nameTags = new List<TextMeshProUGUI>();
     private List<TextMeshProUGUI> _carriagesTags = new List<TextMeshProUGUI>();
     [SerializeField]
+    private Texture2D _cursorDefault;
+    [SerializeField]
+    private Texture2D _cursorPeon;
+    [SerializeField]
+    private Texture2D _cursorFix;
+
+    [SerializeField]
     private Image _lifeBarPrefab;
     [SerializeField]
     private TextMeshProUGUI _nameTagPrefab;
@@ -127,5 +134,21 @@ public class UIManager : MonoBehaviour
         _nameTags.Add(text);
         text.transform.SetParent(transform);
         p.nameTag = text;
+    }
+
+    public void ChangeCursor(string type)
+    {
+        switch(type)
+        {
+            case "default":
+                Cursor.SetCursor(_cursorDefault, Vector2.zero, CursorMode.Auto);
+                break;
+            case "fix":
+                Cursor.SetCursor(_cursorFix, Vector2.zero, CursorMode.Auto);
+                break;
+            case "peon":
+                Cursor.SetCursor(_cursorDefault, Vector2.zero, CursorMode.Auto);
+                break;
+        }
     }
 }

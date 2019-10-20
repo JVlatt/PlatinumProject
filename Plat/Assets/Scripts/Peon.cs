@@ -177,6 +177,10 @@ public class Peon : MonoBehaviour
     {
         GameManager.GetManager()._peonManager._activePeon = this;
     }
+    private void OnMouseEnter()
+    {
+        GameManager.GetManager()._UIManager.ChangeCursor("peon");
+    }
     private void OnMouseOver()
     {
         _nameTag.gameObject.SetActive(true);
@@ -186,6 +190,7 @@ public class Peon : MonoBehaviour
     {
         _nameTag.gameObject.SetActive(false);
         _healthBar.SetActive(false);
+        GameManager.GetManager()._UIManager.ChangeCursor("default");
     }
     private void Update()
     {
