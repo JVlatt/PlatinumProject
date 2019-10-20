@@ -78,6 +78,17 @@ public class Carriage : MonoBehaviour
     private float _fightTimer = 0f;
 
     private ParticleSystem _particle;
+    private FixIt _fixIt;
+    [SerializeField]
+    private bool m_isBroke;
+    public bool _isBroke
+    {
+        private get { return m_isBroke; }
+        set {
+            m_isBroke = value;
+            _fixIt.gameObject.SetActive(value);
+        }
+    }
 
     private TextMeshProUGUI _nameTag;
     public TextMeshProUGUI nameTag
@@ -90,6 +101,8 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
+        _fixIt = GetComponentInChildren<FixIt>();
+        if(_fixIt) _fixIt.Setup(this);
         _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
     }

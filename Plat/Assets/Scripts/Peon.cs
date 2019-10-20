@@ -127,6 +127,20 @@ public class Peon : MonoBehaviour
     private float _recoverTimer;
     #endregion
 
+    [Header("Fix State")]
+    [SerializeField]
+    [Range(0, 100)]
+    private float _fixLuck;
+    [SerializeField]
+    private float _fixCD;
+    private bool m_isFixing;
+    public bool _isFixing
+    {
+        private get { return m_isFixing; }
+        set { m_isFixing = value; }
+    }
+    private float _fixTimer;
+
     #region Enum
     public enum HEALTHSTATE
     {
@@ -157,10 +171,13 @@ public class Peon : MonoBehaviour
         get { return _healthBar; }
         set { _healthBar = value; }
     }
+
+    private MeshRenderer _meshRenderer;
     #endregion
 
     void Start()
     {
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
         GameManager.GetManager()._peonManager.AddPeon(this);
@@ -211,13 +228,32 @@ public class Peon : MonoBehaviour
             m_currentCarriage._activePeons.Add(this);
             m_currentCarriage.AddPeonToSpecialCarriage(this);
         }
+
+        Fix();
         Recover();
         SpecialUpdate();
     }
 
     public virtual void SpecialUpdate() { }
 
-    public void Recover()
+    private void Fix()
+    {
+        if (!_isFixing || m_canMove) return;
+        _fixTimer += Time.deltaTime;
+        if (_fixTimer > _fixCD)
+        {
+            float random = Random.Range(0, 100);
+            if (random > _fixLuck)
+            {
+                 //c'est reparé
+            }
+            _fixTimer = 0;
+            _isFixing = false;
+            _currentCarriage._isBroke = false;
+        }
+    }
+
+    private void Recover()
     {
         if (_HEALTHSTATE != HEALTHSTATE.TREAT) return;
         _recoverTimer += Time.deltaTime;
@@ -254,6 +290,6 @@ public class Peon : MonoBehaviour
 
     public void SwitchMaterial(Material mat)
     {
-        GetComponent<MeshRenderer>().material = mat;
+        _meshRenderer.material = mat;
     }
 }
