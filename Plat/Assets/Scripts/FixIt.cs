@@ -21,4 +21,13 @@ public class FixIt : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        GameManager.GetManager()._UIManager.ChangeCursor("fix");
+    }
+    private void OnMouseExit()
+    {
+        GameManager.GetManager()._UIManager.ChangeCursor("default");
+    }
+
 }

@@ -147,7 +147,7 @@ public class UIManager : MonoBehaviour
                 Cursor.SetCursor(_cursorFix, Vector2.zero, CursorMode.Auto);
                 break;
             case "peon":
-                Cursor.SetCursor(_cursorDefault, Vector2.zero, CursorMode.Auto);
+                Cursor.SetCursor(_cursorPeon, Vector2.zero, CursorMode.Auto);
                 break;
         }
     }
