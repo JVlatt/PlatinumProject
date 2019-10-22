@@ -1,11 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Script;
 using UnityEngine;
-using Assets.Script;
 
 public class FixIt : MonoBehaviour
 {
     Carriage _carriage;
+    bool m_isOnFix;
+    public bool _isOnFix
+    {
+        get { return m_isOnFix; }
+        set { 
+            m_isOnFix = value;
+            if (!value)
+                _activePeon._isFixing = false;
+        }
+    }
+    public Peon _activePeon { get; private set; }
 
     public void Setup(Carriage carriage)
     {
@@ -14,11 +23,20 @@ public class FixIt : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.GetManager()._peonManager._activePeon)
+        if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
+        if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
+        _activePeon = GameManager.GetManager()._peonManager._activePeon;
+        if (_activePeon._currentCarriage != _carriage)
         {
-            GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon, _carriage);
-            GameManager.GetManager()._peonManager._activePeon._isFixing = true;
+            GameManager.GetManager()._trainManager.MovePeonToCarriage(_activePeon, _carriage);
         }
+        else
+        {
+            GameManager.GetManager()._peonManager._activePeon = null;
+        }
+        _isOnFix = true;
+        
+        _activePeon._isFixing = true;
     }
 
     private void OnMouseEnter()

@@ -42,7 +42,13 @@ public class Peon : MonoBehaviour
     public bool _canMove
     {
         get { return m_canMove; }
-        set { m_canMove = value; }
+        set { 
+            m_canMove = value;
+            if (_isFixing && !value)
+                _animator.SetBool("Healing", true);
+            else 
+                _animator.SetBool("Healing", false);
+        }
     }
 
     private float m_mentalHealth;
@@ -136,8 +142,14 @@ public class Peon : MonoBehaviour
     private bool m_isFixing;
     public bool _isFixing
     {
-        private get { return m_isFixing; }
-        set { m_isFixing = value; }
+        get { return m_isFixing; }
+        set
+        {
+            m_isFixing = value;
+            _fixTimer = 0;
+            if(!_canMove)
+                _animator.SetBool("Healing", value);
+        }
     }
     private float _fixTimer;
 
@@ -164,6 +176,11 @@ public class Peon : MonoBehaviour
         get { return m_over; }
         set { m_over = value; }
     }
+    private Animator m_animator;
+    public Animator _animator
+    {
+        get { return m_animator; }
+    }
 
     private MeshRenderer _meshRenderer;
     #endregion
@@ -178,6 +195,7 @@ public class Peon : MonoBehaviour
         SetDamage();
         SpecialStart();
         _over.SetActive(false);
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     public virtual void SpecialStart() { }
@@ -201,14 +219,14 @@ public class Peon : MonoBehaviour
     }
     private void Update()
     {
-        if (m_canMove)
+        if (_canMove)
         {
             if (Vector3.Distance(transform.position, m_destination) <= 0.1f)
             {
                 m_destination = m_subDestination;
                 if (Vector3.Distance(transform.position, m_subDestination) <= 0.1f)
                 {
-                    m_canMove = false;
+                    _canMove = false;
                 }
             }
             transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
@@ -235,11 +253,17 @@ public class Peon : MonoBehaviour
             float random = Random.Range(0, 100);
             if (random > _fixLuck)
             {
-                 //c'est reparé
+                //c'est reparé
+                _currentCarriage._isBroke = false;
+            }
+            else
+            {
+                _currentCarriage._isBroke = true;
+
             }
             _fixTimer = 0;
             _isFixing = false;
-            _currentCarriage._isBroke = false;
+            
         }
     }
 
@@ -281,5 +305,10 @@ public class Peon : MonoBehaviour
     public void SwitchMaterial(Material mat)
     {
         _meshRenderer.material = mat;
+    }
+
+    public virtual bool CanFix(Carriage carriage)
+    {
+        return true;
     }
 }

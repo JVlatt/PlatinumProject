@@ -20,27 +20,26 @@ public class Healer : Peon  //MADE BY CEDRIC
                 _particle.Play();
             }
             else { 
-                _animator.SetBool("Healing", false);
+                if(!_isFixing)
+                    _animator.SetBool("Healing", false);
                 _particle.Stop();
             }
         }
     }
     private float _timer;
     private Infirmary _Infirmary;
-    private Animator _animator;
     private ParticleSystem _particle;
 
     public override void SpecialStart()
     {
         base.SpecialStart();
-        _animator = GetComponentInChildren<Animator>();
         _particle = GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
     }
 
     public override void SpecialUpdate()
     {
-        if (_peonToHeal && _Infirmary && !_canMove)
+        if (_peonToHeal && _Infirmary && !_canMove && !_isFixing)
         {
             _timer -= Time.deltaTime;
             if (_timer <= 0)
@@ -51,7 +50,7 @@ public class Healer : Peon  //MADE BY CEDRIC
             }
 
         }
-        else if (!_peonToHeal && _Infirmary && !_canMove)
+        else if (!_peonToHeal && _Infirmary && !_canMove && !_isFixing)
         {
             _peonToHeal = _Infirmary.GetPeonToHeal();
         }
@@ -61,8 +60,8 @@ public class Healer : Peon  //MADE BY CEDRIC
 
     public void Setup(Infirmary Infirmary,Peon peon) 
     {
-        _Infirmary = Infirmary;
         _peonToHeal = peon;
+        _Infirmary = Infirmary;
         _timer = cdHeal;
     }
         
@@ -88,5 +87,12 @@ public class Healer : Peon  //MADE BY CEDRIC
         }
     }
 
+    public override bool CanFix(Carriage carriage)
+    {
+        if (_peonToHeal && carriage == _Infirmary)
+            return false;
+        else
+            return base.CanFix(carriage);
+    }
 
 }

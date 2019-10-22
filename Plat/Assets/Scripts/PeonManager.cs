@@ -31,10 +31,9 @@ public class PeonManager : MonoBehaviour
             }
             if(value != null)
             {
-                value.SwitchMaterial(_outline);
-                m_activePeon = value;
+                value.SwitchMaterial(_outline); 
             }
-
+            m_activePeon = value;
         }
     }
 

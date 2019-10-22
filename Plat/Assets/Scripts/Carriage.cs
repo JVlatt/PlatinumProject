@@ -87,6 +87,7 @@ public class Carriage : MonoBehaviour
         set {
             m_isBroke = value;
             _fixIt.gameObject.SetActive(value);
+            _fixIt._isOnFix = false;
         }
     }
 
@@ -156,6 +157,8 @@ public class Carriage : MonoBehaviour
         {
             m_activePeons.Remove(peon);
         }
+        if (_fixIt._activePeon &&_fixIt._activePeon._ID == peon._ID)
+            _fixIt._isOnFix = false;
     }
     #endregion
 
@@ -163,7 +166,7 @@ public class Carriage : MonoBehaviour
     public void ClearPeon(Peon currentPeon)
     {
         if (currentPeon._currentCarriage == null) return;
-        positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos == currentPeon);
+        positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos._ID == currentPeon._ID);
         lastPos.isAvailable = true;
         lastPos.peonOnPos = null;
         currentPeon._currentCarriage.RemovePeon(currentPeon);
