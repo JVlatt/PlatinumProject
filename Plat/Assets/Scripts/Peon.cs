@@ -158,18 +158,11 @@ public class Peon : MonoBehaviour
     }
     #endregion
 
-    private TextMeshProUGUI _nameTag;
-    public TextMeshProUGUI nameTag
+    private GameObject m_over;
+    public GameObject _over
     {
-        get { return _nameTag; }
-        set { _nameTag = value; }
-    }
-
-    private GameObject _healthBar;
-    public GameObject healthBar
-    {
-        get { return _healthBar; }
-        set { _healthBar = value; }
+        get { return m_over; }
+        set { m_over = value; }
     }
 
     private MeshRenderer _meshRenderer;
@@ -184,8 +177,7 @@ public class Peon : MonoBehaviour
         _maxHP = m_HP;
         SetDamage();
         SpecialStart();
-        nameTag.gameObject.SetActive(false);
-        _healthBar.SetActive(false);
+        _over.SetActive(false);
     }
 
     public virtual void SpecialStart() { }
@@ -200,13 +192,11 @@ public class Peon : MonoBehaviour
     }
     private void OnMouseOver()
     {
-        _nameTag.gameObject.SetActive(true);
-        _healthBar.SetActive(true);
+        _over.SetActive(true);
     }
     private void OnMouseExit()
     {
-        _nameTag.gameObject.SetActive(false);
-        _healthBar.SetActive(false);
+        _over.SetActive(false);
         GameManager.GetManager()._UIManager.ChangeCursor("default");
     }
     private void Update()

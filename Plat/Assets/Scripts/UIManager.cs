@@ -107,15 +107,15 @@ public class UIManager : MonoBehaviour
         Transform UI = Instantiate(_UIPeonPrefab);
         _UIPeons.Add(UI);
         UI.SetParent(transform);
+        GameObject over = UI.GetChild(0).gameObject;
+        p._over = over;
 
-        Image image = UI.GetComponentInChildren<Image>();
+        Image image = over.GetComponentInChildren<Image>();
         _lifeBars.Add(image);
-        p.healthBar = image.gameObject;
 
-        TextMeshProUGUI text = UI.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI text = over.GetComponentInChildren<TextMeshProUGUI>();
         text.SetText(p._type.ToString());
         _nameTags.Add(text);
-        p.nameTag = text;
     }
 
     public void AddCarriageName(Carriage c)
