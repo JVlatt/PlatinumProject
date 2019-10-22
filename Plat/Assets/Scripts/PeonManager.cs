@@ -49,7 +49,6 @@ public class PeonManager : MonoBehaviour
     public void AddPeon(Peon peonToAdd)
     {
         _peons.Add(peonToAdd);
-        GameManager.GetManager()._UIManager.AddLifeBar(peonToAdd);
-        GameManager.GetManager()._UIManager.AddNameTag(peonToAdd);
+        GameManager.GetManager()._UIManager.AddUIPeon(peonToAdd);
     }
 }
