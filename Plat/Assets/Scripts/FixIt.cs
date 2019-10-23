@@ -10,7 +10,7 @@ public class FixIt : MonoBehaviour
         get { return m_isOnFix; }
         set { 
             m_isOnFix = value;
-            if (!value)
+            if (!value && _activePeon != null)
                 _activePeon._isFixing = false;
         }
     }
@@ -21,11 +21,19 @@ public class FixIt : MonoBehaviour
         _carriage = carriage;
     }
 
+    private bool _isAnEvent = false;
+    public bool isAnEvent
+    {
+        get { return _isAnEvent; }
+        set { _isAnEvent = value; }
+    }
+
     private void OnMouseDown()
     {
         if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
         if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
         _activePeon = GameManager.GetManager()._peonManager._activePeon;
         if (_activePeon._currentCarriage != _carriage)
         {
@@ -38,6 +46,11 @@ public class FixIt : MonoBehaviour
         _isOnFix = true;
         
         _activePeon._isFixing = true;
+        if (_isAnEvent)
+        {
+            GameManager.GetManager().phaseManager.NextPhase();
+            _isAnEvent = false;
+        }
     }
 
     private void OnMouseEnter()

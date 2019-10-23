@@ -219,6 +219,7 @@ public class Peon : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
         GameManager.GetManager()._peonManager._activePeon = this;
     }
     private void OnMouseEnter()

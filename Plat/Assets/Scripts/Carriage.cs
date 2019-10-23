@@ -79,6 +79,11 @@ public class Carriage : MonoBehaviour
 
     private ParticleSystem _particle;
     private FixIt _fixIt;
+    public FixIt fixIt
+    {
+        get { return _fixIt; }
+        set { _fixIt = value; }
+    }
     [SerializeField]
     private bool m_isBroke;
     public bool _isBroke
@@ -102,7 +107,7 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
-        _fixIt = GetComponentInChildren<FixIt>();
+        _fixIt = GetComponentInChildren<FixIt>(true);
         if(_fixIt) _fixIt.Setup(this);
         _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
@@ -110,6 +115,7 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
         if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
             GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon,this);

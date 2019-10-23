@@ -11,7 +11,9 @@ public class Phase : MonoBehaviour
         FIX,
         HEAL,
         CAMERA,
-        BLANK
+        SOUND,
+        BLANK,
+        BREAK
     }
 
     [SerializeField]
@@ -47,10 +49,33 @@ public class Phase : MonoBehaviour
     }
 
     [SerializeField]
-    private bool _isCompleted;
-    public bool isCompleted
+    private bool _specialEvent;
+    public bool specialEvent
     {
-        get { return _isCompleted; }
-        set { isCompleted = value; }
+        get { return _specialEvent; }
+        set { _specialEvent = value; }
     }
+    [SerializeField]
+    private string _sound;
+    public string sound
+    {
+        get { return _sound; }
+        set { _sound = value; }
+    }
+    [SerializeField]
+    private bool _controlDuration = false;
+    public bool controlDuration
+    {
+        get { return _controlDuration; }
+        set { _controlDuration = value; }
+    }
+
+    [SerializeField]
+    private bool _freezeControl = false;
+    public bool freezeControl
+    {
+        get { return _freezeControl; }
+        set { _freezeControl = value; }
+    }
+
 }
