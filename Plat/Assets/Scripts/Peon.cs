@@ -42,7 +42,19 @@ public class Peon : MonoBehaviour
     public bool _canMove
     {
         get { return m_canMove; }
-        set { m_canMove = value; }
+        set { 
+            m_canMove = value;
+            if (_isFixing && !value)
+            {
+                _animator.SetBool("Healing", true); 
+                _fix.SetActive(true);
+            }
+            else
+            {
+                _animator.SetBool("Healing", false);
+                _fix.SetActive(false);
+            }
+        }
     }
 
     private float m_mentalHealth;
@@ -136,8 +148,17 @@ public class Peon : MonoBehaviour
     private bool m_isFixing;
     public bool _isFixing
     {
-        private get { return m_isFixing; }
-        set { m_isFixing = value; }
+        get { return m_isFixing; }
+        set
+        {
+            m_isFixing = value;
+            _fixTimer = 0;
+            if (!_canMove)
+            {
+                _animator.SetBool("Healing", value);
+                _fix.SetActive(value);
+            }
+        }
     }
     private float _fixTimer;
 
@@ -158,18 +179,24 @@ public class Peon : MonoBehaviour
     }
     #endregion
 
-    private TextMeshProUGUI _nameTag;
-    public TextMeshProUGUI nameTag
+    private GameObject m_over;
+    public GameObject _over
     {
-        get { return _nameTag; }
-        set { _nameTag = value; }
+        get { return m_over; }
+        set { m_over = value; }
     }
 
-    private GameObject _healthBar;
-    public GameObject healthBar
+    private GameObject m_fix;
+    public GameObject _fix
     {
-        get { return _healthBar; }
-        set { _healthBar = value; }
+        get { return m_fix; }
+        set { m_fix = value; }
+    }
+
+    private Animator m_animator;
+    public Animator _animator
+    {
+        get { return m_animator; }
     }
 
     private MeshRenderer _meshRenderer;
@@ -184,8 +211,8 @@ public class Peon : MonoBehaviour
         _maxHP = m_HP;
         SetDamage();
         SpecialStart();
-        nameTag.gameObject.SetActive(false);
-        _healthBar.SetActive(false);
+        _over.SetActive(false);
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     public virtual void SpecialStart() { }
@@ -200,25 +227,23 @@ public class Peon : MonoBehaviour
     }
     private void OnMouseOver()
     {
-        _nameTag.gameObject.SetActive(true);
-        _healthBar.SetActive(true);
+        _over.SetActive(true);
     }
     private void OnMouseExit()
     {
-        _nameTag.gameObject.SetActive(false);
-        _healthBar.SetActive(false);
+        _over.SetActive(false);
         GameManager.GetManager()._UIManager.ChangeCursor("default");
     }
     private void Update()
     {
-        if (m_canMove)
+        if (_canMove)
         {
             if (Vector3.Distance(transform.position, m_destination) <= 0.1f)
             {
                 m_destination = m_subDestination;
                 if (Vector3.Distance(transform.position, m_subDestination) <= 0.1f)
                 {
-                    m_canMove = false;
+                    _canMove = false;
                 }
             }
             transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
@@ -245,11 +270,17 @@ public class Peon : MonoBehaviour
             float random = Random.Range(0, 100);
             if (random > _fixLuck)
             {
-                 //c'est reparé
+                //c'est reparé
+                _currentCarriage._isBroke = false;
+            }
+            else
+            {
+                _currentCarriage._isBroke = true;
+
             }
             _fixTimer = 0;
             _isFixing = false;
-            _currentCarriage._isBroke = false;
+            
         }
     }
 
@@ -291,5 +322,10 @@ public class Peon : MonoBehaviour
     public void SwitchMaterial(Material mat)
     {
         _meshRenderer.material = mat;
+    }
+
+    public virtual bool CanFix(Carriage carriage)
+    {
+        return true;
     }
 }
