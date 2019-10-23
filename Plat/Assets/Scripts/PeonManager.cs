@@ -28,10 +28,12 @@ public class PeonManager : MonoBehaviour
             if(m_activePeon != null)
             {
                 m_activePeon.SwitchMaterial(_base);
+                GameManager.GetManager()._UIManager.UpdateUIPeon(null);
             }
             if(value != null)
             {
-                value.SwitchMaterial(_outline); 
+                value.SwitchMaterial(_outline);
+                GameManager.GetManager()._UIManager.UpdateUIPeon(value._peonInfo);
             }
             m_activePeon = value;
         }

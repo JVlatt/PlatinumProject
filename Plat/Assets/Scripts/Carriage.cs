@@ -238,7 +238,7 @@ public class Carriage : MonoBehaviour
             case Peon.TYPE.SIMPLE:
                 totalpower = 40;
                 break;
-            case Peon.TYPE.MECANO:
+            case Peon.TYPE.MECA:
                 totalpower = 35;
                 break;
             case Peon.TYPE.HEALER:
@@ -255,7 +255,7 @@ public class Carriage : MonoBehaviour
                 case Peon.TYPE.SIMPLE:
                     totalpower += 15;
                     break;
-                case Peon.TYPE.MECANO:
+                case Peon.TYPE.MECA:
                     totalpower += 10;
                     break;
                 case Peon.TYPE.HEALER:

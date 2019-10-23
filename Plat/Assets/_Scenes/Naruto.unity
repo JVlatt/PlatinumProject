@@ -421,17 +421,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2669791463772907158, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669791463772907144, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
-        type: 3}
-      propertyPath: _UIPeonPrefab
-      value: 
-      objectReference: {fileID: 7323094063016409026, guid: a3e8d53651908054fbb6355c31a9bb20,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
 --- !u!114 &644402767 stripped
@@ -471,7 +460,7 @@ PrefabInstance:
     - target: {fileID: 5982962629978681371, guid: adf92295a8cbeb04a9c7550a877cd639,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5982962629978681371, guid: adf92295a8cbeb04a9c7550a877cd639,
         type: 3}
@@ -528,12 +517,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1319283001}
     - target: {fileID: 408678557, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
-      propertyPath: _fixCD
-      value: 10
+      propertyPath: m_peonInfo.name
+      value: boby
       objectReference: {fileID: 0}
     - target: {fileID: 408678557, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
-      propertyPath: _fixLuck
-      value: 49.5
+      propertyPath: m_peonInfo.HP
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 775498580, guid: adf92295a8cbeb04a9c7550a877cd639, type: 3}
       propertyPath: m_Layer
@@ -563,6 +552,21 @@ PrefabInstance:
       propertyPath: m_HP
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.name
+      value: bill
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.TYPE
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
@@ -649,6 +653,21 @@ PrefabInstance:
       propertyPath: m_currentCarriage
       value: 
       objectReference: {fileID: 406128336}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.name
+      value: bob
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.TYPE
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -657,7 +676,7 @@ PrefabInstance:
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
@@ -960,7 +979,7 @@ PrefabInstance:
     - target: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
@@ -1055,6 +1074,21 @@ PrefabInstance:
       propertyPath: m_HP
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.name
+      value: boule
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.TYPE
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527322319818941247, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
+        type: 3}
+      propertyPath: m_peonInfo.HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1063,7 +1097,7 @@ PrefabInstance:
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6527322319818941243, guid: b8e64a8f0d956c042b1a9ea69ccfc079,
         type: 3}
@@ -1234,6 +1268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340936634058168084, guid: 26391e2a9ecce7942818b0524ed2ff0c,
+        type: 3}
+      propertyPath: y.max
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7340936634058168087, guid: 26391e2a9ecce7942818b0524ed2ff0c, type: 3}
