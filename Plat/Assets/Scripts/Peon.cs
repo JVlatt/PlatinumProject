@@ -7,7 +7,7 @@ using TMPro;
 public class Peon : MonoBehaviour
 {
     #region Variables
-
+    #region Deplacement
     [Header("Déplacement")]
     [SerializeField]
     private float m_speed = 1.0f;
@@ -56,6 +56,7 @@ public class Peon : MonoBehaviour
             }
         }
     }
+    #endregion
 
     private float m_mentalHealth;
     public float _mentalHealth
@@ -75,13 +76,15 @@ public class Peon : MonoBehaviour
         get { return m_currentCarriage; }
         set { m_currentCarriage = value; }
     }
-
+    #region Personnalité
     [Header("Personnalité")]
+
     [SerializeField]
-    private TYPE m_type;
+    private PeonInfo m_peonInfo;
+    public PeonInfo _peonInfo { get { return m_peonInfo; } }
     public TYPE _type
     {
-        get { return m_type; }
+        get { return _peonInfo.TYPE; }
     }
 
     private int m_ID;
@@ -95,28 +98,11 @@ public class Peon : MonoBehaviour
         get { return m_nextID++; }
     }
 
-    private HEALTHSTATE m_HEALTHSTATE = HEALTHSTATE.GOOD;
-    public HEALTHSTATE _HEALTHSTATE
-    {
-        get { return m_HEALTHSTATE; }
-        set { m_HEALTHSTATE = value; }
-    }
+    #endregion
+    
 
     #region Gestion HP
     [Header("PV")]
-    [SerializeField]
-    private float m_HP;
-    public float _HP
-    {
-        get { return m_HP; }
-        set
-        {
-            m_HP = value;
-            GameManager.GetManager()._UIManager.UpdateHealthBar((_maxHP - HPLost()) / _maxHP, _ID);
-        }
-    }
-    private float _maxHP;
-
     [SerializeField]
     [Range(0, 100)]
     private float m_percentHpRecoverAfterTreat;
@@ -133,6 +119,22 @@ public class Peon : MonoBehaviour
     {
         get { return m_percentHpRecoverPerSecond / 100; }
         set { m_percentHpRecoverPerSecond = value; }
+    }
+    public float _HP
+    {
+        get { return _peonInfo.HP; }
+        set
+        {
+            _peonInfo.HP = value;
+            GameManager.GetManager()._UIManager.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
+        }
+    }
+
+
+    public HEALTHSTATE _HEALTHSTATE
+    {
+        get { return _peonInfo.HEALTHSTATE; }
+        set { _peonInfo.HEALTHSTATE = value; }
     }
 
     private float _hpToRecover;
@@ -162,7 +164,20 @@ public class Peon : MonoBehaviour
     }
     private float _fixTimer;
 
-    #region Enum
+    #region Enum & Struct
+    [System.Serializable]
+    public class PeonInfo
+    {
+        public string name;
+        public Sprite visual;
+        [HideInInspector]
+        public HEALTHSTATE HEALTHSTATE;
+        public TYPE TYPE;
+        public float HP;
+        [HideInInspector]
+        public float HPMax;
+
+    }
     public enum HEALTHSTATE
     {
         HURT,
@@ -173,7 +188,7 @@ public class Peon : MonoBehaviour
     public enum TYPE
     {
         HEALER,
-        MECANO,
+        MECA,
         SIMPLE,
         FIGHTER
     }
@@ -208,7 +223,7 @@ public class Peon : MonoBehaviour
         m_ID = _nextID;
         _mentalHealth = 100;
         GameManager.GetManager()._peonManager.AddPeon(this);
-        _maxHP = m_HP;
+        _peonInfo.HPMax = _HP;
         SetDamage();
         SpecialStart();
         _over.SetActive(false);
@@ -293,11 +308,11 @@ public class Peon : MonoBehaviour
         {
             _HP += _hpToRecover * _percentHpRecoverPerSecond;
             _recoverTimer -= 1;
-            if (_HP >= _maxHP)
+            if (_HP >= _peonInfo.HPMax)
             {
                 _recoverTimer = 0;
                 _HEALTHSTATE = HEALTHSTATE.GOOD;
-                _HP = _maxHP;
+                _HP = _peonInfo.HPMax;
             }
         }
     }
@@ -305,13 +320,13 @@ public class Peon : MonoBehaviour
     public void TreatPeon() //CEDRIC
     {
         _HEALTHSTATE = HEALTHSTATE.TREAT;
-        m_HP += HPLost() * _percentHpRecoverAfterTreat;
+        _HP += HPLost() * _percentHpRecoverAfterTreat;
         _hpToRecover = HPLost();
     }
 
     public float HPLost() //CEDRIC
     {
-        return _maxHP - m_HP;
+        return _peonInfo.HPMax - _HP;
     }
 
     public void SetDamage()

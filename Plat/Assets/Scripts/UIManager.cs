@@ -7,27 +7,42 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Mental")]
     public Image _mentalBar;
     private float m_totalMentalHealth;
+
+    [Header("UI")]
     private List<Transform> _UIPeons = new List<Transform>();
     private List<Image> _lifeBars = new List<Image>();
     private List<TextMeshProUGUI> _nameTags = new List<TextMeshProUGUI>();
     private List<TextMeshProUGUI> _carriagesTags = new List<TextMeshProUGUI>();
+    [SerializeField]
+    private Vector3 _nameTagOffset;
+    [SerializeField]
+    private TextMeshProUGUI _nameTagPrefab;
+    [SerializeField]
+    private Transform _UIPeonPrefab;
+    [SerializeField]
+    private Image _leftAttack;
+
+    [Header("UI Perso")]
+    [SerializeField]
+    private List<Sprite> _classeState;
+    [SerializeField]
+    private List<Sprite> _healthState;
+    [SerializeField]
+    private UIInfoPerso _UIInfoPerso;
+
+
+    [Header("Cursor")]
     [SerializeField]
     private Texture2D _cursorDefault;
     [SerializeField]
     private Texture2D _cursorPeon;
     [SerializeField]
     private Texture2D _cursorFix;
-    [SerializeField]
-    private Vector3 _nameTagOffset;
-    [SerializeField]
-    private TextMeshProUGUI _nameTagPrefab;
 
-    [SerializeField]
-    private Transform _UIPeonPrefab;
-    [SerializeField]
-    private Image _leftAttack;
+    [Header("Debug")]
     [SerializeField]
     private bool m_isOnAttack;
     private float _timerAttack;
@@ -38,6 +53,22 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI _text;
     private float _textDisplayTimer = 0f;
     private float _textDisplayDuration = 0f;
+
+    #region Struct
+    [System.Serializable]
+    class UIInfoPerso
+    {
+        public GameObject conteneur;
+        public Text name;
+        public Text typeText;
+        public Text heathStateText;
+        public Image visual;
+        public Image typeImage;
+        public Image healthStateImage;
+        public Image healthBar;
+        public Image moralBar;
+    }
+    #endregion
 
     public float _totalMentalHealth
     {
@@ -72,6 +103,60 @@ public class UIManager : MonoBehaviour
     public void UpdateHealthBar(float amont,int ID)
     {
         _lifeBars[ID].fillAmount = amont;
+    }
+
+    public void UpdateUIPeon(Peon.PeonInfo peonInfo)
+    {
+        if(peonInfo == null)
+        {
+            _UIInfoPerso.conteneur.SetActive(false);
+        }
+        else
+        {
+            _UIInfoPerso.visual.sprite = peonInfo.visual;
+            _UIInfoPerso.healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
+            _UIInfoPerso.name.text = peonInfo.name;
+            switch (peonInfo.HEALTHSTATE)
+            {
+                case Peon.HEALTHSTATE.HURT:
+
+                    _UIInfoPerso.healthStateImage.sprite = _healthState[0];
+                    _UIInfoPerso.heathStateText.text = "Hurt";
+                    break;
+                case Peon.HEALTHSTATE.TREAT:
+                    _UIInfoPerso.healthStateImage.sprite = _healthState[1];
+                    _UIInfoPerso.heathStateText.text = "Treat";
+                    break;
+                case Peon.HEALTHSTATE.GOOD:
+                    _UIInfoPerso.healthStateImage.sprite = _healthState[2];
+                    _UIInfoPerso.heathStateText.text = "Good";
+                    break;
+                default:
+                    break;
+            }
+            switch (peonInfo.TYPE)
+            {
+                case Peon.TYPE.HEALER:
+                    _UIInfoPerso.typeImage.sprite = _classeState[0];
+                    _UIInfoPerso.typeText.text = "Healer";
+                    break;
+                case Peon.TYPE.MECA:
+                    _UIInfoPerso.typeImage.sprite = _classeState[1];
+                    _UIInfoPerso.typeText.text = "Mecano";
+                    break;
+                case Peon.TYPE.SIMPLE:
+                    _UIInfoPerso.typeImage.sprite = _classeState[2];
+                    _UIInfoPerso.typeText.text = "Simple";
+                    break;
+                case Peon.TYPE.FIGHTER:
+                    _UIInfoPerso.typeImage.sprite = _classeState[3];
+                    _UIInfoPerso.typeText.text = "Fighter";
+                    break;
+                default:
+                    break;
+            }
+            _UIInfoPerso.conteneur.SetActive(true);
+        }
     }
 
     private void Update()
