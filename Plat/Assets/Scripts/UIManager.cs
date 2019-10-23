@@ -32,6 +32,13 @@ public class UIManager : MonoBehaviour
     private bool m_isOnAttack;
     private float _timerAttack;
 
+    [SerializeField]
+    private GameObject _textPannel;
+    [SerializeField]
+    private TextMeshProUGUI _text;
+    private float _textDisplayTimer = 0f;
+    private float _textDisplayDuration = 0f;
+
     public float _totalMentalHealth
     {
         get { return m_totalMentalHealth; }
@@ -100,6 +107,21 @@ public class UIManager : MonoBehaviour
             color.a = 0;
             _leftAttack.color = color;
         }
+
+        if(_textPannel.activeSelf)
+        {
+            _textDisplayTimer += Time.deltaTime;
+            if(_textDisplayTimer >= _textDisplayDuration)
+            {
+                _textDisplayTimer = 0f;
+                if(!(GameManager.GetManager().phaseManager.GetNextPhaseType() == Phase.TYPE.TEXT))
+                {
+                    _text.SetText(" ");
+                    _textPannel.SetActive(false);
+                }
+                GameManager.GetManager().phaseManager.NextPhase();
+            }
+        }
     }
 
     public void AddUIPeon(Peon p)
@@ -144,5 +166,12 @@ public class UIManager : MonoBehaviour
                 Cursor.SetCursor(_cursorPeon, Vector2.zero, CursorMode.Auto);
                 break;
         }
+    }
+
+    public void DisplayText(string text, float duration)
+    {
+        _text.SetText(text);
+        _textDisplayDuration = duration;
+        _textPannel.SetActive(true);
     }
 }

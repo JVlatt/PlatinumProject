@@ -166,7 +166,7 @@ public class Carriage : MonoBehaviour
     public void ClearPeon(Peon currentPeon)
     {
         if (currentPeon._currentCarriage == null) return;
-        positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos._ID == currentPeon._ID);
+        positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos != null && x.peonOnPos._ID == currentPeon._ID);
         lastPos.isAvailable = true;
         lastPos.peonOnPos = null;
         currentPeon._currentCarriage.RemovePeon(currentPeon);
@@ -184,6 +184,12 @@ public class Carriage : MonoBehaviour
 
     #region Attack Management
 
+    public void Attack(float duration)
+    {
+        _attackDuration = duration;
+        _timeBeforeAttack = 0f;
+        _willBeAttacked = true;
+    }
 
     private void CheckFight()
     {
@@ -212,20 +218,16 @@ public class Carriage : MonoBehaviour
             }
             if (_attackTimer >= _attackDuration)
             {
-                //Mettre le résultat
+                GameManager.GetManager().phaseManager.NextPhase();
+                _particle.Stop();
                 DestructCarriage();
                 _timeBeforeAttack = 0f;
-                m_underAttack = false;
+                _underAttack = false;
             }
         }
     }
     private void Fight()
     {
-        /* Apparemment ça saute du GD genre si jamais tu veux sacrifier un gars vu que c'est celui qui prend le focus qui perd le plus d'hp demande à clement jpense il se souviendra
-        m_activePeons.Sort(delegate (Peon a, Peon b)
-        {
-            return a._power.CompareTo(b._power);
-        });*/
         int totalpower = 0;
 
         switch(m_activePeons[0]._type)
@@ -280,6 +282,7 @@ public class Carriage : MonoBehaviour
 
     private void Victory()
     {
+        GameManager.GetManager().phaseManager.NextPhase();
         _underAttack = false;
         _particle.Stop();
     }

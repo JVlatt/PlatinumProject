@@ -42,6 +42,7 @@ public class FixIt : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if(GameManager.GetManager()._peonManager._activePeon != null)
         GameManager.GetManager()._UIManager.ChangeCursor("fix");
     }
     private void OnMouseExit()

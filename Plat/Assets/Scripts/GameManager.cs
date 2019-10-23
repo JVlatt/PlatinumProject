@@ -56,6 +56,20 @@ namespace Assets.Script
             get { return m_trainManager; }
             set { m_trainManager = value; }
         }
+
+        private PhaseManager _phaseManager;
+        public PhaseManager phaseManager
+        {
+            get { return _phaseManager; }
+            set { _phaseManager = value; }
+        }
+
+        private CameraController _cameraController;
+        public CameraController cameraController
+        {
+            get { return _cameraController; }
+            set { _cameraController = value; }
+        }
         #endregion
 
         public static GameManager GetManager()
