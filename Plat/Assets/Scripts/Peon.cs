@@ -337,7 +337,7 @@ public class Peon : MonoBehaviour
 
     public void SwitchMaterial(Material mat)
     {
-        _meshRenderer.material = mat;
+        //_meshRenderer.material = mat;
     }
 
     public virtual bool CanFix(Carriage carriage)

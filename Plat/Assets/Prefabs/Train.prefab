@@ -23955,7 +23955,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 15.84
-  m_Range: 7.65
+  m_Range: 21.73
   m_SpotAngle: 138.3
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23963,7 +23963,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.863
     m_Bias: 0.02
     m_NormalBias: 0.1
     m_NearPlane: 0.1
@@ -29434,6 +29434,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interior
       objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_peons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_activePeons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_subDestinations.Array.data[0].isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_subDestinations.Array.data[1].isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_subDestinations.Array.data[2].isAvailable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29487,31 +29512,6 @@ PrefabInstance:
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_peons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_activePeons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[0].isAvailable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[1].isAvailable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_subDestinations.Array.data[2].isAvailable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29621,6 +29621,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interior
       objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_peons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: m_activePeons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29675,16 +29685,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_peons.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: m_activePeons.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa25018ea109d1e47962c69a2281309c, type: 3}
