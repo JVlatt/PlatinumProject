@@ -25,6 +25,7 @@ public class FixIt : MonoBehaviour
     {
         if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
         if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
+        if (_carriage._underAttack || _carriage._willBeAttacked) return;
         _activePeon = GameManager.GetManager()._peonManager._activePeon;
         if (_activePeon._currentCarriage != _carriage)
         {

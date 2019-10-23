@@ -45,9 +45,15 @@ public class Peon : MonoBehaviour
         set { 
             m_canMove = value;
             if (_isFixing && !value)
-                _animator.SetBool("Healing", true);
-            else 
+            {
+                _animator.SetBool("Healing", true); 
+                _fix.SetActive(true);
+            }
+            else
+            {
                 _animator.SetBool("Healing", false);
+                _fix.SetActive(false);
+            }
         }
     }
 
@@ -147,8 +153,11 @@ public class Peon : MonoBehaviour
         {
             m_isFixing = value;
             _fixTimer = 0;
-            if(!_canMove)
+            if (!_canMove)
+            {
                 _animator.SetBool("Healing", value);
+                _fix.SetActive(value);
+            }
         }
     }
     private float _fixTimer;
@@ -176,6 +185,14 @@ public class Peon : MonoBehaviour
         get { return m_over; }
         set { m_over = value; }
     }
+
+    private GameObject m_fix;
+    public GameObject _fix
+    {
+        get { return m_fix; }
+        set { m_fix = value; }
+    }
+
     private Animator m_animator;
     public Animator _animator
     {

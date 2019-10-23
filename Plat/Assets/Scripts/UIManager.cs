@@ -109,6 +109,8 @@ public class UIManager : MonoBehaviour
         UI.SetParent(transform);
         GameObject over = UI.GetChild(0).gameObject;
         p._over = over;
+        GameObject fix = UI.GetChild(1).gameObject;
+        p._fix = fix;
 
         Image image = over.GetComponentInChildren<Image>();
         _lifeBars.Add(image);
