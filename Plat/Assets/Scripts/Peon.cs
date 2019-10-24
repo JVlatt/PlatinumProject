@@ -224,7 +224,6 @@ public class Peon : MonoBehaviour
         _mentalHealth = 100;
         GameManager.GetManager()._peonManager.AddPeon(this);
         _peonInfo.HPMax = _HP;
-        SetDamage();
         SpecialStart();
         _over.SetActive(false);
         m_animator = GetComponentInChildren<Animator>();

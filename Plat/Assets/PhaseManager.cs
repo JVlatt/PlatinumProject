@@ -66,7 +66,7 @@ public class PhaseManager : MonoBehaviour
                 _activePhase.carriage.Attack(_activePhase.duration,_activePhase.subDuration);
                 break;
             case Phase.TYPE.TEXT:
-                GameManager.GetManager()._UIManager.DisplayText(_activePhase.text,_activePhase.duration);
+                GameManager.GetManager()._UIManager.DisplayText(_activePhase.text,_activePhase.character,_activePhase.duration);
                 break;
             case Phase.TYPE.CAMERA:
                 GameManager.GetManager().cameraController.MoveToCarriage(_activePhase.carriage);

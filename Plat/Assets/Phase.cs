@@ -47,7 +47,13 @@ public class Phase : MonoBehaviour
         get { return _text; }
         set { _text = value; }
     }
-
+    [SerializeField]
+    private string _character;
+    public string character
+    {
+        get { return _character; }
+        set { _character = value; }
+    }
     [SerializeField]
     private Carriage _carriage;
     public Carriage carriage

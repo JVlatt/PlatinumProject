@@ -47,13 +47,19 @@ public class UIManager : MonoBehaviour
     private bool m_isOnAttack;
     private float _timerAttack;
 
+    [Header("Text Pannel")]
     [SerializeField]
     private GameObject _textPannel;
     [SerializeField]
     private TextMeshProUGUI _text;
     private float _textDisplayTimer = 0f;
     private float _textDisplayDuration = 0f;
-
+    [SerializeField]
+    private Image _butorImg;
+    [SerializeField]
+    private Image _taonImg;
+    [SerializeField]
+    private Image _oniImg;
     #region Struct
     [System.Serializable]
     class UIInfoPerso
@@ -97,17 +103,17 @@ public class UIManager : MonoBehaviour
         {
             total += peon._mentalHealth;
         }
-        _totalMentalHealth = (total / GameManager.GetManager()._peonManager._peons.Count)/100;
+        _totalMentalHealth = (total / GameManager.GetManager()._peonManager._peons.Count) / 100;
     }
 
-    public void UpdateHealthBar(float amont,int ID)
+    public void UpdateHealthBar(float amont, int ID)
     {
         _lifeBars[ID].fillAmount = amont;
     }
 
     public void UpdateUIPeon(Peon.PeonInfo peonInfo)
     {
-        if(peonInfo == null)
+        if (peonInfo == null)
         {
             _UIInfoPerso.conteneur.SetActive(false);
         }
@@ -165,7 +171,7 @@ public class UIManager : MonoBehaviour
         {
             Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
-            _UIPeons[i].position = screenPos; 
+            _UIPeons[i].position = screenPos;
         }
         for (int i = 0; i < _carriagesTags.Count; i++)
         {
@@ -178,9 +184,9 @@ public class UIManager : MonoBehaviour
             _timerAttack += Time.deltaTime;
             Color color = _leftAttack.color;
             if (_timerAttack < 1)
-                color.a = Mathf.Lerp(0, 0.2f, _timerAttack );
+                color.a = Mathf.Lerp(0, 0.2f, _timerAttack);
             else if (_timerAttack < 2)
-                color.a = Mathf.Lerp(0, 0.2f, (1 - (_timerAttack - 1)) );
+                color.a = Mathf.Lerp(0, 0.2f, (1 - (_timerAttack - 1)));
             else
                 _timerAttack = 0;
             _leftAttack.color = color;
@@ -193,13 +199,13 @@ public class UIManager : MonoBehaviour
             _leftAttack.color = color;
         }
 
-        if(_textPannel.activeSelf)
+        if (_textPannel.activeSelf)
         {
             _textDisplayTimer += Time.deltaTime;
-            if(_textDisplayTimer >= _textDisplayDuration)
+            if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
-                if(!(GameManager.GetManager().phaseManager.GetNextPhaseType() == Phase.TYPE.TEXT))
+                if (!(GameManager.GetManager().phaseManager.GetNextPhaseType() == Phase.TYPE.TEXT))
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
@@ -239,7 +245,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCursor(string type)
     {
-        switch(type)
+        switch (type)
         {
             case "default":
                 Cursor.SetCursor(_cursorDefault, Vector2.zero, CursorMode.Auto);
@@ -253,8 +259,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayText(string text, float duration)
+    public void DisplayText(string text, string character, float duration)
     {
+        _oniImg.gameObject.SetActive(false);
+        _taonImg.gameObject.SetActive(false);
+        _butorImg.gameObject.SetActive(false);
+
+        switch (character)
+        {
+            case "butor":
+                _butorImg.gameObject.SetActive(true);
+                break;
+            case "taon":
+                _taonImg.gameObject.SetActive(true);
+                break;
+            case "oni":
+                _oniImg.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
         _text.SetText(text);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
