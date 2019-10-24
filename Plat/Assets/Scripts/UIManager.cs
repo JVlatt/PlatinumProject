@@ -219,7 +219,7 @@ public class UIManager : MonoBehaviour
         GameObject fix = UI.GetChild(1).gameObject;
         p._fix = fix;
 
-        Image image = over.GetComponentInChildren<Image>();
+        Image image = over.transform.GetChild(1).GetComponentInChildren<Image>();
         _lifeBars.Add(image);
 
         TextMeshProUGUI text = over.GetComponentInChildren<TextMeshProUGUI>();
