@@ -13,7 +13,8 @@ public class Phase : MonoBehaviour
         CAMERA,
         SOUND,
         BLANK,
-        BREAK
+        BREAK,
+        MOVE
     }
 
     [SerializeField]
@@ -31,6 +32,13 @@ public class Phase : MonoBehaviour
         get { return _duration; }
         set { _duration = value; }
     }
+    [SerializeField]
+    private float _subDuration;
+    public float subDuration
+    {
+        get { return _subDuration; }
+        set { _subDuration = value; }
+    }
 
     [SerializeField]
     private string _text;
@@ -46,6 +54,13 @@ public class Phase : MonoBehaviour
     {
         get { return _carriage; }
         set { _carriage = value; }
+    }
+    [SerializeField]
+    private Peon _peon;
+    public Peon peon
+    {
+        get { return _peon; }
+        set { _peon = value; }
     }
 
     [SerializeField]

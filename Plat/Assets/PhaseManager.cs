@@ -63,7 +63,7 @@ public class PhaseManager : MonoBehaviour
         switch (_activePhase.type)
         {
             case Phase.TYPE.ATTACK:
-                _activePhase.carriage.Attack(_activePhase.duration);
+                _activePhase.carriage.Attack(_activePhase.duration,_activePhase.subDuration);
                 break;
             case Phase.TYPE.TEXT:
                 GameManager.GetManager()._UIManager.DisplayText(_activePhase.text,_activePhase.duration);
@@ -79,6 +79,9 @@ public class PhaseManager : MonoBehaviour
             case Phase.TYPE.BREAK:
                 _activePhase.carriage._isBroke = true;
                 _activePhase.carriage.fixIt.isAnEvent = _activePhase.specialEvent;
+                break;
+            case Phase.TYPE.MOVE:
+                GameManager.GetManager()._trainManager.MovePeonToCarriage(_activePhase.peon, _activePhase.carriage);
                 break;
 
             default:

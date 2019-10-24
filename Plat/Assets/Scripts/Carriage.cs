@@ -102,7 +102,15 @@ public class Carriage : MonoBehaviour
         get { return _nameTag; }
         set { _nameTag = value; }
     }
-    
+
+    [SerializeField]
+    private List<Carriage> _nextCarriages;
+    public List<Carriage> nextCarriage
+    {
+        get { return _nextCarriages; }
+        set { _nextCarriages = value; }
+    }
+
     #endregion
 
     private void Start()
@@ -190,10 +198,10 @@ public class Carriage : MonoBehaviour
 
     #region Attack Management
 
-    public void Attack(float duration)
+    public void Attack(float duration,float subduration)
     {
-        _attackDuration = duration;
-        _timeBeforeAttack = 0f;
+        _timeBeforeAttack = duration;
+        _attackDuration = subduration;
         _willBeAttacked = true;
     }
 
@@ -291,21 +299,39 @@ public class Carriage : MonoBehaviour
         GameManager.GetManager().phaseManager.NextPhase();
         _underAttack = false;
         _particle.Stop();
+        m_activePeons[0]._HP -= 10;
     }
 
     private void Defeat()
     {
-        int count = m_activePeons.Count;
-        for(int i = 0; i < count; i++)
+        m_activePeons[0]._HP -= 15;
+        if(_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
         {
-            m_activePeons[0]._HP -= 1;
+            GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
+        }
+        else
+        {
             GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
+        }
+        int count = m_activePeons.Count;
+        for(int i = 1; i < count; i++)
+        {
+            m_activePeons[0]._HP -= 10;
+            if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
+            {
+                GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
+            }
+            else
+            {
+                GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
+            }
         }
 
     }
 
     private void DestructCarriage()
     {
+        GameManager.GetManager().phaseManager.NextPhase();
         Debug.Log("Le wagon a été détruit");
     }
     #endregion
