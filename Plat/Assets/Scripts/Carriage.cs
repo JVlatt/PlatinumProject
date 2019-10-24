@@ -300,12 +300,15 @@ public class Carriage : MonoBehaviour
         _underAttack = false;
         _particle.Stop();
         m_activePeons[0]._HP -= 10;
+        m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
     }
 
     private void Defeat()
     {
         m_activePeons[0]._HP -= 15;
-        if(_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
+        m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
+
+        if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
         {
             GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
         }
@@ -317,6 +320,8 @@ public class Carriage : MonoBehaviour
         for(int i = 1; i < count; i++)
         {
             m_activePeons[0]._HP -= 10;
+            m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
+
             if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
             {
                 GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
