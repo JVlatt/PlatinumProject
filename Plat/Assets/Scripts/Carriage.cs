@@ -123,7 +123,7 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.GetManager().phaseManager.freezeControl) return;
+        if (GameManager.GetManager().phaseManager && GameManager.GetManager().phaseManager.freezeControl) return;
         if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
             GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon,this);

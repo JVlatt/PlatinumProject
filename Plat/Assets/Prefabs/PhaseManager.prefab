@@ -1,5 +1,906 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8926679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8926680}
+  - component: {fileID: 8926681}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8926680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8926681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 4
+  _duration: 0
+  _subDuration: 0
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &33530654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33530655}
+  - component: {fileID: 33530656}
+  m_Layer: 0
+  m_Name: TextP4P3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &33530655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33530654}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33530656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33530654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Oni : "Are we going to die again ?"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &77529647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 77529648}
+  - component: {fileID: 77529649}
+  m_Layer: 0
+  m_Name: TextP4P5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &77529648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77529647}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77529649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77529647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Butor : " I should go first."'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &210389078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210389079}
+  - component: {fileID: 210389080}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210389079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210389078}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210389080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210389078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 5
+  _duration: 10
+  _subDuration: 0
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: growl
+  _controlDuration: 1
+  _freezeControl: 0
+--- !u!1 &254686601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254686602}
+  - component: {fileID: 254686603}
+  m_Layer: 0
+  m_Name: TextP6P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254686602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254686601}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254686603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254686601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Oni : "I have medical stuff at the infirmary, I can heal you"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &270671289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270671290}
+  - component: {fileID: 270671291}
+  m_Layer: 0
+  m_Name: TextP6P3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270671290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270671289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270671291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270671289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Butor : "On my way."'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &312706708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312706709}
+  - component: {fileID: 312706710}
+  m_Layer: 0
+  m_Name: TextP3P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &312706709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312706708}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &312706710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312706708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 3
+  _subDuration: 0
+  _text: 'Taon: "The..the "Thing" ??" '
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &1320423289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320423290}
+  - component: {fileID: 1320423291}
+  m_Layer: 0
+  m_Name: TextP3P3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1320423290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320423289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320423291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320423289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 3
+  _subDuration: 0
+  _text: 'Oni: "*quake*"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &1513762634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513762635}
+  - component: {fileID: 1513762636}
+  m_Layer: 0
+  m_Name: Blank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513762635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513762634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513762636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513762634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 6
+  _duration: 10
+  _subDuration: 0
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &1538026750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538026751}
+  - component: {fileID: 1538026752}
+  m_Layer: 0
+  m_Name: TextP3P1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538026751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538026750}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1538026752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538026750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 3
+  _subDuration: 0
+  _text: 'Butor: "Oh no.."'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &1572403723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572403724}
+  - component: {fileID: 1572403725}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1572403724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572403723}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572403725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572403723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 4
+  _duration: 0
+  _subDuration: 0
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &1752349641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752349642}
+  - component: {fileID: 1752349643}
+  m_Layer: 0
+  m_Name: TextP4P4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1752349642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752349641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752349643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752349641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Taon : "Don''t worry we will handle this"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &1796492996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796492997}
+  - component: {fileID: 1796492998}
+  m_Layer: 0
+  m_Name: Blank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796492997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796492996}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1796492998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796492996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 6
+  _duration: 10
+  _subDuration: 0
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &1798878417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798878418}
+  - component: {fileID: 1798878419}
+  m_Layer: 0
+  m_Name: TextP4P1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1798878418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798878417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1798878419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798878417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 3
+  _subDuration: 0
+  _text: 'Butor: "We''re under attack !"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &1830915065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1830915066}
+  - component: {fileID: 1830915067}
+  m_Layer: 0
+  m_Name: TextP6P1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1830915066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830915065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1830915067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830915065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: 'Butor : "I''m - I''m hurt ! I need medial... assistance"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+--- !u!1 &2004646936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004646937}
+  - component: {fileID: 2004646938}
+  m_Layer: 0
+  m_Name: TextP4P2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004646937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004646936}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2004646938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004646936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 3
+  _subDuration: 0
+  _text: 'Butor: "We have to protect the train !"'
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+--- !u!1 &2112659840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112659841}
+  - component: {fileID: 2112659842}
+  m_Layer: 0
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112659841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112659840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112659842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112659840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _duration: 3
+  _subDuration: 90
+  _text: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 1
+  _freezeControl: 1
 --- !u!1 &1178499237630107077
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,8 +946,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: "Butor: Friends ? Just survivors. Spirits don\u2019t have friends."
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -96,8 +999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: 'Butor: "Taon, this is for you ! "'
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -147,8 +1052,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 7
   _duration: 0.1
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 1
   _sound: 
   _controlDuration: 1
@@ -198,8 +1105,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 6
   _duration: 1
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -249,11 +1158,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: '"I have a bad feeling about this, the monster is coming, fix this now !"'
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
-  _controlDuration: 1
+  _controlDuration: 0
   _freezeControl: 0
 --- !u!1 &1178499238259211713
 GameObject:
@@ -300,8 +1211,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 4
   _duration: 0
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -351,8 +1264,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 5
   _duration: 2
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: break
   _controlDuration: 1
@@ -399,6 +1314,23 @@ Transform:
   - {fileID: 1178499238859148608}
   - {fileID: 1178499238595932064}
   - {fileID: 1178499238069983844}
+  - {fileID: 210389079}
+  - {fileID: 1538026751}
+  - {fileID: 312706709}
+  - {fileID: 1320423290}
+  - {fileID: 1572403724}
+  - {fileID: 2112659841}
+  - {fileID: 1798878418}
+  - {fileID: 8926680}
+  - {fileID: 2004646937}
+  - {fileID: 33530655}
+  - {fileID: 1752349642}
+  - {fileID: 77529648}
+  - {fileID: 1513762635}
+  - {fileID: 1830915066}
+  - {fileID: 254686602}
+  - {fileID: 270671290}
+  - {fileID: 1796492997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -459,9 +1391,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 6
-  _duration: 10
+  _duration: 5
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 1
@@ -511,8 +1445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: 'Oni: "*sigh* "'
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -562,8 +1498,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: '"I''ll check what happened."'
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -613,12 +1551,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 6
   _duration: 5
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 1
-  _freezeControl: 1
+  _freezeControl: 0
 --- !u!1 &1178499239114884113
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,8 +1604,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 4
   _duration: 0
+  _subDuration: 0
   _text: 
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -715,8 +1657,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: "Oni: \"Please, don\u2019t b..be so r..rude, we are friends n..no ? \""
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
@@ -766,8 +1710,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _duration: 3
+  _subDuration: 0
   _text: 'Taon: "I know it, thanks." '
   _carriage: {fileID: 0}
+  _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0

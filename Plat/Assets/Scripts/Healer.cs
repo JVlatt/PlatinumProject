@@ -18,11 +18,13 @@ public class Healer : Peon  //MADE BY CEDRIC
             {
                 _animator.SetBool("Healing", true);
                 _particle.Play();
+                _particle.transform.position = value.transform.position;
             }
             else { 
                 if(!_isFixing)
                     _animator.SetBool("Healing", false);
                 _particle.Stop();
+                _particle.transform.position = transform.position;
             }
         }
     }
