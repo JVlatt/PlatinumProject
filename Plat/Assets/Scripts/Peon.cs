@@ -140,7 +140,7 @@ public class Peon : MonoBehaviour
     private float _hpToRecover;
     private float _recoverTimer;
     #endregion
-
+    #region Fix
     [Header("Fix State")]
     [SerializeField]
     [Range(0, 100)]
@@ -163,7 +163,23 @@ public class Peon : MonoBehaviour
         }
     }
     private float _fixTimer;
+    public GameObject _fix
+    {
+        get { return m_fix; }
+        set { 
+            m_fix = value;
+            _fixBroke0 = value.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+            _fixBroke1 = value.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
+            Debug.Log(_fixBroke0.transform);
+            Debug.Log(_fixBroke1.transform);
+        }
+    }
 
+    private Image _fixBroke0;
+    private Image _fixBroke1;
+
+    private bool _fixFail;
+    #endregion
     #region Enum & Struct
     [System.Serializable]
     public class PeonInfo
@@ -202,11 +218,7 @@ public class Peon : MonoBehaviour
     }
 
     private GameObject m_fix;
-    public GameObject _fix
-    {
-        get { return m_fix; }
-        set { m_fix = value; }
-    }
+
 
     private Animator m_animator;
     public Animator _animator
@@ -279,9 +291,9 @@ public class Peon : MonoBehaviour
 
     private void Fix()
     {
-        if (!_isFixing || m_canMove) return;
+        if (!_isFixing && !_fixFail || m_canMove ) return;
         _fixTimer += Time.deltaTime;
-        if (_fixTimer > _fixCD)
+        if (_fixTimer > _fixCD )
         {
             float random = Random.Range(0, 100);
             if (random > _fixLuck)
@@ -291,12 +303,23 @@ public class Peon : MonoBehaviour
             }
             else
             {
-                _currentCarriage._isBroke = true;
-
+                _fixFail = true;
             }
             _fixTimer = 0;
-            _isFixing = false;
             
+            
+        }else if (_fixFail)
+        {
+            _fixBroke0.fillAmount = _fixTimer;
+            _fixBroke1.fillAmount = _fixTimer;
+            if (_fixTimer > 1)
+            {
+                _fixFail = false;
+                _isFixing = false;
+                _fixBroke0.fillAmount = 0;
+                _fixBroke1.fillAmount = 0;
+            }
+
         }
     }
 
