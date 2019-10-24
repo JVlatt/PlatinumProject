@@ -222,6 +222,7 @@ public class Peon : MonoBehaviour
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
+        _HEALTHSTATE = HEALTHSTATE.GOOD;
         GameManager.GetManager()._peonManager.AddPeon(this);
         _peonInfo.HPMax = _HP;
         SpecialStart();
