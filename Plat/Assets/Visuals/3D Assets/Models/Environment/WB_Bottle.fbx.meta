@@ -1,30 +1,19 @@
 fileFormatVersion: 2
-guid: b451a052397f03c4f8a04d915d1c0492
+guid: 04882433d20a3ff4988afedf1d6cbcde
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: paint_1G_bucket_low
-    100002: paint_1G_lid_low
-    100004: paint_5G_bucket_low
-    100006: //RootNode
-    400000: paint_1G_bucket_low
-    400002: paint_1G_lid_low
-    400004: paint_5G_bucket_low
-    400006: //RootNode
-    2100000: plastic_white
-    2100002: paint_5g_label
-    2100004: metal
-    2100006: paint_1g
-    2300000: paint_1G_bucket_low
-    2300002: paint_1G_lid_low
-    2300004: paint_5G_bucket_low
-    3300000: paint_1G_bucket_low
-    3300002: paint_1G_lid_low
-    3300004: paint_5G_bucket_low
-    4300000: paint_5G_bucket_low
-    4300002: paint_1G_bucket_low
-    4300004: paint_1G_lid_low
-  externalObjects: {}
+  serializedVersion: 26
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MT_Grey
+    second: {fileID: 2100000, guid: da1f8c59aa2048643b4086f1f466dd9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MT_White
+    second: {fileID: 2100000, guid: 20f0615ba5d60904699f008430da546f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -58,34 +47,41 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -95,8 +91,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
