@@ -79,7 +79,7 @@ public class Healer : Peon  //MADE BY CEDRIC
         }
         else
         {
-            if(peon._ID == _peonToHeal._ID) //met a jours les Healer si ils etaient en train de soigner le Peon a supprimer
+            if(_peonToHeal &&  peon._ID == _peonToHeal._ID) //met a jours les Healer si ils etaient en train de soigner le Peon a supprimer
             {
                 _peonToHeal = lowerPeon;
                 _timer = cdHeal;
