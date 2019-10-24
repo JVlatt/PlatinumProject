@@ -231,7 +231,7 @@ public class Peon : MonoBehaviour
 
     void Start()
     {
-        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+        _meshRenderer = transform.GetChild(0).GetChild(0).GetComponentInChildren<MeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;
@@ -360,7 +360,10 @@ public class Peon : MonoBehaviour
 
     public void SwitchMaterial(Material mat)
     {
-        //_meshRenderer.material = mat;
+        Material[] newMaterial = new Material[2];
+        newMaterial[0] = _meshRenderer.materials[0];
+        newMaterial[1] = mat;
+        _meshRenderer.materials = newMaterial;
     }
 
     public virtual bool CanFix(Carriage carriage)
