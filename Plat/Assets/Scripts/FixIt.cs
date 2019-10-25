@@ -27,8 +27,9 @@ public class FixIt : MonoBehaviour
         set { _isAnEvent = value; }
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
+        if (!Input.GetMouseButtonDown(1)) return;
         if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
         if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
