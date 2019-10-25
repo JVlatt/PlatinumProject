@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017162429, g: 0.00000002640952, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0000171624, g: 0.00000002640952, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -518,6 +518,18 @@ PrefabInstance:
     - target: {fileID: 2669791463772907159, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345272796, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345272796, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345272796, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1202,6 +1214,75 @@ PrefabInstance:
       propertyPath: m_carriages.Array.data[1]
       value: 
       objectReference: {fileID: 303532860}
+    - target: {fileID: 2294865404506447112, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.8660245
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000014901156
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000008195636
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000016
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862977, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862979, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 19.150192
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862979, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862979, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.5905943
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862979, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862979, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 822862978, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 69b1427aa324c9a478bbe397a7bebce2, type: 2}
     m_RemovedComponents:
     - {fileID: 8852919000395797645, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
