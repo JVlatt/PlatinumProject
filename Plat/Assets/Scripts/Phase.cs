@@ -15,7 +15,8 @@ public class Phase : MonoBehaviour
         BLANK,
         BREAK,
         MOVE,
-        RESETCAMERA
+        RESETCAMERA,
+        FADE
     }
 
     [SerializeField]

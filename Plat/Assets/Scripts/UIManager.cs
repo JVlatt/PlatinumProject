@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
     private Transform _UIPeonPrefab;
     [SerializeField]
     private Image _leftAttack;
+    public Image _blackScreen;
+    public float _fadeSpeed;
+    float _timer;
+    bool _fade;
 
     [Header("UI Perso")]
     [SerializeField]
@@ -176,6 +180,12 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (_fade)
+        {
+            _timer += Time.deltaTime;
+            _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+        }
+
         for (int i = 0; i < _UIPeons.Count; i++)
         {
             if(GameManager.GetManager()._peonManager._peons[i] != null)
@@ -305,5 +315,10 @@ public class UIManager : MonoBehaviour
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
         _isAnEvent = false;
+    }
+
+    public void fade()
+    {
+        _fade = true;
     }
 }

@@ -95,6 +95,9 @@ public class PhaseManager : MonoBehaviour
             case Phase.TYPE.RESETCAMERA:
                 GameManager.GetManager().cameraController.ResetCamera();
                 break;
+            case Phase.TYPE.FADE:
+                GameManager.GetManager()._UIManager.fade();
+                break;
         }
     }
 
