@@ -11,8 +11,6 @@ public class FixIt : MonoBehaviour
         set
         {
             m_isOnFix = value;
-            if (!value && _activePeon != null)
-                _activePeon._isFixing = false;
         }
     }
     public Peon _activePeon { get; private set; }

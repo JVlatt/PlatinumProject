@@ -169,15 +169,10 @@ public class Peon : MonoBehaviour
         get { return m_fix; }
         set { 
             m_fix = value;
-            _fixBroke0 = value.transform.GetChild(0).GetChild(0).GetComponentInChildren<Image>();
-            _fixBroke1 = value.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
-            Debug.Log(_fixBroke0.transform);
-            Debug.Log(_fixBroke1.transform);
+            _fixAnimator = value.GetComponent<Animator>();
         }
     }
-
-    private Image _fixBroke0;
-    private Image _fixBroke1;
+    private Animator _fixAnimator;
 
     private bool _fixFail;
     #endregion
@@ -301,24 +296,23 @@ public class Peon : MonoBehaviour
             {
                 //c'est reparé
                 _currentCarriage._isBroke = false;
+                _isFixing = false;
             }
             else
             {
                 _fixFail = true;
+                _currentCarriage._isBroke = true;
             }
             _fixTimer = 0;
             
             
         }else if (_fixFail)
         {
-            _fixBroke0.fillAmount = _fixTimer;
-            _fixBroke1.fillAmount = _fixTimer;
+            _fixAnimator.SetTrigger("Fail");
             if (_fixTimer > 1)
             {
                 _fixFail = false;
                 _isFixing = false;
-                _fixBroke0.fillAmount = 0;
-                _fixBroke1.fillAmount = 0;
             }
 
         }
