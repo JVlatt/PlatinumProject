@@ -62,6 +62,13 @@ public class UIManager : MonoBehaviour
     private Image _taonImg;
     [SerializeField]
     private Image _oniImg;
+
+    private bool _isAnEvent = false;
+    public bool isAnEvent
+    {
+        get { return _isAnEvent; }
+        set { _isAnEvent = value; }
+    }
     #region Struct
     [System.Serializable]
     class UIInfoPerso
@@ -171,11 +178,12 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < _UIPeons.Count; i++)
         {
-            Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position;
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
-            _UIPeons[i].position = screenPos;
-            while (i+1<_UIPeons.Count && !GameManager.GetManager()._peonManager._peons[i + 1] )
-                i++;
+            if(GameManager.GetManager()._peonManager._peons[i] != null)
+            {
+                Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position;
+                Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
+                _UIPeons[i].position = screenPos;
+            }
         }
         for (int i = 0; i < _carriagesTags.Count; i++)
         {
@@ -271,23 +279,31 @@ public class UIManager : MonoBehaviour
         _oniImg.gameObject.SetActive(false);
         _taonImg.gameObject.SetActive(false);
         _butorImg.gameObject.SetActive(false);
+        string chara = character;
+        _text.SetText(text);
 
-        switch (character)
+        if (_isAnEvent)
         {
-            case "butor":
+            string txt = GameManager.GetManager().phaseManager.eventPeon._peonInfo.name + text;
+            _text.SetText(txt);
+            chara = GameManager.GetManager().phaseManager.eventPeon._peonInfo.name;
+        }
+        switch (chara)
+        {
+            case "Butor":
                 _butorImg.gameObject.SetActive(true);
                 break;
-            case "taon":
+            case "Taon":
                 _taonImg.gameObject.SetActive(true);
                 break;
-            case "oni":
+            case "Oni":
                 _oniImg.gameObject.SetActive(true);
                 break;
             default:
                 break;
         }
-        _text.SetText(text);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
+        _isAnEvent = false;
     }
 }

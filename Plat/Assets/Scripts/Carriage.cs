@@ -116,7 +116,19 @@ public class Carriage : MonoBehaviour
     private Animator _light;
 
     public GameObject _battleUi;
-
+    private bool _isAnEvent = false;
+    public bool isAnEvent
+    {
+        get { return _isAnEvent; }
+        set { _isAnEvent = value; }
+    }
+    [SerializeField]
+    private bool _autoWin = false;
+    public bool autoWin
+    {
+        get { return _autoWin; }
+        set { _autoWin = value; }
+    }
     #endregion
 
     private void Start()
@@ -263,65 +275,85 @@ public class Carriage : MonoBehaviour
     }
     private void Fight()
     {
-        int totalpower = 0;
-
-        switch(m_activePeons[0]._type)
+        if(_isAnEvent)
         {
-            case Peon.TYPE.FIGHTER:
-                totalpower = 70;
-                break;
-            case Peon.TYPE.SIMPLE:
-                totalpower = 40;
-                break;
-            case Peon.TYPE.MECA:
-                totalpower = 35;
-                break;
-            case Peon.TYPE.HEALER:
-                totalpower = 20;
-                break;
-        }
-        for (int i = 1; i < m_activePeons.Count; i++)
-        {
-            switch (m_activePeons[i]._type)
+            if(autoWin)
             {
-                case Peon.TYPE.FIGHTER:
-                    totalpower += 20;
-                    break;
-                case Peon.TYPE.SIMPLE:
-                    totalpower += 15;
-                    break;
-                case Peon.TYPE.MECA:
-                    totalpower += 10;
-                    break;
-                case Peon.TYPE.HEALER:
-                    totalpower += 5;
-                    break;
+                Victory();
             }
-        }
-        int rand = Random.Range(0, 100);
-        Debug.Log("Puissance Totale = " + totalpower);
-        Debug.Log("Jet de Dés = " + rand);
-        if(rand <= totalpower)
-        {
-            Debug.Log("Victoire ! ");
-            Victory();
+            if(!autoWin)
+            {
+                GameManager.GetManager().phaseManager.GetPeon(m_activePeons[0]);
+                _underAttack = false;
+                _particle.Stop();
+                m_activePeons[0]._HP = 0;
+                GameManager.GetManager().phaseManager.NextPhase();
+            }
+            _battleUi.SetActive(false);
         }
         else
         {
-            Debug.Log("Défaite :(");
-            Defeat();
+            int totalpower = 0;
+
+            switch (m_activePeons[0]._type)
+            {
+                case Peon.TYPE.FIGHTER:
+                    totalpower = 70;
+                    break;
+                case Peon.TYPE.SIMPLE:
+                    totalpower = 40;
+                    break;
+                case Peon.TYPE.MECA:
+                    totalpower = 35;
+                    break;
+                case Peon.TYPE.HEALER:
+                    totalpower = 20;
+                    break;
+            }
+            for (int i = 1; i < m_activePeons.Count; i++)
+            {
+                switch (m_activePeons[i]._type)
+                {
+                    case Peon.TYPE.FIGHTER:
+                        totalpower += 20;
+                        break;
+                    case Peon.TYPE.SIMPLE:
+                        totalpower += 15;
+                        break;
+                    case Peon.TYPE.MECA:
+                        totalpower += 10;
+                        break;
+                    case Peon.TYPE.HEALER:
+                        totalpower += 5;
+                        break;
+                }
+            }
+            int rand = Random.Range(0, 100);
+            Debug.Log("Puissance Totale = " + totalpower);
+            Debug.Log("Jet de Dés = " + rand);
+            if (rand <= totalpower)
+            {
+                Debug.Log("Victoire ! ");
+                Victory();
+            }
+            else
+            {
+                Debug.Log("Défaite :(");
+                Defeat();
+            }
+            _timerBeforeAttack = 0f;
+            _battleUi.SetActive(false);
         }
-        _timerBeforeAttack = 0f;
-        _battleUi.SetActive(false);
     }
 
     private void Victory()
     {
-        GameManager.GetManager().phaseManager.NextPhase();
+        GameManager.GetManager().phaseManager.GetPeon(m_activePeons[0]);
         _underAttack = false;
         _particle.Stop();
         m_activePeons[0]._HP -= 10;
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
+        GameManager.GetManager().phaseManager.NextPhase();
     }
 
     private void Defeat()

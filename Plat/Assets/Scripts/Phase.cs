@@ -100,4 +100,12 @@ public class Phase : MonoBehaviour
         set { _freezeControl = value; }
     }
 
+    [SerializeField]
+    private bool _win = false;
+    public bool win
+    {
+        get { return _win; }
+        set { _win = value; }
+    }
+
 }

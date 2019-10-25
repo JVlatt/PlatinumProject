@@ -227,7 +227,7 @@ public class Peon : MonoBehaviour
 
     void Start()
     {
-        _meshRenderer = transform.GetChild(0).GetChild(0).GetComponentInChildren<MeshRenderer>();
+        _meshRenderer = transform.GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<MeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;

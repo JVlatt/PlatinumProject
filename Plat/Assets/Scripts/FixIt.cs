@@ -48,6 +48,7 @@ public class FixIt : MonoBehaviour
         _activePeon._isFixing = true;
         if (_isAnEvent)
         {
+            GameManager.GetManager().phaseManager.GetPeon(_activePeon);
             GameManager.GetManager().phaseManager.NextPhase();
             _isAnEvent = false;
         }

@@ -54,6 +54,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &33530654
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,13 +102,14 @@ MonoBehaviour:
   _duration: 2
   _subDuration: 0
   _text: 'Oni : "Are we going to die again ?"'
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &77529647
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,13 +157,14 @@ MonoBehaviour:
   _duration: 2
   _subDuration: 0
   _text: 'Butor : " I should go first."'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &210389078
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +219,7 @@ MonoBehaviour:
   _sound: growl
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &254686601
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,13 +267,14 @@ MonoBehaviour:
   _duration: 2
   _subDuration: 0
   _text: 'Oni : "I have medical stuff at the infirmary, I can heal you"'
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &270671289
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,14 +321,15 @@ MonoBehaviour:
   _type: 1
   _duration: 2
   _subDuration: 0
-  _text: 'Butor : "On my way."'
-  _character: butor
+  _text: ' : "On my way."'
+  _character: 
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
-  _specialEvent: 0
+  _specialEvent: 1
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &312706708
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,13 +377,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Taon: "The..the "Thing" ??" '
-  _character: taon
+  _character: Taon
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1320423289
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,13 +432,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Oni: "*quake*"'
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1513762634
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +494,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1538026750
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,13 +542,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Butor: "Oh no.."'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1572403723
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +604,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1752349641
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,13 +652,14 @@ MonoBehaviour:
   _duration: 2
   _subDuration: 0
   _text: 'Taon : "Don''t worry we will handle this"'
-  _character: taon
+  _character: Taon
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1796492996
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +714,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1798878417
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,13 +762,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Butor: "We''re under attack !"'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1830915065
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,14 +816,15 @@ MonoBehaviour:
   _type: 1
   _duration: 2
   _subDuration: 0
-  _text: 'Butor : "I''m - I''m hurt ! I need medial... assistance"'
-  _character: butor
+  _text: ' : "I''m - I''m hurt ! I need medial... assistance"'
+  _character: 
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
-  _specialEvent: 0
+  _specialEvent: 1
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &2004646936
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,13 +872,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Butor: "We have to protect the train !"'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &2112659840
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +934,62 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 1
+  _win: 1
+--- !u!1 &578781032755557689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5006227327104263725}
+  - component: {fileID: 1248826440476925737}
+  m_Layer: 0
+  m_Name: Blank (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5006227327104263725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578781032755557689}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 42
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248826440476925737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578781032755557689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 6
+  _duration: 10
+  _subDuration: 0
+  _text: 
+  _character: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499237630107077
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,13 +1037,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: "Butor: Friends ? Just survivors. Spirits don\u2019t have friends."
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499237855697667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,13 +1092,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Butor: "Taon, this is for you ! "'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499237873828215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1154,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499237899386310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1209,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499238069983847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,14 +1256,16 @@ MonoBehaviour:
   _type: 1
   _duration: 3
   _subDuration: 0
-  _text: '"I have a bad feeling about this, the monster is coming, fix this now !"'
+  _text: ': "I have a bad feeling about this, the monster is coming, I need to fix
+    this now !"'
   _character: 
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
-  _specialEvent: 0
+  _specialEvent: 1
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499238259211713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1320,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499238522084123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1375,7 @@ MonoBehaviour:
   _sound: break
   _controlDuration: 1
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499238591345283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1446,11 @@ Transform:
   - {fileID: 3201882874745445211}
   - {fileID: 4376502067320581636}
   - {fileID: 864145979912387967}
+  - {fileID: 5006227327104263725}
+  - {fileID: 6464925530049736039}
+  - {fileID: 2627912103727931597}
+  - {fileID: 4569277261941517412}
+  - {fileID: 2191310148600533714}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1436,6 +1521,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499238702068610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,13 +1569,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Oni: "*sigh* "'
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499238859148611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,14 +1623,15 @@ MonoBehaviour:
   _type: 1
   _duration: 3
   _subDuration: 0
-  _text: '"I''ll check what happened."'
+  _text: ' : "I''ll check what happened."'
   _character: 
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
-  _specialEvent: 0
+  _specialEvent: 1
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499238892406660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1686,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1178499239114884113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1741,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499239410533116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,13 +1789,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: "Oni: \"Please, don\u2019t b..be so r..rude, we are friends n..no ? \""
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1178499239505835786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,13 +1844,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Taon: "I know it, thanks." '
-  _character: taon
+  _character: Taon
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &1440762471928556788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,6 +1906,7 @@ MonoBehaviour:
   _sound: attack
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &1616775672427420443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,6 +1961,7 @@ MonoBehaviour:
   _sound: break
   _controlDuration: 1
   _freezeControl: 1
+  _win: 0
 --- !u!1 &2164133256565530538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,13 +2009,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Taon : *sight* ...'
-  _character: taon
+  _character: Taon
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &4629382970470916946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +2071,62 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
+--- !u!1 &4660359818768396240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6464925530049736039}
+  - component: {fileID: 8221394949121846681}
+  m_Layer: 0
+  m_Name: Camera (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6464925530049736039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660359818768396240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 43
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8221394949121846681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660359818768396240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 4
+  _duration: 0
+  _subDuration: 0
+  _text: 
+  _character: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 1
+  _win: 0
 --- !u!1 &5473618049040548687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2181,117 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
+--- !u!1 &5752002581743160518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2191310148600533714}
+  - component: {fileID: 1022523562070462143}
+  m_Layer: 0
+  m_Name: Blank (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2191310148600533714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752002581743160518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 46
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022523562070462143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752002581743160518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 6
+  _duration: 10
+  _subDuration: 0
+  _text: 
+  _character: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+  _win: 0
+--- !u!1 &7649326945961219163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2627912103727931597}
+  - component: {fileID: 5162982882204428400}
+  m_Layer: 0
+  m_Name: TextP1P1 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2627912103727931597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649326945961219163}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 44
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5162982882204428400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649326945961219163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 2
+  _subDuration: 0
+  _text: ' : "I don''t feel so good ..."'
+  _character: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 1
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+  _win: 0
 --- !u!1 &8002554629716326600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,13 +2339,14 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Oni : "Again ???"'
-  _character: oni
+  _character: Oni
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
 --- !u!1 &8089030331372055357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,6 +2401,7 @@ MonoBehaviour:
   _sound: attack
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &8390597668745018614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,13 +2449,69 @@ MonoBehaviour:
   _duration: 3
   _subDuration: 0
   _text: 'Butor : "Get ready he is coming back !"'
-  _character: butor
+  _character: Butor
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
   _specialEvent: 0
   _sound: 
   _controlDuration: 0
   _freezeControl: 1
+  _win: 0
+--- !u!1 &8487923869215107633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4569277261941517412}
+  - component: {fileID: 4783619973867310810}
+  m_Layer: 0
+  m_Name: TextP1P1 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4569277261941517412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487923869215107633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1178499238591345281}
+  m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4783619973867310810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487923869215107633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b9a71c62cd9748bcef8a24b34e9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _duration: 5
+  _subDuration: 0
+  _text: '"NOOOOOOOOOOOOOO !!!!!"'
+  _character: 
+  _carriage: {fileID: 0}
+  _peon: {fileID: 0}
+  _specialEvent: 0
+  _sound: 
+  _controlDuration: 0
+  _freezeControl: 0
+  _win: 0
 --- !u!1 &8509979495025697113
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,10 +2562,11 @@ MonoBehaviour:
   _character: 
   _carriage: {fileID: 0}
   _peon: {fileID: 0}
-  _specialEvent: 0
+  _specialEvent: 1
   _sound: 
   _controlDuration: 1
   _freezeControl: 0
+  _win: 0
 --- !u!1 &8779922759540483496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2621,7 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 1
   _freezeControl: 1
+  _win: 0
 --- !u!1 &8817378991487585545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,3 +2676,4 @@ MonoBehaviour:
   _sound: 
   _controlDuration: 0
   _freezeControl: 0
+  _win: 0

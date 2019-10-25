@@ -23,6 +23,12 @@ public class PhaseManager : MonoBehaviour
         get { return _freezeControl; }
         set { _freezeControl = value; }
     }
+    private Peon _eventPeon;
+    public Peon eventPeon
+    {
+        get { return _eventPeon; }
+        set { _eventPeon = value; }
+    }
 
     private void Awake()
     {
@@ -64,9 +70,12 @@ public class PhaseManager : MonoBehaviour
         {
             case Phase.TYPE.ATTACK:
                 _activePhase.carriage.Attack(_activePhase.duration,_activePhase.subDuration);
+                _activePhase.carriage.isAnEvent = _activePhase.specialEvent;
+                _activePhase.carriage.autoWin = _activePhase.win;
                 break;
             case Phase.TYPE.TEXT:
-                GameManager.GetManager()._UIManager.DisplayText(_activePhase.text,_activePhase.character,_activePhase.duration);
+                GameManager.GetManager()._UIManager.isAnEvent = _activePhase.specialEvent;
+                GameManager.GetManager()._UIManager.DisplayText(_activePhase.text, _activePhase.character, _activePhase.duration);
                 break;
             case Phase.TYPE.CAMERA:
                 GameManager.GetManager().cameraController.MoveToCarriage(_activePhase.carriage);
@@ -104,5 +113,10 @@ public class PhaseManager : MonoBehaviour
     {
         if (_phaseId + 1 > _phases.Length - 1) return Phase.TYPE.BLANK;
         return _phases[_phaseId + 1].type;
+    }
+
+    public void GetPeon(Peon p)
+    {
+        _eventPeon = p;
     }
 }
