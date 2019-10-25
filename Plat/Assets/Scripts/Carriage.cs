@@ -48,6 +48,7 @@ public class Carriage : MonoBehaviour
         set {
             m_underAttack = value;
             GameManager.GetManager()._UIManager._isOnAttack = value;
+            _light.SetBool("isAttack", value);
         }
     }
     [SerializeField]
@@ -57,6 +58,7 @@ public class Carriage : MonoBehaviour
         get { return m_willBeAttacked; }
         set {
             m_willBeAttacked = value;
+            _light.SetBool("willBeAttack", value);
             GameManager.GetManager()._UIManager._isOnAttack = value;
         }
     }
@@ -111,11 +113,14 @@ public class Carriage : MonoBehaviour
         set { _nextCarriages = value; }
     }
 
+    private Animator _light;
+
     #endregion
 
     private void Start()
     {
         _fixIt = GetComponentInChildren<FixIt>(true);
+        _light = transform.parent.GetComponentInChildren<Light>().GetComponent<Animator>();
         if(_fixIt) _fixIt.Setup(this);
         _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
