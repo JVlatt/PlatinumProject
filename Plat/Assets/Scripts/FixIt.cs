@@ -8,7 +8,8 @@ public class FixIt : MonoBehaviour
     public bool _isOnFix
     {
         get { return m_isOnFix; }
-        set { 
+        set
+        {
             m_isOnFix = value;
             if (!value && _activePeon != null)
                 _activePeon._isFixing = false;
@@ -33,7 +34,7 @@ public class FixIt : MonoBehaviour
         if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
         if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
-        if (GameManager.GetManager().phaseManager&&  GameManager.GetManager().phaseManager.freezeControl) return;
+        if (GameManager.GetManager().phaseManager && GameManager.GetManager().phaseManager.freezeControl) return;
         _activePeon = GameManager.GetManager()._peonManager._activePeon;
         if (_activePeon._currentCarriage != _carriage)
         {
@@ -44,7 +45,7 @@ public class FixIt : MonoBehaviour
             GameManager.GetManager()._peonManager._activePeon = null;
         }
         _isOnFix = true;
-        
+
         _activePeon._isFixing = true;
         if (_isAnEvent)
         {
@@ -55,8 +56,8 @@ public class FixIt : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(GameManager.GetManager()._peonManager._activePeon != null)
-        GameManager.GetManager()._UIManager.ChangeCursor("fix");
+        if (GameManager.GetManager()._peonManager._activePeon != null && !GameManager.GetManager().phaseManager.freezeControl)
+            GameManager.GetManager()._UIManager.ChangeCursor("fix");
     }
     private void OnMouseExit()
     {

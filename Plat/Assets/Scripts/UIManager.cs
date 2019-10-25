@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
     private Texture2D _cursorPeon;
     [SerializeField]
     private Texture2D _cursorFix;
+    [SerializeField]
+    private Texture2D _cursorAttack;
 
     [Header("Debug")]
     [SerializeField]
@@ -229,7 +231,7 @@ public class UIManager : MonoBehaviour
         _lifeBars.Add(image);
 
         TextMeshProUGUI text = over.GetComponentInChildren<TextMeshProUGUI>();
-        text.SetText(p._type.ToString());
+        text.SetText(p._peonInfo.name.ToString());
         _nameTags.Add(text);
     }
 
@@ -255,6 +257,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "peon":
                 Cursor.SetCursor(_cursorPeon, Vector2.zero, CursorMode.Auto);
+                break;
+            case "attack":
+                Cursor.SetCursor(_cursorAttack, Vector2.zero, CursorMode.Auto);
                 break;
         }
     }

@@ -123,20 +123,32 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.GetManager().phaseManager && GameManager.GetManager().phaseManager.freezeControl) return;
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
         if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
         {
             GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon,this);
         }
     }
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        _nameTag.gameObject.SetActive(true);
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
+        if(_underAttack)
+        {
+            GameManager.GetManager()._UIManager.ChangeCursor("attack");
+        }
+        if(!_underAttack)
+        {
+            _nameTag.gameObject.SetActive(true);
+        }
     }
 
     private void OnMouseExit()
     {
+        if (_underAttack)
+        {
+            GameManager.GetManager()._UIManager.ChangeCursor("default");
+        }
         _nameTag.gameObject.SetActive(false);
     }
 

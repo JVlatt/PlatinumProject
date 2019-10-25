@@ -46,7 +46,8 @@ public class Peon : MonoBehaviour
             m_canMove = value;
             if (_isFixing && !value)
             {
-                _animator.SetBool("Healing", true); 
+                _animator.SetBool("Healing", true);
+                GameManager.GetManager()._soundManager.Play("fix");
                 _fix.SetActive(true);
             }
             else
@@ -246,17 +247,17 @@ public class Peon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.GetManager().phaseManager && GameManager.GetManager().phaseManager.freezeControl) return;
+        if (!GameManager.GetManager().phaseManager.freezeControl)
         GameManager.GetManager()._peonManager._activePeon = this;
     }
     private void OnMouseEnter()
     {
+        if (GameManager.GetManager().phaseManager.freezeControl) return;
+        if (_currentCarriage._underAttack) return;
         GameManager.GetManager()._UIManager.ChangeCursor("peon");
-    }
-    private void OnMouseOver()
-    {
         _over.SetActive(true);
     }
+    
     private void OnMouseExit()
     {
         _over.SetActive(false);
