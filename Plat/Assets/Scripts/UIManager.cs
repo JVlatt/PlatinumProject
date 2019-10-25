@@ -174,6 +174,8 @@ public class UIManager : MonoBehaviour
             Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
             _UIPeons[i].position = screenPos;
+            while (i+1<_UIPeons.Count && !GameManager.GetManager()._peonManager._peons[i + 1] )
+                i++;
         }
         for (int i = 0; i < _carriagesTags.Count; i++)
         {

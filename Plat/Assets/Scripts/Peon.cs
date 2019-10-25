@@ -98,7 +98,7 @@ public class Peon : MonoBehaviour
     {
         get { return m_nextID++; }
     }
-
+    public GameObject _masque;
     #endregion
     
 
@@ -260,6 +260,8 @@ public class Peon : MonoBehaviour
     }
     private void Update()
     {
+        if (_HP <= 0)
+            Death();
         if (_canMove)
         {
             if (Vector3.Distance(transform.position, m_destination) <= 0.1f)
@@ -281,6 +283,15 @@ public class Peon : MonoBehaviour
         Fix();
         Recover();
         SpecialUpdate();
+    }
+
+    private void Death()
+    {
+        _currentCarriage.RemovePeon(this);
+        GameObject masque = Instantiate(_masque);
+        masque.transform.position = transform.position+ new Vector3(0, -0.5f, 0);
+        masque.transform.eulerAngles = new Vector3(0, 90, -90);
+        Destroy(gameObject);
     }
 
     public virtual void SpecialUpdate() { }
