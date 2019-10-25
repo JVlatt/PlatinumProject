@@ -24,12 +24,17 @@ public class CameraController : MonoBehaviour
 
     private Vector3 _target;
     private bool _isMoving = false;
+    private Vector3 _startPosition;
 
     private void Awake()
     {
         GameManager.GetManager().cameraController = this;
     }
 
+    private void Start()
+    {
+        _startPosition = transform.position;
+    }
     void Update()
     {
         if(!_isMoving)
@@ -78,6 +83,11 @@ public class CameraController : MonoBehaviour
         _isMoving = true;
     }
 
+    public void ResetCamera()
+    {
+        _target = _startPosition;
+        _isMoving = true;
+    }
     [System.Serializable]
     private struct MinMax
     {

@@ -83,6 +83,9 @@ public class PhaseManager : MonoBehaviour
             case Phase.TYPE.MOVE:
                 GameManager.GetManager()._trainManager.MovePeonToCarriage(_activePhase.peon, _activePhase.carriage);
                 break;
+            case Phase.TYPE.RESETCAMERA:
+                GameManager.GetManager().cameraController.ResetCamera();
+                break;
         }
     }
 
