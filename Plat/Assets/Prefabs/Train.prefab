@@ -24331,6 +24331,7 @@ MonoBehaviour:
   _nextCarriages:
   - {fileID: 8852919000992598057}
   - {fileID: 8852919000118355980}
+  _battleUi: {fileID: 0}
 --- !u!1 &8921957094069107953
 GameObject:
   m_ObjectHideFlags: 0
@@ -24819,6 +24820,11 @@ PrefabInstance:
       propertyPath: _nextCarriages.Array.data[0]
       value: 
       objectReference: {fileID: 1916064324}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: _battleUi
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24905,16 +24911,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interior
       objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: _nextCarriages.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
-        type: 3}
-      propertyPath: _nextCarriages.Array.data[0]
-      value: 
-      objectReference: {fileID: 8852919000118355980}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25016,6 +25012,11 @@ PrefabInstance:
       propertyPath: _nextCarriages.Array.data[1]
       value: 
       objectReference: {fileID: 8852919000096952388}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: _battleUi
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25107,6 +25108,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Interior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: _nextCarriages.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c,
+        type: 3}
+      propertyPath: _battleUi
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7727126622605590719, guid: fa25018ea109d1e47962c69a2281309c,
         type: 3}

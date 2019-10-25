@@ -115,6 +115,8 @@ public class Carriage : MonoBehaviour
 
     private Animator _light;
 
+    public GameObject _battleUi;
+
     #endregion
 
     private void Start()
@@ -241,6 +243,7 @@ public class Carriage : MonoBehaviour
             _attackTimer += Time.deltaTime;
             if (m_activePeons.Count >= 1)
             {
+                _battleUi.SetActive(true);
                 _fightTimer += Time.deltaTime;
                 if (_fightTimer >= _fightDuration)
                 {
@@ -309,7 +312,7 @@ public class Carriage : MonoBehaviour
             Defeat();
         }
         _timerBeforeAttack = 0f;
-
+        _battleUi.SetActive(false);
     }
 
     private void Victory()
