@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="19.25" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="CameraController.MinMax" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\CameraController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAQAAAAACCBAAAAAACAAABgAQBAAAADAAAAgAAGAAEA=</HashCode>
+      <FileName>Assets\Scripts\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Carriage">
+    <Position X="8.25" Y="6" Width="1.5" />
+    <Members>
+      <Field Name="_attackDuration" Hidden="true" />
+      <Field Name="_attackTimer" Hidden="true" />
+      <Field Name="_autoWin" Hidden="true" />
+      <Field Name="_battleUi" Hidden="true" />
+      <Field Name="_fightDuration" Hidden="true" />
+      <Field Name="_fightTimer" Hidden="true" />
+      <Field Name="_fixIt" Hidden="true" />
+      <Field Name="_isAnEvent" Hidden="true" />
+      <Property Name="_isBroke" Hidden="true" />
+      <Field Name="_light" Hidden="true" />
+      <Field Name="_nameTag" Hidden="true" />
+      <Field Name="_nextCarriages" Hidden="true" />
+      <Field Name="_particle" Hidden="true" />
+      <Field Name="_timeBeforeAttack" Hidden="true" />
+      <Field Name="_timerBeforeAttack" Hidden="true" />
+      <Property Name="_underAttack" Hidden="true" />
+      <Property Name="_willBeAttacked" Hidden="true" />
+      <Method Name="AddPeonToSpecialCarriage" Hidden="true" />
+      <Method Name="Attack" Hidden="true" />
+      <Property Name="autoWin" Hidden="true" />
+      <Method Name="CheckFight" Hidden="true" />
+      <Method Name="ClearPeon" Hidden="true" />
+      <Method Name="Defeat" Hidden="true" />
+      <Method Name="DestructCarriage" Hidden="true" />
+      <Method Name="Fight" Hidden="true" />
+      <Method Name="GetFreePos" Hidden="true" />
+      <Property Name="id" Hidden="true" />
+      <Property Name="isAnEvent" Hidden="true" />
+      <Field Name="m_activePeons" Hidden="true" />
+      <Field Name="m_capacity" Hidden="true" />
+      <Field Name="m_id" Hidden="true" />
+      <Field Name="m_isBroke" Hidden="true" />
+      <Field Name="m_mainDestination" Hidden="true" />
+      <Field Name="m_peons" Hidden="true" />
+      <Field Name="m_subDestinations" Hidden="true" />
+      <Field Name="m_underAttack" Hidden="true" />
+      <Field Name="m_willBeAttacked" Hidden="true" />
+      <Property Name="nameTag" Hidden="true" />
+      <Property Name="nextCarriage" Hidden="true" />
+      <Method Name="OnMouseEnter" Hidden="true" />
+      <Method Name="OnMouseExit" Hidden="true" />
+      <Method Name="OnMouseOver" Hidden="true" />
+      <Method Name="OnTriggerEnter" Hidden="true" />
+      <Method Name="OnTriggerExit" Hidden="true" />
+      <Method Name="RemovePeon" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Method Name="Victory" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="Carriage.positions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Carriage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UCSYAFYBACYYAwEAAABQMAQAEaACCozCQQFAAAAQElg=</HashCode>
+      <FileName>Assets\Scripts\Carriage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="fixIt" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FixIt" Collapsed="true">
+    <Position X="6.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAACAAAAwAAAABAAAAAECAAAQBAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\FixIt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Healer" Collapsed="true">
+    <Position X="11.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgACAAgAECAAgCQAAAAACAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Healer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infirmary" Collapsed="true">
+    <Position X="9.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAMAAAAAgAAAAAAQAAAAAAAAAAAIAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Infirmary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParallaxScroller" Collapsed="true">
+    <Position X="22" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAQAAGAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ParallaxScroller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Peon" Collapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhZEAyCEACAAAmSACIHACAACGSABEyCgtYAFQICMEAA=</HashCode>
+      <FileName>Assets\Scripts\Peon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PeonManager">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <Members>
+      <Field Name="_base" Hidden="true" />
+      <Field Name="_outline" Hidden="true" />
+      <Method Name="AddPeon" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="m_activePeon" Hidden="true" />
+      <Field Name="m_peons" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAACAAAAAAAIAYAABAAFA=</HashCode>
+      <FileName>Assets\Scripts\PeonManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_activePeon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phase" Collapsed="true">
+    <Position X="13.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIACLACAAAQEQAABIAAAAACIAlARAIAAAAAgAAABE=</HashCode>
+      <FileName>Assets\Scripts\Phase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseManager">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <Members>
+      <Field Name="_freezeControl" Hidden="true" />
+      <Field Name="_phaseId" Hidden="true" />
+      <Field Name="_phaseTimer" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Property Name="eventPeon" Hidden="true" />
+      <Property Name="freezeControl" Hidden="true" />
+      <Method Name="GameLoop" Hidden="true" />
+      <Method Name="GetNextPhaseType" Hidden="true" />
+      <Method Name="GetPeon" Hidden="true" />
+      <Method Name="NextPhase" Hidden="true" />
+      <Property Name="phases" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="StartPhase" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACQAAFAACCAAAAAAAQAAASAgASAAABAAAAAEIAAAIEA=</HashCode>
+      <FileName>Assets\Scripts\PhaseManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_phases" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sound" Collapsed="true">
+    <Position X="17.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAACAIAAAAAAAAAAAAEAEAgAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <Members>
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="instance" Hidden="true" />
+      <Method Name="Play" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+    </Members>
+    <AssociationLine Name="fx" Type="Sound" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.406" Y="5.497" />
+        <Point X="18.406" Y="6.25" />
+        <Point X="19" Y="6.25" />
+        <Point X="19" Y="6.75" />
+        <Point X="18.75" Y="6.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="music" Type="Sound" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.594" Y="5.497" />
+        <Point X="17.594" Y="6.25" />
+        <Point X="17" Y="6.25" />
+        <Point X="17" Y="6.812" />
+        <Point X="17.25" Y="6.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACABAAAAAAAAAAAAAABAAAAAgAAAAAAAEEA=</HashCode>
+      <FileName>Assets\Scripts\SoundManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="ambient" />
+      <Field Name="fx" />
+      <Field Name="music" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TrainManager">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <Members>
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="m_carriages" Hidden="true" />
+      <Method Name="MovePeonToCarriage" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="UpdateId" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAAACAAEAAAAAAAAAAAAAAIAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\TrainManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAQRgBAAgDAoAYCCABgNAkUgAEQBAICJAFEAiBBAIVA=</HashCode>
+      <FileName>Assets\Scripts\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Script.GameManager">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="_cameraController" Hidden="true" />
+      <Property Name="_levelManager" Hidden="true" />
+      <Field Name="_manger" Hidden="true" />
+      <Field Name="_phaseManager" Hidden="true" />
+      <Method Name="GetManager" Hidden="true" />
+      <Field Name="m_levelManager" Hidden="true" />
+      <Field Name="m_peonManager" Hidden="true" />
+      <Field Name="m_soundManager" Hidden="true" />
+      <Field Name="m_trainManager" Hidden="true" />
+      <Field Name="m_UIManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAIBiQAAAAAAAQQCAAAIDAAAAEAAAIAAAAAARAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_peonManager" />
+      <Property Name="_trainManager" />
+      <Property Name="_UIManager" />
+      <Property Name="cameraController" />
+      <Property Name="phaseManager" />
+      <Property Name="_soundManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

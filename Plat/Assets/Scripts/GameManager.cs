@@ -10,13 +10,6 @@ namespace Assets.Script
 
         #region Variables
 
-        private PlayerManager m_players;
-        public PlayerManager _players
-        {
-            get { return m_players; }
-            set { m_players = value; }
-        }
-
         private UIManager m_UIManager;
         public UIManager _UIManager
         {
@@ -38,12 +31,6 @@ namespace Assets.Script
             set { m_soundManager = value; }
         }
 
-        private InputManager m_inputManager;
-        public InputManager _inputManager
-        {
-            get { return m_inputManager; }
-            set { m_inputManager = value; }
-        }
         private PeonManager m_peonManager;
         public PeonManager _peonManager
         {
@@ -81,5 +68,12 @@ namespace Assets.Script
             return _manger;
         }
 
+        public int Property
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }
