@@ -56,7 +56,7 @@ public class CameraController : MonoBehaviour
     {
         if(!_isMoving)
         {
-            if(PhaseManager.Instance.freezeControl)
+            if(!PhaseManager.Instance.activePhase.freezeControl)
             {
                 if (Input.mousePosition.x < mouseBorder || Input.GetKey(KeyCode.A))
                     transform.position += Vector3.left * Time.deltaTime * camSpeed;

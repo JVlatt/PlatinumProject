@@ -142,7 +142,7 @@ public class Carriage : MonoBehaviour
     private void OnMouseOver()
     {
         if (!Input.GetMouseButtonDown(1)) return;
-        if (PhaseManager.Instance.freezeControl) return;
+        if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon,this);
@@ -151,7 +151,7 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (PhaseManager.Instance.freezeControl) return;
+        if (PhaseManager.Instance.activePhase.freezeControl) return;
         if(_underAttack)
         {
             UIManager.Instance.ChangeCursor("attack");

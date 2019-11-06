@@ -243,12 +243,12 @@ public class Peon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!PhaseManager.Instance.freezeControl)
+        if (!PhaseManager.Instance.activePhase.freezeControl)
         PeonManager.Instance._activePeon = this;
     }
     private void OnMouseEnter()
     {
-        if (PhaseManager.Instance.freezeControl) return;
+        if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
         UIManager.Instance.ChangeCursor("peon");
         _over.SetActive(true);

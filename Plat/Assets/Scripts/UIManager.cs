@@ -94,11 +94,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _oniImg;
 
-    private bool _isAnEvent = false;
-    public bool isAnEvent
+    private bool _autoName = false;
+    public bool autoName
     {
-        get { return _isAnEvent; }
-        set { _isAnEvent = value; }
+        get { return _autoName; }
+        set { _autoName = value; }
     }
     #region Struct
     [System.Serializable]
@@ -260,11 +260,13 @@ public class UIManager : MonoBehaviour
             if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
-                if (!(PhaseManager.Instance.GetNextPhaseType() == Phase.TYPE.TEXT))
+                Phase nextPhase = PhaseManager.Instance.GetNextPhase();
+                if (nextPhase != null && nextPhase.KillTextBox())
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
                 }
+                
                 PhaseManager.Instance.NextPhase();
             }
         }
@@ -325,7 +327,7 @@ public class UIManager : MonoBehaviour
         string chara = character;
         _text.SetText(text);
 
-        if (_isAnEvent)
+        if (_autoName)
         {
             string txt = PhaseManager.Instance.eventPeon._peonInfo.name + text;
             _text.SetText(txt);
@@ -347,7 +349,7 @@ public class UIManager : MonoBehaviour
         }
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
-        _isAnEvent = false;
+        _autoName = false;
     }
 
     public void fade()

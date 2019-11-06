@@ -26,15 +26,14 @@ public class PhaseManager : MonoBehaviour
     }
 
     private Phase _activePhase;
+    public Phase activePhase
+    {
+        get { return _activePhase; }
+        set { _activePhase = value; }
+    }
     private int _phaseId;
     private float _phaseTimer;
 
-    private bool _freezeControl;
-    public bool freezeControl
-    {
-        get { return _freezeControl; }
-        set { _freezeControl = value; }
-    }
     private Peon _eventPeon;
     public Peon eventPeon
     {
@@ -83,40 +82,7 @@ public class PhaseManager : MonoBehaviour
 
     public void StartPhase()
     {
-        _freezeControl = _activePhase.freezeControl;
-        switch (_activePhase.type)
-        {
-            case Phase.TYPE.ATTACK:
-                _activePhase.carriage.Attack(_activePhase.duration,_activePhase.subDuration);
-                _activePhase.carriage.isAnEvent = _activePhase.specialEvent;
-                _activePhase.carriage.autoWin = _activePhase.win;
-                break;
-            case Phase.TYPE.TEXT:
-                UIManager.Instance.isAnEvent = _activePhase.specialEvent;
-                UIManager.Instance.DisplayText(_activePhase.text, _activePhase.character, _activePhase.duration);
-                break;
-            case Phase.TYPE.CAMERA:
-                CameraController.Instance.MoveToCarriage(_activePhase.carriage);
-                break;
-            case Phase.TYPE.BLANK:
-                break;
-            case Phase.TYPE.SOUND:
-                SoundManager.Instance.Play(_activePhase.sound);
-                break;
-            case Phase.TYPE.BREAK:
-                _activePhase.carriage._isBroke = true;
-                _activePhase.carriage.fixIt.isAnEvent = _activePhase.specialEvent;
-                break;
-            case Phase.TYPE.MOVE:
-                TrainManager.Instance.MovePeonToCarriage(_activePhase.peon, _activePhase.carriage);
-                break;
-            case Phase.TYPE.RESETCAMERA:
-                CameraController.Instance.ResetCamera();
-                break;
-            case Phase.TYPE.FADE:
-                UIManager.Instance.fade();
-                break;
-        }
+        _activePhase.LaunchPhase();
     }
 
     public void NextPhase()
@@ -130,10 +96,10 @@ public class PhaseManager : MonoBehaviour
         StartPhase();
     }
 
-    public Phase.TYPE GetNextPhaseType()
+    public Phase GetNextPhase()
     {
-        if (_phaseId + 1 > _phases.Length - 1) return Phase.TYPE.BLANK;
-        return _phases[_phaseId + 1].type;
+        if (_phaseId + 1 > _phases.Length - 1) return null;
+        return _phases[_phaseId + 1];
     }
 
     public void GetPeon(Peon p)
