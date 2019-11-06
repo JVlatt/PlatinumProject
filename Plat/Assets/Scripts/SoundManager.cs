@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 using System;
 
 public class SoundManager : MonoBehaviour
@@ -57,7 +56,6 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
-        GameManager.GetManager()._soundManager = _instance;
         foreach (Sound s in ambient)
         {
             s.source.Play();

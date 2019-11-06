@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 
 public class Infirmary : Carriage  //MADE BY CEDRIC
 {
