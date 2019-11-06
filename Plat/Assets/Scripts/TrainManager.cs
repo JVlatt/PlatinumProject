@@ -5,6 +5,18 @@ using Assets.Script;
 
 public class TrainManager : MonoBehaviour
 {
+    #region Singleton
+    private static TrainManager _instance = null;
+
+    public static TrainManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    #endregion
+
     [SerializeField]
     private List<Carriage> m_carriages = new List<Carriage>();
     public List<Carriage> _carriages
@@ -15,7 +27,13 @@ public class TrainManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.GetManager()._trainManager = this; 
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+            _instance = this;
     }
     private void Start()
     {

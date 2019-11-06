@@ -5,6 +5,19 @@ using Assets.Script;
 
 public class PhaseManager : MonoBehaviour
 {
+    #region Singleton
+    private static PhaseManager _instance = null;
+
+    public static PhaseManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    #endregion
+
+
     [SerializeField]
     private Phase[] _phases;
     public Phase[] phases
@@ -32,7 +45,13 @@ public class PhaseManager : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.GetManager().phaseManager = this;
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+            _instance = this;
     }
     private void Start()
     {

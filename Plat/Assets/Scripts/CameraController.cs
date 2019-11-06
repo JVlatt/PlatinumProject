@@ -5,6 +5,18 @@ using Assets.Script;
 
 public class CameraController : MonoBehaviour
 {
+    #region Singleton
+    private static CameraController _instance = null;
+
+    public static CameraController Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    #endregion
+
     [SerializeField]
     private float camSpeed;
     [SerializeField]
@@ -28,7 +40,13 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.GetManager().cameraController = this;
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+            _instance = this;
     }
 
     private void Start()
