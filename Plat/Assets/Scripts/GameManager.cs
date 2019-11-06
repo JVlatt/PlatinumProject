@@ -17,13 +17,6 @@ namespace Assets.Script
             set { m_UIManager = value; }
         }
 
-        private LevelManager m_levelManager;
-        public LevelManager _levelManager
-        {
-            get { return m_levelManager; }
-            set { m_levelManager = value; }
-        }
-
         private SoundManager m_soundManager;
         public SoundManager _soundManager
         {
