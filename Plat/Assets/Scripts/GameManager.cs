@@ -56,17 +56,10 @@ namespace Assets.Script
         {
             if (_manger == null)
             {
-                _manger = new GameManager(); // patern singleton
+                _manger = new GameManager();
             }
             return _manger;
         }
 
-        public int Property
-        {
-            get => default;
-            set
-            {
-            }
-        }
     }
 }
