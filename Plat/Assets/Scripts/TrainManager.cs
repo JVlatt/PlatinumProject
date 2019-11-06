@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 
 public class TrainManager : MonoBehaviour
 {
@@ -46,7 +45,7 @@ public class TrainManager : MonoBehaviour
         carriage._peons.Add(p);
         p._currentCarriage = carriage;
         p._canMove = true;
-        GameManager.GetManager()._peonManager._activePeon = null;
+        PeonManager.Instance._activePeon = null;
     }
 
     public void UpdateId()
@@ -54,7 +53,7 @@ public class TrainManager : MonoBehaviour
         foreach (Carriage c in m_carriages)
         {
             c.id = m_carriages.IndexOf(c);
-            GameManager.GetManager()._UIManager.AddCarriageName(c);
+            UIManager.Instance.AddCarriageName(c);
         }
     }
 }

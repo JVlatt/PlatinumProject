@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Script;
 using TMPro;
 public class Peon : MonoBehaviour
 {
@@ -47,7 +46,7 @@ public class Peon : MonoBehaviour
             if (_isFixing && !value)
             {
                 _animator.SetBool("Healing", true);
-                GameManager.GetManager()._soundManager.Play("fix");
+                SoundManager.Instance.Play("fix");
                 _fix.SetActive(true);
             }
             else
@@ -66,7 +65,7 @@ public class Peon : MonoBehaviour
         set
         {
             m_mentalHealth = value;
-            GameManager.GetManager()._UIManager.UpdateMentalBar();
+            UIManager.Instance.UpdateMentalBar();
         }
     }
 
@@ -127,7 +126,7 @@ public class Peon : MonoBehaviour
         set
         {
             _peonInfo.HP = value;
-            GameManager.GetManager()._UIManager.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
+            UIManager.Instance.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
         }
     }
 
@@ -231,7 +230,7 @@ public class Peon : MonoBehaviour
         m_ID = _nextID;
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;
-        GameManager.GetManager()._peonManager.AddPeon(this);
+        PeonManager.Instance.AddPeon(this);
         _peonInfo.HPMax = _HP;
         SpecialStart();
         _over.SetActive(false);
@@ -242,21 +241,21 @@ public class Peon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!GameManager.GetManager().phaseManager.freezeControl)
-        GameManager.GetManager()._peonManager._activePeon = this;
+        if (!PhaseManager.Instance.freezeControl)
+        PeonManager.Instance._activePeon = this;
     }
     private void OnMouseEnter()
     {
-        if (GameManager.GetManager().phaseManager.freezeControl) return;
+        if (PhaseManager.Instance.freezeControl) return;
         if (_currentCarriage._underAttack) return;
-        GameManager.GetManager()._UIManager.ChangeCursor("peon");
+        UIManager.Instance.ChangeCursor("peon");
         _over.SetActive(true);
     }
     
     private void OnMouseExit()
     {
         _over.SetActive(false);
-        GameManager.GetManager()._UIManager.ChangeCursor("default");
+        UIManager.Instance.ChangeCursor("default");
     }
     private void Update()
     {

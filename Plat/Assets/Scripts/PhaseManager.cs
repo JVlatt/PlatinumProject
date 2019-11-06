@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 
 public class PhaseManager : MonoBehaviour
 {
@@ -93,29 +92,29 @@ public class PhaseManager : MonoBehaviour
                 _activePhase.carriage.autoWin = _activePhase.win;
                 break;
             case Phase.TYPE.TEXT:
-                GameManager.GetManager()._UIManager.isAnEvent = _activePhase.specialEvent;
-                GameManager.GetManager()._UIManager.DisplayText(_activePhase.text, _activePhase.character, _activePhase.duration);
+                UIManager.Instance.isAnEvent = _activePhase.specialEvent;
+                UIManager.Instance.DisplayText(_activePhase.text, _activePhase.character, _activePhase.duration);
                 break;
             case Phase.TYPE.CAMERA:
-                GameManager.GetManager().cameraController.MoveToCarriage(_activePhase.carriage);
+                CameraController.Instance.MoveToCarriage(_activePhase.carriage);
                 break;
             case Phase.TYPE.BLANK:
                 break;
             case Phase.TYPE.SOUND:
-                GameManager.GetManager()._soundManager.Play(_activePhase.sound);
+                SoundManager.Instance.Play(_activePhase.sound);
                 break;
             case Phase.TYPE.BREAK:
                 _activePhase.carriage._isBroke = true;
                 _activePhase.carriage.fixIt.isAnEvent = _activePhase.specialEvent;
                 break;
             case Phase.TYPE.MOVE:
-                GameManager.GetManager()._trainManager.MovePeonToCarriage(_activePhase.peon, _activePhase.carriage);
+                TrainManager.Instance.MovePeonToCarriage(_activePhase.peon, _activePhase.carriage);
                 break;
             case Phase.TYPE.RESETCAMERA:
-                GameManager.GetManager().cameraController.ResetCamera();
+                CameraController.Instance.ResetCamera();
                 break;
             case Phase.TYPE.FADE:
-                GameManager.GetManager()._UIManager.fade();
+                UIManager.Instance.fade();
                 break;
         }
     }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Script;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -135,11 +134,11 @@ public class UIManager : MonoBehaviour
     public void UpdateMentalBar()
     {
         float total = 0;
-        foreach (Peon peon in GameManager.GetManager()._peonManager._peons)
+        foreach (Peon peon in PeonManager.Instance._peons)
         {
             total += peon._mentalHealth;
         }
-        _totalMentalHealth = (total / GameManager.GetManager()._peonManager._peons.Count) / 100;
+        _totalMentalHealth = (total / PeonManager.Instance._peons.Count) / 100;
     }
 
     public void UpdateHealthBar(float amont, int ID)
@@ -211,16 +210,16 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < _UIPeons.Count; i++)
         {
-            if(GameManager.GetManager()._peonManager._peons[i] != null)
+            if(PeonManager.Instance._peons[i] != null)
             {
-                Vector3 offSetPos = GameManager.GetManager()._peonManager._peons[i].transform.position;
+                Vector3 offSetPos = PeonManager.Instance._peons[i].transform.position;
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
                 _UIPeons[i].position = screenPos;
             }
         }
         for (int i = 0; i < _carriagesTags.Count; i++)
         {
-            Vector3 offSetPos = GameManager.GetManager()._trainManager._carriages[i].transform.position + _nameTagOffset;
+            Vector3 offSetPos = TrainManager.Instance._carriages[i].transform.position + _nameTagOffset;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
             _carriagesTags[i].transform.position = screenPos;
         }
@@ -250,12 +249,12 @@ public class UIManager : MonoBehaviour
             if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
-                if (!(GameManager.GetManager().phaseManager.GetNextPhaseType() == Phase.TYPE.TEXT))
+                if (!(PhaseManager.Instance.GetNextPhaseType() == Phase.TYPE.TEXT))
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
                 }
-                GameManager.GetManager().phaseManager.NextPhase();
+                PhaseManager.Instance.NextPhase();
             }
         }
     }
@@ -317,9 +316,9 @@ public class UIManager : MonoBehaviour
 
         if (_isAnEvent)
         {
-            string txt = GameManager.GetManager().phaseManager.eventPeon._peonInfo.name + text;
+            string txt = PhaseManager.Instance.eventPeon._peonInfo.name + text;
             _text.SetText(txt);
-            chara = GameManager.GetManager().phaseManager.eventPeon._peonInfo.name;
+            chara = PhaseManager.Instance.eventPeon._peonInfo.name;
         }
         switch (chara)
         {
