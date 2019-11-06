@@ -9,23 +9,32 @@ public class SoundManager : MonoBehaviour
     public Sound[] fx;
     public Sound[] ambient;
     public Sound music;
-    public static SoundManager instance;
+    private static SoundManager _instance;
+    public static SoundManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
         {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
         foreach (Sound s in fx)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.outputAudioMixerGroup = s.mixer; 
+            s.source.outputAudioMixerGroup = s.mixer;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -39,17 +48,17 @@ public class SoundManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-            music.source = gameObject.AddComponent<AudioSource>();
-            music.source.clip = music.clip;
-            music.source.outputAudioMixerGroup = music.mixer;
-            music.source.volume = music.volume;
-            music.source.pitch = music.pitch;
-            music.source.loop = music.loop;
+        music.source = gameObject.AddComponent<AudioSource>();
+        music.source.clip = music.clip;
+        music.source.outputAudioMixerGroup = music.mixer;
+        music.source.volume = music.volume;
+        music.source.pitch = music.pitch;
+        music.source.loop = music.loop;
     }
     private void Start()
     {
-        GameManager.GetManager()._soundManager = instance;
-        foreach(Sound s in ambient)
+        GameManager.GetManager()._soundManager = _instance;
+        foreach (Sound s in ambient)
         {
             s.source.Play();
         }

@@ -7,6 +7,32 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+
+    #region Singleton
+    private static UIManager _instance = null;
+
+    public static UIManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if(_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+    #endregion
+
     [Header("Mental")]
     public Image _mentalBar;
     private float m_totalMentalHealth;
@@ -104,10 +130,7 @@ public class UIManager : MonoBehaviour
         set { m_isOnAttack = value; }
     }
 
-    private void Awake()
-    {
-        GameManager.GetManager()._UIManager = this;
-    }
+    
 
     public void UpdateMentalBar()
     {

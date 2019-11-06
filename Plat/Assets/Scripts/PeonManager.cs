@@ -5,8 +5,33 @@ using Assets.Script;
 
 public class PeonManager : MonoBehaviour
 {
+    #region Singleton
+    private static PeonManager _instance = null;
+    public static PeonManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+    #endregion
+
     #region Variables
-    
+
+
     [SerializeField]
     private Material _base;
     [SerializeField]
@@ -41,12 +66,7 @@ public class PeonManager : MonoBehaviour
 
     
     #endregion
-
-    private void Awake()
-    {
-        GameManager.GetManager()._peonManager = this;
-    }
-
+    
     public void AddPeon(Peon peonToAdd)
     {
         _peons.Add(peonToAdd);
