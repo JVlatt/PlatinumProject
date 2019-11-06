@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 
 public class CameraController : MonoBehaviour
 {
@@ -57,7 +56,7 @@ public class CameraController : MonoBehaviour
     {
         if(!_isMoving)
         {
-            if(!GameManager.GetManager().phaseManager.freezeControl)
+            if(PhaseManager.Instance.freezeControl)
             {
                 if (Input.mousePosition.x < mouseBorder || Input.GetKey(KeyCode.A))
                     transform.position += Vector3.left * Time.deltaTime * camSpeed;
@@ -86,7 +85,7 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, _target, Time.deltaTime * travelSpeed);
             if(Vector3.Distance(_target, transform.position) <= 0.5f)
             {
-                GameManager.GetManager().phaseManager.NextPhase();
+                PhaseManager.Instance.NextPhase();
                 _isMoving = false;
             }
         }

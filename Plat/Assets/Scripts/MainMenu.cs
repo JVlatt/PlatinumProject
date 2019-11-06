@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Assets.Script;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,6 +17,6 @@ public class MainMenu : MonoBehaviour
 
     public void TestSound()
     {
-        GameManager.GetManager()._soundManager.Play("test");
+        SoundManager.Instance.Play("test");
     }
 }

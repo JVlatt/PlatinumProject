@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Script;
 using TMPro;
 public class Carriage : MonoBehaviour
 {
@@ -47,7 +46,7 @@ public class Carriage : MonoBehaviour
         get { return m_underAttack; }
         set {
             m_underAttack = value;
-            GameManager.GetManager()._UIManager._isOnAttack = value;
+            UIManager.Instance._isOnAttack = value;
             _light.SetBool("isAttack", value);
         }
     }
@@ -59,7 +58,7 @@ public class Carriage : MonoBehaviour
         set {
             m_willBeAttacked = value;
             _light.SetBool("willBeAttack", value);
-            GameManager.GetManager()._UIManager._isOnAttack = value;
+            UIManager.Instance._isOnAttack = value;
         }
     }
 
@@ -143,19 +142,19 @@ public class Carriage : MonoBehaviour
     private void OnMouseOver()
     {
         if (!Input.GetMouseButtonDown(1)) return;
-        if (GameManager.GetManager().phaseManager.freezeControl) return;
-        if (GameManager.GetManager()._peonManager._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(GameManager.GetManager()._peonManager._activePeon))
+        if (PhaseManager.Instance.freezeControl) return;
+        if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
-            GameManager.GetManager()._trainManager.MovePeonToCarriage(GameManager.GetManager()._peonManager._activePeon,this);
+            TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon,this);
         }
     }
 
     private void OnMouseEnter()
     {
-        if (GameManager.GetManager().phaseManager.freezeControl) return;
+        if (PhaseManager.Instance.freezeControl) return;
         if(_underAttack)
         {
-            GameManager.GetManager()._UIManager.ChangeCursor("attack");
+            UIManager.Instance.ChangeCursor("attack");
         }
         if(!_underAttack)
         {
@@ -167,7 +166,7 @@ public class Carriage : MonoBehaviour
     {
         if (_underAttack)
         {
-            GameManager.GetManager()._UIManager.ChangeCursor("default");
+            UIManager.Instance.ChangeCursor("default");
         }
         _nameTag.gameObject.SetActive(false);
     }
@@ -265,7 +264,7 @@ public class Carriage : MonoBehaviour
             }
             if (_attackTimer >= _attackDuration)
             {
-                GameManager.GetManager().phaseManager.NextPhase();
+                PhaseManager.Instance.NextPhase();
                 _particle.Stop();
                 DestructCarriage();
                 _timeBeforeAttack = 0f;
@@ -283,11 +282,11 @@ public class Carriage : MonoBehaviour
             }
             if(!autoWin)
             {
-                GameManager.GetManager().phaseManager.GetPeon(m_activePeons[0]);
+                PhaseManager.Instance.GetPeon(m_activePeons[0]);
                 _underAttack = false;
                 _particle.Stop();
                 m_activePeons[0]._HP = 0;
-                GameManager.GetManager().phaseManager.NextPhase();
+                PhaseManager.Instance.NextPhase();
             }
             _battleUi.SetActive(false);
         }
@@ -348,12 +347,12 @@ public class Carriage : MonoBehaviour
 
     private void Victory()
     {
-        GameManager.GetManager().phaseManager.GetPeon(m_activePeons[0]);
+        PhaseManager.Instance.GetPeon(m_activePeons[0]);
         _underAttack = false;
         _particle.Stop();
         m_activePeons[0]._HP -= 10;
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
-        GameManager.GetManager().phaseManager.NextPhase();
+        PhaseManager.Instance.NextPhase();
     }
 
     private void Defeat()
@@ -363,11 +362,11 @@ public class Carriage : MonoBehaviour
 
         if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
         {
-            GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
+            TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
         }
         else
         {
-            GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
+            TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
         }
         int count = m_activePeons.Count;
         for(int i = 1; i < count; i++)
@@ -377,11 +376,11 @@ public class Carriage : MonoBehaviour
 
             if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
             {
-                GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
+                TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], _nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count));
             }
             else
             {
-                GameManager.GetManager()._trainManager.MovePeonToCarriage(m_activePeons[0], GameManager.GetManager()._trainManager._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
+                TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
             }
         }
 
@@ -389,7 +388,7 @@ public class Carriage : MonoBehaviour
 
     private void DestructCarriage()
     {
-        GameManager.GetManager().phaseManager.NextPhase();
+        PhaseManager.Instance.NextPhase();
         Debug.Log("Le wagon a été détruit");
     }
     #endregion

@@ -1,5 +1,4 @@
-﻿using Assets.Script;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FixIt : MonoBehaviour
 {
@@ -30,38 +29,38 @@ public class FixIt : MonoBehaviour
     private void OnMouseOver()
     {
         if (!Input.GetMouseButtonDown(1)) return;
-        if (_isOnFix || !GameManager.GetManager()._peonManager._activePeon) return;
-        if (!GameManager.GetManager()._peonManager._activePeon.CanFix(_carriage)) return;
+        if (_isOnFix || !PeonManager.Instance._activePeon) return;
+        if (!PeonManager.Instance._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
-        if (GameManager.GetManager().phaseManager && GameManager.GetManager().phaseManager.freezeControl) return;
-        _activePeon = GameManager.GetManager()._peonManager._activePeon;
+        if (PhaseManager.Instance && PhaseManager.Instance.freezeControl) return;
+        _activePeon = PeonManager.Instance._activePeon;
         if (_activePeon._currentCarriage != _carriage)
         {
-            GameManager.GetManager()._trainManager.MovePeonToCarriage(_activePeon, _carriage);
+            TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage);
         }
         else
         {
-            GameManager.GetManager()._peonManager._activePeon = null;
+            PeonManager.Instance._activePeon = null;
         }
         _isOnFix = true;
 
         _activePeon._isFixing = true;
         if (_isAnEvent)
         {
-            GameManager.GetManager().phaseManager.GetPeon(_activePeon);
-            GameManager.GetManager().phaseManager.NextPhase();
+            PhaseManager.Instance.GetPeon(_activePeon);
+            PhaseManager.Instance.NextPhase();
             _isAnEvent = false;
         }
     }
 
     private void OnMouseEnter()
     {
-        if (GameManager.GetManager()._peonManager._activePeon != null && !GameManager.GetManager().phaseManager.freezeControl)
-            GameManager.GetManager()._UIManager.ChangeCursor("fix");
+        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.freezeControl)
+            UIManager.Instance.ChangeCursor("fix");
     }
     private void OnMouseExit()
     {
-        GameManager.GetManager()._UIManager.ChangeCursor("default");
+        UIManager.Instance.ChangeCursor("default");
     }
 
 }
