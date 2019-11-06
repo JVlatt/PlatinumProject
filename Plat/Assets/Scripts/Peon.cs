@@ -125,6 +125,8 @@ public class Peon : MonoBehaviour
         get { return _peonInfo.HP; }
         set
         {
+            if (PeonManager.Instance._activePeon = this)
+                UIManager.Instance.UpdateUIPeon(_peonInfo);
             _peonInfo.HP = value;
             UIManager.Instance.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
         }

@@ -61,6 +61,8 @@ public class UIManager : MonoBehaviour
     private List<Sprite> _healthState;
     [SerializeField]
     private UIInfoPerso _UIInfoPerso;
+    [SerializeField]
+    private LineRenderer _line;
 
 
     [Header("Cursor")]
@@ -151,6 +153,7 @@ public class UIManager : MonoBehaviour
         if (peonInfo == null)
         {
             _UIInfoPerso.conteneur.SetActive(false);
+            _line.gameObject.SetActive(false);
         }
         else
         {
@@ -197,11 +200,19 @@ public class UIManager : MonoBehaviour
                     break;
             }
             _UIInfoPerso.conteneur.SetActive(true);
+            _line.gameObject.SetActive(true);
         }
     }
 
     private void Update()
     {
+        if (PeonManager.Instance._activePeon)
+        {
+            Vector3 direction = Camera.main.WorldToScreenPoint(PeonManager.Instance._activePeon.transform.position)- Camera.main.WorldToScreenPoint(_line.transform.position);
+            direction.z = 0;
+            _line.SetPosition(2, (direction.normalized)*0.5f);
+        }
+
         if (_fade)
         {
             _timer += Time.deltaTime;
