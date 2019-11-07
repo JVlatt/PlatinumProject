@@ -34,14 +34,7 @@ public class FixIt : MonoBehaviour
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
         if (PhaseManager.Instance && PhaseManager.Instance.activePhase  .freezeControl) return;
         _activePeon = PeonManager.Instance._activePeon;
-        if (_activePeon._currentCarriage != _carriage)
-        {
-            TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage, transform.position);
-        }
-        else
-        {
-            PeonManager.Instance._activePeon = null;
-        }
+        TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage, transform.position);
         _isOnFix = true;
 
         _activePeon._isFixing = true;

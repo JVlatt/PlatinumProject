@@ -15,7 +15,7 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
             AddPeonToHeal(peon);
         if(peon._type == Peon.TYPE.HEALER)
         {
-            Healer newHealer = peon.GetComponent<Healer>();
+            Healer newHealer = (Healer)peon;
             healers.Add(newHealer);
             newHealer.Setup(this, newHealer._isFixing?null:GetPeonToHeal());
         }

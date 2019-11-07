@@ -16,13 +16,13 @@ public class Healer : Peon  //MADE BY CEDRIC
             m_peonToHeal = value;
             if (value)
             {
-                _animator.SetBool("Healing", true);
+                m_animator.SetBool("Healing", true);
                 _particle.Play();
                 _particle.transform.position = value.transform.position;
             }
             else { 
                 if(!_isFixing)
-                    _animator.SetBool("Healing", false);
+                    m_animator.SetBool("Healing", false);
                 _particle.Stop();
                 _particle.transform.position = transform.position;
             }
@@ -95,6 +95,12 @@ public class Healer : Peon  //MADE BY CEDRIC
             return false;
         else
             return base.CanFix(carriage);
+    }
+
+    public override void MovePeon(Carriage carriage)
+    {
+        base.MovePeon(carriage);
+        _timer = cdHeal;
     }
 
 }

@@ -44,8 +44,7 @@ public class TrainManager : MonoBehaviour
         carriage.ClearPeon(p);
         carriage.GetFreePos(p, actionPosition);
         carriage._peons.Add(p);
-        p._currentCarriage = carriage;
-        p._canMove = true;
+        p.MovePeon(carriage);
         PeonManager.Instance._activePeon = null;
     }
 
@@ -61,7 +60,7 @@ public class TrainManager : MonoBehaviour
     public void UnclipCarriage(Carriage carriage)
     {
         List<Carriage> toRemove = new List<Carriage>();
-        for (int i = carriage.id; i < m_carriages.Count; i++)
+        for (int i = carriage.id+1; i < m_carriages.Count; i++)
         {
             m_carriages[i].isDetached = true;
             toRemove.Add(m_carriages[i]);

@@ -45,14 +45,14 @@ public class Peon : MonoBehaviour
             m_canMove = value;
             if (_isFixing && !value)
             {
-                _animator.SetBool("Healing", true);
+                m_animator.SetBool("Healing", true);
                 SoundManager.Instance.Play("fix");
-                _fix.SetActive(true);
+                m_fix.SetActive(true);
             }
             else
             {
-                _animator.SetBool("Healing", false);
-                _fix.SetActive(false);
+                m_animator.SetBool("Healing", false);
+                m_fix.SetActive(false);
             }
         }
     }
@@ -98,11 +98,6 @@ public class Peon : MonoBehaviour
         get { return m_nextID++; }
     }
     public GameObject _masque;
-    #endregion
-    #region Unclip
-
-
-
     #endregion
     #region Gestion HP
     [Header("PV")]
@@ -162,15 +157,15 @@ public class Peon : MonoBehaviour
             _fixTimer = 0;
             if (!_canMove)
             {
-                _animator.SetBool("Healing", value);
-                _fix.SetActive(value);
+                m_animator.SetBool("Healing", value);
+                m_fix.SetActive(value);
             }
         }
     }
     private float _fixTimer;
+    protected GameObject m_fix;
     public GameObject _fix
     {
-        get { return m_fix; }
         set { 
             m_fix = value;
             _fixAnimator = value.GetComponent<Animator>();
@@ -223,14 +218,7 @@ public class Peon : MonoBehaviour
         set { m_over = value; }
     }
 
-    private GameObject m_fix;
-
-
-    private Animator m_animator;
-    public Animator _animator
-    {
-        get { return m_animator; }
-    }
+    protected Animator m_animator;
 
     private MeshRenderer _meshRenderer;
     #endregion
@@ -375,6 +363,12 @@ public class Peon : MonoBehaviour
         _HEALTHSTATE = HEALTHSTATE.TREAT;
         _HP += HPLost() * _percentHpRecoverAfterTreat;
         _hpToRecover = HPLost();
+    }
+
+    public virtual void MovePeon(Carriage carriage)
+    {
+        _currentCarriage = carriage;
+        _canMove = true;
     }
 
     public float HPLost() //CEDRIC

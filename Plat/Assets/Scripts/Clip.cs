@@ -19,7 +19,10 @@ public class Clip : MonoBehaviour
             && PeonManager.Instance._activePeon != null 
             && PeonManager.Instance._activePeon._peonInfo.TYPE == Peon.TYPE.MECA)
         {
-            TrainManager.Instance.UnclipCarriage(_carriage);
+            Peon p = PeonManager.Instance._activePeon;
+            TrainManager.Instance.MovePeonToCarriage(p, TrainManager.Instance._carriages[TrainManager.Instance._carriages.IndexOf(_carriage) - 1],transform.position);
+            Meca meca = (Meca)p;
+            meca.IsUncliping = true;
         }
     }
 }
