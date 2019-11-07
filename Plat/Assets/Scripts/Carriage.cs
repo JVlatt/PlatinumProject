@@ -128,6 +128,20 @@ public class Carriage : MonoBehaviour
         get { return _autoWin; }
         set { _autoWin = value; }
     }
+    #region Varible pour separation
+
+    private bool _isDetached;
+
+    public bool isDetached
+    {
+        set { _isDetached = value; }
+    }
+
+    [Header("Varible separation")]
+    [SerializeField]
+    private float _speed;
+
+    #endregion
     #endregion
 
     private void Start()
@@ -216,11 +230,17 @@ public class Carriage : MonoBehaviour
         lastPos.peonOnPos = null;
         currentPeon._currentCarriage.RemovePeon(currentPeon);
     }
-    public void GetFreePos(Peon currentPeon)
+    public void GetFreePos(Peon currentPeon, Vector3 actionPositon = new Vector3())
     {
         currentPeon._destination = m_mainDestination.position;
         positions freepos = m_subDestinations.Find(x => x.isAvailable == true);
-        currentPeon._destination = m_mainDestination.position;
+        if (actionPositon == new Vector3())
+            currentPeon._destination = m_mainDestination.position;
+        else
+        {
+            currentPeon._destination = actionPositon;
+            currentPeon._actionBeforeIdle = true;
+        }
         currentPeon._subDestination = freepos.position.position;
         freepos.isAvailable = false;
         freepos.peonOnPos = currentPeon;
@@ -396,5 +416,12 @@ public class Carriage : MonoBehaviour
     private void Update()
     {
         CheckFight();
+        RunAway();
+    }
+
+    private void RunAway()
+    {
+        if (!_isDetached) return;
+        transform.parent.transform.Translate(Vector3.down * _speed * Time.deltaTime);
     }
 }

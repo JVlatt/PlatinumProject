@@ -15,9 +15,11 @@ public class Clip : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))
+        if((Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)) 
+            && PeonManager.Instance._activePeon != null 
+            && PeonManager.Instance._activePeon._peonInfo.TYPE == Peon.TYPE.MECA)
         {
-
+            TrainManager.Instance.UnclipCarriage(_carriage);
         }
     }
 }

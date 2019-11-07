@@ -36,7 +36,7 @@ public class FixIt : MonoBehaviour
         _activePeon = PeonManager.Instance._activePeon;
         if (_activePeon._currentCarriage != _carriage)
         {
-            TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage);
+            TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage, transform.position);
         }
         else
         {

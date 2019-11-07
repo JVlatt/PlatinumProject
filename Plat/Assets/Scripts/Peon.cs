@@ -99,8 +99,11 @@ public class Peon : MonoBehaviour
     }
     public GameObject _masque;
     #endregion
-    
+    #region Unclip
 
+
+
+    #endregion
     #region Gestion HP
     [Header("PV")]
     [SerializeField]
@@ -207,6 +210,12 @@ public class Peon : MonoBehaviour
     }
     #endregion
 
+    private bool m_actionBeforIdle;
+    public bool _actionBeforeIdle
+    {
+        set { m_actionBeforIdle = value; }
+    }
+
     private GameObject m_over;
     public GameObject _over
     {
@@ -268,6 +277,11 @@ public class Peon : MonoBehaviour
             if (Vector3.Distance(transform.position, m_destination) <= 0.1f)
             {
                 m_destination = m_subDestination;
+                if (m_actionBeforIdle)
+                {
+                    _canMove = false;
+                    m_actionBeforIdle = false;
+                }
                 if (Vector3.Distance(transform.position, m_subDestination) <= 0.1f)
                 {
                     _canMove = false;
@@ -281,6 +295,7 @@ public class Peon : MonoBehaviour
             m_currentCarriage.AddPeonToSpecialCarriage(this);
         }
 
+        Unclip();
         Fix();
         Recover();
         SpecialUpdate();
@@ -297,6 +312,12 @@ public class Peon : MonoBehaviour
 
     public virtual void SpecialUpdate() { }
 
+    private void Unclip()
+    {
+        if (!m_actionBeforIdle) return;
+
+    }
+
     private void Fix()
     {
         if (!_isFixing && !_fixFail || m_canMove ) return;
@@ -309,6 +330,7 @@ public class Peon : MonoBehaviour
                 //c'est reparé
                 _currentCarriage._isBroke = false;
                 _isFixing = false;
+                _canMove = true;
             }
             else
             {
@@ -325,6 +347,7 @@ public class Peon : MonoBehaviour
             {
                 _fixFail = false;
                 _isFixing = false;
+                _canMove = true;
             }
 
         }

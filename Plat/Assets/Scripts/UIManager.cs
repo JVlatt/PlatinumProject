@@ -300,6 +300,11 @@ public class UIManager : MonoBehaviour
         c.nameTag = text;
     }
 
+    public void RemoveCarriageName(Carriage c)
+    {
+        _carriagesTags.Remove(c.nameTag);
+    }
+
     public void ChangeCursor(string type)
     {
         switch (type)

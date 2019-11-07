@@ -22,10 +22,8 @@ public class CameraController : MonoBehaviour
     private float mouseBorder;
     [SerializeField]
     private MinMax zoom;
-    [SerializeField]
-    private MinMax borderLeft;
-    [SerializeField]
-    private MinMax borderRight;
+    private MinMax borderLeft = new MinMax();
+    private MinMax borderRight = new MinMax();
     [SerializeField]
     private MinMax y;
     [SerializeField]
@@ -52,6 +50,25 @@ public class CameraController : MonoBehaviour
     {
         _startPosition = transform.position;
     }
+
+    public void MajCamera(List<Carriage> carriages)
+    {
+        if (carriages.Count == 1)
+        {
+            borderRight.min = carriages[0].transform.position.x;
+            borderRight.max = carriages[0].transform.position.x;
+            borderLeft.min = carriages[0].transform.position.x;
+            borderLeft.max = carriages[0].transform.position.x;
+        }
+        else
+        {
+            borderRight.min = carriages[0].transform.position.x - (y.min - y.max);
+            borderRight.max = carriages[0].transform.position.x;
+            borderLeft.min = carriages[carriages.Count - 1].transform.position.x + (y.min - y.max);
+            borderLeft.max = carriages[carriages.Count - 1].transform.position.x;
+        }
+    }
+
     void Update()
     {
         if(!_isMoving)
