@@ -19,7 +19,7 @@ public class ParallaxScroller : MonoBehaviour
     {
         foreach (Chunk chunk in m_activeChunk)
         {
-            chunk.transform.Translate(new Vector3(-m_scrollSpeed * Time.deltaTime, 0, 0));
+            chunk.transform.Translate(new Vector3(-m_scrollSpeed * Time.deltaTime*(TrainManager.Instance.Speed/50), 0, 0));
         }
         if (m_activeChunk[0].endPosition.position.x <= m_resetPos.position.x)
         {

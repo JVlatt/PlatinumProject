@@ -22,14 +22,16 @@ public class CameraController : MonoBehaviour
     private float mouseBorder;
     [SerializeField]
     private MinMax zoom;
-    private MinMax borderLeft = new MinMax();
-    private MinMax borderRight = new MinMax();
     [SerializeField]
     private MinMax y;
     [SerializeField]
     private float zoomSpeed;
     [SerializeField]
     private float travelSpeed;
+    private MinMax borderLeft = new MinMax();
+    private MinMax currentBorderLeft = new MinMax();
+    private MinMax borderRight = new MinMax();
+    private MinMax currentBorderRight = new MinMax();
 
     private Vector3 _target;
     private bool _isMoving = false;
@@ -49,6 +51,8 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         _startPosition = transform.position;
+        currentBorderLeft = borderLeft;
+        currentBorderRight = borderRight;
     }
 
     public void MajCamera(List<Carriage> carriages)
@@ -87,8 +91,11 @@ public class CameraController : MonoBehaviour
                     transform.position -= Vector3.forward * Time.deltaTime * zoomSpeed;
 
                 float lerpRatio = (zoom.min - transform.position.z) / (zoom.min - zoom.max);
-                float left = Mathf.Lerp(borderLeft.min, borderLeft.max, lerpRatio);
-                float right = Mathf.Lerp(borderRight.min, borderRight.max, lerpRatio);
+                float left = Mathf.Lerp(currentBorderLeft.min, currentBorderLeft.max, lerpRatio);
+                float right = Mathf.Lerp(currentBorderRight.min, currentBorderRight.max, lerpRatio);
+
+                currentBorderLeft = MinMax.Lerp(currentBorderLeft, borderLeft, 0.1f);
+                currentBorderRight = MinMax.Lerp(currentBorderRight, borderRight, 0.1f);
 
                 transform.position = new Vector3(
                     Mathf.Clamp(transform.position.x, left, right),
@@ -127,5 +134,12 @@ public class CameraController : MonoBehaviour
     {
         public float min;
         public float max;
+
+        public static MinMax Lerp(MinMax a, MinMax b , float ratio)
+        {
+            a.min = Mathf.Lerp(a.min, b.min, ratio);
+            a.max = Mathf.Lerp(a.max, b.min, ratio);
+            return a;
+        }
     }
 }

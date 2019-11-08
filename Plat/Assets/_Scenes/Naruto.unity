@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017162378, g: 0.00000002640952, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0000171624, g: 0.00000002640952, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5344,6 +5344,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: "P\xE9on M\xE9ca Variant"
       objectReference: {fileID: 0}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_currentCarriage
+      value: 
+      objectReference: {fileID: 231876122}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.name
+      value: Taon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.visual
+      value: 
+      objectReference: {fileID: 21300000, guid: e3521d81fad1cbb45ba192d546557dca,
+        type: 3}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.TYPE
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.HP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6040837664377768756, guid: 7455c1c90ca0796419ec70755bc0fd2b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5398,32 +5424,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
-        type: 3}
-      propertyPath: m_currentCarriage
-      value: 
-      objectReference: {fileID: 231876122}
-    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
-        type: 3}
-      propertyPath: m_peonInfo.name
-      value: Taon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
-        type: 3}
-      propertyPath: m_peonInfo.visual
-      value: 
-      objectReference: {fileID: 21300000, guid: e3521d81fad1cbb45ba192d546557dca,
-        type: 3}
-    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
-        type: 3}
-      propertyPath: m_peonInfo.TYPE
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
-        type: 3}
-      propertyPath: m_peonInfo.HP
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7455c1c90ca0796419ec70755bc0fd2b, type: 3}
@@ -5794,20 +5794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Train
       objectReference: {fileID: 0}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+    - target: {fileID: 3063524861001063912, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
-      propertyPath: _nextCarriages.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: _nextCarriages.Array.data[0]
-      value: 
-      objectReference: {fileID: 1596695472}
-    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: _nextCarriages.Array.data[1]
-      value: 
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
@@ -5940,6 +5930,26 @@ PrefabInstance:
       propertyPath: _speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2267033192019915773, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: _nextCarriages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: _nextCarriages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1596695472}
+    - target: {fileID: 8852919001700468612, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: _nextCarriages.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8852919002151254400, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: _nextCarriages.Array.size
@@ -6014,6 +6024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_carriages.Array.data[5]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: _acceleration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7117459009588778903, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
@@ -6385,11 +6400,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2267033192019915773, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6144526735108765327, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6443,11 +6453,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063524861001063912, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3445511493738956541, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}

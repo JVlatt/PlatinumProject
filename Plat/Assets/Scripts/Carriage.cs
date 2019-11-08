@@ -142,6 +142,27 @@ public class Carriage : MonoBehaviour
     private float _speed;
 
     #endregion
+    #region Dégat Carriage
+    public enum DEGATSTATE
+    {
+        GOOD,
+        DEGAT20,
+        DEGAT40,
+        DEGAT60,
+        DEGAT80
+    }
+    private DEGATSTATE _degatState = DEGATSTATE.GOOD;
+    public DEGATSTATE DegatState
+    {
+        private set
+        {
+            TrainManager.Instance.UpdateSpeed(_degatState, value);
+            _degatState = value;
+
+        }
+        get { return _degatState; }
+    }
+    #endregion
     #endregion
 
     private void Start()

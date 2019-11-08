@@ -17,6 +17,22 @@ public class TrainManager : MonoBehaviour
     #endregion
 
     [SerializeField]
+    private float _speed = 100;
+    [SerializeField]
+    private float _acceleration = 5;
+    [SerializeField]
+    private float _deceleration = 10;
+    [SerializeField]
+    private float _wagonSpeedMalus = 10;
+    [SerializeField]
+    private float _maxDamagedWagonSpeedMalus = 20;
+    private float _speedTarget;
+    public float Speed
+    {
+        get { return _speed; }
+    }
+
+    [SerializeField]
     private List<Carriage> m_carriages = new List<Carriage>();
     public List<Carriage> _carriages
     {
@@ -38,7 +54,30 @@ public class TrainManager : MonoBehaviour
     {
         UpdateId();
         CameraController.Instance.MajCamera(m_carriages);
+        _speedTarget = _speed;
+        foreach (var item in m_carriages)
+        {
+            _speedTarget -= _wagonSpeedMalus;
+        }
+        _speed = _speedTarget;
     }
+
+    private void Update()
+    {
+        float dif = _speed - _speedTarget;
+        if(Mathf.Abs(dif)>0.05)
+        {
+            if (dif > 0)
+            {
+                //deceleration
+                _speed -= _deceleration * Time.deltaTime;
+            }
+            else
+                _speed += _acceleration * Time.deltaTime;
+        }
+    }
+
+
     public void MovePeonToCarriage(Peon p, Carriage carriage, Vector3 actionPosition = new Vector3())
     {
         carriage.ClearPeon(p);
@@ -63,6 +102,7 @@ public class TrainManager : MonoBehaviour
         for (int i = carriage.id+1; i < m_carriages.Count; i++)
         {
             m_carriages[i].isDetached = true;
+            _speedTarget += _wagonSpeedMalus;
             toRemove.Add(m_carriages[i]);
         }
         foreach (var item in toRemove)
@@ -71,5 +111,39 @@ public class TrainManager : MonoBehaviour
             UIManager.Instance.RemoveCarriageName(item);
         }
         CameraController.Instance.MajCamera(m_carriages);
+    }
+
+    public void UpdateSpeed(Carriage.DEGATSTATE currentState, Carriage.DEGATSTATE newState)
+    {
+        switch (currentState)
+        {
+            case Carriage.DEGATSTATE.DEGAT20:
+                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4;
+                break;
+            case Carriage.DEGATSTATE.DEGAT40:
+                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 2;
+                break;
+            case Carriage.DEGATSTATE.DEGAT60:
+                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4)*3;
+                break;
+            case Carriage.DEGATSTATE.DEGAT80:
+                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
+                break;
+        }
+        switch (newState)
+        {
+            case Carriage.DEGATSTATE.DEGAT20:
+                _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4;
+                break;
+            case Carriage.DEGATSTATE.DEGAT40:
+                _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 2;
+                break;
+            case Carriage.DEGATSTATE.DEGAT60:
+                _speedTarget -= ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4) * 3;
+                break;
+            case Carriage.DEGATSTATE.DEGAT80:
+                _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
+                break;
+        }
     }
 }
