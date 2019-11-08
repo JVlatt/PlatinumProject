@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Script;
 
 public class PhaseManager : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class PhaseManager : MonoBehaviour
 
 
     [SerializeField]
-    private Phase[] _phases;
-    public Phase[] phases
+    private List<Phase> _phases;
+    public List<Phase> phases
     {
         get { return _phases; }
         set { _phases = value; }
@@ -53,14 +54,7 @@ public class PhaseManager : MonoBehaviour
     }
     private void Start()
     {
-        Phase[] p = GetComponentsInChildren<Phase>();
-        List<Phase> pList = new List<Phase>();
-        foreach (Phase phase in p)
-        {
-            pList.Add(phase);
-        }
-        pList.RemoveAll(x => x.transform.parent != this.transform);
-        _phases = pList.ToArray();
+        _phases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform);
         _phaseId = 0;
         _activePhase = _phases[_phaseId];
         StartPhase();
@@ -100,7 +94,7 @@ public class PhaseManager : MonoBehaviour
         }
         else
         {
-            if (_phaseId < _phases.Length - 1)
+            if (_phaseId < _phases.Count - 1)
             {
                 _phaseId++;
             }
@@ -112,7 +106,7 @@ public class PhaseManager : MonoBehaviour
 
     public Phase GetNextPhase()
     {
-        if (_phaseId + 1 > _phases.Length - 1) return null;
+        if (_phaseId + 1 > _phases.Count - 1) return null;
         return _phases[_phaseId + 1];
     }
 
