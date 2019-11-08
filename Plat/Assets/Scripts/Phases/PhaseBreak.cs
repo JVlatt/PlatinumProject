@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PhaseBreak : Phase
 {
-    [SerializeField]
-    private int _carriage;
+    public int _carriage;
     [SerializeField]
     private bool _waitForFix;
 
     public override void LaunchPhase()
     {
-        TrainManager.Instance._carriages.Find(x => x.id == _carriage)._isBroke = true;
-        TrainManager.Instance._carriages.Find(x => x.id == _carriage).fixIt.isAnEvent = _waitForFix;
+        if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
+        {
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage)._isBroke = true;
+            if (_waitForFix)
+            {
+                TrainManager.Instance._carriages.Find(x => x.id == _carriage).fixIt.isAnEvent = _waitForFix;
+            }
+            else
+            {
+                controlDuration = true;
+            }
+            SoundManager.Instance.Play("break");
+        }
     }
     public override string BuildGameObjectName()
     {

@@ -14,8 +14,13 @@ public class PhaseAttack : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
-        TrainManager.Instance._carriages.Find(x => x.id == _carriage).Attack(duration, _timeBeforeAttack);
-        TrainManager.Instance._carriages.Find(x => x.id == _carriage).autoWin = _win;
+        if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
+        {
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage).Attack(duration, _timeBeforeAttack);
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage).autoWin = _win;
+            SoundManager.Instance.Play("attack");
+        }
+        
     }
     public override string BuildGameObjectName()
     {

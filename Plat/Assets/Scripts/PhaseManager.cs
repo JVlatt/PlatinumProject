@@ -53,7 +53,14 @@ public class PhaseManager : MonoBehaviour
     }
     private void Start()
     {
-        _phases = GetComponentsInChildren<Phase>();
+        Phase[] p = GetComponentsInChildren<Phase>();
+        List<Phase> pList = new List<Phase>();
+        foreach (Phase phase in p)
+        {
+            pList.Add(phase);
+        }
+        pList.RemoveAll(x => x.transform.parent != this.transform);
+        _phases = pList.ToArray();
         _phaseId = 0;
         _activePhase = _phases[_phaseId];
         StartPhase();
@@ -66,17 +73,10 @@ public class PhaseManager : MonoBehaviour
 
     public void GameLoop()
     {
-        if(_activePhase.controlDuration)
+        _phaseTimer += Time.deltaTime;
+        if (_phaseTimer >= _activePhase.duration && _activePhase.controlDuration)
         {
-            _phaseTimer += Time.deltaTime;
-            if(_phaseTimer >= _activePhase.duration)
-            {
-                NextPhase();
-            }
-        }
-        else
-        {
-            _phaseTimer = 0f;
+            NextPhase();
         }
     }
 
@@ -87,12 +87,26 @@ public class PhaseManager : MonoBehaviour
 
     public void NextPhase()
     {
-        _phaseTimer = 0;
-        if (_phaseId < _phases.Length - 1)
+        if (_activePhase.conditionPhase)
         {
-            _phaseId++;
+            if (_phaseTimer < _activePhase.duration)
+            {
+                _activePhase = _activePhase.subPhases[0];
+            }
+            else
+            {
+                _activePhase = _activePhase.subPhases[1];
+            }
         }
-        _activePhase = _phases[_phaseId];
+        else
+        {
+            if (_phaseId < _phases.Length - 1)
+            {
+                _phaseId++;
+            }
+            _activePhase = _phases[_phaseId];
+        }
+        _phaseTimer = 0;
         StartPhase();
     }
 

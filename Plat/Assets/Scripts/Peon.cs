@@ -316,6 +316,13 @@ public class Peon : MonoBehaviour
             if (random > _fixLuck)
             {
                 //c'est reparé
+                if(((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
+                {
+                    if (((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
+                    {
+                        PhaseManager.Instance.NextPhase();
+                    }
+                }
                 _currentCarriage._isBroke = false;
                 _isFixing = false;
                 _canMove = true;

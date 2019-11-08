@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1741271, g: 0.21774584, b: 0.2999423, a: 1}
+  m_IndirectSpecularColor: {r: 0.17412755, g: 0.21774675, b: 0.2999434, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -224,41 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2db2b80d122047b9d53b74a1cf83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &299258929
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!114 &303532860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -296,6 +261,57 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &346453332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346453333}
+  - component: {fileID: 346453334}
+  m_Layer: 0
+  m_Name: Break (Wagon 1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346453333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346453332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 624128600}
+  - {fileID: 644120837}
+  m_Father: {fileID: 2133682835}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346453334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346453332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beb97ddd6b614f46bc6993e3fa7c3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 30
+  _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
+  _carriage: 1
+  _waitForFix: 0
 --- !u!1 &352462400
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &354068305
 MonoBehaviour:
@@ -496,6 +512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 5
   _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
   _autoName: 0
   _text: "est ce que tu m'enteds h\xE9 ho est-ce que tu me sens h\xE9ho touche moi
     je suis l\xE0 h\xE9 ho ho ho hohohohohoho"
@@ -694,6 +712,11 @@ PrefabInstance:
       propertyPath: _fadeSpeed
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2669791463772907144, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: _line
+      value: 
+      objectReference: {fileID: 2017263591}
     - target: {fileID: 1444003379, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 1.0498047
@@ -755,6 +778,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+--- !u!1 &624128599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624128600}
+  - component: {fileID: 624128601}
+  m_Layer: 0
+  m_Name: Text (Oni)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624128600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624128599}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 346453333}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624128601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624128599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 2
+  _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
+  _autoName: 0
+  _text: ntm
+  _character: Oni
 --- !u!1 &644120836
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,8 +856,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2133682835}
-  m_RootOrder: 2
+  m_Father: {fileID: 346453333}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &644120838
 MonoBehaviour:
@@ -800,9 +873,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 2
   _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
   _autoName: 0
   _text: alo le monde
   _character: Butor
+--- !u!1 &742816039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4701234739010203004, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290182699532323474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &742816043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742816039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bac7021fc5040174980c8034cc731c56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &915551887
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 1
   _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
 --- !u!1001 &1004108510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,13 +1055,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1168471937}
+  shadowMapRenderTexture: {fileID: 1185958383}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.1
   outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
-  shadowDataRenderTexture: {fileID: 299258929}
+  shadowDataRenderTexture: {fileID: 1581514036}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -1041,7 +1143,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 105, y: -0.000015258789, z: -0.000015258789}
---- !u!84 &1168471937
+--- !u!84 &1185958383
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1121,6 +1223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 2
   _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
   _autoName: 0
   _text: ALO LE MONDE
   _character: Taon
@@ -5960,6 +6064,21 @@ PrefabInstance:
       propertyPath: m_currentCarriage
       value: 
       objectReference: {fileID: 231876122}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.TYPE
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: m_peonInfo.HP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
+        type: 3}
+      propertyPath: _fixLuck
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6040837664377768756, guid: 7455c1c90ca0796419ec70755bc0fd2b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6062,6 +6181,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7455c1c90ca0796419ec70755bc0fd2b, type: 3}
+--- !u!84 &1581514036
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!114 &1632438523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
@@ -10925,6 +11079,12 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!120 &2017263591 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1468307136, guid: 26391e2a9ecce7942818b0524ed2ff0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7340936635821985189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2092365549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11195,11 +11355,62 @@ Transform:
   m_Children:
   - {fileID: 915551888}
   - {fileID: 1207498114}
-  - {fileID: 644120837}
   - {fileID: 354068304}
+  - {fileID: 346453333}
+  - {fileID: 2143715958}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2143715957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143715958}
+  - component: {fileID: 2143715959}
+  m_Layer: 0
+  m_Name: Attack (Wagon 2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143715958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143715957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2133682835}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143715959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143715957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 60
+  _freezeControl: 0
+  subPhases: []
+  conditionPhase: 0
+  _carriage: 2
+  _win: 1
+  _timeBeforeAttack: 10
 --- !u!1001 &1290182699532323474
 PrefabInstance:
   m_ObjectHideFlags: 0

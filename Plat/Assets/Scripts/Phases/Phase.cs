@@ -28,7 +28,9 @@ public abstract class Phase : MonoBehaviour
         set { _freezeControl = value; }
     }
 
-    
+    public Phase[] subPhases;
+
+    public bool conditionPhase = false;
 
     public abstract void LaunchPhase();
 
@@ -41,5 +43,21 @@ public abstract class Phase : MonoBehaviour
     public virtual bool KillTextBox()
     {
         return true;
+    }
+
+    private void Start()
+    {
+        Phase[] p = GetComponentsInChildren<Phase>();
+        List<Phase> pList = new List<Phase>();
+        foreach (Phase phase in p)
+        {
+            if(phase.transform.parent == this.transform)
+            {
+                pList.Add(phase);
+            }
+        }
+        subPhases = pList.ToArray();
+        if (subPhases.Length == 2)
+            conditionPhase = true;
     }
 }
