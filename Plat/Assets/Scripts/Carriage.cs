@@ -272,8 +272,8 @@ public class Carriage : MonoBehaviour
 
     public void Attack(float duration,float subduration)
     {
-        _timeBeforeAttack = duration;
-        _attackDuration = subduration;
+        _timeBeforeAttack = subduration;
+        _attackDuration = duration;
         _willBeAttacked = true;
     }
 
@@ -306,10 +306,9 @@ public class Carriage : MonoBehaviour
             if (_attackTimer >= _attackDuration)
             {
                 PhaseManager.Instance.NextPhase();
-                _particle.Stop();
-                DestructCarriage();
+                DamageCarriage();
                 _timeBeforeAttack = 0f;
-                _underAttack = false;
+                _attackTimer = 0f;
             }
         }
     }
@@ -427,10 +426,18 @@ public class Carriage : MonoBehaviour
 
     }
 
-    private void DestructCarriage()
+    private void DamageCarriage()
     {
-        PhaseManager.Instance.NextPhase();
-        Debug.Log("Le wagon a été détruit");
+        if (DegatState == DEGATSTATE.DEGAT80)
+        {
+            TrainManager.Instance.UnclipCarriage(this.id-1);
+        }
+        else
+        {
+            DegatState=_degatState+1;
+            _isBroke = true;
+        }
+        Debug.Log("Le wagon endomagé");
     }
     #endregion
 

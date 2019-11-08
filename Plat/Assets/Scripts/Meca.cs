@@ -31,7 +31,7 @@ public class Meca : Peon
                 ActiveFeedback(false);
                 IsUncliping = false;
                 _canMove = true;
-                TrainManager.Instance.UnclipCarriage(_currentCarriage);
+                TrainManager.Instance.UnclipCarriage(_currentCarriage.id);
             }
         }
     }

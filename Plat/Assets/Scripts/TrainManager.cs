@@ -96,10 +96,10 @@ public class TrainManager : MonoBehaviour
         }
     }
 
-    public void UnclipCarriage(Carriage carriage)
+    public void UnclipCarriage(int carriageID)
     {
         List<Carriage> toRemove = new List<Carriage>();
-        for (int i = carriage.id+1; i < m_carriages.Count; i++)
+        for (int i = carriageID+1; i < m_carriages.Count; i++)
         {
             m_carriages[i].isDetached = true;
             _speedTarget += _wagonSpeedMalus;
