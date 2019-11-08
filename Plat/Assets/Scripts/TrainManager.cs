@@ -26,6 +26,8 @@ public class TrainManager : MonoBehaviour
     private float _wagonSpeedMalus = 10;
     [SerializeField]
     private float _maxDamagedWagonSpeedMalus = 20;
+    [SerializeField]
+    private float _attackSpeedMalus = 5;
     private float _speedTarget;
     public float Speed
     {
@@ -145,5 +147,13 @@ public class TrainManager : MonoBehaviour
                 _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
                 break;
         }
+    }
+
+    public void UpdateSpeed(bool ancienBool, bool newBool)
+    {
+        if (ancienBool)
+            _speedTarget += _attackSpeedMalus;
+        if (newBool)
+            _speedTarget -= _attackSpeedMalus;
     }
 }

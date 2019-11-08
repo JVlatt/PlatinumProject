@@ -45,6 +45,7 @@ public class Carriage : MonoBehaviour
     {
         get { return m_underAttack; }
         set {
+            TrainManager.Instance.UpdateSpeed(_underAttack, value);
             m_underAttack = value;
             UIManager.Instance._isOnAttack = value;
             _light.SetBool("isAttack", value);
@@ -91,9 +92,14 @@ public class Carriage : MonoBehaviour
     {
         private get { return m_isBroke; }
         set {
-            m_isBroke = value;
-            _fixIt.gameObject.SetActive(value);
-            _fixIt._isOnFix = false;
+            if (_degatState == DEGATSTATE.DEGAT20)
+            {
+                m_isBroke = value;
+                _fixIt.gameObject.SetActive(value);
+                _fixIt._isOnFix = false;
+            }
+            else
+                _degatState--;
         }
     }
 
@@ -440,6 +446,12 @@ public class Carriage : MonoBehaviour
         Debug.Log("Le wagon endomagé");
     }
     #endregion
+
+    public void Break(Carriage.DEGATSTATE amount)
+    {
+        _isDetached = true;
+        _degatState = amount;
+    }
 
     private void Update()
     {
