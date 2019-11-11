@@ -5,8 +5,7 @@ using UnityEngine;
 public class PhaseBreak : Phase
 {
     public int _carriage;
-    [SerializeField]
-    private bool _waitForFix;
+    public bool _waitForFix;
     [SerializeField]
     private Carriage.DEGATSTATE _damageAmont;
 
@@ -15,14 +14,7 @@ public class PhaseBreak : Phase
         if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
         {
             TrainManager.Instance._carriages.Find(x => x.id == _carriage).Break(_damageAmont);
-            if (_waitForFix)
-            {
-                TrainManager.Instance._carriages.Find(x => x.id == _carriage).fixIt.isAnEvent = _waitForFix;
-            }
-            else
-            {
-                controlDuration = true;
-            }
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage).isAnEvent = true;
             SoundManager.Instance.Play("break");
         }
     }

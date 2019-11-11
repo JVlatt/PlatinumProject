@@ -193,12 +193,6 @@ public class Carriage : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
-            if (isAnEvent)
-            {
-                PhaseManager.Instance.GetPeon(PeonManager.Instance._activePeon);
-                PhaseManager.Instance.NextPhase();
-                isAnEvent = false;
-            }
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
@@ -324,7 +318,6 @@ public class Carriage : MonoBehaviour
             }
             if (_attackTimer >= _attackDuration)
             {
-                PhaseManager.Instance.NextPhase();
                 DamageCarriage();
                 _timeBeforeAttack = 0f;
                 _attackTimer = 0f;
@@ -392,7 +385,8 @@ public class Carriage : MonoBehaviour
         _particle.Stop();
         m_activePeons[0]._HP -= 10;
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
-        PhaseManager.Instance.NextPhase();
+        if(PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+        PhaseManager.Instance.EndCondition(true);
     }
 
     private void Defeat()
@@ -423,7 +417,8 @@ public class Carriage : MonoBehaviour
                 TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
             }
         }
-
+        if (PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+            PhaseManager.Instance.EndCondition(false);
     }
 
     private void DamageCarriage()

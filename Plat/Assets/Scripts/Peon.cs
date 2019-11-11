@@ -320,13 +320,6 @@ public class Peon : MonoBehaviour
             if (random < _fixLuck)
             {
                 //c'est reparé
-                if (((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
-                {
-                    if (((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
-                    {
-                        PhaseManager.Instance.NextPhase();
-                    }
-                }*/
                 _currentCarriage.DegatState--;
                 _isFixing = false;
                 _canMove = true;
@@ -335,6 +328,14 @@ public class Peon : MonoBehaviour
             {
                 _fixFail = true;
                 _currentCarriage.DegatState = _currentCarriage.DegatState;
+            }
+            if(_currentCarriage.isAnEvent)
+            {
+                PhaseManager.Instance.GetPeon(this);
+            }
+            if (PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+            {
+                PhaseManager.Instance.EndCondition(!_fixFail);
             }
             _fixTimer = 0;
 
