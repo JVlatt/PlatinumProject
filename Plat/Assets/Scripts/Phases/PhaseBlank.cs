@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PhaseBlank : Phase
 {
+    [SerializeField]
+    private bool waitNextEvent;
     public override string BuildGameObjectName()
     {
         return "Blank(" + duration +"s)";
@@ -11,6 +13,6 @@ public class PhaseBlank : Phase
 
     public override void LaunchPhase()
     {
-        controlDuration = true;
+        controlDuration = !waitNextEvent;
     }
 }

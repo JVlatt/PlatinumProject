@@ -10,6 +10,8 @@ public class PhaseAttack : Phase
     private bool _win = false;
     [SerializeField]
     private float _timeBeforeAttack;
+    [SerializeField]
+    private bool _getTankName;
 
     public override void LaunchPhase()
     {
@@ -17,7 +19,7 @@ public class PhaseAttack : Phase
         if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
         {
             TrainManager.Instance._carriages.Find(x => x.id == _carriage).Attack(duration, _timeBeforeAttack);
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).autoWin = _win;
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage).isAnEvent = _getTankName;
             SoundManager.Instance.Play("attack");
         }
         

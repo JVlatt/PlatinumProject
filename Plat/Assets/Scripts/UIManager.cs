@@ -94,12 +94,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _oniImg;
 
-    private bool _autoName = false;
-    public bool autoName
-    {
-        get { return _autoName; }
-        set { _autoName = value; }
-    }
     #region Struct
     [System.Serializable]
     class UIInfoPerso
@@ -329,16 +323,9 @@ public class UIManager : MonoBehaviour
         _oniImg.gameObject.SetActive(false);
         _taonImg.gameObject.SetActive(false);
         _butorImg.gameObject.SetActive(false);
-        string chara = character;
         _text.SetText(text);
 
-        if (_autoName)
-        {
-            string txt = PhaseManager.Instance.eventPeon._peonInfo.name + text;
-            _text.SetText(txt);
-            chara = PhaseManager.Instance.eventPeon._peonInfo.name;
-        }
-        switch (chara)
+        switch (character)
         {
             case "Butor":
                 _butorImg.gameObject.SetActive(true);
@@ -354,7 +341,6 @@ public class UIManager : MonoBehaviour
         }
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
-        _autoName = false;
     }
 
     public void fade()

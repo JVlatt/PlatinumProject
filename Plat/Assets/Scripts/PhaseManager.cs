@@ -25,7 +25,13 @@ public class PhaseManager : MonoBehaviour
         get { return _phases; }
         set { _phases = value; }
     }
-
+    [SerializeField]
+    private List<Phase> _phaseBuffer;
+    public List<Phase> phaseBuffer
+    {
+        get { return _phaseBuffer; }
+        set { _phaseBuffer = value; }
+    }
     private Phase _activePhase;
     public Phase activePhase
     {
@@ -57,6 +63,7 @@ public class PhaseManager : MonoBehaviour
         _phases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform);
         _phaseId = 0;
         _activePhase = _phases[_phaseId];
+        _phaseBuffer.Add(_activePhase);
         StartPhase();
     }
 
@@ -81,25 +88,47 @@ public class PhaseManager : MonoBehaviour
 
     public void NextPhase()
     {
-        if (_activePhase.conditionPhase)
+        _phaseBuffer.Remove(_activePhase);
+        switch (_activePhase.type)
         {
-            if (_phaseTimer < _activePhase.duration)
-            {
-                _activePhase = _activePhase.subPhases[0];
-            }
-            else
-            {
-                _activePhase = _activePhase.subPhases[1];
-            }
+            case Phase.PhaseType.MAIN:
+                if (_phaseId < _phases.Count - 1)
+                {
+                    _phaseId++;
+                }
+                _phaseBuffer.Add(_phases[_phaseId]);
+                break;
+            case Phase.PhaseType.GROUP:
+                _phaseBuffer = _activePhase.subPhases;
+                break;
+            case Phase.PhaseType.SUB:
+                if(_phaseBuffer.Count < 1)
+                {
+                    if (_phaseId < _phases.Count - 1)
+                    {
+                        _phaseId++;
+                    }
+                    _phaseBuffer.Add(_phases[_phaseId]);
+                }
+                break;
+        }
+        _activePhase = _phaseBuffer[0];
+        _phaseTimer = 0;
+        StartPhase();
+    }
+
+    public void EndCondition(bool isWin)
+    {
+        _phaseBuffer.Remove(_activePhase);
+        if (isWin)
+        {
+            _phaseBuffer.Add(_activePhase.subPhases[0]);
         }
         else
         {
-            if (_phaseId < _phases.Count - 1)
-            {
-                _phaseId++;
-            }
-            _activePhase = _phases[_phaseId];
+            _phaseBuffer.Add(_activePhase.subPhases[1]);
         }
+        _activePhase = _phaseBuffer[0];
         _phaseTimer = 0;
         StartPhase();
     }

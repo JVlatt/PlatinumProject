@@ -41,7 +41,8 @@ public class Peon : MonoBehaviour
     public bool _canMove
     {
         get { return m_canMove; }
-        set { 
+        set
+        {
             m_canMove = value;
             if (_isFixing && !value)
             {
@@ -166,7 +167,8 @@ public class Peon : MonoBehaviour
     protected GameObject m_fix;
     public GameObject _fix
     {
-        set { 
+        set
+        {
             m_fix = value;
             _fixAnimator = value.GetComponent<Animator>();
         }
@@ -241,7 +243,9 @@ public class Peon : MonoBehaviour
     private void OnMouseDown()
     {
         if (!PhaseManager.Instance.activePhase.freezeControl)
-        PeonManager.Instance._activePeon = this;
+        {
+            PeonManager.Instance._activePeon = this;
+        }
     }
     private void OnMouseEnter()
     {
@@ -250,7 +254,7 @@ public class Peon : MonoBehaviour
         UIManager.Instance.ChangeCursor("peon");
         _over.SetActive(true);
     }
-    
+
     private void OnMouseExit()
     {
         _over.SetActive(false);
@@ -277,7 +281,7 @@ public class Peon : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, m_destination, Time.deltaTime * m_speed);
         }
-        else if (m_currentCarriage!= null && !m_currentCarriage._activePeons.Contains(this) && m_currentCarriage._peons.Contains(this))
+        else if (m_currentCarriage != null && !m_currentCarriage._activePeons.Contains(this) && m_currentCarriage._peons.Contains(this))
         {
             m_currentCarriage._activePeons.Add(this);
             m_currentCarriage.AddPeonToSpecialCarriage(this);
@@ -293,7 +297,7 @@ public class Peon : MonoBehaviour
     {
         _currentCarriage.RemovePeon(this);
         GameObject masque = Instantiate(_masque);
-        masque.transform.position = transform.position+ new Vector3(0, -0.5f, 0);
+        masque.transform.position = transform.position + new Vector3(0, -0.5f, 0);
         masque.transform.eulerAngles = new Vector3(0, 90, -90);
         Destroy(gameObject);
     }
@@ -308,15 +312,15 @@ public class Peon : MonoBehaviour
 
     private void Fix()
     {
-        if (!_isFixing && !_fixFail || m_canMove ) return;
+        if (!_isFixing && !_fixFail || m_canMove) return;
         _fixTimer += Time.deltaTime;
-        if (_fixTimer > _fixCD )
+        if (_fixTimer > _fixCD)
         {
             float random = Random.Range(0, 100);
             if (random < _fixLuck)
             {
                 //c'est reparé
-                /*if(((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
+                if (((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
                 {
                     if (((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
                     {
@@ -333,9 +337,10 @@ public class Peon : MonoBehaviour
                 _currentCarriage.DegatState = _currentCarriage.DegatState;
             }
             _fixTimer = 0;
-            
-            
-        }else if (_fixFail)
+
+
+        }
+        else if (_fixFail)
         {
             _fixAnimator.SetTrigger("Fail");
             if (_fixTimer > 1)

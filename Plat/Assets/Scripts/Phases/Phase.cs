@@ -5,7 +5,16 @@ using Assets.Script;
 
 public abstract class Phase : MonoBehaviour
 {
-   
+    public enum PhaseType
+    {
+        MAIN,
+        SUB,
+        CONDITION,
+        GROUP
+    }
+
+    public PhaseType type;
+
     [SerializeField]
     private float _duration;
     public float duration

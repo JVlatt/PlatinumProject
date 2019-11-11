@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -122,13 +122,7 @@ public class Carriage : MonoBehaviour
         get { return _isAnEvent; }
         set { _isAnEvent = value; }
     }
-    [SerializeField]
-    private bool _autoWin = false;
-    public bool autoWin
-    {
-        get { return _autoWin; }
-        set { _autoWin = value; }
-    }
+
     #region Varible pour separation
 
     private bool _isDetached;
@@ -199,18 +193,24 @@ public class Carriage : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
-            TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon,this);
+            if (isAnEvent)
+            {
+                PhaseManager.Instance.GetPeon(PeonManager.Instance._activePeon);
+                PhaseManager.Instance.NextPhase();
+                isAnEvent = false;
+            }
+            TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
 
     private void OnMouseEnter()
     {
         if (PhaseManager.Instance.activePhase.freezeControl) return;
-        if(_underAttack)
+        if (_underAttack)
         {
             UIManager.Instance.ChangeCursor("attack");
         }
-        if(!_underAttack)
+        if (!_underAttack)
         {
             _nameTag.gameObject.SetActive(true);
         }
@@ -333,75 +333,56 @@ public class Carriage : MonoBehaviour
     }
     private void Fight()
     {
-        if(_isAnEvent)
+        int totalpower = 0;
+
+        switch (m_activePeons[0]._type)
         {
-            if(autoWin)
+            case Peon.TYPE.FIGHTER:
+                totalpower = 70;
+                break;
+            case Peon.TYPE.SIMPLE:
+                totalpower = 40;
+                break;
+            case Peon.TYPE.MECA:
+                totalpower = 35;
+                break;
+            case Peon.TYPE.HEALER:
+                totalpower = 20;
+                break;
+        }
+        for (int i = 1; i < m_activePeons.Count; i++)
+        {
+            switch (m_activePeons[i]._type)
             {
-                Victory();
+                case Peon.TYPE.FIGHTER:
+                    totalpower += 20;
+                    break;
+                case Peon.TYPE.SIMPLE:
+                    totalpower += 15;
+                    break;
+                case Peon.TYPE.MECA:
+                    totalpower += 10;
+                    break;
+                case Peon.TYPE.HEALER:
+                    totalpower += 5;
+                    break;
             }
-            if(!autoWin)
-            {
-                PhaseManager.Instance.GetPeon(m_activePeons[0]);
-                _underAttack = false;
-                _particle.Stop();
-                m_activePeons[0]._HP = 0;
-                PhaseManager.Instance.NextPhase();
-            }
-            _battleUi.SetActive(false);
+        }
+        int rand = Random.Range(0, 100);
+        Debug.Log("Puissance Totale = " + totalpower);
+        Debug.Log("Jet de Dés = " + rand);
+        if (rand <= totalpower)
+        {
+            Debug.Log("Victoire ! ");
+            Victory();
         }
         else
         {
-            int totalpower = 0;
-
-            switch (m_activePeons[0]._type)
-            {
-                case Peon.TYPE.FIGHTER:
-                    totalpower = 70;
-                    break;
-                case Peon.TYPE.SIMPLE:
-                    totalpower = 40;
-                    break;
-                case Peon.TYPE.MECA:
-                    totalpower = 35;
-                    break;
-                case Peon.TYPE.HEALER:
-                    totalpower = 20;
-                    break;
-            }
-            for (int i = 1; i < m_activePeons.Count; i++)
-            {
-                switch (m_activePeons[i]._type)
-                {
-                    case Peon.TYPE.FIGHTER:
-                        totalpower += 20;
-                        break;
-                    case Peon.TYPE.SIMPLE:
-                        totalpower += 15;
-                        break;
-                    case Peon.TYPE.MECA:
-                        totalpower += 10;
-                        break;
-                    case Peon.TYPE.HEALER:
-                        totalpower += 5;
-                        break;
-                }
-            }
-            int rand = Random.Range(0, 100);
-            Debug.Log("Puissance Totale = " + totalpower);
-            Debug.Log("Jet de Dés = " + rand);
-            if (rand <= totalpower)
-            {
-                Debug.Log("Victoire ! ");
-                Victory();
-            }
-            else
-            {
-                Debug.Log("Défaite :(");
-                Defeat();
-            }
-            _timerBeforeAttack = 0f;
-            _battleUi.SetActive(false);
+            Debug.Log("Défaite :(");
+            Defeat();
         }
+        _timerBeforeAttack = 0f;
+        _battleUi.SetActive(false);
     }
 
     private void Victory()
@@ -428,7 +409,7 @@ public class Carriage : MonoBehaviour
             TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
         }
         int count = m_activePeons.Count;
-        for(int i = 1; i < count; i++)
+        for (int i = 1; i < count; i++)
         {
             m_activePeons[0]._HP -= 10;
             m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
@@ -449,11 +430,12 @@ public class Carriage : MonoBehaviour
     {
         if (DegatState == DEGATSTATE.DEGAT80)
         {
-            TrainManager.Instance.UnclipCarriage(this.id-1);
+            TrainManager.Instance.UnclipCarriage(this.id - 1);
         }
         else
         {
-            DegatState=DegatState+1;
+            DegatState = _degatState + 1;
+            _isBroke = true;
         }
         Debug.Log("Le wagon endomagé");
     }
