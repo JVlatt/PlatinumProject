@@ -30,8 +30,7 @@ public class TrainManager : MonoBehaviour
     private float _attackSpeedMalus = 5;
     private float _speedTarget;
 
-    private GameObject carriageToAdd;
-    private bool carriageWithPerso;
+    private Carriage carriageToAdd;
 
     public float Speed
     {
@@ -163,7 +162,37 @@ public class TrainManager : MonoBehaviour
 
     public void RecupererWagon(bool oui)
     {
-         
+        if (oui)
+            UIManager.Instance.fade();
     }
 
+    public void AddCarriage()
+    {
+        Vector3 position = _carriages[_carriages.Count].transform.parent.position;
+        position.x -= 10f;
+        Carriage carriage = Instantiate<Carriage>(carriageToAdd, position, Quaternion.identity, transform);
+    }
+
+
+    public AttackedCariageDirection CheckAttackedCariageDirection()
+    {
+        AttackedCariageDirection direction = new AttackedCariageDirection(); 
+        foreach (Carriage item in m_carriages)
+        {
+            if(item._underAttack)
+            {
+                if (Camera.main.transform.position.x - item.transform.position.x < 0)
+                    direction.Right = true;
+                else
+                    direction.Left = true;
+            }
+        }
+        return direction;
+    }
+
+    public class AttackedCariageDirection
+    {
+        public bool Right;
+        public bool Left;
+    }
 }

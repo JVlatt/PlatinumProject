@@ -37,20 +37,24 @@ public class UIManager : MonoBehaviour
     private float m_totalMentalHealth;
 
     [Header("UI")]
+    [SerializeField]
+    private Vector3 _nameTagOffset;
     private List<Transform> _UIPeons = new List<Transform>();
     private List<Image> _lifeBars = new List<Image>();
     private List<TextMeshProUGUI> _nameTags = new List<TextMeshProUGUI>();
     private List<TextMeshProUGUI> _carriagesTags = new List<TextMeshProUGUI>();
     [SerializeField]
-    private Vector3 _nameTagOffset;
-    [SerializeField]
     private TextMeshProUGUI _nameTagPrefab;
     [SerializeField]
     private Transform _UIPeonPrefab;
     [SerializeField]
+    private GameObject _attack;
     private Image _leftAttack;
-    public Image _blackScreen;
-    public float _fadeSpeed;
+    private Image _rightAttack;
+    [SerializeField]
+    private Image _blackScreen;
+    [SerializeField]
+    private float _fadeSpeed;
     float _timer;
     bool _fade;
 
@@ -197,6 +201,11 @@ public class UIManager : MonoBehaviour
             _line.gameObject.SetActive(true);
         }
     }
+    private void Start()
+    {
+        _leftAttack = _attack.transform.GetChild(0).GetComponent<Image>();
+        _rightAttack = _attack.transform.GetChild(1).GetComponent<Image>();
+    }
 
     private void Update()
     {
@@ -210,6 +219,16 @@ public class UIManager : MonoBehaviour
         if (_fade)
         {
             _timer += Time.deltaTime;
+            _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+            if (_timer * _fadeSpeed > 1.5)
+            {
+                _fade = false;
+                TrainManager.Instance.AddCarriage();
+            }
+        }
+        else
+        {
+            _timer -= Time.deltaTime;
             _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
         }
 
@@ -233,19 +252,26 @@ public class UIManager : MonoBehaviour
             _timerAttack += Time.deltaTime;
             Color color = _leftAttack.color;
             if (_timerAttack < 1)
-                color.a = Mathf.Lerp(0, 0.2f, _timerAttack);
+                color.a = Mathf.Lerp(0, 1, _timerAttack);
             else if (_timerAttack < 2)
-                color.a = Mathf.Lerp(0, 0.2f, (1 - (_timerAttack - 1)));
+                color.a = Mathf.Lerp(0, 1, (1 - (_timerAttack - 1)));
             else
                 _timerAttack = 0;
-            _leftAttack.color = color;
+            TrainManager.AttackedCariageDirection direction = TrainManager.Instance.CheckAttackedCariageDirection();
+            if (direction.Left)
+                _leftAttack.color = color;
+            else
+                _leftAttack.color = ResetColor(_leftAttack.color);
+            if (direction.Right)
+                _rightAttack.color = color;
+            else
+                _rightAttack.color = ResetColor(_leftAttack.color);
 
         }
         else
         {
-            Color color = _leftAttack.color;
-            color.a = 0;
-            _leftAttack.color = color;
+            _leftAttack.color = ResetColor(_leftAttack.color);
+            _rightAttack.color = ResetColor(_leftAttack.color);
         }
 
         if (_textPannel.activeSelf)
@@ -264,6 +290,12 @@ public class UIManager : MonoBehaviour
                 PhaseManager.Instance.NextPhase();
             }
         }
+    }
+
+    private Color ResetColor(Color color)
+    {
+        color.a = 0;
+        return color;
     }
 
     public void AddUIPeon(Peon p)

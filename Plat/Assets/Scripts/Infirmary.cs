@@ -46,7 +46,7 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
         if (_peonsToHeal.Count == 0) { _peonsToHeal.Add(peon); return; }
 
         int i = 0;
-        while (peon.HPLost()<_peonsToHeal[i].HPLost())
+        while (i<_peonsToHeal.Count&&peon.HPLost()<_peonsToHeal[i].HPLost())
         {
             i++;
         }
