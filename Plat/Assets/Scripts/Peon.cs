@@ -313,24 +313,24 @@ public class Peon : MonoBehaviour
         if (_fixTimer > _fixCD )
         {
             float random = Random.Range(0, 100);
-            if (random > _fixLuck)
+            if (random < _fixLuck)
             {
                 //c'est reparé
-                if(((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
+                /*if(((PhaseBreak)(PhaseManager.Instance.activePhase)) != null)
                 {
                     if (((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
                     {
                         PhaseManager.Instance.NextPhase();
                     }
-                }
-                _currentCarriage._isBroke = false;
+                }*/
+                _currentCarriage.DegatState--;
                 _isFixing = false;
                 _canMove = true;
             }
             else
             {
                 _fixFail = true;
-                _currentCarriage._isBroke = true;
+                _currentCarriage.DegatState = _currentCarriage.DegatState;
             }
             _fixTimer = 0;
             

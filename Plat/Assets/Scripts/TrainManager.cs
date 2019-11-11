@@ -29,6 +29,10 @@ public class TrainManager : MonoBehaviour
     [SerializeField]
     private float _attackSpeedMalus = 5;
     private float _speedTarget;
+
+    private GameObject carriageToAdd;
+    private bool carriageWithPerso;
+
     public float Speed
     {
         get { return _speed; }
@@ -156,4 +160,10 @@ public class TrainManager : MonoBehaviour
         if (newBool)
             _speedTarget -= _attackSpeedMalus;
     }
+
+    public void RecupererWagon(bool oui)
+    {
+         
+    }
+
 }

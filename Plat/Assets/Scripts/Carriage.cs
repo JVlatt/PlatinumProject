@@ -92,14 +92,9 @@ public class Carriage : MonoBehaviour
     {
         private get { return m_isBroke; }
         set {
-            if (_degatState == DEGATSTATE.DEGAT20)
-            {
                 m_isBroke = value;
                 _fixIt.gameObject.SetActive(value);
                 _fixIt._isOnFix = false;
-            }
-            else
-                _degatState--;
         }
     }
 
@@ -160,11 +155,29 @@ public class Carriage : MonoBehaviour
     private DEGATSTATE _degatState = DEGATSTATE.GOOD;
     public DEGATSTATE DegatState
     {
-        private set
+        set
         {
             TrainManager.Instance.UpdateSpeed(_degatState, value);
             _degatState = value;
 
+            switch (_degatState)
+            {
+                case DEGATSTATE.GOOD:
+                    _isBroke = false;
+                    break;
+                case DEGATSTATE.DEGAT20:
+                    _isBroke = true;
+                    break;
+                case DEGATSTATE.DEGAT40:
+                    _isBroke = true;
+                    break;
+                case DEGATSTATE.DEGAT60:
+                    _isBroke = true;
+                    break;
+                case DEGATSTATE.DEGAT80:
+                    _isBroke = true;
+                    break;
+            }
         }
         get { return _degatState; }
     }
@@ -440,8 +453,7 @@ public class Carriage : MonoBehaviour
         }
         else
         {
-            DegatState=_degatState+1;
-            _isBroke = true;
+            DegatState=DegatState+1;
         }
         Debug.Log("Le wagon endomagé");
     }
@@ -449,8 +461,7 @@ public class Carriage : MonoBehaviour
 
     public void Break(Carriage.DEGATSTATE amount)
     {
-        _isDetached = true;
-        _degatState = amount;
+        DegatState = amount;
     }
 
     private void Update()
