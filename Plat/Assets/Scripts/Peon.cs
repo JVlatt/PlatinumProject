@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -397,10 +397,13 @@ public class Peon : MonoBehaviour
 
     public void SwitchMaterial(Material mat)
     {
-        Material[] newMaterial = new Material[2];
-        newMaterial[0] = _meshRenderer.materials[0];
-        newMaterial[1] = mat;
-        _meshRenderer.materials = newMaterial;
+        if (_meshRenderer)
+        {
+            Material[] newMaterial = new Material[2];
+            newMaterial[0] = _meshRenderer.materials[0];
+            newMaterial[1] = mat;
+            _meshRenderer.materials = newMaterial;
+        }
     }
 
     public virtual bool CanFix(Carriage carriage)

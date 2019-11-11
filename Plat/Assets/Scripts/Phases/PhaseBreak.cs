@@ -7,13 +7,13 @@ public class PhaseBreak : Phase
     public int _carriage;
     public bool _waitForFix;
     [SerializeField]
-    private Carriage.DEGATSTATE _damageAmont;
+    private Carriage.DEGATSTATE _damageAmount;
 
     public override void LaunchPhase()
     {
         if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
         {
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).Break(_damageAmont);
+            TrainManager.Instance._carriages.Find(x => x.id == _carriage).Break(_damageAmount);
             TrainManager.Instance._carriages.Find(x => x.id == _carriage).isAnEvent = true;
             SoundManager.Instance.Play("break");
         }
