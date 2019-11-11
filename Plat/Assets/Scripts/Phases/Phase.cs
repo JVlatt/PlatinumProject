@@ -40,8 +40,6 @@ public abstract class Phase : MonoBehaviour
 
     public List<Phase> subPhases;
 
-    public bool conditionPhase = false;
-
     public abstract void LaunchPhase();
 
     public abstract string BuildGameObjectName();
@@ -58,7 +56,5 @@ public abstract class Phase : MonoBehaviour
     private void Start()
     {
         subPhases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform);
-        if (subPhases.Count == 2)
-            conditionPhase = true;
     }
 }
