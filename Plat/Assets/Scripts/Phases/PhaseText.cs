@@ -53,4 +53,8 @@ public class PhaseText : Phase
         int rand = Random.Range(0, 2);
         return spectators[rand]._peonInfo.name;
     }
+    private void Start()
+    {
+        type = PhaseType.TEXT;
+    }
 }

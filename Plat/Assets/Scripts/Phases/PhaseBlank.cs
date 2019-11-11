@@ -15,4 +15,9 @@ public class PhaseBlank : Phase
     {
         controlDuration = !waitNextEvent;
     }
+
+    private void Start()
+    {
+        type = PhaseType.BLANK;
+    }
 }

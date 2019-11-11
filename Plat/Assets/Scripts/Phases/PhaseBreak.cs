@@ -22,4 +22,9 @@ public class PhaseBreak : Phase
     {
         return "Break (Wagon " + _carriage + ")";
     }
+
+    private void Start()
+    {
+        type = PhaseType.BREAK;
+    }
 }

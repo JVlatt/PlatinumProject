@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 68561655}
   - component: {fileID: 68561656}
   m_Layer: 0
-  m_Name: Attack (Wagon 3)
+  m_Name: Attack (Wagon 2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,12 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  mode: 2
   _duration: 10
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
-  _carriage: 3
+  _carriage: 2
   _win: 0
   _timeBeforeAttack: 0
   _getTankName: 1
@@ -220,11 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  mode: 3
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 0
 --- !u!1 &200705538
 GameObject:
@@ -409,11 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 0.5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: "gomini\xE91"
   _character: Butor
   _textType: 0
@@ -677,41 +674,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
---- !u!84 &667258616
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &742816039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4701234739010203004, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -782,11 +744,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beb97ddd6b614f46bc6993e3fa7c3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  mode: 2
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _carriage: 1
   _waitForFix: 1
   _damageAmount: 2
@@ -833,11 +794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 0.5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: "gomini\xE93"
   _character: Oni
   _textType: 0
@@ -852,7 +812,7 @@ GameObject:
   - component: {fileID: 851642752}
   - component: {fileID: 851642753}
   m_Layer: 0
-  m_Name: Blank(0s)
+  m_Name: Blank(5s)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,11 +844,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  _duration: 0
+  mode: 0
+  _duration: 5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 1
 --- !u!1001 &1004108510
 PrefabInstance:
@@ -1004,12 +963,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  mode: 3
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 0
+--- !u!1 &1038736979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038736980}
+  - component: {fileID: 1038736981}
+  m_Layer: 0
+  m_Name: ResetCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038736980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038736979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2133682835}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038736981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038736979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b431955844c124e8be07704021befb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 1
+  subPhases: []
 --- !u!1 &1078438587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,11 +1058,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  mode: 0
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: WHATEVER ON VA TOUS CREVER
   _character: 
   _textType: 2
@@ -1097,13 +1101,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 667258616}
+  shadowMapRenderTexture: {fileID: 1833915472}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.1
   outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
-  shadowDataRenderTexture: {fileID: 1357767465}
+  shadowDataRenderTexture: {fileID: 1773234307}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -1228,11 +1232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: GG BRO
   _character: 
   _textType: 2
@@ -6032,11 +6035,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: YOU SUCK BRO
   _character: 
   _textType: 2
@@ -6085,11 +6087,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  mode: 3
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 0
 --- !u!1 &1354392567
 GameObject:
@@ -6134,49 +6135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: YAAAAY
   _character: 
   _textType: 1
---- !u!84 &1357767465
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1455096549
 GameObject:
   m_ObjectHideFlags: 0
@@ -6449,11 +6414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: FUUUUUUUUUUUU
   _character: 
   _textType: 1
@@ -6500,11 +6464,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: FUUUUUUUUUUUU
   _character: 
   _textType: 1
@@ -6520,6 +6483,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd9c346d5779c7498b90a17b991a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!84 &1773234307
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1814394478
 GameObject:
   m_ObjectHideFlags: 0
@@ -6563,11 +6561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  mode: 0
   _duration: 0.5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: "Izni\xE9"
   _character: Butor
   _textType: 0
@@ -6639,6 +6636,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1290182699532323474}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1833915472
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1835184609
 GameObject:
   m_ObjectHideFlags: 0
@@ -6685,11 +6717,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  mode: 3
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 0
 --- !u!1 &1850932969
 GameObject:
@@ -6734,11 +6765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: YOU SUCK BRO
   _character: 
   _textType: 2
@@ -6785,11 +6815,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  mode: 0
   _duration: 0.5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: "gomini\xE9"
   _character: Oni
   _textType: 0
@@ -6842,11 +6871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: YAAAAY
   _character: 
   _textType: 1
@@ -6893,14 +6921,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: GG BRO
   _character: 
   _textType: 2
+--- !u!1 &1931688258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931688259}
+  - component: {fileID: 1931688260}
+  m_Layer: 0
+  m_Name: Camera (Wagon 0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931688259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931688258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2133682835}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931688260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931688258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1240fb94cb96345ab1cfede6197fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 1
+  subPhases: []
+  _carriage: 0
 --- !u!1 &1946314228
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,11 +7019,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  mode: 1
   _duration: 0.5
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   _text: "gomini\xE92"
   _character: Taon
   _textType: 0
@@ -11750,11 +11824,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  mode: 3
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  conditionPhase: 0
   waitNextEvent: 0
 --- !u!120 &2017263591 stripped
 LineRenderer:
@@ -12038,6 +12111,8 @@ Transform:
   - {fileID: 1078438588}
   - {fileID: 68561655}
   - {fileID: 851642752}
+  - {fileID: 1931688259}
+  - {fileID: 1038736980}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

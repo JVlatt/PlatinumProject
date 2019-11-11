@@ -385,7 +385,7 @@ public class Carriage : MonoBehaviour
         _particle.Stop();
         m_activePeons[0]._HP -= 10;
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
-        if(PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+        if(PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
         PhaseManager.Instance.EndCondition(true);
     }
 
@@ -404,7 +404,7 @@ public class Carriage : MonoBehaviour
             TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
         }
         int count = m_activePeons.Count;
-        for (int i = 1; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             m_activePeons[0]._HP -= 10;
             m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
@@ -418,7 +418,7 @@ public class Carriage : MonoBehaviour
                 TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
             }
         }
-        if (PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+        if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
             PhaseManager.Instance.EndCondition(false);
     }
 

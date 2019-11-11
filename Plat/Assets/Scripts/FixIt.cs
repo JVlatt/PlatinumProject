@@ -38,6 +38,8 @@ public class FixIt : MonoBehaviour
         _isOnFix = true;
 
         _activePeon._isFixing = true;
+
+        // JSP
         if (_isAnEvent)
         {
             PhaseManager.Instance.GetPeon(_activePeon);
@@ -48,7 +50,7 @@ public class FixIt : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl)
+        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl && !_carriage._underAttack)
             UIManager.Instance.ChangeCursor("fix");
     }
     private void OnMouseExit()

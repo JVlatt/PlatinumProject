@@ -13,4 +13,8 @@ public class PhaseResetCamera : Phase
     {
         return "ResetCamera";
     }
+    private void Start()
+    {
+        type = PhaseType.RESETCAMERA;
+    }
 }

@@ -5,7 +5,7 @@ using Assets.Script;
 
 public abstract class Phase : MonoBehaviour
 {
-    public enum PhaseType
+    public enum PhaseMode
     {
         MAIN,
         SUB,
@@ -13,7 +13,20 @@ public abstract class Phase : MonoBehaviour
         GROUP
     }
 
-    public PhaseType type;
+    public PhaseMode mode;
+
+    public enum PhaseType
+    {
+        ATTACK,
+        BLANK,
+        BREAK,
+        CAMERA,
+        RESETCAMERA,
+        SOUND,
+        TEXT
+    }
+
+    protected PhaseType type;
 
     [SerializeField]
     private float _duration;
@@ -53,8 +66,13 @@ public abstract class Phase : MonoBehaviour
         return true;
     }
 
-    private void Start()
+    private void Awake()
     {
         subPhases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform);
+    }
+
+    public PhaseType GetPhaseType()
+    {
+        return type;
     }
 }

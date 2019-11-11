@@ -333,7 +333,7 @@ public class Peon : MonoBehaviour
             {
                 PhaseManager.Instance.GetPeon(this);
             }
-            if (PhaseManager.Instance.activePhase.type == Phase.PhaseType.CONDITION)
+            if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK && TrainManager.Instance._carriages.Find(x => x.id == ((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage) == _currentCarriage)
             {
                 PhaseManager.Instance.EndCondition(!_fixFail);
             }

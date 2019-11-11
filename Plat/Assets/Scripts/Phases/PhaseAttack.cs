@@ -13,6 +13,10 @@ public class PhaseAttack : Phase
     [SerializeField]
     private bool _getTankName;
 
+    private void Start()
+    {
+        type = PhaseType.ATTACK;
+    }
     public override void LaunchPhase()
     {
         controlDuration = false;

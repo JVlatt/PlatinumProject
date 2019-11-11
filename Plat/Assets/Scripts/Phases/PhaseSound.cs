@@ -15,4 +15,9 @@ public class PhaseSound : Phase
     {
         return "Sound (" + _sound + ")";
     }
+
+    private void Start()
+    {
+        type = PhaseType.SOUND;
+    }
 }

@@ -17,4 +17,9 @@ public class PhaseCamera : Phase
     {
         return "Camera (Wagon " + _carriage + ")";
     }
+
+    private void Start()
+    {
+        type = PhaseType.CAMERA;
+    }
 }

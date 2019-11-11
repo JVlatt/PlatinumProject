@@ -89,19 +89,19 @@ public class PhaseManager : MonoBehaviour
     public void NextPhase()
     {
         _phaseBuffer.Remove(_activePhase);
-        switch (_activePhase.type)
+        switch (_activePhase.mode)
         {
-            case Phase.PhaseType.MAIN:
+            case Phase.PhaseMode.MAIN:
                 if (_phaseId < _phases.Count - 1)
                 {
                     _phaseId++;
                 }
                 _phaseBuffer.Add(_phases[_phaseId]);
                 break;
-            case Phase.PhaseType.GROUP:
+            case Phase.PhaseMode.GROUP:
                 _phaseBuffer = _activePhase.subPhases;
                 break;
-            case Phase.PhaseType.SUB:
+            case Phase.PhaseMode.SUB:
                 if(_phaseBuffer.Count < 1)
                 {
                     if (_phaseId < _phases.Count - 1)
