@@ -391,6 +391,7 @@ public class Carriage : MonoBehaviour
 
     private void Defeat()
     {
+        PhaseManager.Instance.GetPeon(m_activePeons[0]);
         m_activePeons[0]._HP -= 15;
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
 
