@@ -385,12 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a297b8c000fb78d43a388c9b68105da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &320468877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2434483295472303072, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
-    type: 3}
-  m_PrefabInstance: {fileID: 584293329}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330495905 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2267033192019915773, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -657,115 +651,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2669791463772907144, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
         type: 3}
-      propertyPath: _fadeSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669791463772907144, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
-        type: 3}
       propertyPath: _line
       value: 
       objectReference: {fileID: 2017263591}
-    - target: {fileID: 2669791463772907144, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
-        type: 3}
-      propertyPath: _attack
-      value: 
-      objectReference: {fileID: 320468877}
-    - target: {fileID: 1444003379, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.0498047
-      objectReference: {fileID: 0}
     - target: {fileID: 2057329342, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_text
-      value: ALO LE MONDE
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462401, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_characterSpacing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 996500118, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 110aac260020574428764961ab3015f7,
-        type: 3}
-    - target: {fileID: 853421500, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 925b4ca61003ccf499edb634a05897b5,
-        type: 3}
-    - target: {fileID: 399974695, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9878ddf078cfd5a4f8dbde48ad18bb95,
-        type: 3}
-    - target: {fileID: 2057329343, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2057329343, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 352462400, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
---- !u!84 &658082194
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &742816039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4701234739010203004, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -1180,7 +1074,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 658082194}
+  shadowMapRenderTexture: {fileID: 1868077615}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -6877,6 +6771,41 @@ MonoBehaviour:
   _text: YOU SUCK BRO
   _character: 
   _textType: 2
+--- !u!84 &1868077615
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1869042040
 GameObject:
   m_ObjectHideFlags: 0
@@ -12433,6 +12362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _speed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294865404227035529, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8852919000395797645, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
