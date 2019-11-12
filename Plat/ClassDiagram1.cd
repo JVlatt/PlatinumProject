@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="43" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQEAAAACCBAABCAACAAABgAQBAIAADAQAAgAAGAAEA=</HashCode>
+      <FileName>Assets\Scripts\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Chunk" Collapsed="true">
+    <Position X="35.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAgAAI=</HashCode>
+      <FileName>Assets\Scripts\Chunk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clip" Collapsed="true">
+    <Position X="43" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Clip.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_carriage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FixIt">
+    <Position X="46" Y="6.75" Width="1.5" />
+    <Members>
+      <Field Name="_carriage" Hidden="true" />
+      <Field Name="_isAnEvent" Hidden="true" />
+      <Field Name="m_isOnFix" Hidden="true" />
+      <Method Name="OnMouseEnter" Hidden="true" />
+      <Method Name="OnMouseExit" Hidden="true" />
+      <Method Name="OnMouseOver" Hidden="true" />
+      <Method Name="Setup" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAACAAAAwAAAABAAAAAECAAAQBAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\FixIt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_activePeon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ParallaxScroller" Collapsed="true">
+    <Position X="35.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAEAAAAAAQAAGAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\ParallaxScroller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PeonManager">
+    <Position X="46" Y="3.25" Width="1.5" />
+    <Members>
+      <Field Name="_base" Hidden="true" />
+      <Field Name="_instance" Hidden="true" />
+      <Field Name="_outline" Hidden="true" />
+      <Method Name="AddPeon" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Property Name="Instance" Hidden="true" />
+      <Field Name="m_activePeon" Hidden="true" />
+      <Field Name="m_peons" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAIAAAAAAAAAAAAAACAAAAAAQIAYAABAAFA=</HashCode>
+      <FileName>Assets\Scripts\PeonManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_activePeon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PhaseManager">
+    <Position X="31.5" Y="3.25" Width="1.5" />
+    <Members>
+      <Field Name="_activePhase" Hidden="true" />
+      <Field Name="_eventPeon" Hidden="true" />
+      <Field Name="_instance" Hidden="true" />
+      <Field Name="_phaseBuffer" Hidden="true" />
+      <Field Name="_phaseId" Hidden="true" />
+      <Field Name="_phases" Hidden="true" />
+      <Field Name="_phaseTimer" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Method Name="EndCondition" Hidden="true" />
+      <Method Name="GameLoop" Hidden="true" />
+      <Method Name="GetNextPhase" Hidden="true" />
+      <Method Name="GetPeon" Hidden="true" />
+      <Method Name="NextPhase" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="StartPhase" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACSEAFAAAGAAAAAAAQEAASAgASAAAAAAQAAEAAIAKEA=</HashCode>
+      <FileName>Assets\Scripts\PhaseManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="activePhase" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sound" Collapsed="true">
+    <Position X="37.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAACAIAAAAAAAAAAAAEAEAgAAAAAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="37.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAAACABAAAAAAAAAAAAAAAAAAAAwAAAAAAAEEA=</HashCode>
+      <FileName>Assets\Scripts\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainManager">
+    <Position X="41" Y="3.25" Width="1.5" />
+    <Members>
+      <Field Name="_acceleration" Hidden="true" />
+      <Field Name="_attackSpeedMalus" Hidden="true" />
+      <Field Name="_deceleration" Hidden="true" />
+      <Field Name="_instance" Hidden="true" />
+      <Field Name="_maxDamagedWagonSpeedMalus" Hidden="true" />
+      <Field Name="_speed" Hidden="true" />
+      <Field Name="_speedTarget" Hidden="true" />
+      <Field Name="_wagonSpeedMalus" Hidden="true" />
+      <Method Name="AddCarriage" Hidden="true" />
+      <Method Name="Awake" Hidden="true" />
+      <Field Name="carriageToAdd" Hidden="true" />
+      <Method Name="CheckAttackedCariageDirection" Hidden="true" />
+      <Property Name="Instance" Hidden="true" />
+      <Field Name="m_carriages" Hidden="true" />
+      <Method Name="MovePeonToCarriage" Hidden="true" />
+      <Method Name="RecupererWagon" Hidden="true" />
+      <Property Name="Speed" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="UnclipCarriage" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Method Name="UpdateId" Hidden="true" />
+      <Method Name="UpdateSpeed" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="TrainManager.AttackedCariageDirection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\TrainManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AkQEAAAAACCAAAAiAAUBAAANBAAAAACQRIAAASAAAEA=</HashCode>
+      <FileName>Assets\Scripts\TrainManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="39" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQVgBAAgDgoAICCCBgNAkUgAEQBAICJQFEAiBBAIVI=</HashCode>
+      <FileName>Assets\Scripts\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Script.HierarchyUtils" Collapsed="true">
+    <Position X="33.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\HierarchyUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phase" Collapsed="true">
+    <Position X="31.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIACAEAAACAABEAAAAACIABABAAgAAABAAEAEA=</HashCode>
+      <FileName>Assets\Scripts\Phases\Phase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseAttack" Collapsed="true">
+    <Position X="23.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAiEAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseBlank" Collapsed="true">
+    <Position X="30.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEIAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseBlank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseBreak" Collapsed="true">
+    <Position X="37.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAIAAAAAAAAAAAAAAAAQAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseBreak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseCamera" Collapsed="true">
+    <Position X="26" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAAAAAAAAAAAAAAAQAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseDetach" Collapsed="true">
+    <Position X="32.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAgAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseDetach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseResetCamera" Collapsed="true">
+    <Position X="39.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseResetCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseSound" Collapsed="true">
+    <Position X="28.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseSound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhaseText" Collapsed="true">
+    <Position X="35" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAEAAAAAAABAAAAAAAAAIgAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Phases\PhaseText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Peon" Collapsed="true">
+    <Position X="46" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhZEAyCEACAAAmaECIHADAACGSABEyCgtYAlQICMEAA=</HashCode>
+      <FileName>Assets\Scripts\Peon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Carriage">
+    <Position X="41" Y="5" Width="1.5" />
+    <Members>
+      <Field Name="_attackDuration" Hidden="true" />
+      <Field Name="_attackTimer" Hidden="true" />
+      <Field Name="_battleUi" Hidden="true" />
+      <Field Name="_degatState" Hidden="true" />
+      <Field Name="_fightDuration" Hidden="true" />
+      <Field Name="_fightTimer" Hidden="true" />
+      <Field Name="_fixIt" Hidden="true" />
+      <Field Name="_isAnEvent" Hidden="true" />
+      <Property Name="_isBroke" Hidden="true" />
+      <Field Name="_isDetached" Hidden="true" />
+      <Field Name="_light" Hidden="true" />
+      <Field Name="_nameTag" Hidden="true" />
+      <Field Name="_nextCarriages" Hidden="true" />
+      <Field Name="_particle" Hidden="true" />
+      <Property Name="_peons" Hidden="true" />
+      <Field Name="_speed" Hidden="true" />
+      <Field Name="_timeBeforeAttack" Hidden="true" />
+      <Field Name="_timerBeforeAttack" Hidden="true" />
+      <Property Name="_underAttack" Hidden="true" />
+      <Property Name="_willBeAttacked" Hidden="true" />
+      <Method Name="AddPeonToSpecialCarriage" Hidden="true" />
+      <Method Name="Attack" Hidden="true" />
+      <Method Name="Break" Hidden="true" />
+      <Method Name="CheckFight" Hidden="true" />
+      <Method Name="ClearPeon" Hidden="true" />
+      <Method Name="DamageCarriage" Hidden="true" />
+      <Method Name="Defeat" Hidden="true" />
+      <Property Name="DegatState" Hidden="true" />
+      <Method Name="Fight" Hidden="true" />
+      <Method Name="GetFreePos" Hidden="true" />
+      <Property Name="id" Hidden="true" />
+      <Property Name="isAnEvent" Hidden="true" />
+      <Property Name="isDetached" Hidden="true" />
+      <Field Name="m_activePeons" Hidden="true" />
+      <Field Name="m_capacity" Hidden="true" />
+      <Field Name="m_id" Hidden="true" />
+      <Field Name="m_isBroke" Hidden="true" />
+      <Field Name="m_mainDestination" Hidden="true" />
+      <Field Name="m_peons" Hidden="true" />
+      <Field Name="m_subDestinations" Hidden="true" />
+      <Field Name="m_underAttack" Hidden="true" />
+      <Field Name="m_willBeAttacked" Hidden="true" />
+      <Property Name="nameTag" Hidden="true" />
+      <Property Name="nextCarriage" Hidden="true" />
+      <Method Name="OnMouseEnter" Hidden="true" />
+      <Method Name="OnMouseExit" Hidden="true" />
+      <Method Name="OnMouseOver" Hidden="true" />
+      <Method Name="OnTriggerEnter" Hidden="true" />
+      <Method Name="OnTriggerExit" Hidden="true" />
+      <Method Name="RemovePeon" Hidden="true" />
+      <Method Name="RunAway" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Method Name="Victory" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="Carriage.positions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Carriage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="Carriage.DEGATSTATE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Carriage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UCSYAFYAACYZAwEAAABUIEQAEaACCozSRIFAAAFQElg=</HashCode>
+      <FileName>Assets\Scripts\Carriage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="fixIt" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Infirmary" Collapsed="true">
+    <Position X="41" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAMAAAAAgAAAAAAQAAAAAAAAAAAIAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Infirmary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Meca" Collapsed="true">
+    <Position X="50.25" Y="4.75" Width="1.5" />
+    <Members>
+      <Field Name="_feedbackIsActive" Hidden="true" />
+      <Field Name="_isUncliping" Hidden="true" />
+      <Field Name="_unclipCD" Hidden="true" />
+      <Field Name="_unclipTimer" Hidden="true" />
+      <Method Name="ActiveFeedback" Hidden="true" />
+      <Property Name="IsUncliping" Hidden="true" />
+      <Method Name="MovePeon" Hidden="true" />
+      <Method Name="SpecialUpdate" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAQAAIAAABAAAAAABAAAAAQAAEAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Meca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Healer" Collapsed="true">
+    <Position X="50.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgACAAgAECAAgCQBAAAACAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Healer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
