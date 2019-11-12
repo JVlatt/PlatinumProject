@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PhaseBreak : Phase
 {
+    [Header("Break Phase Parameters")]
     public int _carriage;
-    public bool _waitForFix;
     [SerializeField]
     private Carriage.DEGATSTATE _damageAmount;
 

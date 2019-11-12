@@ -12,7 +12,7 @@ public abstract class Phase : MonoBehaviour
         CONDITION,
         GROUP
     }
-
+    [Header("Common Phase Parameters")]
     public PhaseMode mode;
 
     public enum PhaseType
@@ -23,11 +23,11 @@ public abstract class Phase : MonoBehaviour
         CAMERA,
         RESETCAMERA,
         SOUND,
-        TEXT
+        TEXT,
+        DETACH
     }
 
     protected PhaseType type;
-
     [SerializeField]
     private float _duration;
     public float duration
@@ -51,6 +51,7 @@ public abstract class Phase : MonoBehaviour
         set { _freezeControl = value; }
     }
 
+    [HideInInspector]
     public List<Phase> subPhases;
 
     public abstract void LaunchPhase();

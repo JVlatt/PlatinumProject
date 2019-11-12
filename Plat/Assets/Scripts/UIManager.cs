@@ -276,6 +276,9 @@ public class UIManager : MonoBehaviour
 
         if (_textPannel.activeSelf)
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+                _textDisplayTimer = _textDisplayDuration;
+
             _textDisplayTimer += Time.deltaTime;
             if (_textDisplayTimer >= _textDisplayDuration)
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhaseCamera : Phase
 {
+    [Header("Camera Phase Parameters")]
     [SerializeField]
     private int _carriage;
 

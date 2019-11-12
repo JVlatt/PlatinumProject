@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhaseBlank : Phase
 {
+    [Header("Blank Phase Parameters")]
     [SerializeField]
     private bool waitNextEvent;
     public override string BuildGameObjectName()

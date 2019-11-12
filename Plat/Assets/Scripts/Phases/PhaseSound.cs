@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhaseSound : Phase
 {
+    [Header("Sound Phase Parameters")]
     [SerializeField]
     private string _sound;
 
