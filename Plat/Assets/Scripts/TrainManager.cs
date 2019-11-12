@@ -30,7 +30,7 @@ public class TrainManager : MonoBehaviour
     private float _attackSpeedMalus = 5;
     private float _speedTarget;
 
-    private Carriage carriageToAdd;
+    private Carriage _carriageToAdd;
 
     public float Speed
     {
@@ -170,7 +170,13 @@ public class TrainManager : MonoBehaviour
     {
         Vector3 position = _carriages[_carriages.Count].transform.parent.position;
         position.x -= 10f;
-        Carriage carriage = Instantiate<Carriage>(carriageToAdd, position, Quaternion.identity, transform);
+        Carriage carriage = Instantiate<Carriage>(_carriageToAdd, position, Quaternion.identity, transform);
+    }
+
+    public void EventNewCarriage(Carriage carriage)
+    {
+        _carriageToAdd = carriage;
+        UIManager.Instance.choicePannel.SetActive(true);
     }
 
 

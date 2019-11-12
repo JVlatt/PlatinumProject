@@ -98,6 +98,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _oniImg;
 
+    [Header("Choices Pannel")]
+    [SerializeField]
+    GameObject _choicePannel;
+    public GameObject choicePannel
+    {
+        get { return choicePannel; }
+    }
+
     #region Struct
     [System.Serializable]
     class UIInfoPerso
