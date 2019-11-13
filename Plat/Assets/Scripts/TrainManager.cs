@@ -37,6 +37,10 @@ public class TrainManager : MonoBehaviour
     private float _cDChoice;
     private bool _startTimer;
 
+    public bool _isShutDown = false;
+    private float _shutDownTimer;
+    private float _shutDownDuration;
+
     public float Speed
     {
         get { return _speed; }
@@ -75,7 +79,7 @@ public class TrainManager : MonoBehaviour
     private void Update()
     {
         float dif = _speed - _speedTarget;
-        if(Mathf.Abs(dif)>0.05)
+        if (Mathf.Abs(dif) > 0.05)
         {
             if (dif > 0)
             {
@@ -89,9 +93,17 @@ public class TrainManager : MonoBehaviour
         {
             _timerChoice += Time.deltaTime;
             UIManager.Instance.choiceClock.fillAmount = _timerChoice / _cDChoice;
-            if(_timerChoice>_cDChoice)
+            if (_timerChoice > _cDChoice)
             {
                 RecupererWagon(false);
+            }
+        }
+        if (_isShutDown)
+        {
+            _shutDownTimer += Time.deltaTime;
+            if (_shutDownTimer >= _shutDownDuration)
+            {
+                PhaseManager.Instance.NextPhase();
             }
         }
     }
@@ -118,7 +130,7 @@ public class TrainManager : MonoBehaviour
     public void UnclipCarriage(int carriageID)
     {
         List<Carriage> toRemove = new List<Carriage>();
-        for (int i = carriageID+1; i < m_carriages.Count; i++)
+        for (int i = carriageID + 1; i < m_carriages.Count; i++)
         {
             m_carriages[i].isDetached = true;
             _speedTarget += _wagonSpeedMalus;
@@ -143,7 +155,7 @@ public class TrainManager : MonoBehaviour
                 _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 2;
                 break;
             case Carriage.DEGATSTATE.DEGAT60:
-                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4)*3;
+                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4) * 3;
                 break;
             case Carriage.DEGATSTATE.DEGAT80:
                 _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
@@ -198,7 +210,7 @@ public class TrainManager : MonoBehaviour
         Carriage carriage = Instantiate<Carriage>(_carriageToAdd, position, Quaternion.identity, transform);
     }
 
-    public void EventNewCarriage(Carriage carriage,float timer)
+    public void EventNewCarriage(Carriage carriage, float timer)
     {
         _carriageToAdd = carriage;
         _cDChoice = timer;
@@ -209,10 +221,10 @@ public class TrainManager : MonoBehaviour
 
     public AttackedCariageDirection CheckAttackedCariageDirection()
     {
-        AttackedCariageDirection direction = new AttackedCariageDirection(); 
+        AttackedCariageDirection direction = new AttackedCariageDirection();
         foreach (Carriage item in m_carriages)
         {
-            if(item._underAttack)
+            if (item._underAttack)
             {
                 if (Camera.main.transform.position.x - item.transform.position.x < 0)
                     direction.Right = true;
@@ -221,6 +233,33 @@ public class TrainManager : MonoBehaviour
             }
         }
         return direction;
+    }
+
+    public void ShutDown(float duration)
+    {
+        _shutDownDuration = duration;
+        _shutDownTimer = 0;
+
+        foreach (Carriage c in _carriages)
+        {
+            if (c.id != 0)
+                c.SwitchLights(false);
+        }
+
+        _isShutDown = true;
+    }
+
+    public void RepairLights()
+    {
+        _isShutDown = false;
+        _shutDownTimer = 0;
+        foreach (Carriage c in _carriages)
+        {
+            if (c.id != 0)
+                c.SwitchLights(true);
+        }
+
+        PhaseManager.Instance.NextPhase();
     }
 
     public class AttackedCariageDirection

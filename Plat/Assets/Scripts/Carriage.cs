@@ -312,6 +312,10 @@ public class Carriage : MonoBehaviour
             _attackTimer += Time.deltaTime;
             if (m_activePeons.Count >= 1)
             {
+                if(!SoundManager.Instance.isPlaying("fight"))
+                {
+                    SoundManager.Instance.Play("fight");
+                }
                 _battleUi.SetActive(true);
                 _fightTimer += Time.deltaTime;
                 if (_fightTimer >= _fightDuration)
@@ -380,6 +384,10 @@ public class Carriage : MonoBehaviour
         }
         _timerBeforeAttack = 0f;
         _battleUi.SetActive(false);
+        if(SoundManager.Instance.isPlaying("fight"))
+        {
+            SoundManager.Instance.StopSound("fight");
+        }
     }
 
     private void Victory()
@@ -456,5 +464,10 @@ public class Carriage : MonoBehaviour
     {
         if (!_isDetached) return;
         transform.parent.transform.Translate(Vector3.down * _speed * Time.deltaTime);
+    }
+
+    public void SwitchLights(bool on)
+    {
+        _light.SetBool("lightOn", on);
     }
 }

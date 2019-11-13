@@ -32,7 +32,7 @@ public class FixIt : MonoBehaviour
         if (_isOnFix || !PeonManager.Instance._activePeon) return;
         if (!PeonManager.Instance._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
-        if (PhaseManager.Instance && PhaseManager.Instance.activePhase  .freezeControl) return;
+        if (PhaseManager.Instance && PhaseManager.Instance.activePhase.freezeControl) return;
         _activePeon = PeonManager.Instance._activePeon;
         TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage, transform.position);
         _isOnFix = true;

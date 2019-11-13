@@ -24,7 +24,8 @@ public abstract class Phase : MonoBehaviour
         RESETCAMERA,
         SOUND,
         TEXT,
-        DETACH
+        DETACH,
+        SHUTDOWN
     }
 
     protected PhaseType type;

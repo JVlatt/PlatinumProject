@@ -398,6 +398,7 @@ public class UIManager : MonoBehaviour
             default:
                 break;
         }
+        SoundManager.Instance.Play(character);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
     }
