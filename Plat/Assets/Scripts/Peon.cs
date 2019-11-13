@@ -124,7 +124,7 @@ public class Peon : MonoBehaviour
         get { return _peonInfo.HP; }
         set
         {
-            if (PeonManager.Instance._activePeon = this)
+            if (PeonManager.Instance._activePeon == this)
                 UIManager.Instance.UpdateUIPeon(_peonInfo);
             _peonInfo.HP = value;
             UIManager.Instance.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
@@ -236,6 +236,10 @@ public class Peon : MonoBehaviour
         SpecialStart();
         _over.SetActive(false);
         m_animator = GetComponentInChildren<Animator>();
+        if(_peonInfo.name == "Butor")
+        {
+            SetDamage(10);
+        }
     }
 
     public virtual void SpecialStart() { }
@@ -389,10 +393,10 @@ public class Peon : MonoBehaviour
         return _peonInfo.HPMax - _HP;
     }
 
-    public void SetDamage()
+    public void SetDamage(int damages)
     {
         _HEALTHSTATE = HEALTHSTATE.HURT;
-        _HP -= 10;
+        _HP -= damages;
     }
 
     public void SwitchMaterial(Material mat)

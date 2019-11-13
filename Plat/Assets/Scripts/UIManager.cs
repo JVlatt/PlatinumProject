@@ -101,6 +101,8 @@ public class UIManager : MonoBehaviour
     [Header("Choices Pannel")]
     [SerializeField]
     GameObject _choicePannel;
+    private string _speakingCharacter;
+
     public GameObject choicePannel
     {
         get { return _choicePannel; }
@@ -304,6 +306,14 @@ public class UIManager : MonoBehaviour
                 _textDisplayTimer = _textDisplayDuration;
 
             _textDisplayTimer += Time.deltaTime;
+
+            if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
+            {
+                if (SoundManager.Instance.isPlaying(_speakingCharacter))
+                {
+                    SoundManager.Instance.StopSound(_speakingCharacter);
+                }
+            }
             if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
@@ -383,7 +393,7 @@ public class UIManager : MonoBehaviour
         _taonImg.gameObject.SetActive(false);
         _butorImg.gameObject.SetActive(false);
         _text.SetText(text);
-
+        _speakingCharacter = character;
         switch (character)
         {
             case "Butor":
