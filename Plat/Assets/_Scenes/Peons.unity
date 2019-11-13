@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1741271, g: 0.21774584, b: 0.2999423, a: 1}
+  m_IndirectSpecularColor: {r: 0.17412736, g: 0.21774632, b: 0.2999427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: ccf419982bf9bc14a95983b37c0f1f6f,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -168,7 +168,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Take care of the l-locomotive.
   _character: 
   _textType: 2
 --- !u!1 &38861863
@@ -218,7 +218,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: " Let\u2019s fix that   "
   _character: 
   _textType: 2
 --- !u!1 &42918989
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 42918990}
   - component: {fileID: 42918991}
   m_Layer: 0
-  m_Name: Text (CUSTOM )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,9 +268,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'This carriage looked wreck anyway. Better safe than sorry ! '
   _character: 
-  _textType: 0
+  _textType: 1
 --- !u!1 &46326642
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'This train will fall into ruins  ! '
   _character: 
   _textType: 1
 --- !u!1 &49488438
@@ -368,7 +368,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Try to come back ! '
   _character: 
   _textType: 1
 --- !u!1 &109143778
@@ -418,7 +418,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: What a mecanician am i
+  _text: And the light is back !
   _character: 
   _textType: 1
 --- !u!1 &112810049
@@ -468,7 +468,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: Well if it comes, I'll be ready to kick it out of here.
+  _text: It's fine...
   _character: Butor
   _textType: 0
 --- !u!1 &131650694
@@ -976,41 +976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2db2b80d122047b9d53b74a1cf83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &251521645
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &266611236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1039,7 @@ GameObject:
   - component: {fileID: 268532714}
   - component: {fileID: 268532715}
   m_Layer: 0
-  m_Name: Text (CUSTOM )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1110,9 +1075,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'We can''t '
   _character: 
-  _textType: 0
+  _textType: 1
 --- !u!1 &292527903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1248,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: "That\u2019s how it\u2019s done !"
   _character: 
   _textType: 1
 --- !u!1 &379069444
@@ -1383,7 +1348,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: The Thing is too strong..
   _character: 
   _textType: 1
 --- !u!1 &385078393
@@ -1794,7 +1759,7 @@ GameObject:
   - component: {fileID: 505108640}
   - component: {fileID: 505108641}
   m_Layer: 0
-  m_Name: Text (CUSTOM )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,9 +1795,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: A wise decision
   _character: 
-  _textType: 0
+  _textType: 1
 --- !u!1 &510264003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +1981,7 @@ GameObject:
   - component: {fileID: 569724062}
   - component: {fileID: 569724063}
   m_Layer: 0
-  m_Name: Blank(20s)
+  m_Name: Blank(7s)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,7 +2014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 20
+  _duration: 7
   _freezeControl: 0
   subPhases: []
   waitNextEvent: 0
@@ -2290,7 +2255,7 @@ GameObject:
   - component: {fileID: 610144462}
   - component: {fileID: 610144463}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2326,9 +2291,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: End of it, she's gone
   _character: 
-  _textType: 2
+  _textType: 1
 --- !u!1 &658731726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2562,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Damn no ! '
   _character: 
   _textType: 1
 --- !u!1 &757448254
@@ -2795,7 +2760,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: No, the Thing gonna come !
   _character: 
   _textType: 1
 --- !u!1 &803950703
@@ -2896,7 +2861,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'We trusted you  ! '
   _character: 
   _textType: 2
 --- !u!1 &819460880
@@ -3057,7 +3022,7 @@ GameObject:
   - component: {fileID: 866825713}
   - component: {fileID: 866825714}
   m_Layer: 0
-  m_Name: Text (ACTOR )
+  m_Name: Text (SPECTATOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3093,9 +3058,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Sure ! Good job ! '
   _character: 
-  _textType: 1
+  _textType: 2
 --- !u!1 &875265491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,7 +3268,7 @@ GameObject:
   - component: {fileID: 913580345}
   - component: {fileID: 913580346}
   m_Layer: 0
-  m_Name: Text (CUSTOM )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3339,9 +3304,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'The t-train is m-more hospitable now '
   _character: 
-  _textType: 0
+  _textType: 1
 --- !u!1 &927595611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,7 +3354,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: I need medication..
+  _text: Everything turn...
   _character: 
   _textType: 1
 --- !u!84 &946078271
@@ -3524,7 +3489,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Let me see the other world ! '
   _character: 
   _textType: 2
 --- !u!1 &994113225
@@ -3538,7 +3503,7 @@ GameObject:
   - component: {fileID: 994113226}
   - component: {fileID: 994113227}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3574,9 +3539,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Yeah ! Good bye ! '
   _character: 
-  _textType: 2
+  _textType: 1
 --- !u!1001 &1004108510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3693,7 +3658,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'That was harsh '
   _character: 
   _textType: 1
 --- !u!1 &1097421569
@@ -3880,7 +3845,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 251521645}
+  shadowMapRenderTexture: {fileID: 1584862479}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -4015,7 +3980,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: I'm so sorry..I can't..
   _character: 
   _textType: 1
 --- !u!1 &1198916171
@@ -4115,7 +4080,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: Good move nigga
+  _text: 'Perhaps the thing will leave us with those lights on. '
   _character: 
   _textType: 2
 --- !u!1 &1237828371
@@ -8882,7 +8847,7 @@ GameObject:
   - component: {fileID: 1255714392}
   - component: {fileID: 1255714393}
   m_Layer: 0
-  m_Name: Text (ACTOR )
+  m_Name: Text (SPECTATOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8918,9 +8883,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Gotta go fast to our destination ! '
   _character: 
-  _textType: 1
+  _textType: 2
 --- !u!1 &1268148286
 GameObject:
   m_ObjectHideFlags: 0
@@ -8968,7 +8933,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: No..how can I lose..
   _character: 
   _textType: 1
 --- !u!1 &1274551298
@@ -9168,7 +9133,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Lights on spirits !
   _character: 
   _textType: 1
 --- !u!1 &1295411153
@@ -9218,7 +9183,8 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: "Another successful reparation for me. Nobody\u2019s touching the locomotive
+    !"
   _character: 
   _textType: 1
 --- !u!1 &1336974085
@@ -9268,7 +9234,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: "That\u2019ll teach you, hillbilly."
   _character: 
   _textType: 1
 --- !u!1 &1344763726
@@ -9418,7 +9384,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Another successful reparation for me
   _character: 
   _textType: 1
 --- !u!1 &1421107642
@@ -9567,7 +9533,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: How you can fail that ??
   _character: 
   _textType: 2
 --- !u!1 &1455096549
@@ -9872,7 +9838,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: ' Wow, impressive '
   _character: 
   _textType: 2
 --- !u!1 &1554798477
@@ -9976,6 +9942,41 @@ MonoBehaviour:
   subPhases: []
   _carriage: 2
   _timeBeforeAttack: 2
+--- !u!84 &1584862479
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1588153493
 GameObject:
   m_ObjectHideFlags: 0
@@ -9987,7 +9988,7 @@ GameObject:
   - component: {fileID: 1588153494}
   - component: {fileID: 1588153495}
   m_Layer: 0
-  m_Name: Text (ACTOR )
+  m_Name: Text (SPECTATOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10023,9 +10024,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'Good job ! '
   _character: 
-  _textType: 1
+  _textType: 2
 --- !u!1 &1592334056
 GameObject:
   m_ObjectHideFlags: 0
@@ -10037,7 +10038,7 @@ GameObject:
   - component: {fileID: 1592334057}
   - component: {fileID: 1592334058}
   m_Layer: 0
-  m_Name: Text (CUSTOM )
+  m_Name: Text (CUSTOM Oni )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10073,8 +10074,8 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
-  _character: 
+  _text: 'Oh no ! T-the Thing ! '
+  _character: 'Oni '
   _textType: 0
 --- !u!1 &1617998770
 GameObject:
@@ -10200,7 +10201,7 @@ GameObject:
   - component: {fileID: 1651232782}
   - component: {fileID: 1651232783}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Text (ACTOR )
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10236,9 +10237,9 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Oh hell I nailed it !
   _character: 
-  _textType: 2
+  _textType: 1
 --- !u!1 &1651909960
 GameObject:
   m_ObjectHideFlags: 0
@@ -10446,7 +10447,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Ruin check
   _character: 
   _textType: 1
 --- !u!1 &1698672503
@@ -10607,7 +10608,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'I''m ready to go ! '
   _character: 
   _textType: 2
 --- !u!1 &1803176259
@@ -10738,7 +10739,7 @@ GameObject:
   - component: {fileID: 1843057499}
   - component: {fileID: 1843057500}
   m_Layer: 0
-  m_Name: Text (CUSTOM Oni)
+  m_Name: Text (CUSTOM Taon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10774,8 +10775,8 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: I hope the thing will not come
-  _character: Oni
+  _text: Hey ! Wake up ! Now !
+  _character: Taon
   _textType: 0
 --- !u!4 &1869085507 stripped
 Transform:
@@ -10978,7 +10979,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: Each has its role.
   _character: 
   _textType: 2
 --- !u!1 &1910198808
@@ -11028,7 +11029,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: I failed...
   _character: 
   _textType: 1
 --- !u!1 &1910510087
@@ -16276,7 +16277,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: "I-I don\u2019t feel so good..."
   _character: 
   _textType: 1
 --- !u!1001 &2092365549
@@ -16754,7 +16755,7 @@ MonoBehaviour:
   _duration: 2
   _freezeControl: 0
   subPhases: []
-  _text: Yeah
+  _text: 'No time for celebration ! '
   _character: 
   _textType: 2
 --- !u!1 &2123436417
@@ -17000,7 +17001,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'We''re condamned '
   _character: 
   _textType: 1
 --- !u!1 &2146083060
@@ -17050,7 +17051,7 @@ MonoBehaviour:
   _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
+  _text: 'We are safe now ! '
   _character: 
   _textType: 1
 --- !u!1001 &1290182699532323474
