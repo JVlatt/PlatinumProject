@@ -28,9 +28,14 @@ public class TrainManager : MonoBehaviour
     private float _maxDamagedWagonSpeedMalus = 20;
     [SerializeField]
     private float _attackSpeedMalus = 5;
+    [SerializeField]
+    private float _driverSpeedBonus = 10;
     private float _speedTarget;
 
     private Carriage _carriageToAdd;
+    private float _timerChoice;
+    private float _cDChoice;
+    private bool _startTimer;
 
     public float Speed
     {
@@ -79,6 +84,15 @@ public class TrainManager : MonoBehaviour
             }
             else
                 _speed += _acceleration * Time.deltaTime;
+        }
+        if (_startTimer)
+        {
+            _timerChoice += Time.deltaTime;
+            UIManager.Instance.choiceClock.fillAmount = _timerChoice / _cDChoice;
+            if(_timerChoice>_cDChoice)
+            {
+                RecupererWagon(false);
+            }
         }
     }
 
@@ -160,10 +174,21 @@ public class TrainManager : MonoBehaviour
             _speedTarget -= _attackSpeedMalus;
     }
 
+    public void UpdateSpeed(bool addMeca)
+    {
+        if (addMeca)
+            _speedTarget += _driverSpeedBonus;
+        else
+            _speedTarget -= _driverSpeedBonus;
+    }
+
     public void RecupererWagon(bool oui)
     {
         if (oui)
-            UIManager.Instance.fade();
+            UIManager.Instance.fade(UIManager.FADETYPE.ADDCARRIAGE);
+        UIManager.Instance.choicePannel.SetActive(false);
+        _timerChoice = 0;
+        _startTimer = false;
     }
 
     public void AddCarriage()
@@ -173,9 +198,11 @@ public class TrainManager : MonoBehaviour
         Carriage carriage = Instantiate<Carriage>(_carriageToAdd, position, Quaternion.identity, transform);
     }
 
-    public void EventNewCarriage(Carriage carriage)
+    public void EventNewCarriage(Carriage carriage,float timer)
     {
         _carriageToAdd = carriage;
+        _cDChoice = timer;
+        _startTimer = true;
         UIManager.Instance.choicePannel.SetActive(true);
     }
 

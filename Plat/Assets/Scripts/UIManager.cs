@@ -103,8 +103,16 @@ public class UIManager : MonoBehaviour
     GameObject _choicePannel;
     public GameObject choicePannel
     {
-        get { return choicePannel; }
+        get { return _choicePannel; }
     }
+    [SerializeField]
+    Image _choiceClock;
+    public Image choiceClock
+    {
+        get { return _choiceClock; }
+    }
+
+    private FADETYPE _fadeType;
 
     #region Struct
     [System.Serializable]
@@ -119,6 +127,13 @@ public class UIManager : MonoBehaviour
         public Image healthStateImage;
         public Image healthBar;
         public Image moralBar;
+    }
+
+    public enum FADETYPE
+    {
+        NULL,
+        END,
+        ADDCARRIAGE
     }
     #endregion
 
@@ -231,7 +246,8 @@ public class UIManager : MonoBehaviour
             if (_timer * _fadeSpeed > 1.5)
             {
                 _fade = false;
-                TrainManager.Instance.AddCarriage();
+                if(_fadeType == FADETYPE.ADDCARRIAGE)
+                    TrainManager.Instance.AddCarriage();
             }
         }
         else
@@ -386,8 +402,9 @@ public class UIManager : MonoBehaviour
         _textPannel.SetActive(true);
     }
 
-    public void fade()
+    public void fade(FADETYPE fadeType)
     {
+        _fadeType = fadeType;
         _fade = true;
     }
 }

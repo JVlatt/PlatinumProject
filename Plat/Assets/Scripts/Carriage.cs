@@ -240,6 +240,8 @@ public class Carriage : MonoBehaviour
 
     public virtual void AddPeonToSpecialCarriage(Peon peon)
     {
+        if (id == 0 && peon._type == Peon.TYPE.MECA)
+            TrainManager.Instance.UpdateSpeed(true);
 
     }
 
@@ -252,6 +254,8 @@ public class Carriage : MonoBehaviour
         }
         if (_fixIt._activePeon &&_fixIt._activePeon._ID == peon._ID)
             _fixIt._isOnFix = false;
+        if (id == 0 && peon._type == Peon.TYPE.MECA)
+            TrainManager.Instance.UpdateSpeed(false);
     }
     #endregion
 
