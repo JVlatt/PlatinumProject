@@ -93,6 +93,9 @@ public class CameraController : MonoBehaviour
                 float lerpRatio = (zoom.min - transform.position.z) / (zoom.min - zoom.max);
                 float left = Mathf.Lerp(currentBorderLeft.min, currentBorderLeft.max, lerpRatio);
                 float right = Mathf.Lerp(currentBorderRight.min, currentBorderRight.max, lerpRatio);
+                float scale = Mathf.Lerp(1, 2, lerpRatio);
+
+                UIManager.Instance.SetUIInfoScale(scale);
 
                 currentBorderLeft = MinMax.Lerp(currentBorderLeft, borderLeft, 0.1f);
                 currentBorderRight = MinMax.Lerp(currentBorderRight, borderRight, 0.1f);

@@ -127,7 +127,7 @@ public class Peon : MonoBehaviour
             if (PeonManager.Instance._activePeon == this)
                 UIManager.Instance.UpdateUIPeon(_peonInfo);
             _peonInfo.HP = value;
-            UIManager.Instance.UpdateHealthBar((_peonInfo.HPMax - HPLost()) / _peonInfo.HPMax, _ID);
+            UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
         }
     }
 
@@ -135,7 +135,20 @@ public class Peon : MonoBehaviour
     public HEALTHSTATE _HEALTHSTATE
     {
         get { return _peonInfo.HEALTHSTATE; }
-        set { _peonInfo.HEALTHSTATE = value; }
+        set { 
+            _peonInfo.HEALTHSTATE = value;
+            UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
+        }
+    }
+
+    public ACTIVITY _ACTIVITY
+    {
+        get { return _peonInfo.ACTIVITY; }
+        set
+        {
+            _peonInfo.ACTIVITY = value;
+            UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
+        }
     }
 
     private float _hpToRecover;
@@ -154,12 +167,17 @@ public class Peon : MonoBehaviour
         get { return m_isFixing; }
         set
         {
+            if (_isFixing && !value)
+                _ACTIVITY = ACTIVITY.NONE;
+            else if (value)
+                _ACTIVITY = ACTIVITY.REPAIR;
             m_isFixing = value;
             _fixTimer = 0;
             if (!_canMove)
             {
                 m_animator.SetBool("Healing", value);
-                m_fix.SetActive(value);
+                if(value)
+                    m_fix.SetActive(value);
             }
         }
     }
@@ -175,7 +193,8 @@ public class Peon : MonoBehaviour
     }
     private Animator _fixAnimator;
 
-    private bool _fixFail;
+    private bool _fixEnded;
+    private bool _fixResult;
     #endregion
     #region Enum & Struct
     [System.Serializable]
@@ -186,6 +205,7 @@ public class Peon : MonoBehaviour
         [HideInInspector]
         public HEALTHSTATE HEALTHSTATE;
         public TYPE TYPE;
+        public ACTIVITY ACTIVITY;
         public float HP;
         [HideInInspector]
         public float HPMax;
@@ -205,19 +225,23 @@ public class Peon : MonoBehaviour
         SIMPLE,
         FIGHTER
     }
+
+    public enum ACTIVITY
+    {
+        NONE,
+        HEAL,
+        WAIT,
+        FIGHT,
+        REPAIR,
+        DRIVE,
+        UNCLIP
+    }
     #endregion
 
     private bool m_actionBeforIdle;
     public bool _actionBeforeIdle
     {
         set { m_actionBeforIdle = value; }
-    }
-
-    private GameObject m_over;
-    public GameObject _over
-    {
-        get { return m_over; }
-        set { m_over = value; }
     }
 
     protected Animator m_animator;
@@ -227,14 +251,13 @@ public class Peon : MonoBehaviour
 
     void Start()
     {
+        PeonManager.Instance.AddPeon(this);
         _meshRenderer = transform.GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<MeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;
-        PeonManager.Instance.AddPeon(this);
         _peonInfo.HPMax = _HP;
         SpecialStart();
-        _over.SetActive(false);
         m_animator = GetComponentInChildren<Animator>();
         if(_peonInfo.name == "Butor")
         {
@@ -256,12 +279,10 @@ public class Peon : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
         UIManager.Instance.ChangeCursor("peon");
-        _over.SetActive(true);
     }
 
     private void OnMouseExit()
     {
-        _over.SetActive(false);
         UIManager.Instance.ChangeCursor("default");
     }
     private void Update()
@@ -287,11 +308,12 @@ public class Peon : MonoBehaviour
         }
         else if (m_currentCarriage != null && !m_currentCarriage._activePeons.Contains(this) && m_currentCarriage._peons.Contains(this))
         {
+            if (m_currentCarriage._underAttack)
+                _ACTIVITY = ACTIVITY.FIGHT;
             m_currentCarriage._activePeons.Add(this);
             m_currentCarriage.AddPeonToSpecialCarriage(this);
         }
 
-        Unclip();
         Fix();
         Recover();
         SpecialUpdate();
@@ -308,15 +330,9 @@ public class Peon : MonoBehaviour
 
     public virtual void SpecialUpdate() { }
 
-    private void Unclip()
-    {
-        if (!m_actionBeforIdle) return;
-
-    }
-
     private void Fix()
     {
-        if (!_isFixing && !_fixFail || m_canMove) return;
+        if (!_isFixing && !_fixEnded || m_canMove) return;
         _fixTimer += Time.deltaTime;
         if (_fixTimer > _fixCD)
         {
@@ -325,32 +341,35 @@ public class Peon : MonoBehaviour
             {
                 //c'est reparé
                 _currentCarriage.DegatState--;
-                _isFixing = false;
-                _canMove = true;
+                _fixResult = true;
             }
             else
             {
-                _fixFail = true;
+                _fixResult = false;
                 _currentCarriage.DegatState = _currentCarriage.DegatState;
             }
-            if(_currentCarriage.isAnEvent)
+            _fixEnded = true;
+            if (_currentCarriage.isAnEvent)
             {
                 PhaseManager.Instance.GetPeon(this);
             }
             if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK && TrainManager.Instance._carriages.Find(x => x.id == ((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage) == _currentCarriage)
             {
-                PhaseManager.Instance.EndCondition(!_fixFail);
+                PhaseManager.Instance.EndCondition(!_fixEnded);
             }
             _fixTimer = 0;
 
 
         }
-        else if (_fixFail)
+        else if (_fixEnded)
         {
-            _fixAnimator.SetTrigger("Fail");
-            if (_fixTimer > 1)
+            if (_fixResult)
+                _fixAnimator.SetTrigger("Win");
+            else
+                _fixAnimator.SetTrigger("Fail");
+            if (_fixTimer > 0.8f)
             {
-                _fixFail = false;
+                _fixEnded = false;
                 _isFixing = false;
                 _canMove = true;
             }

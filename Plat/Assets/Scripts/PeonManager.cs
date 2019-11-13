@@ -52,12 +52,12 @@ public class PeonManager : MonoBehaviour
             if(m_activePeon != null)
             {
                 m_activePeon.SwitchMaterial(_base);
-                UIManager.Instance.UpdateUIPeon(null);
+                UIManager.Instance.ActiveUIPerso(false, m_activePeon._ID);
             }
             if(value != null)
             {
                 value.SwitchMaterial(_outline);
-                UIManager.Instance.UpdateUIPeon(value._peonInfo);
+                UIManager.Instance.ActiveUIPerso(true,value._ID);
             }
             m_activePeon = value;
         }

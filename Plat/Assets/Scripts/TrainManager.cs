@@ -111,6 +111,16 @@ public class TrainManager : MonoBehaviour
 
     public void MovePeonToCarriage(Peon p, Carriage carriage, Vector3 actionPosition = new Vector3())
     {
+        if (carriage.id == 0 && p._type == Peon.TYPE.MECA)
+        {
+            TrainManager.Instance.UpdateSpeed(true);
+            p._ACTIVITY = Peon.ACTIVITY.DRIVE;
+        }
+        else if(p._ACTIVITY == Peon.ACTIVITY.DRIVE)
+        {
+            TrainManager.Instance.UpdateSpeed(false);
+            p._ACTIVITY = Peon.ACTIVITY.NONE;
+        }
         carriage.ClearPeon(p);
         carriage.GetFreePos(p, actionPosition);
         carriage._peons.Add(p);

@@ -14,7 +14,11 @@ public class Meca : Peon
     {
         set
         {
+            if (_isUncliping && !value)
+                _ACTIVITY = ACTIVITY.NONE;
             _isUncliping = value;
+            if (value)
+                _ACTIVITY = ACTIVITY.UNCLIP;
             _unclipTimer = 0;
         }
     }

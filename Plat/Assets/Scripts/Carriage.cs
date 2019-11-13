@@ -240,8 +240,7 @@ public class Carriage : MonoBehaviour
 
     public virtual void AddPeonToSpecialCarriage(Peon peon)
     {
-        if (id == 0 && peon._type == Peon.TYPE.MECA)
-            TrainManager.Instance.UpdateSpeed(true);
+
 
     }
 
@@ -335,7 +334,7 @@ public class Carriage : MonoBehaviour
     private void Fight()
     {
         int totalpower = 0;
-
+        m_activePeons[0]._ACTIVITY = Peon.ACTIVITY.NONE;
         switch (m_activePeons[0]._type)
         {
             case Peon.TYPE.FIGHTER:
@@ -353,6 +352,7 @@ public class Carriage : MonoBehaviour
         }
         for (int i = 1; i < m_activePeons.Count; i++)
         {
+            m_activePeons[i]._ACTIVITY = Peon.ACTIVITY.NONE;
             switch (m_activePeons[i]._type)
             {
                 case Peon.TYPE.FIGHTER:
