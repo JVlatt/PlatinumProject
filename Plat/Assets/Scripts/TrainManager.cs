@@ -32,7 +32,8 @@ public class TrainManager : MonoBehaviour
     private float _driverSpeedBonus = 10;
     private float _speedTarget;
 
-    private Carriage _carriageToAdd;
+    private GameObject _carriageToAdd;
+    private bool _withPeon;
     private float _timerChoice;
     private float _cDChoice;
     private bool _startTimer;
@@ -66,7 +67,10 @@ public class TrainManager : MonoBehaviour
     }
     private void Start()
     {
-        UpdateId();
+        foreach (var item in m_carriages)
+        {
+            AddId(item);
+        }
         CameraController.Instance.MajCamera(m_carriages);
         _speedTarget = _speed;
         foreach (var item in m_carriages)
@@ -120,13 +124,12 @@ public class TrainManager : MonoBehaviour
         PeonManager.Instance._activePeon = null;
     }
 
-    public void UpdateId()
+    public void AddId(Carriage c)
     {
-        foreach (Carriage c in m_carriages)
-        {
-            c.id = m_carriages.IndexOf(c);
-            UIManager.Instance.AddCarriageName(c);
-        }
+
+        c.id = m_carriages.IndexOf(c);
+        UIManager.Instance.AddCarriageName(c);
+
     }
 
     public void UnclipCarriage(int carriageID)
@@ -200,6 +203,7 @@ public class TrainManager : MonoBehaviour
     {
         if (oui)
             UIManager.Instance.fade(UIManager.FADETYPE.ADDCARRIAGE);
+        PhaseManager.Instance.NextPhase();
         UIManager.Instance.choicePannel.SetActive(false);
         _timerChoice = 0;
         _startTimer = false;
@@ -207,13 +211,20 @@ public class TrainManager : MonoBehaviour
 
     public void AddCarriage()
     {
-        Vector3 position = _carriages[_carriages.Count].transform.parent.position;
+        Vector3 position = _carriages[_carriages.Count-1].transform.parent.position;
         position.x -= 10f;
-        Carriage carriage = Instantiate<Carriage>(_carriageToAdd, position, Quaternion.identity, transform);
+        GameObject go = Instantiate(_carriageToAdd, position, _carriageToAdd.transform.rotation, transform);
+        Carriage carriage = go.GetComponentInChildren<Carriage>();
+        m_carriages.Add(carriage);
+        AddId(carriage);
+        CameraController.Instance.MajCamera(m_carriages);
+        if (_withPeon)
+            PeonManager.Instance.AddPeon(go.GetComponentInChildren<Peon>());
     }
 
-    public void EventNewCarriage(Carriage carriage, float timer)
+    public void EventNewCarriage(GameObject carriage, float timer,bool withPeon)
     {
+        _withPeon = withPeon;
         _carriageToAdd = carriage;
         _cDChoice = timer;
         _startTimer = true;

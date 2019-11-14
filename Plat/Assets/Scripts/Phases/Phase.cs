@@ -26,7 +26,8 @@ public abstract class Phase : MonoBehaviour
         TEXT,
         DETACH,
         SHUTDOWN,
-        HEAL
+        HEAL,
+        NEWCARRIAGE,
     }
 
     protected PhaseType type;

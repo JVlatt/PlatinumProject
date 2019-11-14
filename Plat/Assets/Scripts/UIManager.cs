@@ -104,6 +104,12 @@ public class UIManager : MonoBehaviour
         get { return _choicePannel; }
     }
     [SerializeField]
+    private Text _choiceText;
+    public string choiceText
+    {
+        set { _choiceText.text = value; }
+    }
+    [SerializeField]
     Image _choiceClock;
     public Image choiceClock
     {
@@ -224,7 +230,7 @@ public class UIManager : MonoBehaviour
         {
             _timer += Time.deltaTime;
             _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
-            if (_timer * _fadeSpeed > 1.5)
+            if (_timer * _fadeSpeed > 1)
             {
                 _fade = false;
                 if(_fadeType == FADETYPE.ADDCARRIAGE)
@@ -233,8 +239,11 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            _timer -= Time.deltaTime;
-            _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+            if (_timer > 0)
+            {
+                _timer -= Time.deltaTime;
+                _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+            }
         }
 
         for (int i = 0; i < _UIPeons.Count; i++)
