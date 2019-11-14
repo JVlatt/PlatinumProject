@@ -82,12 +82,8 @@ public class Carriage : MonoBehaviour
     private float _fightTimer = 0f;
 
     private ParticleSystem _particle;
-    private FixIt _fixIt;
-    public FixIt fixIt
-    {
-        get { return _fixIt; }
-        set { _fixIt = value; }
-    }
+    private FixIt _fixItCarriage;
+    private FixIt _fixItLight;
     [SerializeField]
     private bool m_isBroke;
     public bool _isBroke
@@ -96,8 +92,7 @@ public class Carriage : MonoBehaviour
         set
         {
             m_isBroke = value;
-            _fixIt.gameObject.SetActive(value);
-            _fixIt._isOnFix = false;
+            _fixItCarriage.gameObject.SetActive(value);
         }
     }
 
@@ -183,9 +178,12 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
-        _fixIt = GetComponentInChildren<FixIt>(true);
+        FixIt[] allFixIt = GetComponentsInChildren<FixIt>(true);
+        _fixItCarriage = allFixIt[0];
+        _fixItLight = allFixIt[1];
         _light = transform.parent.GetComponentInChildren<Light>().GetComponent<Animator>();
-        if (_fixIt) _fixIt.Setup(this);
+        if (_fixItCarriage) _fixItCarriage.Setup(this);
+        if (_fixItLight) _fixItLight.Setup(this);
         _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
     }
@@ -254,8 +252,8 @@ public class Carriage : MonoBehaviour
         {
             m_activePeons.Remove(peon);
         }
-        if (_fixIt._activePeon && _fixIt._activePeon._ID == peon._ID)
-            _fixIt._isOnFix = false;
+        if (_fixItCarriage._activePeon && _fixItCarriage._activePeon._ID == peon._ID)
+            _fixItCarriage._isOnFix = false;
         if (id == 0 && peon._type == Peon.TYPE.MECA)
             TrainManager.Instance.UpdateSpeed(false);
     }
@@ -468,9 +466,11 @@ public class Carriage : MonoBehaviour
         transform.parent.transform.Translate(Vector3.down * _speed * Time.deltaTime);
     }
 
-    public void SwitchLights(bool on)
+    public void SwitchLights(bool on, bool needRepair = false)
     {
         _light.SetBool("lightOn", on);
+        if (needRepair)
+            _fixItLight.gameObject.SetActive(true);
     }
 
     public bool isCarriageAttackedByEvent()

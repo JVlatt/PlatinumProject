@@ -194,12 +194,6 @@ public class Peon : MonoBehaviour
     private Animator _fixAnimator;
 
     private bool _fixEnded;
-    private bool _fixResult;
-    public bool fixResult
-    {
-        get { return _fixResult; }
-        set { _fixResult = value; }
-    }
     #endregion
     #region Enum & Struct
     [System.Serializable]
@@ -242,6 +236,9 @@ public class Peon : MonoBehaviour
         UNCLIP
     }
     #endregion
+
+    public delegate void Del(bool b);
+    public Del onFixEndedDelegate;
 
     private bool m_actionBeforIdle;
     public bool _actionBeforeIdle
@@ -345,13 +342,16 @@ public class Peon : MonoBehaviour
             if (random < _fixLuck)
             {
                 //c'est reparé
-                _currentCarriage.DegatState--;
-                _fixResult = true;
+                if(null != onFixEndedDelegate)
+                    onFixEndedDelegate(true);
+                _fixAnimator.SetTrigger("Win");
+
             }
             else
             {
-                _fixResult = false;
-                _currentCarriage.DegatState = _currentCarriage.DegatState;
+                if(onFixEndedDelegate!=null)
+                    onFixEndedDelegate(false);
+                _fixAnimator.SetTrigger("Fail");
             }
             _fixEnded = true;
             if (_currentCarriage.isAnEvent)
@@ -368,10 +368,6 @@ public class Peon : MonoBehaviour
         }
         else if (_fixEnded)
         {
-            if (_fixResult)
-                _fixAnimator.SetTrigger("Win");
-            else
-                _fixAnimator.SetTrigger("Fail");
             if (_fixTimer > 0.8f)
             {
                 _fixEnded = false;

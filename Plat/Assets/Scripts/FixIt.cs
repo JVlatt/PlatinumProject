@@ -25,6 +25,14 @@ public class FixIt : MonoBehaviour
         get { return _isAnEvent; }
         set { _isAnEvent = value; }
     }
+    [SerializeField]
+    private FIXTYPE _fixType = FIXTYPE.CARRIAGE;
+    public enum FIXTYPE
+    {
+        CARRIAGE,
+        LIGHT
+    }
+
 
     private void OnMouseOver()
     {
@@ -38,6 +46,7 @@ public class FixIt : MonoBehaviour
         _isOnFix = true;
 
         _activePeon._isFixing = true;
+        _activePeon.onFixEndedDelegate += onFixEnded;
 
         // JSP
         if (_isAnEvent)
@@ -46,6 +55,31 @@ public class FixIt : MonoBehaviour
             PhaseManager.Instance.NextPhase();
             _isAnEvent = false;
         }
+    }
+
+    private void onFixEnded(bool b)
+    {
+        _activePeon.onFixEndedDelegate -= onFixEnded;
+        if (_fixType == FIXTYPE.CARRIAGE)
+        {
+            if (b)
+            {
+                _carriage.DegatState--;
+            }
+            else
+            {
+                _carriage.DegatState = _carriage.DegatState;
+            }
+        }
+        else if(_fixType == FIXTYPE.LIGHT)
+        {
+            if(b)
+            {
+                _carriage.SwitchLights(true);
+                gameObject.SetActive(false);
+            }
+        }
+        _isOnFix = false;
     }
 
     private void OnMouseEnter()
