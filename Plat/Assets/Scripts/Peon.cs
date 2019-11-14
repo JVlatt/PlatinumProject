@@ -271,6 +271,7 @@ public class Peon : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (_currentCarriage._underAttack) return;
         if (!PhaseManager.Instance.activePhase.freezeControl)
         {
             PeonManager.Instance._activePeon = this;
@@ -278,6 +279,7 @@ public class Peon : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+        if (_currentCarriage._underAttack) return;
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
         UIManager.Instance.ChangeCursor("peon");
@@ -357,10 +359,6 @@ public class Peon : MonoBehaviour
             if (_currentCarriage.isAnEvent)
             {
                 PhaseManager.Instance.GetPeon(this);
-            }
-            if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK && ((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
-            {
-                PhaseManager.Instance.EndCondition(!_fixEnded);
             }
             _fixTimer = 0;
 

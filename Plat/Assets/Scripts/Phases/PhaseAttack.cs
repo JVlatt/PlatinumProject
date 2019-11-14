@@ -17,11 +17,13 @@ public class PhaseAttack : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
-        if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
+        Carriage c = TrainManager.Instance._carriages.Find(x => x.id == _carriage);
+        if (c != null)
         {
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).Attack(duration, _timeBeforeAttack);
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).isAnEvent = _getTankName;
+            c.Attack(duration, _timeBeforeAttack);
+            c.isAnEvent = _getTankName;
             SoundManager.Instance.Play("attack");
+            PeonManager.Instance._activePeon = null;
         }
         
     }

@@ -5,22 +5,23 @@ using UnityEngine;
 public class PhaseBreak : Phase
 {
     [Header("Break Phase Parameters")]
-    public int _carriage;
+    public int carriage;
     [SerializeField]
     private Carriage.DEGATSTATE _damageAmount;
 
     public override void LaunchPhase()
     {
-        if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
+        Carriage c = TrainManager.Instance._carriages.Find(x => x.id == carriage);
+        if (c != null)
         {
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).Break(_damageAmount);
-            TrainManager.Instance._carriages.Find(x => x.id == _carriage).isAnEvent = true;
+            c.Break(_damageAmount);
+            c.isAnEvent = true;
             SoundManager.Instance.Play("break");
         }
     }
     public override string BuildGameObjectName()
     {
-        return "Break (Wagon " + _carriage + ")";
+        return "Break (Wagon " + carriage + ")";
     }
 
     private void Start()

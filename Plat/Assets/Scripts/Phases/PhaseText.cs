@@ -20,14 +20,17 @@ public class PhaseText : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
-        switch (_textType)
+        if(PhaseManager.Instance.eventPeon != null)
         {
-            case textType.ACTOR:
-                _character = PhaseManager.Instance.eventPeon._peonInfo.name;
-                break;
-            case textType.SPECTATOR:
-                _character = GetSpectator();
-                break;
+            switch (_textType)
+            {
+                case textType.ACTOR:
+                    _character = PhaseManager.Instance.eventPeon._peonInfo.name;
+                    break;
+                case textType.SPECTATOR:
+                    _character = GetSpectator();
+                    break;
+            }
         }
         UIManager.Instance.DisplayText(_text, _character, duration);
     }

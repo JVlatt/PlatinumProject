@@ -203,7 +203,7 @@ public class TrainManager : MonoBehaviour
     {
         if (oui)
             UIManager.Instance.fade(UIManager.FADETYPE.ADDCARRIAGE);
-        PhaseManager.Instance.NextPhase();
+        PhaseManager.Instance.EndCondition(oui);
         UIManager.Instance.choicePannel.SetActive(false);
         _timerChoice = 0;
         _startTimer = false;

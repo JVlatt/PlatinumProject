@@ -52,7 +52,6 @@ public class FixIt : MonoBehaviour
         if (_isAnEvent)
         {
             PhaseManager.Instance.GetPeon(_activePeon);
-            PhaseManager.Instance.NextPhase();
             _isAnEvent = false;
         }
     }
@@ -65,18 +64,26 @@ public class FixIt : MonoBehaviour
             if (b)
             {
                 _carriage.DegatState--;
+                if (isFixCausedByEvent())
+                {
+                    PhaseManager.Instance.EndCondition(b);
+                }
             }
             else
             {
                 _carriage.DegatState = _carriage.DegatState;
             }
         }
-        else if(_fixType == FIXTYPE.LIGHT)
+        else if (_fixType == FIXTYPE.LIGHT)
         {
-            if(b)
+            if (b)
             {
                 _carriage.SwitchLights(true);
                 gameObject.SetActive(false);
+                if (isFixCausedByEvent())
+                {
+                    PhaseManager.Instance.EndCondition(b);
+                }
             }
         }
         _isOnFix = false;
@@ -92,4 +99,22 @@ public class FixIt : MonoBehaviour
         UIManager.Instance.ChangeCursor("default");
     }
 
+    public bool isFixCausedByEvent()
+    {
+        if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK)
+        {
+            if (((PhaseBreak)(PhaseManager.Instance.activePhase)).carriage == _carriage.id)
+            {
+                return true;
+            }
+        }
+        if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.LIGHTOFF)
+        {
+            if (((PhaseLightOff)(PhaseManager.Instance.activePhase)).carriage == _carriage.id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
