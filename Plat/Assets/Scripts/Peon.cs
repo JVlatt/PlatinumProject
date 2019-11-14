@@ -125,7 +125,7 @@ public class Peon : MonoBehaviour
         set
         {
             if (PeonManager.Instance._activePeon == this)
-                UIManager.Instance.UpdateUIPeon(_peonInfo);
+                UIManager.Instance.UpdateUIPeon(_peonInfo,m_ID);
             _peonInfo.HP = value;
             UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
         }
@@ -195,6 +195,11 @@ public class Peon : MonoBehaviour
 
     private bool _fixEnded;
     private bool _fixResult;
+    public bool fixResult
+    {
+        get { return _fixResult; }
+        set { _fixResult = value; }
+    }
     #endregion
     #region Enum & Struct
     [System.Serializable]
@@ -353,7 +358,7 @@ public class Peon : MonoBehaviour
             {
                 PhaseManager.Instance.GetPeon(this);
             }
-            if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK && TrainManager.Instance._carriages.Find(x => x.id == ((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage) == _currentCarriage)
+            if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.BREAK && ((PhaseBreak)(PhaseManager.Instance.activePhase))._carriage == _currentCarriage.id)
             {
                 PhaseManager.Instance.EndCondition(!_fixEnded);
             }

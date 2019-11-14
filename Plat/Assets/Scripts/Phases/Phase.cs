@@ -25,7 +25,8 @@ public abstract class Phase : MonoBehaviour
         SOUND,
         TEXT,
         DETACH,
-        SHUTDOWN
+        SHUTDOWN,
+        HEAL
     }
 
     protected PhaseType type;

@@ -44,7 +44,8 @@ public class Carriage : MonoBehaviour
     public bool _underAttack
     {
         get { return m_underAttack; }
-        set {
+        set
+        {
             TrainManager.Instance.UpdateSpeed(_underAttack, value);
             m_underAttack = value;
             UIManager.Instance._isOnAttack = value;
@@ -56,7 +57,8 @@ public class Carriage : MonoBehaviour
     public bool _willBeAttacked
     {
         get { return m_willBeAttacked; }
-        set {
+        set
+        {
             m_willBeAttacked = value;
             _light.SetBool("willBeAttack", value);
             UIManager.Instance._isOnAttack = value;
@@ -91,10 +93,11 @@ public class Carriage : MonoBehaviour
     public bool _isBroke
     {
         private get { return m_isBroke; }
-        set {
-                m_isBroke = value;
-                _fixIt.gameObject.SetActive(value);
-                _fixIt._isOnFix = false;
+        set
+        {
+            m_isBroke = value;
+            _fixIt.gameObject.SetActive(value);
+            _fixIt._isOnFix = false;
         }
     }
 
@@ -182,7 +185,7 @@ public class Carriage : MonoBehaviour
     {
         _fixIt = GetComponentInChildren<FixIt>(true);
         _light = transform.parent.GetComponentInChildren<Light>().GetComponent<Animator>();
-        if(_fixIt) _fixIt.Setup(this);
+        if (_fixIt) _fixIt.Setup(this);
         _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         _particle.Stop();
     }
@@ -251,7 +254,7 @@ public class Carriage : MonoBehaviour
         {
             m_activePeons.Remove(peon);
         }
-        if (_fixIt._activePeon &&_fixIt._activePeon._ID == peon._ID)
+        if (_fixIt._activePeon && _fixIt._activePeon._ID == peon._ID)
             _fixIt._isOnFix = false;
         if (id == 0 && peon._type == Peon.TYPE.MECA)
             TrainManager.Instance.UpdateSpeed(false);
@@ -286,7 +289,7 @@ public class Carriage : MonoBehaviour
 
     #region Attack Management
 
-    public void Attack(float duration,float subduration)
+    public void Attack(float duration, float subduration)
     {
         _timeBeforeAttack = subduration;
         _attackDuration = duration;
@@ -311,7 +314,7 @@ public class Carriage : MonoBehaviour
             _attackTimer += Time.deltaTime;
             if (m_activePeons.Count >= 1)
             {
-                if(!SoundManager.Instance.isPlaying("fight"))
+                if (!SoundManager.Instance.isPlaying("fight"))
                 {
                     SoundManager.Instance.Play("fight");
                 }
@@ -384,7 +387,7 @@ public class Carriage : MonoBehaviour
         }
         _timerBeforeAttack = 0f;
         _battleUi.SetActive(false);
-        if(SoundManager.Instance.isPlaying("fight"))
+        if (SoundManager.Instance.isPlaying("fight"))
         {
             SoundManager.Instance.StopSound("fight");
         }
@@ -396,8 +399,8 @@ public class Carriage : MonoBehaviour
         _underAttack = false;
         _particle.Stop();
         m_activePeons[0].SetDamage(5);
-        if(PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
-        PhaseManager.Instance.EndCondition(true);
+        if (isCarriageAttackedByEvent())
+            PhaseManager.Instance.EndCondition(true);
     }
 
     private void Defeat()
@@ -429,7 +432,7 @@ public class Carriage : MonoBehaviour
                 TrainManager.Instance.MovePeonToCarriage(m_activePeons[0], TrainManager.Instance._carriages.Find((x => x.m_capacity > x.m_activePeons.Count && x != this)));
             }
         }
-        if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+        if (isCarriageAttackedByEvent())
             PhaseManager.Instance.EndCondition(false);
     }
 
@@ -468,5 +471,17 @@ public class Carriage : MonoBehaviour
     public void SwitchLights(bool on)
     {
         _light.SetBool("lightOn", on);
+    }
+
+    public bool isCarriageAttackedByEvent()
+    {
+        if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.ATTACK)
+        {
+            if (((PhaseAttack)(PhaseManager.Instance.activePhase))._carriage == id)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

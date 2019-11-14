@@ -98,14 +98,6 @@ public class TrainManager : MonoBehaviour
                 RecupererWagon(false);
             }
         }
-        if (_isShutDown)
-        {
-            _shutDownTimer += Time.deltaTime;
-            if (_shutDownTimer >= _shutDownDuration)
-            {
-                PhaseManager.Instance.NextPhase();
-            }
-        }
     }
 
 
@@ -269,7 +261,8 @@ public class TrainManager : MonoBehaviour
                 c.SwitchLights(true);
         }
 
-        PhaseManager.Instance.NextPhase();
+        if(PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.SHUTDOWN)
+            PhaseManager.Instance.EndCondition(true);
     }
 
     public class AttackedCariageDirection

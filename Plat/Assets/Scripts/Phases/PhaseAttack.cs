@@ -5,8 +5,7 @@ using UnityEngine;
 public class PhaseAttack : Phase
 {
     [Header("Attack Phase Parameters")]
-    [SerializeField]
-    private int _carriage;
+    public int _carriage;
     [SerializeField]
     private float _timeBeforeAttack;
     private bool _getTankName = true;

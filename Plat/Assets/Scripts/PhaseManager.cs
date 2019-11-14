@@ -77,7 +77,12 @@ public class PhaseManager : MonoBehaviour
         _phaseTimer += Time.deltaTime;
         if (_phaseTimer >= _activePhase.duration && _activePhase.controlDuration)
         {
-            NextPhase();
+            if(_activePhase.mode == Phase.PhaseMode.CONDITION)
+            {
+                EndCondition(false);
+            }
+            else
+                NextPhase();
         }
     }
 

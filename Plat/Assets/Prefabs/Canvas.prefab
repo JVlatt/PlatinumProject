@@ -651,17 +651,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1372089060}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: RecupererWagon
         m_Mode: 6
@@ -671,7 +660,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &996500116
 GameObject:
@@ -973,7 +962,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.812
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -1169,8 +1158,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1372089060}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 0}
+        m_MethodName: RecupererWagon
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1649,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1444003379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2734,25 +2723,24 @@ MonoBehaviour:
   _blackScreen: {fileID: 1444003380}
   _fadeSpeed: 0.2
   _classeState:
-  - {fileID: 21300000, guid: c252334f0db2e7d4c8c95a715146ab03, type: 3}
-  - {fileID: 21300000, guid: ab7b16952fb34f445b60416981426bd4, type: 3}
-  - {fileID: 21300000, guid: 375a6793e7fc7fd478b76ba963e8c60b, type: 3}
-  - {fileID: 21300000, guid: 7efc4cbd77964a44791a84b9f1c97fd7, type: 3}
+  - {fileID: 21300000, guid: 4bdd26035c786c245946cadadee42d3c, type: 3}
+  - {fileID: 21300000, guid: 1b57a7246ed15af4283e5549c9875a93, type: 3}
+  - {fileID: 21300000, guid: 8a36f4e53c9a62f40afc85bbb4bf2fed, type: 3}
+  - {fileID: 21300000, guid: 8a36f4e53c9a62f40afc85bbb4bf2fed, type: 3}
   _healthState:
-  - {fileID: 21300000, guid: 17cab1d1c5479cb498d90a3b6fa51be5, type: 3}
-  - {fileID: 21300000, guid: 368f9fb5245bd4f4bb796ab5b99949b4, type: 3}
-  - {fileID: 21300000, guid: 7bbe82099e8cc904caab5fb1d31cfc2e, type: 3}
-  _UIInfoPerso:
-    conteneur: {fileID: 1626135452}
-    name: {fileID: 1913809852}
-    typeText: {fileID: 1034988951}
-    heathStateText: {fileID: 1938614513}
-    visual: {fileID: 1241266504}
-    typeImage: {fileID: 1397842655}
-    healthStateImage: {fileID: 1340107135}
-    healthBar: {fileID: 649478262}
-    moralBar: {fileID: 1586532811}
-  _line: {fileID: 0}
+  - {fileID: 21300000, guid: ba51c69a7e57c214d84486dddfca924c, type: 3}
+  - {fileID: 21300000, guid: f7939798e970245498f33a8ae7458acd, type: 3}
+  - {fileID: 21300000, guid: b35d7d032cb85e7468e0d8383c00461f, type: 3}
+  _activity:
+  - {fileID: 21300000, guid: 55d86368f35c7ea4aba4e016841492f0, type: 3}
+  - {fileID: 21300000, guid: b35d7d032cb85e7468e0d8383c00461f, type: 3}
+  - {fileID: 21300000, guid: bb3ae3c739ef24d438a2e5c709e5479e, type: 3}
+  - {fileID: 21300000, guid: d85231ad6ea366e41b34f8268180ca48, type: 3}
+  - {fileID: 21300000, guid: e61587548327e194e9ddab1c9e00fd57, type: 3}
+  - {fileID: 21300000, guid: b9f49a96c1d2eca43b27fbee96e91d16, type: 3}
+  - {fileID: 21300000, guid: a977c1bb7fa46d44680562b18a7b8532, type: 3}
+  - {fileID: 21300000, guid: 03b3a3cf71b45574e919045e2756fee6, type: 3}
+  - {fileID: 21300000, guid: 874fb5977f4f455478cc943dd20c6ced, type: 3}
   _cursorDefault: {fileID: 2800000, guid: 54da2d3ce58dc1d48a1dca25c9cfda29, type: 3}
   _cursorPeon: {fileID: 2800000, guid: 4a38e95487b93434da058726c954dde4, type: 3}
   _cursorFix: {fileID: 2800000, guid: 5583154c0d3094943ad3aea6fc260c10, type: 3}
@@ -2763,6 +2751,8 @@ MonoBehaviour:
   _butorImg: {fileID: 996500118}
   _taonImg: {fileID: 8752220376144963288}
   _oniImg: {fileID: 8688007763315910991}
+  _choicePannel: {fileID: 1372089060}
+  _choiceClock: {fileID: 1209761580}
 --- !u!1 &3328694977864624575
 GameObject:
   m_ObjectHideFlags: 0
