@@ -11,11 +11,12 @@ public class PhaseBreak : Phase
 
     public override void LaunchPhase()
     {
-        Carriage c = TrainManager.Instance._carriages.Find(x => x.id == carriage);
-        if (_carriage > TrainManager.Instance._carriages.Count - 1)
+        if (carriage > TrainManager.Instance._carriages.Count - 1)
         {
-            _carriage = TrainManager.Instance._carriages.Count - 1;
+            carriage = TrainManager.Instance._carriages.Count - 1;
         }
+        Carriage c = TrainManager.Instance._carriages.Find(x => x.id == carriage);
+        
         if (c != null)
         {
             c.Break(_damageAmount);
