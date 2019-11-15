@@ -22,8 +22,10 @@ public class PhaseDetach : Phase
         {
             TrainManager.Instance.UnclipCarriage(TrainManager.Instance._carriages.Count - 2);
             SoundManager.Instance.Play("attack");
+            PhaseManager.Instance.EndCondition(true);
         }
-        PhaseManager.Instance.NextPhase();
+        else
+            PhaseManager.Instance.EndCondition(false);
     }
     public override string BuildGameObjectName()
     {

@@ -9,6 +9,10 @@ public class PhaseShutDown : Phase
         controlDuration = true;
         SoundManager.Instance.Play("shutdown");
         TrainManager.Instance.ShutDown(duration);
+        if(mode != PhaseMode.CONDITION)
+        {
+            PhaseManager.Instance.NextPhase();
+        }
     }
     public override string BuildGameObjectName()
     {

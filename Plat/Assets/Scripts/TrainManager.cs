@@ -284,7 +284,10 @@ public class TrainManager : MonoBehaviour
         }
 
         if(PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.SHUTDOWN)
-            PhaseManager.Instance.EndCondition(true);
+        {
+            if(PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+                PhaseManager.Instance.EndCondition(true);
+        }
     }
 
     public class AttackedCariageDirection
