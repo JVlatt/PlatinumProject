@@ -446,6 +446,7 @@ public class Carriage : MonoBehaviour
 
     private void DamageCarriage()
     {
+        if (_isDetached) return;
         if (DegatState == DEGATSTATE.DEGAT80)
         {
             TrainManager.Instance.UnclipCarriage(this.id - 1);

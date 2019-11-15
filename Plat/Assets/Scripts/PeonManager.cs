@@ -81,9 +81,10 @@ public class PeonManager : MonoBehaviour
 
     public bool CheckPeon()
     {
+        if(_peons.Count == 0) return true;
         foreach (var item in _peons)
         {
-            if (null != _peons)
+            if (null != item)
                 return true;
         }
         return false;
