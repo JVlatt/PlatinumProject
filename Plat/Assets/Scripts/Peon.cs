@@ -336,6 +336,7 @@ public class Peon : MonoBehaviour
     {
         _currentCarriage.RemovePeon(this);
         GameObject masque = Instantiate(_masque);
+        masque.transform.parent = transform.parent;
         masque.transform.position = transform.position + new Vector3(0, -0.5f, 0);
         masque.transform.eulerAngles = new Vector3(0, 90, -90);
         Destroy(gameObject);
