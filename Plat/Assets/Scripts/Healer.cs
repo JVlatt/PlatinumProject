@@ -16,18 +16,16 @@ public class Healer : Peon  //MADE BY CEDRIC
             m_peonToHeal = value;
             if (value)
             {
-                m_animator.SetBool("Healing", true);
+                m_animator.SetBool("isHealing", true);
+                transform.forward = transform.position - m_peonToHeal.transform.position;
                 _ACTIVITY = ACTIVITY.HEAL;
                 _particle.Play();
                 _particle.transform.position = value.transform.position;
             }
-            else { 
-                if(!_isFixing)
-                    m_animator.SetBool("Healing", false);
-                if (_infirmary == null)
-                    _ACTIVITY = ACTIVITY.NONE;
-                else
-                    _ACTIVITY = ACTIVITY.WAIT;
+            else {
+                transform.forward = Vector3.forward ;
+                if (!_isFixing)
+                    m_animator.SetBool("isHealing", false);
                 _particle.Stop();
                 _particle.transform.position = transform.position;
             }
@@ -41,10 +39,6 @@ public class Healer : Peon  //MADE BY CEDRIC
         set
         {
             m_infirmary = value;
-            if (m_infirmary != null && _peonToHeal == null)
-                _ACTIVITY = ACTIVITY.WAIT;
-            else if (m_infirmary == null)
-                _ACTIVITY = ACTIVITY.NONE;
         }
     }
     private ParticleSystem _particle;
@@ -58,6 +52,10 @@ public class Healer : Peon  //MADE BY CEDRIC
 
     public override void SpecialUpdate()
     {
+        if (m_infirmary != null && _peonToHeal == null && _ACTIVITY != ACTIVITY.WAIT && _isFixing != true)
+            _ACTIVITY = ACTIVITY.WAIT;
+        else if (m_infirmary == null && _ACTIVITY != ACTIVITY.NONE && _isFixing !=true)
+            _ACTIVITY = ACTIVITY.NONE;
         if (_peonToHeal && _infirmary && !_canMove && !_isFixing)
         {
             _timer -= Time.deltaTime;

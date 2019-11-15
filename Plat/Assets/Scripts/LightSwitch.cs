@@ -26,6 +26,7 @@ public class LightSwitch : MonoBehaviour
         if(_locomotive._activePeons.Count > 0 && _locomotive._activePeons[0]._isFixing && TrainManager.Instance._isShutDown)
         {
             TrainManager.Instance.RepairLights();
+            SoundManager.Instance.Play("energy");
             _locomotive._activePeons[0]._isFixing = false;
             _locomotive._activePeons[0]._canMove = false;
         }

@@ -17,6 +17,9 @@ public class PhaseText : Phase
     private string _character;
     [SerializeField]
     private textType _textType;
+    [SerializeField]
+    private bool _isInstant;
+
     public override void LaunchPhase()
     {
         controlDuration = false;
@@ -32,7 +35,9 @@ public class PhaseText : Phase
                     break;
             }
         }
-        UIManager.Instance.DisplayText(_text, _character, duration);
+        UIManager.Instance.DisplayText(_text, _character, duration, _isInstant);
+        if (_isInstant)
+            PhaseManager.Instance.NextPhase();
     }
     public override string BuildGameObjectName()
     {
