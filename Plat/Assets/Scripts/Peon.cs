@@ -141,16 +141,6 @@ public class Peon : MonoBehaviour
         }
     }
 
-    public ACTIVITY _ACTIVITY
-    {
-        get { return _peonInfo.ACTIVITY; }
-        set
-        {
-            _peonInfo.ACTIVITY = value;
-            UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
-        }
-    }
-
     private float _hpToRecover;
     private float _recoverTimer;
     #endregion
@@ -172,9 +162,9 @@ public class Peon : MonoBehaviour
             else if (value)
             {
                 _ACTIVITY = ACTIVITY.REPAIR;
-                m_animator.SetBool("isFixing", value);
-            }
 
+            }
+            m_animator.SetBool("isFixing", value);
             m_isFixing = value;
             _fixTimer = 0;
             if (!_canMove)
@@ -240,6 +230,16 @@ public class Peon : MonoBehaviour
         UNCLIP
     }
     #endregion
+
+    public ACTIVITY _ACTIVITY
+    {
+        get { return _peonInfo.ACTIVITY; }
+        set
+        {
+            _peonInfo.ACTIVITY = value;
+            UIManager.Instance.UpdateUIPeon(_peonInfo, _ID);
+        }
+    }
 
     public delegate void Del(bool b);
     public Del onFixEndedDelegate;
@@ -367,6 +367,7 @@ public class Peon : MonoBehaviour
             }
             _fixEnded = true;
             m_animator.SetBool("isFixing", false);
+            m_animator.SetTrigger("EndFix");
             if (_currentCarriage.isAnEvent)
             {
                 PhaseManager.Instance.GetPeon(this);
