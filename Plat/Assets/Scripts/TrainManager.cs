@@ -149,6 +149,10 @@ public class TrainManager : MonoBehaviour
                 peonToKill.Add(item);
                 Invoke("KillPeon", 3);
             }
+            foreach (var item in m_carriages[i]._peons)
+            {
+                item._canMove = false;
+            }
         }
         foreach (var item in toRemove)
         {

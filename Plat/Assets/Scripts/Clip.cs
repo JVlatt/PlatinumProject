@@ -14,7 +14,7 @@ public class Clip : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
+        if (PeonManager.Instance._activePeon != null && PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
             UIManager.Instance.ChangeCursor("unclip");
     }
     private void OnMouseOver()
