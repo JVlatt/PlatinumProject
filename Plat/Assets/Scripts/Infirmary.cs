@@ -43,6 +43,7 @@ public class Infirmary : Carriage  //MADE BY CEDRIC
 
     public void AddPeonToHeal(Peon peon)
     {
+        if (peon == null) return;
         if (_peonsToHeal.Count == 0) { _peonsToHeal.Add(peon); return; }
 
         int i = 0;

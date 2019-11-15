@@ -263,6 +263,8 @@ public class Carriage : MonoBehaviour
     public void ClearPeon(Peon currentPeon)
     {
         if (currentPeon._currentCarriage == null) return;
+        if (currentPeon._isFixing)
+            currentPeon._isFixing = false;
         positions lastPos = currentPeon._currentCarriage.m_subDestinations.Find(x => x.peonOnPos != null && x.peonOnPos._ID == currentPeon._ID);
         lastPos.isAvailable = true;
         lastPos.peonOnPos = null;
