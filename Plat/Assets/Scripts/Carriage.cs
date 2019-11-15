@@ -120,7 +120,7 @@ public class Carriage : MonoBehaviour
         get { return _isAnEvent; }
         set { _isAnEvent = value; }
     }
-
+    public bool autoLoose = false;
     #region Varible pour separation
 
     private bool _isDetached;
@@ -375,7 +375,7 @@ public class Carriage : MonoBehaviour
         int rand = Random.Range(0, 100);
         Debug.Log("Puissance Totale = " + totalpower);
         Debug.Log("Jet de Dés = " + rand);
-        if (rand <= totalpower)
+        if (rand <= totalpower && !autoLoose)
         {
             Debug.Log("Victoire ! ");
             Victory();
