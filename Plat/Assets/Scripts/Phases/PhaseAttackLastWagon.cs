@@ -24,14 +24,17 @@ public class PhaseAttackLastWagon : Phase
         {
             PhaseManager.Instance.NextPhase();
         }
-        Carriage c = TrainManager.Instance._carriages[TrainManager.Instance._carriages.Count - 1];
-        if (c != null)
+        else
         {
-            c.autoLoose = true;
-            c.Attack(duration, _timeBeforeAttack);
-            SoundManager.Instance.Play("attack");
-            PeonManager.Instance._activePeon = null;
-            _launchTimer = true;
+            Carriage c = TrainManager.Instance._carriages[TrainManager.Instance._carriages.Count - 1];
+            if (c != null)
+            {
+                c.autoLoose = true;
+                c.Attack(duration, _timeBeforeAttack);
+                SoundManager.Instance.Play("attack");
+                PeonManager.Instance._activePeon = null;
+                _launchTimer = true;
+            }
         }
     }
 
