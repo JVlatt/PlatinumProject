@@ -61,7 +61,7 @@ public class Carriage : MonoBehaviour
         {
             m_willBeAttacked = value;
             _light.SetBool("willBeAttack", value);
-            UIManager.Instance._isOnAttack = value;
+            UIManager.Instance._isOnAttack = true;
         }
     }
 
@@ -393,14 +393,22 @@ public class Carriage : MonoBehaviour
         }
     }
 
-    private void Victory()
+    public void Victory()
     {
-        PhaseManager.Instance.GetPeon(m_activePeons[0]);
-        _underAttack = false;
-        _particle.Stop();
-        m_activePeons[0].SetDamage(5);
-        if (isCarriageAttackedByEvent())
-            PhaseManager.Instance.EndCondition(true);
+        if (m_activePeons.Count != 0)
+        {
+            PhaseManager.Instance.GetPeon(m_activePeons[0]);
+            _underAttack = false;
+            _particle.Stop();
+            m_activePeons[0].SetDamage(5);
+            if (isCarriageAttackedByEvent())
+                PhaseManager.Instance.EndCondition(true);
+        }
+        else
+        {
+            if (isCarriageAttackedByEvent())
+                PhaseManager.Instance.EndCondition(true);
+        }
     }
 
     private void Defeat()
