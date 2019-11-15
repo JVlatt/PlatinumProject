@@ -168,7 +168,10 @@ public class TrainManager : MonoBehaviour
     private void KillPeon()
     {
         if (peonToKill != null)
+        {
             peonToKill[0].Death();
+            peonToKill.RemoveAt(0);
+        }
     }
 
     public void UpdateSpeed(Carriage.DEGATSTATE currentState, Carriage.DEGATSTATE newState)
@@ -260,7 +263,7 @@ public class TrainManager : MonoBehaviour
         AttackedCariageDirection direction = new AttackedCariageDirection();
         foreach (Carriage item in m_carriages)
         {
-            if (item._underAttack)
+            if (item._underAttack || item._willBeAttacked)
             {
                 if (Camera.main.transform.position.x - item.transform.position.x < 0)
                     direction.Right = true;
