@@ -23,7 +23,7 @@ public class PhaseText : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
-        if(PhaseManager.Instance.eventPeon != null)
+        if (PhaseManager.Instance.eventPeon != null)
         {
             switch (_textType)
             {
@@ -35,13 +35,20 @@ public class PhaseText : Phase
                     break;
             }
         }
-        UIManager.Instance.DisplayText(_text, _character, duration, _isInstant);
-        if (_isInstant)
+        if(_textType == textType.ACTOR && PhaseManager.Instance.eventPeon == null)
+        {
             PhaseManager.Instance.NextPhase();
+        }
+        else
+        {
+            UIManager.Instance.DisplayText(_text, _character, duration, _isInstant);
+            if (_isInstant)
+                PhaseManager.Instance.NextPhase();
+        }
     }
     public override string BuildGameObjectName()
     {
-        return "Text (" + _textType +" "+ _character + ")";
+        return "Text (" + _textType + " " + _character + ")";
     }
 
     public override bool KillTextBox()
@@ -52,14 +59,22 @@ public class PhaseText : Phase
     public string GetSpectator()
     {
         List<Peon> spectators = new List<Peon>();
-        foreach(Peon p in PeonManager.Instance._peons)
+        if(PhaseManager.Instance.eventPeon != null)
         {
-            if (p != PhaseManager.Instance.eventPeon)
-                spectators.Add(p);
-        }
+            foreach (Peon p in PeonManager.Instance._peons)
+            {
+                if (p != PhaseManager.Instance.eventPeon)
+                    spectators.Add(p);
+            }
 
-        int rand = Random.Range(0, 2);
-        return spectators[rand]._peonInfo.name;
+            int rand = Random.Range(0, spectators.Count);
+            return spectators[rand]._peonInfo.name;
+        }
+        else
+        {
+            int rand = Random.Range(0, PeonManager.Instance._peons.Count);
+            return PeonManager.Instance._peons[rand]._peonInfo.name;
+        }
     }
     private void Start()
     {
