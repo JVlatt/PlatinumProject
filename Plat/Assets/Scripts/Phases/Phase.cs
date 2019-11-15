@@ -29,6 +29,7 @@ public abstract class Phase : MonoBehaviour
         HEAL,
         NEWCARRIAGE,
         LIGHTOFF,
+        ATTACKLAST,
     }
 
     protected PhaseType type;

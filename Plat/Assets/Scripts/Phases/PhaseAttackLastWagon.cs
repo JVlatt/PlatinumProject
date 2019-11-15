@@ -13,7 +13,7 @@ public class PhaseAttackLastWagon : Phase
 
     private void Start()
     {
-        type = PhaseType.ATTACK;
+        type = PhaseType.ATTACKLAST;
     }
 
     public override void LaunchPhase()
