@@ -17,6 +17,7 @@ public class Meca : Peon
             if (_isUncliping && !value)
                 _ACTIVITY = ACTIVITY.NONE;
             _isUncliping = value;
+            m_animator.SetBool("isFixing", value);
             if (value)
                 _ACTIVITY = ACTIVITY.UNCLIP;
             _unclipTimer = 0;
@@ -28,6 +29,7 @@ public class Meca : Peon
         if (_canMove || _isFixing) return;
         if(_isUncliping)
         {
+            transform.forward = Vector3.right;
             ActiveFeedback(true);
             _unclipTimer += Time.deltaTime;
             if(_unclipTimer>= _unclipCD)
