@@ -74,6 +74,8 @@ public class UIManager : MonoBehaviour
     private Texture2D _cursorFix;
     [SerializeField]
     private Texture2D _cursorAttack;
+    [SerializeField]
+    private Texture2D _cursorUnclip;
 
     [Header("Debug")]
     [SerializeField]
@@ -402,6 +404,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "attack":
                 Cursor.SetCursor(_cursorAttack, Vector2.zero, CursorMode.Auto);
+                break;
+            case "unclip":
+                Cursor.SetCursor(_cursorUnclip, Vector2.zero, CursorMode.Auto);
                 break;
         }
     }

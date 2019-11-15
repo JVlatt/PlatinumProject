@@ -332,7 +332,7 @@ public class Peon : MonoBehaviour
         SpecialUpdate();
     }
 
-    private void Death()
+    public void Death()
     {
         _currentCarriage.RemovePeon(this);
         GameObject masque = Instantiate(_masque);

@@ -12,7 +12,11 @@ public class Clip : MonoBehaviour
         _carriage = GetComponentInParent<Carriage>();
     }
 
-
+    private void OnMouseEnter()
+    {
+        if (PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
+            UIManager.Instance.ChangeCursor("unclip");
+    }
     private void OnMouseOver()
     {
         if((Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)) 
@@ -24,5 +28,11 @@ public class Clip : MonoBehaviour
             Meca meca = (Meca)p;
             meca.IsUncliping = true;
         }
+    }
+
+    private void OnMouseExit()
+    {
+        if (PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
+            UIManager.Instance.ChangeCursor("default");
     }
 }

@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 226102699}
   - component: {fileID: 226102700}
   m_Layer: 0
-  m_Name: Break (Wagon 2)
+  m_Name: Attack (Wagon 3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,15 +254,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 226102698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9beb97ddd6b614f46bc6993e3fa7c3cb, type: 3}
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 0
+  _duration: 30
   _freezeControl: 0
   subPhases: []
-  carriage: 2
-  _damageAmount: 2
+  _carriage: 3
+  _timeBeforeAttack: 2
 --- !u!114 &424820278 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -5680,11 +5680,6 @@ PrefabInstance:
       propertyPath: _nextCarriages.Array.data[1]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8852919000118355980, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: _speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_carriages.Array.data[5]
@@ -5765,11 +5760,6 @@ PrefabInstance:
       propertyPath: _nextCarriages.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8852919000992598057, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: _speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3063524861001063912, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_IsActive
@@ -5786,10 +5776,6 @@ PrefabInstance:
     - target: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
       propertyPath: _nextCarriages.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
-      propertyPath: _speed
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2267033192019915773, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}

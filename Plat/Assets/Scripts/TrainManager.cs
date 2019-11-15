@@ -140,6 +140,11 @@ public class TrainManager : MonoBehaviour
             m_carriages[i].isDetached = true;
             _speedTarget += _wagonSpeedMalus;
             toRemove.Add(m_carriages[i]);
+            foreach (var item in m_carriages[i]._activePeons)
+            {
+                item.transform.parent = item._currentCarriage.transform;
+                Invoke("KillPeon", 3);
+            }
         }
         foreach (var item in toRemove)
         {
@@ -147,6 +152,11 @@ public class TrainManager : MonoBehaviour
             UIManager.Instance.RemoveCarriageName(item);
         }
         CameraController.Instance.MajCamera(m_carriages);
+    }
+
+    private void KillPeon(Peon p)
+    {
+        p.Death();
     }
 
     public void UpdateSpeed(Carriage.DEGATSTATE currentState, Carriage.DEGATSTATE newState)

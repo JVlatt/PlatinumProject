@@ -71,4 +71,21 @@ public class PeonManager : MonoBehaviour
         _peons.Add(peonToAdd);
         UIManager.Instance.AddUIPeon(peonToAdd);
     }
+
+    private void Update()
+    {
+        if(!CheckPeon())
+             UIManager.Instance.fade(UIManager.FADETYPE.END);
+    }
+
+
+    public bool CheckPeon()
+    {
+        foreach (var item in _peons)
+        {
+            if (null != _peons)
+                return true;
+        }
+        return false;
+    }
 }
