@@ -42,6 +42,8 @@ public class TrainManager : MonoBehaviour
     private float _shutDownTimer;
     private float _shutDownDuration;
 
+    private List<Peon> peonToKill = new List<Peon>();
+
     public float Speed
     {
         get { return _speed; }
@@ -143,6 +145,8 @@ public class TrainManager : MonoBehaviour
             foreach (var item in m_carriages[i]._activePeons)
             {
                 item.transform.parent = item._currentCarriage.transform;
+                item.enabled = false;
+                peonToKill.Add(item);
                 Invoke("KillPeon", 3);
             }
         }
@@ -150,13 +154,15 @@ public class TrainManager : MonoBehaviour
         {
             m_carriages.Remove(item);
             UIManager.Instance.RemoveCarriageName(item);
+            item.GetComponent<BoxCollider>().enabled = false;
         }
         CameraController.Instance.MajCamera(m_carriages);
     }
 
-    private void KillPeon(Peon p)
+    private void KillPeon()
     {
-        p.Death();
+        if (peonToKill != null)
+            peonToKill[0].Death();
     }
 
     public void UpdateSpeed(Carriage.DEGATSTATE currentState, Carriage.DEGATSTATE newState)

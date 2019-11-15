@@ -32,7 +32,7 @@ public class Clip : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
+        if (PeonManager.Instance._activePeon != null && PeonManager.Instance._activePeon._type == Peon.TYPE.MECA)
             UIManager.Instance.ChangeCursor("default");
     }
 }
