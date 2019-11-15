@@ -34,7 +34,7 @@ public class PeonManager : MonoBehaviour
     [SerializeField]
     private Material _base;
     [SerializeField]
-    private Material _outline;
+    public Material _outline;
 
     private List<Peon> m_peons = new List<Peon>();
     public List<Peon> _peons

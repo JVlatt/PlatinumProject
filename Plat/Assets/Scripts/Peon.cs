@@ -252,13 +252,13 @@ public class Peon : MonoBehaviour
 
     protected Animator m_animator;
 
-    private MeshRenderer _meshRenderer;
+    private SkinnedMeshRenderer[] _meshRenderers;
     #endregion
 
     void Start()
     {
         PeonManager.Instance.AddPeon(this);
-        _meshRenderer = transform.GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<MeshRenderer>();
+        _meshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         m_ID = _nextID;
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;
@@ -287,11 +287,15 @@ public class Peon : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
         UIManager.Instance.ChangeCursor("peon");
+        if(PeonManager.Instance._activePeon != this)
+            SwitchMaterial(PeonManager.Instance._outline);
     }
 
     private void OnMouseExit()
     {
         UIManager.Instance.ChangeCursor("default");
+        if (PeonManager.Instance._activePeon != this)
+            SwitchMaterial(null);
     }
     private void Update()
     {
@@ -431,13 +435,16 @@ public class Peon : MonoBehaviour
 
     public void SwitchMaterial(Material mat)
     {
-        if (_meshRenderer)
+        foreach (var item in _meshRenderers)
         {
-            Material[] newMaterial = new Material[2];
-            newMaterial[0] = _meshRenderer.materials[0];
-            newMaterial[1] = mat;
-            _meshRenderer.materials = newMaterial;
-        }
+            if (item)
+            {
+                Material[] newMaterial = new Material[2];
+                newMaterial[0] = item.materials[0];
+                newMaterial[1] = mat;
+                item.materials = newMaterial;
+            }
+        } 
     }
 
     public virtual bool CanFix(Carriage carriage)
