@@ -400,7 +400,7 @@ public class Carriage : MonoBehaviour
             PhaseManager.Instance.GetPeon(m_activePeons[0]);
             _underAttack = false;
             _particle.Stop();
-            m_activePeons[0].SetDamage(5);
+            m_activePeons[0].SetDamage(2);
             if (isCarriageAttackedByEvent())
                 PhaseManager.Instance.EndCondition(true);
         }
