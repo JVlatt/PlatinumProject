@@ -99,6 +99,7 @@ public class UIManager : MonoBehaviour
     GameObject _choicePannel;
     private string _speakingCharacter;
 
+
     public GameObject choicePannel
     {
         get { return _choicePannel; }
@@ -154,6 +155,8 @@ public class UIManager : MonoBehaviour
         set { m_isOnAttack = value; }
     }
 
+    [HideInInspector]
+    public bool textInstant;
     
 
     public void UpdateMentalBar()
@@ -305,14 +308,23 @@ public class UIManager : MonoBehaviour
             if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
-                Phase nextPhase = PhaseManager.Instance.GetNextPhase();
-                if (nextPhase != null && nextPhase.KillTextBox())
+                if(!textInstant)
+                {
+                    Phase nextPhase = PhaseManager.Instance.GetNextPhase();
+                    if (nextPhase != null && nextPhase.KillTextBox())
+                    {
+                        _text.SetText(" ");
+                        _textPannel.SetActive(false);
+                    }
+
+                    PhaseManager.Instance.NextPhase();
+                }
+                else
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
                 }
                 
-                PhaseManager.Instance.NextPhase();
             }
         }
     }
@@ -394,8 +406,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayText(string text, string character, float duration)
+    public void DisplayText(string text, string character, float duration, bool instant)
     {
+        textInstant = instant;
         _oniImg.gameObject.SetActive(false);
         _taonImg.gameObject.SetActive(false);
         _butorImg.gameObject.SetActive(false);

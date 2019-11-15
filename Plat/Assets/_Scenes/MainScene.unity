@@ -121,41 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!84 &15535401
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &15782865
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &26915054
 MonoBehaviour:
@@ -255,6 +220,7 @@ MonoBehaviour:
   _text: Are you insane ? We want to join the other world too !
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &31263864
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &38935305
 MonoBehaviour:
@@ -431,7 +397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &97358210
 MonoBehaviour:
@@ -454,6 +420,7 @@ MonoBehaviour:
     here. I won\u2019t heal you if you are not inside the i-i-infirmary."
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &129788998
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &139681463
 MonoBehaviour:
@@ -554,6 +521,7 @@ MonoBehaviour:
     or stay here. It doesn\u2019t matter to me."
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &141496896
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +819,7 @@ Transform:
   - {fileID: 295270842}
   - {fileID: 1988507788}
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &191569725
 MonoBehaviour:
@@ -991,7 +959,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &202902578
 MonoBehaviour:
@@ -1012,6 +980,7 @@ MonoBehaviour:
   _text: "So hurry up lads. I ain\u2019t staying there any longer ! "
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &208104142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &208104144
 MonoBehaviour:
@@ -1062,6 +1031,7 @@ MonoBehaviour:
   _text: I never doubt we would make it out alive !
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &214359572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1083,7 @@ MonoBehaviour:
     !"
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &218797950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1293,7 @@ MonoBehaviour:
   _text: 'Perhaps the thing will leave us with those lights on. '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &265601267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,6 +1440,7 @@ MonoBehaviour:
   _text: 'Let me see the other world ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &281279335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1691,7 @@ MonoBehaviour:
   _text: 'This carriage looked wreck anyway. Better safe than sorry ! '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!4 &312039526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109210455154938190, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -1774,6 +1748,7 @@ MonoBehaviour:
   _text: End of it, she's gone
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &323116246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1872,7 @@ MonoBehaviour:
   _text: No..how can I lose..
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &339191804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1923,7 @@ MonoBehaviour:
   _text: 'No time for celebration ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &369429771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2056,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &389978267
 MonoBehaviour:
@@ -2148,6 +2125,7 @@ MonoBehaviour:
   _text: 'This train will fall into ruins  ! '
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &406067551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2225,7 @@ MonoBehaviour:
   _text: 'We''re condamned '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &423862435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &423862437
 MonoBehaviour:
@@ -2298,6 +2277,7 @@ MonoBehaviour:
     be d-dangerous...
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &426820036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,6 +2530,7 @@ MonoBehaviour:
   _text: "I-I don\u2019t feel so good..."
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &551049948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +2881,7 @@ MonoBehaviour:
   _text: I'm fed up of this adventure..
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &626080620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +2932,7 @@ MonoBehaviour:
   _text: "Sure thing doc\u2019."
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &626692067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,6 +2983,7 @@ MonoBehaviour:
   _text: And the light is back !
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &643669300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,7 +3013,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &643669302
 MonoBehaviour:
@@ -3050,6 +3034,7 @@ MonoBehaviour:
   _text: Is it still t-there ?
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &679356759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3079,7 +3064,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &679356761
 MonoBehaviour:
@@ -3100,6 +3085,7 @@ MonoBehaviour:
   _text: "Hurgh, that thing must have touch me\u2026 but i\u2019ll be f\u2026."
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &687721929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3136,7 @@ MonoBehaviour:
   _text: A wise decision
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!114 &692247440 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -3288,6 +3275,7 @@ MonoBehaviour:
   _text: Hey ! Wake up ! Now !
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &824231297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,6 +3326,7 @@ MonoBehaviour:
   _text: "Don\u2019t call me d-doc\u2019."
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &904731237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,6 +3377,7 @@ MonoBehaviour:
   _text: I'm so sorry..I can't..
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &924204342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,6 +3526,7 @@ MonoBehaviour:
   _text: Oh hell I nailed it !
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &941741844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,7 +3556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &941741846
 MonoBehaviour:
@@ -3633,6 +3624,7 @@ MonoBehaviour:
   _text: 'Good job ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &989650595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3779,7 +3771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1016867767
 MonoBehaviour:
@@ -3800,6 +3792,7 @@ MonoBehaviour:
   _text: What h-h-happened ?
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1052577598
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3892,7 @@ MonoBehaviour:
   _text: ' Wow, impressive '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1133461597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,13 +3929,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1246876651}
+  shadowMapRenderTexture: {fileID: 1973385464}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.1
   outOfPhaseColor: {r: 0, g: 1, b: 1, a: 1}
-  shadowDataRenderTexture: {fileID: 15535401}
+  shadowDataRenderTexture: {fileID: 1291146908}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -4073,6 +4067,7 @@ MonoBehaviour:
   _text: 'Sure ! Good job ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1181450291
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,6 +4118,7 @@ MonoBehaviour:
   _text: 'Oh no ! T-the Thing ! '
   _character: 'Oni '
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1196214223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,41 +4219,6 @@ MonoBehaviour:
   subPhases: []
   _carriage: 3
   _timeBeforeAttack: 2
---- !u!84 &1246876651
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1260209380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4408,6 +4369,42 @@ MonoBehaviour:
   _text: Hurry up !
   _character: 
   _textType: 2
+  _isInstant: 0
+--- !u!84 &1291146908
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1304269300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,6 +4455,7 @@ MonoBehaviour:
   _text: "So hurry up lads. I ain\u2019t staying there any longer !"
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1308985033
 GameObject:
   m_ObjectHideFlags: 0
@@ -4508,6 +4506,7 @@ MonoBehaviour:
   _text: Urgh.. You were right I don't feel so good ...
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1325127318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,6 +4654,7 @@ MonoBehaviour:
   _text: " Let\u2019s fix that   "
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1337333970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4776,7 +4776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1343874422
 MonoBehaviour:
@@ -4797,6 +4797,7 @@ MonoBehaviour:
   _text: 'Get that train running Taon ! '
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1368510442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4848,7 @@ MonoBehaviour:
   _text: It's fine...
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1372416210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 360146098112974531, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -4952,6 +4954,7 @@ MonoBehaviour:
   _text: "That\u2019ll teach you, hillbilly."
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1415666257
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,6 +5354,7 @@ MonoBehaviour:
   _text: I can't fix that ...
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1482658991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,6 +5455,7 @@ MonoBehaviour:
   _text: 'That was harsh '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1552008494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5657,7 @@ MonoBehaviour:
   _text: No, the Thing gonna come !
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1604921199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,6 +5708,7 @@ MonoBehaviour:
   _text: 'We trusted you  ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!114 &1632438523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5247788094517392657, guid: 7455c1c90ca0796419ec70755bc0fd2b,
@@ -5817,7 +5824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1653934922
 MonoBehaviour:
@@ -5839,6 +5846,7 @@ MonoBehaviour:
     up inside the infirmary."
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!114 &1659193788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6248377600201229639, guid: 25884cf35a59a6147b93ed7ce0ca82f6,
@@ -5901,6 +5909,7 @@ MonoBehaviour:
   _text: 'The t-train is m-more hospitable now '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1674859223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,6 +5960,7 @@ MonoBehaviour:
   _text: 'We can''t '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1694116320
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,6 +6060,7 @@ MonoBehaviour:
   _text: Take care of the l-locomotive.
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1709224319
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,6 +6111,7 @@ MonoBehaviour:
   _text: Each has its role.
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1732930288
 GameObject:
   m_ObjectHideFlags: 0
@@ -6150,6 +6162,7 @@ MonoBehaviour:
   _text: 'I''m ready to go ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1735821839
 GameObject:
   m_ObjectHideFlags: 0
@@ -6311,6 +6324,7 @@ MonoBehaviour:
   _text: "I feel much better. Thanks doc\u2019."
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1815118478
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,6 +6376,7 @@ MonoBehaviour:
     be d-dangerous...
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1817424640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,7 +6468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1824180106
 MonoBehaviour:
@@ -6522,6 +6537,7 @@ MonoBehaviour:
   _text: 'Try to come back ! '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1871946724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6572,6 +6588,7 @@ MonoBehaviour:
   _text: 'Gotta go fast to our destination ! '
   _character: 
   _textType: 2
+  _isInstant: 0
 --- !u!1 &1878420850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6601,7 +6618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1878420852
 MonoBehaviour:
@@ -6622,6 +6639,7 @@ MonoBehaviour:
   _text: "A \u201Cthing\u201D was trying to hunt us. A thing I...couldn\u2019t describe..."
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1897898068
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,7 +6669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897898070
 MonoBehaviour:
@@ -6673,6 +6691,7 @@ MonoBehaviour:
     yourself p-p-patch-up."
   _character: Oni
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1902545608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,6 +6841,7 @@ MonoBehaviour:
   _text: The Thing is too strong..
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1916656777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,6 +6892,7 @@ MonoBehaviour:
   _text: "That\u2019s how it\u2019s done !"
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1925592636
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,6 +6943,7 @@ MonoBehaviour:
   _text: 'Yeah ! Good bye ! '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1928993788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6972,6 +6994,7 @@ MonoBehaviour:
   _text: Lights on spirits !
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1933927284
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,6 +7045,7 @@ MonoBehaviour:
   _text: 'We are safe now ! '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1949779023
 GameObject:
   m_ObjectHideFlags: 0
@@ -7072,6 +7096,7 @@ MonoBehaviour:
   _text: Another successful reparation for me
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1965305647
 GameObject:
   m_ObjectHideFlags: 0
@@ -7122,6 +7147,7 @@ MonoBehaviour:
   _text: Ruin check
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!1 &1965533083
 GameObject:
   m_ObjectHideFlags: 0
@@ -7223,6 +7249,42 @@ MonoBehaviour:
   _text: How you can fail that ??
   _character: Butor
   _textType: 0
+  _isInstant: 0
+--- !u!84 &1973385464
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1975353546
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,6 +7383,7 @@ MonoBehaviour:
   _text: I failed...
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1977645035
 GameObject:
   m_ObjectHideFlags: 0
@@ -7371,6 +7434,7 @@ MonoBehaviour:
   _text: Be brave friends ! The train isn't arrived yet !
   _character: Butor
   _textType: 0
+  _isInstant: 0
 --- !u!1 &1988507787
 GameObject:
   m_ObjectHideFlags: 0
@@ -7470,6 +7534,7 @@ MonoBehaviour:
   _text: I can see the station ! We will be there soo !
   _character: Taon
   _textType: 0
+  _isInstant: 0
 --- !u!1 &2015418986
 GameObject:
   m_ObjectHideFlags: 0
@@ -7520,13 +7585,14 @@ MonoBehaviour:
   _text: 'Damn no ! '
   _character: 
   _textType: 1
+  _isInstant: 0
 --- !u!120 &2017263591 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 1468307136, guid: 26391e2a9ecce7942818b0524ed2ff0c,
     type: 3}
   m_PrefabInstance: {fileID: 7340936635821985189}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2030772438
+--- !u!1 &2058692736
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7534,47 +7600,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2030772439}
-  - component: {fileID: 2030772440}
+  - component: {fileID: 2058692737}
+  - component: {fileID: 2058692738}
   m_Layer: 0
-  m_Name: Break (Wagon 0)
+  m_Name: Text (CUSTOM Butor)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2030772439
+--- !u!4 &2058692737
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030772438}
+  m_GameObject: {fileID: 2058692736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 1
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2030772440
+--- !u!114 &2058692738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030772438}
+  m_GameObject: {fileID: 2058692736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9beb97ddd6b614f46bc6993e3fa7c3cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 40
+  _duration: 3
   _freezeControl: 0
   subPhases: []
-  carriage: 0
-  _damageAmount: 2
+  _text: Go Fix tamer
+  _character: Butor
+  _textType: 0
+  _isInstant: 1
 --- !u!1001 &2092365549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7931,7 +7999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2133682835}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2132176285
 MonoBehaviour:
@@ -7993,7 +8061,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 589797297}
-  - {fileID: 2030772439}
   - {fileID: 38935304}
   - {fileID: 1016867766}
   - {fileID: 208104143}
@@ -8013,6 +8080,7 @@ Transform:
   - {fileID: 191569724}
   - {fileID: 2132176284}
   - {fileID: 1824180105}
+  - {fileID: 2058692737}
   - {fileID: 462160503}
   - {fileID: 1466554005}
   - {fileID: 1694116321}
@@ -8584,7 +8652,7 @@ PrefabInstance:
     - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
         type: 3}
       propertyPath: fx.Array.size
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
         type: 3}
@@ -8724,6 +8792,84 @@ PrefabInstance:
         type: 3}
       propertyPath: fx.Array.data[7].loop
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c36185f4a1ef29f449c39a96cefcc609, type: 3}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[8].name
+      value: energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[8].mixer
+      value: 
+      objectReference: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
+        type: 2}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[8].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[8].volume
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e5dbc0b318a0be4a8b45f7b130da570, type: 3}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[9].name
+      value: shutdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[9].mixer
+      value: 
+      objectReference: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
+        type: 2}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[9].volume
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e61801e641758fc438368247de1cbce3, type: 3}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[10].name
+      value: lightBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[10].mixer
+      value: 
+      objectReference: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
+        type: 2}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007603, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: fx.Array.data[10].volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b543cbcf8129143ae7599bc510f2d7, type: 3}
