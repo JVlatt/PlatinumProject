@@ -20,6 +20,10 @@ public class PhaseAttackLastWagon : Phase
     {
         _timer = 0f;
         controlDuration = false;
+        if(TrainManager.Instance._carriages.Count < 2)
+        {
+            PhaseManager.Instance.NextPhase();
+        }
         Carriage c = TrainManager.Instance._carriages[TrainManager.Instance._carriages.Count - 1];
         if (c != null)
         {

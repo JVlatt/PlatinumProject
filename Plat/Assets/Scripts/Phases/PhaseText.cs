@@ -35,7 +35,14 @@ public class PhaseText : Phase
                     break;
             }
         }
-        if(_textType == textType.ACTOR && PhaseManager.Instance.eventPeon == null)
+        if (_textType == textType.CUSTOM)
+        {
+            if (!PeonManager.Instance._peons.Find(x => x._peonInfo.name == _character))
+            {
+                PhaseManager.Instance.NextPhase();
+            }
+        }
+        if (_textType == textType.ACTOR && PhaseManager.Instance.eventPeon == null)
         {
             PhaseManager.Instance.NextPhase();
         }
@@ -59,7 +66,7 @@ public class PhaseText : Phase
     public string GetSpectator()
     {
         List<Peon> spectators = new List<Peon>();
-        if(PhaseManager.Instance.eventPeon != null)
+        if (PhaseManager.Instance.eventPeon != null)
         {
             foreach (Peon p in PeonManager.Instance._peons)
             {

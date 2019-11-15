@@ -341,7 +341,7 @@ public class Carriage : MonoBehaviour
         switch (m_activePeons[0]._type)
         {
             case Peon.TYPE.FIGHTER:
-                totalpower = 70;
+                totalpower = 80;
                 break;
             case Peon.TYPE.SIMPLE:
                 totalpower = 40;
@@ -414,7 +414,7 @@ public class Carriage : MonoBehaviour
     private void Defeat()
     {
         PhaseManager.Instance.GetPeon(m_activePeons[0]);
-        m_activePeons[0].SetDamage(10);
+        m_activePeons[0].SetDamage(5);
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
 
         if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))

@@ -17,6 +17,10 @@ public class PhaseAttack : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
+        if(_carriage > TrainManager.Instance._carriages.Count)
+        {
+            _carriage = TrainManager.Instance._carriages.Count - 1;
+        }
         Carriage c = TrainManager.Instance._carriages.Find(x => x.id == _carriage);
         if (c != null)
         {
