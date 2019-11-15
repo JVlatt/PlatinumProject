@@ -66,7 +66,10 @@ public class FixIt : MonoBehaviour
                 _carriage.DegatState--;
                 if (isFixCausedByEvent())
                 {
-                    PhaseManager.Instance.EndCondition(b);
+                    if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+                        PhaseManager.Instance.EndCondition(b);
+                    else
+                        PhaseManager.Instance.NextPhase();
                 }
             }
             else
@@ -82,7 +85,10 @@ public class FixIt : MonoBehaviour
                 gameObject.SetActive(false);
                 if (isFixCausedByEvent())
                 {
-                    PhaseManager.Instance.EndCondition(b);
+                    if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+                        PhaseManager.Instance.EndCondition(b);
+                    else
+                        PhaseManager.Instance.NextPhase();
                 }
             }
         }
