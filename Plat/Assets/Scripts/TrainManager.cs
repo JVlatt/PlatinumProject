@@ -215,6 +215,7 @@ public class TrainManager : MonoBehaviour
         position.x -= 10f;
         GameObject go = Instantiate(_carriageToAdd, position, _carriageToAdd.transform.rotation, transform);
         Carriage carriage = go.GetComponentInChildren<Carriage>();
+        carriage.transform.parent.name = "Stockage Room";
         m_carriages.Add(carriage);
         AddId(carriage);
         CameraController.Instance.MajCamera(m_carriages);
