@@ -17,8 +17,9 @@ public class LightSwitch : MonoBehaviour
         if (PhaseManager.Instance && PhaseManager.Instance.activePhase.freezeControl) return;
         if (!TrainManager.Instance._isShutDown) return;
 
-        PeonManager.Instance._activePeon._isFixing = true;
-        TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, _locomotive, transform.position);
+        Peon p = PeonManager.Instance._activePeon;
+        TrainManager.Instance.MovePeonToCarriage(p, _locomotive, transform.position);
+        p._isFixing = true;
     }
 
     private void Update()
