@@ -139,6 +139,8 @@ public class TrainManager : MonoBehaviour
         List<Carriage> toRemove = new List<Carriage>();
         for (int i = carriageID + 1; i < m_carriages.Count; i++)
         {
+            if (m_carriages[i]._underAttack)
+                m_carriages[i].Victory();
             m_carriages[i].isDetached = true;
             _speedTarget += _wagonSpeedMalus;
             toRemove.Add(m_carriages[i]);
