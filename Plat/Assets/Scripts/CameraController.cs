@@ -53,6 +53,7 @@ public class CameraController : MonoBehaviour
         _startPosition = transform.position;
         currentBorderLeft = borderLeft;
         currentBorderRight = borderRight;
+        TouchController.slideDelegate += Slide;
     }
 
     public void MajCamera(List<Carriage> carriages)
@@ -144,5 +145,12 @@ public class CameraController : MonoBehaviour
             a.max = Mathf.Lerp(a.max, b.min, ratio);
             return a;
         }
+    }
+
+    private void Slide(Vector2 vector2)
+    {
+        Vector3 position = transform.position;
+        position.x -= vector2.x;
+        transform.position = position;
     }
 }

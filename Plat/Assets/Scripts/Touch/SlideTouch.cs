@@ -19,7 +19,7 @@ public class SlideTouch : TouchCustom
     {
         if (_isActive)
             SlidePara.haveActiveSlide = false;
-        if (!SlidePara._slideContinu)
+        if (!SlidePara._slideContinu && TouchController.slideDelegate != null)
             TouchController.slideDelegate((_lastPositon - _startPositon)*SlidePara._slideSpeed);
     }
 

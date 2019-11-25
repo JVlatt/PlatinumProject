@@ -34,9 +34,8 @@ public class FixIt : MonoBehaviour
     }
 
 
-    private void OnMouseOver()
+    public void Touch()
     {
-        if (!Input.GetMouseButtonDown(1)) return;
         if (_isOnFix || !PeonManager.Instance._activePeon) return;
         if (!PeonManager.Instance._activePeon.CanFix(_carriage)) return;
         if (_carriage._underAttack || _carriage._willBeAttacked) return;
@@ -48,7 +47,6 @@ public class FixIt : MonoBehaviour
         _activePeon._isFixing = true;
         _activePeon.onFixEndedDelegate += onFixEnded;
 
-        // JSP
         if (_isAnEvent)
         {
             PhaseManager.Instance.GetPeon(_activePeon);
@@ -93,16 +91,6 @@ public class FixIt : MonoBehaviour
             }
         }
         _isOnFix = false;
-    }
-
-    private void OnMouseEnter()
-    {
-        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl && !_carriage._underAttack)
-            UIManager.Instance.ChangeCursor("fix");
-    }
-    private void OnMouseExit()
-    {
-        UIManager.Instance.ChangeCursor("default");
     }
 
     public bool isFixCausedByEvent()

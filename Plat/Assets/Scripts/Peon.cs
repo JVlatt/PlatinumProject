@@ -273,7 +273,7 @@ public class Peon : MonoBehaviour
 
     public virtual void SpecialStart() { }
 
-    private void OnMouseDown()
+    public void Touch()
     {
         if (_currentCarriage._underAttack) return;
         if (!PhaseManager.Instance.activePhase.freezeControl)
@@ -287,15 +287,11 @@ public class Peon : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
         UIManager.Instance.ChangeCursor("peon");
-        if(PeonManager.Instance._activePeon != this)
-            SwitchMaterial(PeonManager.Instance._outline);
     }
 
     private void OnMouseExit()
     {
         UIManager.Instance.ChangeCursor("default");
-        if (PeonManager.Instance._activePeon != this)
-            SwitchMaterial(null);
     }
     private void Update()
     {

@@ -188,9 +188,8 @@ public class Carriage : MonoBehaviour
         _particle.Stop();
     }
 
-    private void OnMouseOver()
+    public void Touch()
     {
-        if (!Input.GetMouseButtonDown(1)) return;
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {

@@ -211,10 +211,15 @@ public class TouchController : MonoBehaviour
 
     private Collider GetCollider(Touch touch)
     {
-        Vector3 startPos = Camera.main.ScreenToWorldPoint(touch.position);
-        Vector3 dir = Camera.main.transform.forward;
+        Vector3 touchPosFar = new Vector3(touch.position.x, touch.position.y, Camera.main.farClipPlane);
+        Vector3 touchPosNear = new Vector3(touch.position.x, touch.position.y, Camera.main.nearClipPlane);
+
+        Vector3 touchPosF = Camera.main.ScreenToWorldPoint(touchPosFar);
+        Vector3 touchPosN = Camera.main.ScreenToWorldPoint(touchPosNear);
+
         RaycastHit hit;
-        if (Physics.Raycast(startPos, dir, out hit))
+
+        if (Physics.Raycast(touchPosN, touchPosF - touchPosN, out hit))
             return hit.collider;
         else
             return null;
