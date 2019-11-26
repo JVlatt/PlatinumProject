@@ -78,15 +78,18 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if(!_isMoving)
+        if (!_isMoving)
         {
-            if(!PhaseManager.Instance.activePhase.freezeControl)
+            if (!PhaseManager.Instance.activePhase.freezeControl)
             {
+
+#if UNITY_STANDALONE_WIN
+                
                 if (Input.mousePosition.x < mouseBorder || Input.GetKey(KeyCode.Q))
                     transform.position += Vector3.left * Time.deltaTime * camSpeed;
                 if (Input.mousePosition.x > Screen.width - mouseBorder || Input.GetKey(KeyCode.D))
                     transform.position += Vector3.right * Time.deltaTime * camSpeed;
-
+#endif
 
                 if (Input.mouseScrollDelta.y > 0)
                     transform.position -= Vector3.back * Time.deltaTime * zoomSpeed;
@@ -108,12 +111,14 @@ public class CameraController : MonoBehaviour
                     Mathf.Lerp(y.min, y.max, lerpRatio),
                     Mathf.Clamp(transform.position.z, zoom.min, zoom.max)
                     );
+
+
             }
         }
         else
         {
             transform.position = Vector3.Lerp(transform.position, _target, Time.deltaTime * travelSpeed);
-            if(Vector3.Distance(_target, transform.position) <= 0.5f)
+            if (Vector3.Distance(_target, transform.position) <= 0.5f)
             {
                 PhaseManager.Instance.NextPhase();
                 _isMoving = false;
@@ -141,13 +146,15 @@ public class CameraController : MonoBehaviour
         public float min;
         public float max;
 
-        public static MinMax Lerp(MinMax a, MinMax b , float ratio)
+        public static MinMax Lerp(MinMax a, MinMax b, float ratio)
         {
             a.min = Mathf.Lerp(a.min, b.min, ratio);
             a.max = Mathf.Lerp(a.max, b.min, ratio);
             return a;
         }
     }
+
+#if UNITY_ANDROID
 
     private void Slide(Vector2 vector2)
     {

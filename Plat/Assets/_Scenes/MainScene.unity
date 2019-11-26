@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17424697, g: 0.21790797, b: 0.30011985, a: 1}
+  m_IndirectSpecularColor: {r: 0.17424738, g: 0.21790868, b: 0.30012125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5699,7 +5699,7 @@ GameObject:
   - component: {fileID: 218416867}
   - component: {fileID: 218416868}
   m_Layer: 0
-  m_Name: Blank(2s)
+  m_Name: Blank(2000s)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 2
+  _duration: 2000
   _freezeControl: 0
   subPhases: []
   waitNextEvent: 0
@@ -8462,16 +8462,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: "P\xE9on M\xE9ca"
       objectReference: {fileID: 0}
-    - target: {fileID: 4100415894594966763, guid: 175b45c06df6a3f4c92739f48afc489b,
-        type: 3}
-      propertyPath: m_currentCarriage
-      value: 
-      objectReference: {fileID: 231876122}
-    - target: {fileID: 4100415894594966763, guid: 175b45c06df6a3f4c92739f48afc489b,
-        type: 3}
-      propertyPath: _fixLuck
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 2585387422443432654, guid: 175b45c06df6a3f4c92739f48afc489b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8526,6 +8516,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100415894594966763, guid: 175b45c06df6a3f4c92739f48afc489b,
+        type: 3}
+      propertyPath: m_currentCarriage
+      value: 
+      objectReference: {fileID: 231876122}
+    - target: {fileID: 4100415894594966763, guid: 175b45c06df6a3f4c92739f48afc489b,
+        type: 3}
+      propertyPath: _fixLuck
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175b45c06df6a3f4c92739f48afc489b, type: 3}
@@ -11210,10 +11210,6 @@ PrefabInstance:
       propertyPath: m_activePeons.Array.data[2]
       value: 
       objectReference: {fileID: 171797379}
-    - target: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
-      propertyPath: _battleUi
-      value: 
-      objectReference: {fileID: 1372416210}
     - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_carriages.Array.data[1]
@@ -11274,6 +11270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
+      propertyPath: _battleUi
+      value: 
+      objectReference: {fileID: 1372416210}
     - target: {fileID: 2294865404506447112, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_IsActive

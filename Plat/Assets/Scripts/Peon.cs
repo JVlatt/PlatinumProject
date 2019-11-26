@@ -273,8 +273,20 @@ public class Peon : MonoBehaviour
 
     public virtual void SpecialStart() { }
 
+#if UNITY_ANDROID
     public void Touch()
     {
+        if (_currentCarriage._underAttack) return;
+        if (!PhaseManager.Instance.activePhase.freezeControl)
+        {
+            PeonManager.Instance._activePeon = this;
+        }
+    }
+#endif
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private void OnMouseOver()
+    {
+        if (!(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)))return;
         if (_currentCarriage._underAttack) return;
         if (!PhaseManager.Instance.activePhase.freezeControl)
         {
@@ -293,6 +305,8 @@ public class Peon : MonoBehaviour
     {
         UIManager.Instance.ChangeCursor("default");
     }
+#endif
+
     private void Update()
     {
         if (_HP <= 0)
