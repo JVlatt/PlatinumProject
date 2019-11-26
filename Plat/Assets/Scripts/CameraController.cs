@@ -36,6 +36,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _target;
     private bool _isMoving = false;
     private Vector3 _startPosition;
+    private float lerpRatio;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class CameraController : MonoBehaviour
         currentBorderLeft = borderLeft;
         currentBorderRight = borderRight;
         TouchController.slideDelegate += Slide;
+        TouchController.pinchDelegate += Pinch;
     }
 
     public void MajCamera(List<Carriage> carriages)
@@ -91,7 +93,7 @@ public class CameraController : MonoBehaviour
                 if (Input.mouseScrollDelta.y < 0)
                     transform.position -= Vector3.forward * Time.deltaTime * zoomSpeed;
 
-                float lerpRatio = (zoom.min - transform.position.z) / (zoom.min - zoom.max);
+                lerpRatio = (zoom.min - transform.position.z) / (zoom.min - zoom.max);
                 float left = Mathf.Lerp(currentBorderLeft.min, currentBorderLeft.max, lerpRatio);
                 float right = Mathf.Lerp(currentBorderRight.min, currentBorderRight.max, lerpRatio);
                 float scale = Mathf.Lerp(0.75f, 1.5f, lerpRatio);
@@ -150,7 +152,18 @@ public class CameraController : MonoBehaviour
     private void Slide(Vector2 vector2)
     {
         Vector3 position = transform.position;
+        float left = Mathf.Lerp(currentBorderLeft.min, currentBorderLeft.max, lerpRatio);
+        float right = Mathf.Lerp(currentBorderRight.min, currentBorderRight.max, lerpRatio);
         position.x -= vector2.x;
+        position.x = Mathf.Clamp(position.x, left, right);
+        transform.position = position;
+    }
+
+    private void Pinch(float value)
+    {
+        Vector3 position = transform.position;
+        position.z += value;
+        position.z = Mathf.Clamp(position.z, zoom.min, zoom.max);
         transform.position = position;
     }
 }

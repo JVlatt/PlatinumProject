@@ -25,6 +25,12 @@ public class TouchController : MonoBehaviour
         {
             _instance = this;
         }
+
+        if ((mask & 1 << 1) != 0)
+            slidePara = new SlidePara(_slideContinu, _useDeltaSlidePos, _slideSpeed);
+        if ((mask & 1 << 2) != 0)
+            pinchPara = new PinchPara(_pinchSpeed);
+
     }
     #endregion
 
