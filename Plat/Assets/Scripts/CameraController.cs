@@ -83,7 +83,7 @@ public class CameraController : MonoBehaviour
             if (!PhaseManager.Instance.activePhase.freezeControl)
             {
 
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR
                 
                 if (Input.mousePosition.x < mouseBorder || Input.GetKey(KeyCode.Q))
                     transform.position += Vector3.left * Time.deltaTime * camSpeed;
@@ -154,7 +154,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID || UNITY_EDITOR
 
     private void Slide(Vector2 vector2)
     {
@@ -173,4 +173,5 @@ public class CameraController : MonoBehaviour
         position.z = Mathf.Clamp(position.z, zoom.min, zoom.max);
         transform.position = position;
     }
+#endif
 }
