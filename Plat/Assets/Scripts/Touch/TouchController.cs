@@ -35,6 +35,11 @@ public class TouchController : MonoBehaviour
     #endregion
 
     [Header("Parametre")]
+
+    [SerializeField]
+    private float touchTimeBuffer;
+    private float touchTimer;
+
     [MaskAtt()]
     [SerializeField]
     private int _mask;
@@ -156,6 +161,8 @@ public class TouchController : MonoBehaviour
 
     private void CreateToucheUpdate()
     {
+        if (touchTimer > 0) { touchTimer -= Time.deltaTime; return; }
+        touchTimer = touchTimeBuffer;
         if (touchToCreate.Count == 0) return;
         if (touchToCreate.Count >= 2 && (mask & 1 << 2) != 0)
         {
