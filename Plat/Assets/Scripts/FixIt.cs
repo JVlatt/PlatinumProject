@@ -33,7 +33,7 @@ public class FixIt : MonoBehaviour
         LIGHT
     }
 
-
+#if UNITY_EDITOR || UNITY_ANDROID
     public void Touch()
     {
         if (_isOnFix || !PeonManager.Instance._activePeon) return;
@@ -53,7 +53,38 @@ public class FixIt : MonoBehaviour
             _isAnEvent = false;
         }
     }
+#endif
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR
+    private void OnMouseOver()
+    {
+        if (!(Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))) return;
+        if (_isOnFix || !PeonManager.Instance._activePeon) return;
+        if (!PeonManager.Instance._activePeon.CanFix(_carriage)) return;
+        if (_carriage._underAttack || _carriage._willBeAttacked) return;
+        if (PhaseManager.Instance && PhaseManager.Instance.activePhase.freezeControl) return;
+        _activePeon = PeonManager.Instance._activePeon;
+        TrainManager.Instance.MovePeonToCarriage(_activePeon, _carriage, transform.position);
+        _isOnFix = true;
 
+        _activePeon._isFixing = true;
+        _activePeon.onFixEndedDelegate += onFixEnded;
+
+        if (_isAnEvent)
+        {
+            PhaseManager.Instance.GetPeon(_activePeon);
+            _isAnEvent = false;
+        }
+    }
+    private void OnMouseEnter()
+    {
+        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl && !_carriage._underAttack)
+            UIManager.Instance.ChangeCursor("fix");
+    }
+    private void OnMouseExit()
+    {
+        UIManager.Instance.ChangeCursor("default");
+    }
+#endif
     private void onFixEnded(bool b)
     {
         _activePeon.onFixEndedDelegate -= onFixEnded;

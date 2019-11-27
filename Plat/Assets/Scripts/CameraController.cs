@@ -54,8 +54,10 @@ public class CameraController : MonoBehaviour
         _startPosition = transform.position;
         currentBorderLeft = borderLeft;
         currentBorderRight = borderRight;
+#if UNITY_EDITOR || UNITY_ANDROID
         TouchController.slideDelegate += Slide;
         TouchController.pinchDelegate += Pinch;
+#endif
     }
 
     public void MajCamera(List<Carriage> carriages)
@@ -158,6 +160,7 @@ public class CameraController : MonoBehaviour
 
     private void Slide(Vector2 vector2)
     {
+        if (PhaseManager.Instance.activePhase.freezeControl) return;
         Vector3 position = transform.position;
         float left = Mathf.Lerp(currentBorderLeft.min, currentBorderLeft.max, lerpRatio);
         float right = Mathf.Lerp(currentBorderRight.min, currentBorderRight.max, lerpRatio);
@@ -168,6 +171,7 @@ public class CameraController : MonoBehaviour
 
     private void Pinch(float value)
     {
+        if (PhaseManager.Instance.activePhase.freezeControl) return;
         Vector3 position = transform.position;
         position.z += value;
         position.z = Mathf.Clamp(position.z, zoom.min, zoom.max);

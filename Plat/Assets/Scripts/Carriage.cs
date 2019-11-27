@@ -386,6 +386,10 @@ public class Carriage : MonoBehaviour
         int rand = Random.Range(0, 100);
         Debug.Log("Puissance Totale = " + totalpower);
         Debug.Log("Jet de Dés = " + rand);
+        if (SoundManager.Instance.isPlaying("fight"))
+        {
+            SoundManager.Instance.StopSound("fight");
+        }
         if (rand <= totalpower && !autoLoose)
         {
             Debug.Log("Victoire ! ");
@@ -398,10 +402,7 @@ public class Carriage : MonoBehaviour
         }
         _timerBeforeAttack = 0f;
         _battleUi.SetActive(false);
-        if (SoundManager.Instance.isPlaying("fight"))
-        {
-            SoundManager.Instance.StopSound("fight");
-        }
+        
     }
 
     public void Victory()
