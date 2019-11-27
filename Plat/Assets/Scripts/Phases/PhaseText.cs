@@ -8,7 +8,7 @@ public class PhaseText : Phase
     {
         CUSTOM,
         ACTOR,
-        SPECTATOR
+        SPECTATOR,
     }
 
     [SerializeField]
@@ -20,6 +20,12 @@ public class PhaseText : Phase
     [SerializeField]
     private bool _isInstant;
 
+    [SerializeField]
+    private string _textOni;
+    [SerializeField]
+    private string _textTaon;
+    [SerializeField]
+    private string _textButor;
     public override void LaunchPhase()
     {
         controlDuration = false;
@@ -31,7 +37,20 @@ public class PhaseText : Phase
                     _character = PhaseManager.Instance.eventPeon._peonInfo.name;
                     break;
                 case textType.SPECTATOR:
+                    if(_character == "")
                     _character = GetSpectator();
+                    switch (_character)
+                    {
+                        case "Oni":
+                            _text = _textOni;
+                            break;
+                        case "Butor":
+                            _text = _textButor;
+                            break;
+                        case "Taon":
+                            _text = _textTaon;
+                            break;
+                    }
                     break;
             }
         }
@@ -74,17 +93,58 @@ public class PhaseText : Phase
                     spectators.Add(p);
             }
 
-            int rand = Random.Range(0, spectators.Count);
-            return spectators[rand]._peonInfo.name;
+            if(spectators.Count > 0)
+            {
+                int rand = Random.Range(0, spectators.Count);
+                if (GetNextSpectator() && spectators.Count > 1)
+                {
+                    GetNextSpectator().SetCharacter((spectators.Find(x => x != spectators[rand])).name);
+                }
+                return spectators[rand]._peonInfo.name;
+            }
+            else
+            {
+                PhaseManager.Instance.NextPhase();
+                return null;
+            }
         }
         else
         {
-            int rand = Random.Range(0, PeonManager.Instance._peons.Count);
-            return PeonManager.Instance._peons[rand]._peonInfo.name;
+            PhaseManager.Instance.NextPhase();
+            return null;
         }
     }
     private void Start()
     {
         type = PhaseType.TEXT;
+    }
+    public textType GetTextType()
+    {
+        return _textType;
+    }
+
+    public PhaseText GetNextSpectator()
+    {
+        if (PhaseManager.Instance.phaseBuffer.Count > 1)
+        {
+            if (PhaseManager.Instance.phaseBuffer[1].GetPhaseType() == PhaseType.TEXT && ((PhaseText)PhaseManager.Instance.phaseBuffer[1]).GetTextType() == textType.SPECTATOR)
+            {
+                return (PhaseText)PhaseManager.Instance.phaseBuffer[1];
+            }
+            else
+                return null;
+        }
+        else
+            return null;
+    }
+
+    public void SetCharacter(string text)
+    {
+        _character = text;
+    }
+
+    public void SetType(textType type)
+    {
+        _textType = type;
     }
 }
