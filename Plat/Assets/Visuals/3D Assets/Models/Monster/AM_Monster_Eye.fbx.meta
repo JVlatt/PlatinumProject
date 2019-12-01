@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: 3d0eacc853039754eb47fdd71bfc500f
+guid: fbfe637e9af0e62479927d3c291322b4
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      74: -3100369314251171874
-    second: AM_Monster_Idle
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MT_Monster
-    second: {fileID: 2100000, guid: 41401978f57c0f4479b7d3224a335349, type: 2}
+      name: MT_Eye
+    second: {fileID: 2100000, guid: cc16b50f49874b547a7dab80a0a9c392, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -38,36 +35,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: AM_Monster_Idle
-      takeName: Idle
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 319
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -104,7 +72,9 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 3d0eacc853039754eb47fdd71bfc500f
+  - 34441ed7ec380ca45bc2fe4215fcb867
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -124,7 +94,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
