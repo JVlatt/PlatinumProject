@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Assets.Script;
 
 public class UIManager : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Transform _UIPeonPrefab;
     [SerializeField]
+    private Transform _UIPeonConteneur;
+    [SerializeField]
     private GameObject _attack;
     private Image _leftAttack;
     private Image _rightAttack;
@@ -63,7 +66,10 @@ public class UIManager : MonoBehaviour
     private List<Sprite> _healthState;
     [SerializeField]
     private List<Sprite> _activity;
-    private List<UIInfoPerso> _UIInfoPerso = new List<UIInfoPerso>();
+    private List<UIInfoPerso> _UIInfoPersos = new List<UIInfoPerso>();
+    [SerializeField]
+    private List<PersoImage> _persos;
+    private Dictionary<string, Sprite> _dictPerso = new Dictionary<string, Sprite>();
 
     [Header("Cursor")]
     [SerializeField]
@@ -90,11 +96,8 @@ public class UIManager : MonoBehaviour
     private float _textDisplayTimer = 0f;
     private float _textDisplayDuration = 0f;
     [SerializeField]
-    private Image _butorImg;
-    [SerializeField]
-    private Image _taonImg;
-    [SerializeField]
-    private Image _oniImg;
+    private Image _textImage;
+
 
     [Header("Choices Pannel")]
     [SerializeField]
@@ -123,15 +126,22 @@ public class UIManager : MonoBehaviour
 
     #region Struct
     [System.Serializable]
+    class PersoImage
+    {
+        public string name;
+        public Sprite image;
+    }
+
+
+    [System.Serializable]
     class UIInfoPerso
     {
         public GameObject conteneur;
-        public Text name;
         public Image jobImage;
         public Image activityImage;
-        public Image healthStateImage;
         public Image healthBar;
         public Image moralBar;
+        public Image persoImage;
     }
 
     public enum FADETYPE
@@ -173,50 +183,35 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUIPeon(Peon.PeonInfo peonInfo,int id)
     {
-            _UIInfoPerso[id].healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
-            switch (peonInfo.HEALTHSTATE)
-            {
-                case Peon.HEALTHSTATE.HURT:
-
-                    _UIInfoPerso[id].healthStateImage.sprite = _healthState[0];
-                    break;
-                case Peon.HEALTHSTATE.TREAT:
-                    _UIInfoPerso[id].healthStateImage.sprite = _healthState[1];
-                    break;
-                case Peon.HEALTHSTATE.GOOD:
-                    _UIInfoPerso[id].healthStateImage.sprite = _healthState[2];
-                    break;
-                default:
-                    break;
-            }
+            _UIInfoPersos[id].healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
             switch (peonInfo.ACTIVITY)
             {
                 case Peon.ACTIVITY.NONE:
-                    _UIInfoPerso[id].activityImage.sprite = _activity[0];
+                    _UIInfoPersos[id].activityImage.sprite = _activity[0];
                     break;
                 case Peon.ACTIVITY.HEAL:
-                    _UIInfoPerso[id].activityImage.sprite = _activity[1];
+                    _UIInfoPersos[id].activityImage.sprite = _activity[1];
                     break;
                 case Peon.ACTIVITY.WAIT:
-                    _UIInfoPerso[id].activityImage.sprite = _activity[2];
+                    _UIInfoPersos[id].activityImage.sprite = _activity[2];
                     break;
                 case Peon.ACTIVITY.FIGHT:
                     if(peonInfo.TYPE == Peon.TYPE.FIGHTER)
-                        _UIInfoPerso[id].activityImage.sprite = _activity[3];
+                        _UIInfoPersos[id].activityImage.sprite = _activity[3];
                     else
-                        _UIInfoPerso[id].activityImage.sprite = _activity[4];
+                        _UIInfoPersos[id].activityImage.sprite = _activity[4];
                     break;
                 case Peon.ACTIVITY.REPAIR:
                     if(peonInfo.TYPE == Peon.TYPE.MECA)
-                        _UIInfoPerso[id].activityImage.sprite = _activity[5];
+                        _UIInfoPersos[id].activityImage.sprite = _activity[5];
                     else
-                        _UIInfoPerso[id].activityImage.sprite = _activity[6];
+                        _UIInfoPersos[id].activityImage.sprite = _activity[6];
                     break;
                 case Peon.ACTIVITY.DRIVE:
-                    _UIInfoPerso[id].activityImage.sprite = _activity[7];
+                    _UIInfoPersos[id].activityImage.sprite = _activity[7];
                     break;
                 case Peon.ACTIVITY.UNCLIP:
-                    _UIInfoPerso[id].activityImage.sprite = _activity[8];
+                    _UIInfoPersos[id].activityImage.sprite = _activity[8];
                     break;
                 default:
                     break;
@@ -226,6 +221,26 @@ public class UIManager : MonoBehaviour
     {
         _leftAttack = _attack.transform.GetChild(0).GetComponent<Image>();
         _rightAttack = _attack.transform.GetChild(1).GetComponent<Image>();
+        foreach (PersoImage item in _persos)
+        {
+            _dictPerso.Add(item.name, item.image);
+        }
+        SetupUIPerso();
+    }
+
+    private void SetupUIPerso()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            UIInfoPerso infoPerso = new UIInfoPerso();
+            infoPerso.conteneur = _UIPeonConteneur.GetChild(i).gameObject;
+            infoPerso.activityImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"ActivityImage");
+            infoPerso.healthBar = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"HealthBar");
+            infoPerso.jobImage= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"JobImage");
+            infoPerso.moralBar= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"MoralBar");
+            infoPerso.persoImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "Tete");
+            _UIInfoPersos.Add(infoPerso);
+        }
     }
 
     private void Update()
@@ -346,15 +361,7 @@ public class UIManager : MonoBehaviour
         GameObject fix = UI.GetChild(0).gameObject;
         p._fix = fix;
 
-        UIInfoPerso uiInfoPerso = new UIInfoPerso();
-        uiInfoPerso.conteneur = UI.GetChild(1).gameObject;
-        uiInfoPerso.healthBar = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Image>();
-        uiInfoPerso.moralBar = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();
-        uiInfoPerso.healthStateImage = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(2).GetComponent<Image>();
-        uiInfoPerso.jobImage = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(3).GetComponent<Image>();
-        uiInfoPerso.activityImage = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(4).GetComponent<Image>();
-        uiInfoPerso.name = uiInfoPerso.conteneur.transform.GetChild(0).GetChild(5).GetChild(0).GetComponent<Text>();
-        uiInfoPerso.name.text = p._peonInfo.name;
+        UIInfoPerso uiInfoPerso = _UIInfoPersos[p._ID];
 
         switch (p._peonInfo.TYPE)
         {
@@ -371,7 +378,6 @@ public class UIManager : MonoBehaviour
                 uiInfoPerso.jobImage.sprite = _classeState[3];
                 break;
         }
-        _UIInfoPerso.Add(uiInfoPerso);
     }
 
     public void AddCarriageName(Carriage c)
@@ -414,25 +420,9 @@ public class UIManager : MonoBehaviour
     public void DisplayText(string text, string character, float duration, bool instant)
     {
         textInstant = instant;
-        _oniImg.gameObject.SetActive(false);
-        _taonImg.gameObject.SetActive(false);
-        _butorImg.gameObject.SetActive(false);
         _text.SetText(text);
         _speakingCharacter = character;
-        switch (character)
-        {
-            case "Butor":
-                _butorImg.gameObject.SetActive(true);
-                break;
-            case "Taon":
-                _taonImg.gameObject.SetActive(true);
-                break;
-            case "Oni":
-                _oniImg.gameObject.SetActive(true);
-                break;
-            default:
-                break;
-        }
+        _textImage.sprite = _dictPerso[character];
         SoundManager.Instance.Play(character);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
@@ -440,7 +430,7 @@ public class UIManager : MonoBehaviour
 
     public void ActiveUIPerso(bool active, int ID)
     {
-        _UIInfoPerso[ID].conteneur.SetActive(active);
+        _UIInfoPersos[ID].conteneur.SetActive(active);
     }
 
     public void fade(FADETYPE fadeType)
@@ -451,7 +441,7 @@ public class UIManager : MonoBehaviour
 
     public void SetUIInfoScale(float amount)
     {
-        foreach (var item in _UIInfoPerso)
+        foreach (var item in _UIInfoPersos)
         {
             item.conteneur.transform.localScale = Vector3.one * amount;
         }

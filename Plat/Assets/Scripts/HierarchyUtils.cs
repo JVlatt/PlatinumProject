@@ -17,6 +17,24 @@ namespace Assets.Script
             }
             return Tlist;
         }
+
+        public static T GetComponentUsingName<T>(Transform parent , string name)
+            where T : Component
+        {
+            T value = null;
+            foreach (Transform item in parent)
+            {
+                if (item.name == name)
+                    return item.GetComponent<T>();
+                else if (item.childCount > 0)
+                {
+                    value = GetComponentUsingName<T>(item, name);
+                    if (value != null)
+                        return value;
+                }
+            }
+            return null;
+        }
     }
 }
 
