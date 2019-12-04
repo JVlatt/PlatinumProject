@@ -35,6 +35,18 @@ public class PhaseText : Phase
             {
                 case textType.ACTOR:
                     _character = PhaseManager.Instance.eventPeon._peonInfo.name;
+                    switch (_character)
+                    {
+                        case "Oni":
+                            _text = _textOni;
+                            break;
+                        case "Butor":
+                            _text = _textButor;
+                            break;
+                        case "Taon":
+                            _text = _textTaon;
+                            break;
+                    }
                     break;
                 case textType.SPECTATOR:
                     if(_character == "")
