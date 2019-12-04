@@ -52,12 +52,12 @@ public class PeonManager : MonoBehaviour
             if(m_activePeon != null)
             {
                 m_activePeon.SwitchMaterial(_base);
-                UIManager.Instance.ActiveUIPerso(false, m_activePeon._ID);
+                UIManager.Instance.SelectPerso(false, m_activePeon._ID);
             }
             if(value != null)
             {
                 value.SwitchMaterial(_outline);
-                UIManager.Instance.ActiveUIPerso(true,value._ID);
+                UIManager.Instance.SelectPerso(true, value._ID);
             }
             m_activePeon = value;
         }
@@ -66,9 +66,15 @@ public class PeonManager : MonoBehaviour
     
     #endregion
     
-    public void AddPeon(Peon peonToAdd)
+    public void AddPeon(Peon peonToAdd,int i)
     {
-        _peons.Add(peonToAdd);
+        if (i >= _peons.Count)
+        {
+            _peons.Add(peonToAdd);
+            
+        }
+        else
+            _peons[i] = peonToAdd;
         UIManager.Instance.AddUIPeon(peonToAdd);
     }
 

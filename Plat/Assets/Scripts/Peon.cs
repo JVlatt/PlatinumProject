@@ -257,9 +257,9 @@ public class Peon : MonoBehaviour
 
     void Start()
     {
-        PeonManager.Instance.AddPeon(this);
-        _meshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         m_ID = _nextID;
+        PeonManager.Instance.AddPeon(this,m_ID);
+        _meshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         _mentalHealth = 100;
         _HEALTHSTATE = HEALTHSTATE.GOOD;
         _peonInfo.HPMax = _HP;
@@ -350,6 +350,7 @@ public class Peon : MonoBehaviour
         masque.transform.position = transform.position + new Vector3(0, -0.5f, 0);
         masque.transform.eulerAngles = new Vector3(0, 90, -90);
         Destroy(gameObject);
+        m_nextID = m_ID;
     }
 
     public virtual void SpecialUpdate() { }

@@ -45,10 +45,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _nameTagPrefab;
     [SerializeField]
-    private Transform _UIPeonPrefab;
-    [SerializeField]
-    private Transform _UIPeonConteneur;
-    [SerializeField]
     private GameObject _attack;
     private Image _leftAttack;
     private Image _rightAttack;
@@ -56,6 +52,10 @@ public class UIManager : MonoBehaviour
     private Image _blackScreen;
     [SerializeField]
     private float _fadeSpeed;
+    [SerializeField]
+    private Sprite _boutonPersoSelect;
+    [SerializeField]
+    private Sprite _boutonPersoNone;
     float _timer;
     bool _fade;
 
@@ -70,6 +70,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private List<PersoImage> _persos;
     private Dictionary<string, Sprite> _dictPerso = new Dictionary<string, Sprite>();
+    [SerializeField]
+    private Transform _UIPeonPrefab;
+    [SerializeField]
+    private Transform _UIPeonConteneur;
 
     [Header("Cursor")]
     [SerializeField]
@@ -142,6 +146,7 @@ public class UIManager : MonoBehaviour
         public Image healthBar;
         public Image moralBar;
         public Image persoImage;
+        public Button button;
     }
 
     public enum FADETYPE
@@ -239,6 +244,7 @@ public class UIManager : MonoBehaviour
             infoPerso.jobImage= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"JobImage");
             infoPerso.moralBar= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"MoralBar");
             infoPerso.persoImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "Tete");
+            infoPerso.button = HierarchyUtils.GetComponentUsingName<Button>(infoPerso.conteneur.transform, "Bouton");
             _UIInfoPersos.Add(infoPerso);
         }
     }
@@ -354,14 +360,26 @@ public class UIManager : MonoBehaviour
 
     public void AddUIPeon(Peon p)
     {
-        Transform UI = Instantiate(_UIPeonPrefab);
-        _UIPeons.Add(UI);
+        Transform UI;
+        if (p._ID >= _UIPeons.Count)
+        {
+            UI = Instantiate(_UIPeonPrefab);
+            _UIPeons.Add(UI);
+        }
+        else
+            UI = _UIPeons[p._ID];
+        UIInfoPerso uiInfoPerso = _UIInfoPersos[p._ID];
+        uiInfoPerso.conteneur.SetActive(true);
+
+        uiInfoPerso.button.onClick.RemoveAllListeners();
+        uiInfoPerso.button.onClick.AddListener(() => SelectPerso(p));
+
         UI.SetParent(transform);
 
         GameObject fix = UI.GetChild(0).gameObject;
         p._fix = fix;
 
-        UIInfoPerso uiInfoPerso = _UIInfoPersos[p._ID];
+        
 
         switch (p._peonInfo.TYPE)
         {
@@ -378,6 +396,7 @@ public class UIManager : MonoBehaviour
                 uiInfoPerso.jobImage.sprite = _classeState[3];
                 break;
         }
+        uiInfoPerso.persoImage.sprite = _dictPerso[p.name];
     }
 
     public void AddCarriageName(Carriage c)
@@ -428,9 +447,12 @@ public class UIManager : MonoBehaviour
         _textPannel.SetActive(true);
     }
 
-    public void ActiveUIPerso(bool active, int ID)
+    public void SelectPerso(bool active, int ID)
     {
-        _UIInfoPersos[ID].conteneur.SetActive(active);
+        if (active)
+            _UIInfoPersos[ID].button.image.sprite = _boutonPersoSelect;
+        else
+            _UIInfoPersos[ID].button.image.sprite = _boutonPersoNone;
     }
 
     public void fade(FADETYPE fadeType)
@@ -439,11 +461,9 @@ public class UIManager : MonoBehaviour
         _fade = true;
     }
 
-    public void SetUIInfoScale(float amount)
+    public void SelectPerso(Peon peon)
     {
-        foreach (var item in _UIInfoPersos)
-        {
-            item.conteneur.transform.localScale = Vector3.one * amount;
-        }
+        PeonManager.Instance._activePeon = peon;
     }
+
 }

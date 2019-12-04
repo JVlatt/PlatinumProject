@@ -244,8 +244,6 @@ public class TrainManager : MonoBehaviour
         m_carriages.Add(carriage);
         AddId(carriage);
         CameraController.Instance.MajCamera(m_carriages);
-        if (_withPeon)
-            PeonManager.Instance.AddPeon(go.GetComponentInChildren<Peon>());
     }
 
     public void EventNewCarriage(GameObject carriage, float timer,bool withPeon)
