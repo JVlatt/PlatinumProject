@@ -197,6 +197,7 @@ public class Carriage : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
+            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
@@ -205,10 +206,11 @@ public class Carriage : MonoBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
     private void OnMouseOver()
     {
-        if(!(Input.GetMouseButtonDown(0)||Input.GetMouseButtonDown(1))) return;
+        if (!(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))) return;
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
+            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
@@ -271,9 +273,9 @@ public class Carriage : MonoBehaviour
         if (id == 0 && peon._type == Peon.TYPE.MECA)
             TrainManager.Instance.UpdateSpeed(false);
     }
-#endregion
+    #endregion
 
-#region Position Management
+    #region Position Management
     public void ClearPeon(Peon currentPeon)
     {
         if (currentPeon._currentCarriage == null) return;
@@ -299,9 +301,9 @@ public class Carriage : MonoBehaviour
         freepos.isAvailable = false;
         freepos.peonOnPos = currentPeon;
     }
-#endregion
+    #endregion
 
-#region Attack Management
+    #region Attack Management
 
     public void Attack(float duration, float subduration)
     {
@@ -350,6 +352,9 @@ public class Carriage : MonoBehaviour
     }
     private void Fight()
     {
+        if (isCarriageAttackedByEvent())
+            PhaseManager.Instance.eventPeon = m_activePeons[0];
+
         int totalpower = 0;
         m_activePeons[0]._ACTIVITY = Peon.ACTIVITY.NONE;
         switch (m_activePeons[0]._type)
@@ -405,7 +410,7 @@ public class Carriage : MonoBehaviour
         }
         _timerBeforeAttack = 0f;
         _battleUi.SetActive(false);
-        
+
     }
 
     public void Victory()
@@ -473,7 +478,7 @@ public class Carriage : MonoBehaviour
         }
         Debug.Log("Le wagon endomagé");
     }
-#endregion
+    #endregion
 
     public void Break(Carriage.DEGATSTATE amount)
     {

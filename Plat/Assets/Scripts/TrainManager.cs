@@ -104,6 +104,11 @@ public class TrainManager : MonoBehaviour
                 RecupererWagon(false);
             }
         }
+        if (_carriages[0]._activePeons.Count > 0 && TrainManager.Instance._isShutDown)
+        {
+            TrainManager.Instance.RepairLights();
+            SoundManager.Instance.Play("energy");
+        }
     }
 
 
@@ -114,7 +119,7 @@ public class TrainManager : MonoBehaviour
             TrainManager.Instance.UpdateSpeed(true);
             p._ACTIVITY = Peon.ACTIVITY.DRIVE;
         }
-        else if(p._ACTIVITY == Peon.ACTIVITY.DRIVE)
+        else if (p._ACTIVITY == Peon.ACTIVITY.DRIVE)
         {
             TrainManager.Instance.UpdateSpeed(false);
             p._ACTIVITY = Peon.ACTIVITY.NONE;
@@ -236,7 +241,7 @@ public class TrainManager : MonoBehaviour
 
     public void AddCarriage()
     {
-        Vector3 position = _carriages[_carriages.Count-1].transform.parent.position;
+        Vector3 position = _carriages[_carriages.Count - 1].transform.parent.position;
         position.x -= 10f;
         GameObject go = Instantiate(_carriageToAdd, position, _carriageToAdd.transform.rotation, transform);
         Carriage carriage = go.GetComponentInChildren<Carriage>();
@@ -246,7 +251,7 @@ public class TrainManager : MonoBehaviour
         CameraController.Instance.MajCamera(m_carriages);
     }
 
-    public void EventNewCarriage(GameObject carriage, float timer,bool withPeon)
+    public void EventNewCarriage(GameObject carriage, float timer, bool withPeon)
     {
         _withPeon = withPeon;
         _carriageToAdd = carriage;
@@ -296,9 +301,9 @@ public class TrainManager : MonoBehaviour
                 c.SwitchLights(true);
         }
 
-        if(PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.SHUTDOWN)
+        if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.SHUTDOWN)
         {
-            if(PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+            if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
                 PhaseManager.Instance.EndCondition(true);
         }
     }
