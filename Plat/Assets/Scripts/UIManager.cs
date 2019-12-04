@@ -109,10 +109,11 @@ public class UIManager : MonoBehaviour
     private Image _textName;
 
 
+
     [Header("Choices Pannel")]
     [SerializeField]
     GameObject _choicePannel;
-    private string _speakingCharacter;
+    private Peon _speakingCharacter;
 
 
     public GameObject choicePannel
@@ -333,9 +334,9 @@ public class UIManager : MonoBehaviour
 
             if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
             {
-                if (SoundManager.Instance.isPlaying(_speakingCharacter))
+                if (SoundManager.Instance.isPlaying(_speakingCharacter.name))
                 {
-                    SoundManager.Instance.StopSound(_speakingCharacter);
+                    SoundManager.Instance.StopSound(_speakingCharacter.name);
                 }
             }
             if (_textDisplayTimer >= _textDisplayDuration)
@@ -348,6 +349,7 @@ public class UIManager : MonoBehaviour
                     {
                         _text.SetText(" ");
                         _textPannel.SetActive(false);
+                        _speakingCharacter.isTalking = false;
                     }
 
                     PhaseManager.Instance.NextPhase();
@@ -356,6 +358,7 @@ public class UIManager : MonoBehaviour
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
+                    _speakingCharacter.isTalking = false;
                 }
                 
             }
@@ -450,7 +453,8 @@ public class UIManager : MonoBehaviour
     {
         textInstant = instant;
         _text.SetText(text);
-        _speakingCharacter = character;
+        _speakingCharacter = PeonManager.Instance._peons.Find(x => character == x.name);
+        _speakingCharacter.isTalking = true;
         _textTete.sprite = _dictPersoTete[character];
         _textName.sprite = _dictPersoName[character];
         SoundManager.Instance.Play(character);

@@ -169,7 +169,8 @@ public class Peon : MonoBehaviour
             _fixTimer = 0;
             if (!_canMove)
             {
-                m_animator.SetBool("Healing", value);
+                if(_type == TYPE.HEALER)
+                    m_animator.SetBool("Healing", value);
                 if(value)
                     m_fix.SetActive(value);
             }
@@ -251,6 +252,10 @@ public class Peon : MonoBehaviour
     }
 
     protected Animator m_animator;
+    public bool isTalking
+    {
+        set { m_animator.SetBool("isTalking", value); }
+    }
 
     private SkinnedMeshRenderer[] _meshRenderers;
     #endregion
