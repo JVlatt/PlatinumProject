@@ -528,7 +528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &996500117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2879,13 +2879,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a977c1bb7fa46d44680562b18a7b8532, type: 3}
   - {fileID: 21300000, guid: 03b3a3cf71b45574e919045e2756fee6, type: 3}
   - {fileID: 21300000, guid: 874fb5977f4f455478cc943dd20c6ced, type: 3}
-  _persos:
+  _persosTetes:
+  - name: Taon
+    image: {fileID: 21300000, guid: 63816a2a2a883694c9699b4cab03a2d1, type: 3}
   - name: Butor
     image: {fileID: 21300000, guid: d203e37e0131dac4e902845c87658d53, type: 3}
   - name: Oni
     image: {fileID: 21300000, guid: 2f54629021b4db048b9bb117c404518e, type: 3}
+  _persosName:
   - name: Taon
-    image: {fileID: 21300000, guid: 63816a2a2a883694c9699b4cab03a2d1, type: 3}
+    image: {fileID: 21300000, guid: 925b4ca61003ccf499edb634a05897b5, type: 3}
+  - name: Butor
+    image: {fileID: 21300000, guid: 110aac260020574428764961ab3015f7, type: 3}
+  - name: Oni
+    image: {fileID: 21300000, guid: 9878ddf078cfd5a4f8dbde48ad18bb95, type: 3}
   _UIPeonPrefab: {fileID: 7323094063016409026, guid: a3e8d53651908054fbb6355c31a9bb20,
     type: 3}
   _UIPeonConteneur: {fileID: 416224600670845737}
@@ -2897,7 +2904,8 @@ MonoBehaviour:
   m_isOnAttack: 0
   _textPannel: {fileID: 2057329342}
   _text: {fileID: 352462401}
-  _textImage: {fileID: 1969889474}
+  _textTete: {fileID: 1969889474}
+  _textName: {fileID: 996500118}
   _choicePannel: {fileID: 1372089060}
   _choiceText: {fileID: 1418848637}
   _choiceClock: {fileID: 1209761580}

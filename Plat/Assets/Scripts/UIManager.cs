@@ -68,8 +68,12 @@ public class UIManager : MonoBehaviour
     private List<Sprite> _activity;
     private List<UIInfoPerso> _UIInfoPersos = new List<UIInfoPerso>();
     [SerializeField]
-    private List<PersoImage> _persos;
-    private Dictionary<string, Sprite> _dictPerso = new Dictionary<string, Sprite>();
+    private List<PersoImage> _persosTetes;
+    private Dictionary<string, Sprite> _dictPersoTete = new Dictionary<string, Sprite>();
+    [SerializeField]
+    private List<PersoImage> _persosName;
+    private Dictionary<string, Sprite> _dictPersoName = new Dictionary<string, Sprite>();
+
     [SerializeField]
     private Transform _UIPeonPrefab;
     [SerializeField]
@@ -100,7 +104,9 @@ public class UIManager : MonoBehaviour
     private float _textDisplayTimer = 0f;
     private float _textDisplayDuration = 0f;
     [SerializeField]
-    private Image _textImage;
+    private Image _textTete;
+    [SerializeField]
+    private Image _textName;
 
 
     [Header("Choices Pannel")]
@@ -226,9 +232,13 @@ public class UIManager : MonoBehaviour
     {
         _leftAttack = _attack.transform.GetChild(0).GetComponent<Image>();
         _rightAttack = _attack.transform.GetChild(1).GetComponent<Image>();
-        foreach (PersoImage item in _persos)
+        foreach (PersoImage item in _persosTetes)
         {
-            _dictPerso.Add(item.name, item.image);
+            _dictPersoTete.Add(item.name, item.image);
+        }
+        foreach (PersoImage item in _persosName)
+        {
+            _dictPersoName.Add(item.name, item.image);
         }
         SetupUIPerso();
     }
@@ -396,7 +406,7 @@ public class UIManager : MonoBehaviour
                 uiInfoPerso.jobImage.sprite = _classeState[3];
                 break;
         }
-        uiInfoPerso.persoImage.sprite = _dictPerso[p.name];
+        uiInfoPerso.persoImage.sprite = _dictPersoTete[p.name];
     }
 
     public void AddCarriageName(Carriage c)
@@ -441,7 +451,8 @@ public class UIManager : MonoBehaviour
         textInstant = instant;
         _text.SetText(text);
         _speakingCharacter = character;
-        _textImage.sprite = _dictPerso[character];
+        _textTete.sprite = _dictPersoTete[character];
+        _textName.sprite = _dictPersoName[character];
         SoundManager.Instance.Play(character);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);

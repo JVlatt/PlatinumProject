@@ -48,6 +48,7 @@ public class Carriage : MonoBehaviour
         {
             TrainManager.Instance.UpdateSpeed(_underAttack, value);
             m_underAttack = value;
+            _monster.gameObject.SetActive(value);
             UIManager.Instance._isOnAttack = value;
             _light.SetBool("isAttack", value);
         }
@@ -86,6 +87,8 @@ public class Carriage : MonoBehaviour
     private FixIt _fixItLight;
     [SerializeField]
     private bool m_isBroke;
+    [SerializeField]
+    private Transform _monster;
     public bool _isBroke
     {
         private get { return m_isBroke; }
