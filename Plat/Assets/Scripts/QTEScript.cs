@@ -18,7 +18,7 @@ public class QTEScript : MonoBehaviour
     void Start()
     {
         _carriage = GetComponentInParent<Carriage>();
-        _eyes = HierarchyUtils.GetComponentInDirectChildren<Eye>(this.transform);
+        _eyes = HierarchyUtils.GetComponentInDirectChildren<Eye>(this.transform,false);
         isActive = false;
         point = 0;
     }
@@ -72,11 +72,19 @@ public class QTEScript : MonoBehaviour
         {
             _carriage.Victory();
             isActive = false;
+            if (SoundManager.Instance.isPlaying("fight"))
+            {
+                SoundManager.Instance.StopSound("fight");
+            }
         }
         if (amount <= 0)
         {
             _carriage.Defeat();
             isActive = false;
+            if (SoundManager.Instance.isPlaying("fight"))
+            {
+                SoundManager.Instance.StopSound("fight");
+            }
         }
     }
 }

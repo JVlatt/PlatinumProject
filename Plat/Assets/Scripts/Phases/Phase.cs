@@ -74,7 +74,7 @@ public abstract class Phase : MonoBehaviour
 
     private void Awake()
     {
-        subPhases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform);
+        subPhases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform,false);
     }
 
     public PhaseType GetPhaseType()
