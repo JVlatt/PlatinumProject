@@ -5504,7 +5504,7 @@ GameObject:
   - component: {fileID: 105944935}
   m_Layer: 5
   m_Name: Key2
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6756,7 +6756,7 @@ GameObject:
   - component: {fileID: 416522169}
   m_Layer: 5
   m_Name: Key6
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9611,12 +9611,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchTimeBuffer: 0
-  _mask: 7
+  _mask: -1
   _maxDistanceSampleTouch: 10
   _slideContinu: 1
   _useDeltaSlidePos: 1
   _slideSpeed: 0.01
   _pinchSpeed: 0.02
+  _dragTag: Dragable
 --- !u!4 &997549180
 Transform:
   m_ObjectHideFlags: 0
@@ -9795,7 +9796,7 @@ GameObject:
   - component: {fileID: 1035938360}
   m_Layer: 5
   m_Name: Key0
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10680,7 +10681,7 @@ GameObject:
   - component: {fileID: 1081493479}
   m_Layer: 5
   m_Name: Key7
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11006,7 +11007,7 @@ GameObject:
   - component: {fileID: 1180097394}
   m_Layer: 5
   m_Name: Key1
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11852,7 +11853,7 @@ GameObject:
   - component: {fileID: 1313930515}
   m_Layer: 5
   m_Name: Key5
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12400,7 +12401,7 @@ GameObject:
   - component: {fileID: 1381900306}
   m_Layer: 5
   m_Name: Key3
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15175,7 +15176,7 @@ GameObject:
   - component: {fileID: 2022082462}
   m_Layer: 5
   m_Name: Key4
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
