@@ -378,10 +378,12 @@ public class Carriage : MonoBehaviour
             if (isCarriageAttackedByEvent())
                 PhaseManager.Instance.EndCondition(true);
         }
+        _fighting = false;
     }
 
     public void Defeat()
     {
+        _fighting = false;
         _timerBeforeAttack = 0f;
         _battleUi.SetActive(false);
         PhaseManager.Instance.GetPeon(m_activePeons[0]);

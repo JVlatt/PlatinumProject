@@ -11,6 +11,7 @@ public class PhaseText : Phase
         SPECTATOR,
     }
 
+    [TextArea]
     [SerializeField]
     private string _text;
     [SerializeField]
