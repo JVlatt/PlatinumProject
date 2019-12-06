@@ -4,7 +4,7 @@ using UnityEngine;
 using Assets.Script;
 public class QTEScript : MonoBehaviour
 {
-    public Carriage carriage;
+    private Carriage _carriage;
     public int point;
     public int amount;
     public int goal;
@@ -17,6 +17,7 @@ public class QTEScript : MonoBehaviour
 
     void Start()
     {
+        _carriage = GetComponentInParent<Carriage>();
         _eyes = HierarchyUtils.GetComponentInDirectChildren<Eye>(this.transform);
         isActive = false;
         point = 0;
@@ -69,18 +70,13 @@ public class QTEScript : MonoBehaviour
     {
         if (point >= goal)
         {
-            Debug.Log("Win");
+            _carriage.Victory();
             isActive = false;
         }
         if (amount <= 0)
         {
-            Debug.Log("Defeat");
+            _carriage.Defeat();
             isActive = false;
         }
-    }
-
-    public void TestQTE()
-    {
-        Launch(10, 5, 2, 5);
     }
 }
