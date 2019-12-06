@@ -72,6 +72,6 @@ public class Tester : MonoBehaviour
     private void Drag(Vector3 position)
     {
         Debug.Log(position);
-        transform.position = position;
+        transform.position = new Vector3(position.x,position.y,transform.position.z);
     }
 }

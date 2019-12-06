@@ -468,4 +468,9 @@ public class Peon : MonoBehaviour
     {
         return true;
     }
+
+    public bool CanBeSelect()
+    {
+        return !m_currentCarriage._underAttack && !m_currentCarriage.isDetached;
+    }
 }
