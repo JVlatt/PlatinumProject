@@ -30,6 +30,6 @@ public class SampleTouch : TouchCustom
     {
         _currentDistance += touch.deltaPosition;
         if (touch.phase == TouchPhase.Moved && _currentDistance.magnitude>_distanceMax && (TouchController.Instance.mask & 1<<1)!=0)
-            TouchController.Instance.ConvertSampleToSlide(this,touch); //convert to slide
+            TouchController.Instance.ConvertSample(this,touch,_touchedCollider); //convert to slide or drag
     }
 }

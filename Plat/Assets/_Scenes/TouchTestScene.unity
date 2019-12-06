@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -361,12 +361,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea695a96776c4842bc26dd0a83c930f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mask: 7
+  touchTimeBuffer: 0
+  _mask: -1
   _maxDistanceSampleTouch: 2
   _slideContinu: 0
   _useDeltaSlidePos: 0
   _slideSpeed: 1
   _pinchSpeed: 0.2
+  _dragTag: Dragable
 --- !u!4 &1417780369
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +397,7 @@ GameObject:
   - component: {fileID: 2048220018}
   m_Layer: 0
   m_Name: BoxTesteur
-  m_TagString: Untagged
+  m_TagString: Dragable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048220014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.05, z: 1.68}
+  m_LocalPosition: {x: -0.38, y: 4.05, z: 1.68}
   m_LocalScale: {x: 3.473375, y: 3.473375, z: 3.473375}
   m_Children: []
   m_Father: {fileID: 0}
@@ -488,4 +490,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0250aed18a6d8d54c811d368c6cdf35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testerType: 0
+  testerType: 3

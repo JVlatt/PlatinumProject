@@ -16,5 +16,6 @@ public abstract class TouchCustom
         SAMPLE,
         SLIDE,
         PINCH,
+        DRAG,
     }
 }
