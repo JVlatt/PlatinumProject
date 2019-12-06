@@ -478,7 +478,8 @@ public class UIManager : MonoBehaviour
 
     public void SelectPerso(Peon peon)
     {
-        PeonManager.Instance._activePeon = peon;
+        if(peon.CanBeSelect())
+            PeonManager.Instance._activePeon = peon;
     }
 
 }

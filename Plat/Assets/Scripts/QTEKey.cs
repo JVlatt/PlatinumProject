@@ -6,17 +6,19 @@ public class QTEKey : MonoBehaviour
 {
     QTERepair _qte;
     [HideInInspector]
-    public bool valid = false;
+    public bool valid = true;
     [HideInInspector]
     public Vector3 startPosition;
     public Transform anchor;
+    public float offset;
 
     private void Awake()
     {
         _qte = GetComponentInParent<QTERepair>();
         startPosition = transform.position;
+        valid = false;
     }
-    /*
+
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
     private void OnMouseOver()
     {
@@ -25,9 +27,11 @@ public class QTEKey : MonoBehaviour
         float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector3 rayPoint = ray.GetPoint(distance);
-        transform.position = new Vector3(rayPoint.x, rayPoint.y, transform.position.z);
+        Vector3 desiredPosition = rayPoint;
+        desiredPosition.z = transform.position.z;
+        transform.position = desiredPosition;
     }
-#endif*/
+#endif
 #if UNITY_EDITOR || UNITY_ANDROID
 
     private void AddToDelegate()
@@ -38,19 +42,17 @@ public class QTEKey : MonoBehaviour
     private void Drag(Vector3 position)
     {
         if (!_qte.isActive || valid) return;
-        //float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        //Ray ray = Camera.main.ScreenPointToRay(position);
-        //Vector3 rayPoint = ray.GetPoint(distance);
-        //transform.position = new Vector3(rayPoint.x, rayPoint.y, transform.position.z);
-        transform.position = new Vector3(position.x,position.y,transform.position.z);
+        Vector3 desiredPosition = position;
+        desiredPosition.z = transform.position.z;
+        transform.position = desiredPosition;
     }
 #endif
     private void Update()
     {
-        if(!valid)
+        if (!valid)
         {
-            float dist = Vector3.Distance(anchor.transform.position, transform.position);
-            if(dist <= 0.5f)
+            float dist = Vector3.Distance(anchor.position, transform.position);
+            if (dist <= 0.5f)
             {
                 valid = true;
                 transform.position = anchor.position;

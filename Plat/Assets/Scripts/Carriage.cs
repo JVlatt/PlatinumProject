@@ -132,6 +132,7 @@ public class Carriage : MonoBehaviour
     public bool isDetached
     {
         set { _isDetached = value; }
+        get { return _isDetached; }
     }
 
     [Header("Varible separation")]
