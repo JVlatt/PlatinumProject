@@ -80,8 +80,9 @@ public class Carriage : MonoBehaviour
 
     [SerializeField]
     private float _fightDuration = 10f;
-    private float _fightTimer = 0f;
 
+    private bool _fighting = false;
+    private QTEScript _qte;
     private ParticleSystem _particle;
     private FixIt _fixItCarriage;
     private FixIt _fixItLight;
@@ -181,6 +182,7 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
+        _qte = GetComponentInChildren<QTEScript>();
         FixIt[] allFixIt = GetComponentsInChildren<FixIt>(true);
         _fixItCarriage = allFixIt[0];
         _fixItLight = allFixIt[1];
@@ -328,18 +330,25 @@ public class Carriage : MonoBehaviour
         if (m_underAttack)
         {
             _attackTimer += Time.deltaTime;
-            if (m_activePeons.Count >= 1)
+            if (m_activePeons.Count >= 1 && !_fighting)
             {
+                _fighting = true;
                 if (!SoundManager.Instance.isPlaying("fight"))
                 {
                     SoundManager.Instance.Play("fight");
                 }
                 _battleUi.SetActive(true);
-                _fightTimer += Time.deltaTime;
-                if (_fightTimer >= _fightDuration)
+                switch (m_activePeons[0].name)
                 {
-                    Fight();
-                    _fightTimer = 0f;
+                    case "Oni":
+                        _qte.Launch(20, 15, 1, 1);
+                        break;
+                    case "Butor":
+                        _qte.Launch(10, 5, 1, 2);
+                        break;
+                    case "Taon":
+                        _qte.Launch(15, 7, 1, 1.5f);
+                        break;
                 }
             }
             if (_attackTimer >= _attackDuration)
@@ -350,71 +359,11 @@ public class Carriage : MonoBehaviour
             }
         }
     }
-    private void Fight()
-    {
-        if (isCarriageAttackedByEvent())
-            PhaseManager.Instance.eventPeon = m_activePeons[0];
-
-        int totalpower = 0;
-        m_activePeons[0]._ACTIVITY = Peon.ACTIVITY.NONE;
-        switch (m_activePeons[0]._type)
-        {
-            case Peon.TYPE.FIGHTER:
-                totalpower = 80;
-                break;
-            case Peon.TYPE.SIMPLE:
-                totalpower = 40;
-                break;
-            case Peon.TYPE.MECA:
-                totalpower = 35;
-                break;
-            case Peon.TYPE.HEALER:
-                totalpower = 20;
-                break;
-        }
-        for (int i = 1; i < m_activePeons.Count; i++)
-        {
-            m_activePeons[i]._ACTIVITY = Peon.ACTIVITY.NONE;
-            switch (m_activePeons[i]._type)
-            {
-                case Peon.TYPE.FIGHTER:
-                    totalpower += 20;
-                    break;
-                case Peon.TYPE.SIMPLE:
-                    totalpower += 15;
-                    break;
-                case Peon.TYPE.MECA:
-                    totalpower += 10;
-                    break;
-                case Peon.TYPE.HEALER:
-                    totalpower += 5;
-                    break;
-            }
-        }
-        int rand = Random.Range(0, 100);
-        Debug.Log("Puissance Totale = " + totalpower);
-        Debug.Log("Jet de Dés = " + rand);
-        if (SoundManager.Instance.isPlaying("fight"))
-        {
-            SoundManager.Instance.StopSound("fight");
-        }
-        if (rand <= totalpower && !autoLoose)
-        {
-            Debug.Log("Victoire ! ");
-            Victory();
-        }
-        else
-        {
-            Debug.Log("Défaite :(");
-            Defeat();
-        }
-        _timerBeforeAttack = 0f;
-        _battleUi.SetActive(false);
-
-    }
 
     public void Victory()
     {
+        _timerBeforeAttack = 0f;
+        _battleUi.SetActive(false);
         if (m_activePeons.Count != 0)
         {
             PhaseManager.Instance.GetPeon(m_activePeons[0]);
@@ -431,8 +380,10 @@ public class Carriage : MonoBehaviour
         }
     }
 
-    private void Defeat()
+    public void Defeat()
     {
+        _timerBeforeAttack = 0f;
+        _battleUi.SetActive(false);
         PhaseManager.Instance.GetPeon(m_activePeons[0]);
         m_activePeons[0].SetDamage(5);
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
