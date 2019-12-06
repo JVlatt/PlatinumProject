@@ -30,6 +30,8 @@ public class TouchController : MonoBehaviour
             slidePara = new SlidePara(_slideContinu, _useDeltaSlidePos, _slideSpeed);
         if ((mask & 1 << 2) != 0)
             pinchPara = new PinchPara(_pinchSpeed);
+        if ((mask & 1 << 3) != 0)
+            dragPara = new DragPara();
 
     }
     #endregion
@@ -105,6 +107,18 @@ public class TouchController : MonoBehaviour
     public static PinchPara pinchPara;
     #endregion
 
+    #region Drag
+
+    [MaskHideAtt("_mask", 3, "", false, true)]
+    [SerializeField]
+    private string _dragTag;
+
+    public class DragPara
+    {
+        public bool haveActiveDrag;
+    }
+    public static DragPara dragPara;
+    #endregion
 
     private void OnValidate()
     {
@@ -112,6 +126,8 @@ public class TouchController : MonoBehaviour
             slidePara = new SlidePara(_slideContinu, _useDeltaSlidePos, _slideSpeed);
         if ((mask & 1 << 2) != 0)
             pinchPara = new PinchPara(_pinchSpeed);
+        if ((mask & 1 << 3) != 0)
+            dragPara = new DragPara();
     }
 
     private List<TouchCustom> touches = new List<TouchCustom>();
@@ -238,11 +254,14 @@ public class TouchController : MonoBehaviour
             return null;
     }
 
-    public void ConvertSampleToSlide(SampleTouch sample, Touch touch)
+    public void ConvertSample(SampleTouch sample, Touch touch,Collider collider)
     {
         int index = touches.IndexOf(sample);
         touches.Remove(sample);
-        touches.Insert(index, new SlideTouch(touch.position));
+        if (collider != null && collider.tag == _dragTag)
+            touches.Insert(index, new DragTouch(collider));
+        else
+            touches.Insert(index, new SlideTouch(touch.position));
     }
 
     public static int GetTouchIndex(int ID)
@@ -267,4 +286,7 @@ public class TouchController : MonoBehaviour
 
     public static PinchDelegate pinchDelegate;
 
+    public delegate void DragDelegate(Vector3 position);
+
+    public static DragDelegate dragDelegate;
 }

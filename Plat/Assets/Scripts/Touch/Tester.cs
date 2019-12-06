@@ -63,4 +63,15 @@ public class Tester : MonoBehaviour
     {
         transform.localScale += Vector3.one*value;
     }
+
+    private void AddToDelegate()
+    {
+        TouchController.dragDelegate = Drag;
+    }
+
+    private void Drag(Vector3 position)
+    {
+        Debug.Log(position);
+        transform.position = position;
+    }
 }
