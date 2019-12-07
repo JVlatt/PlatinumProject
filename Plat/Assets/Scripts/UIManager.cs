@@ -334,7 +334,7 @@ public class UIManager : MonoBehaviour
 
             if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
             {
-                if (SoundManager.Instance.isPlaying(_speakingCharacter.name))
+                if (_speakingCharacter && SoundManager.Instance.isPlaying(_speakingCharacter.name))
                 {
                     SoundManager.Instance.StopSound(_speakingCharacter.name);
                 }
