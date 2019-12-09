@@ -48,7 +48,8 @@ public class Peon : MonoBehaviour
             if (_isFixing && !value)
             {
                 SoundManager.Instance.Play("fix");
-                _currentCarriage._qteFix.Launch(m_peonInfo.name);
+                _currentCarriage._qteFix.Launch(this);
+                transform.forward = Vector3.back;
                 m_fix.SetActive(true);
             }
             else
