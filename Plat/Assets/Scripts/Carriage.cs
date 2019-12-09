@@ -374,6 +374,10 @@ public class Carriage : MonoBehaviour
             _underAttack = false;
             _particle.Stop();
             m_activePeons[0].SetDamage(2);
+            foreach (Peon item in m_activePeons)
+            {
+                item.BattleAnim(true);
+            }
             if (isCarriageAttackedByEvent())
                 PhaseManager.Instance.EndCondition(true);
         }
@@ -393,6 +397,7 @@ public class Carriage : MonoBehaviour
         PhaseManager.Instance.GetPeon(m_activePeons[0]);
         m_activePeons[0].SetDamage(5);
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
+        m_activePeons[0].BattleAnim(false);
 
         if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
         {
@@ -407,6 +412,7 @@ public class Carriage : MonoBehaviour
         {
             m_activePeons[0]._HP -= 10;
             m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
+            m_activePeons[0].BattleAnim(false);
 
             if (_nextCarriages.Find(x => x.m_capacity > x.m_activePeons.Count))
             {

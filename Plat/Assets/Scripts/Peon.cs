@@ -481,4 +481,10 @@ public class Peon : MonoBehaviour
     {
         return !m_currentCarriage._underAttack && !m_currentCarriage.isDetached;
     }
+
+    public void BattleAnim(bool isWin)
+    {
+        m_animator.SetBool("isWin",isWin);
+        m_animator.SetTrigger("EndFight");
+    }
 }
