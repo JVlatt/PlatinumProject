@@ -27,6 +27,8 @@ public class PhaseText : Phase
     private string _textTaon;
     [SerializeField]
     private string _textButor;
+    [SerializeField]
+    private string _textNaru;
     public override void LaunchPhase()
     {
         controlDuration = false;
@@ -47,6 +49,9 @@ public class PhaseText : Phase
                         case "Taon":
                             _text = _textTaon;
                             break;
+                        case "Naru":
+                            _text = _textNaru;
+                            break;
                     }
                     break;
                 case textType.SPECTATOR:
@@ -62,6 +67,9 @@ public class PhaseText : Phase
                             break;
                         case "Taon":
                             _text = _textTaon;
+                            break;
+                        case "Naru":
+                            _text = _textNaru;
                             break;
                     }
                     break;
