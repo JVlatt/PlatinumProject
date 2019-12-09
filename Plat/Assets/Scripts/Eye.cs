@@ -17,7 +17,10 @@ public class Eye : MonoBehaviour
             }
             else
             {
-                myAnim.SetTrigger("Close");
+                if (_duration > 0)
+                    myAnim.SetTrigger("Death");
+                else
+                    myAnim.SetTrigger("Close");
             }
             _isOpen = value;
         }
