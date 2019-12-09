@@ -53,7 +53,6 @@ public class QTERepair : MonoBehaviour
         if(!_activeKeys.Find(x => !x.valid))
         {
             Reset();
-            Debug.Log("gg");
         }
     }
 

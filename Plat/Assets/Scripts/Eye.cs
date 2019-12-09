@@ -52,7 +52,6 @@ public class Eye : MonoBehaviour
                 _qte.point++;
                 isOpen = false;
                 _qte.CheckEnd();
-                //this.gameObject.SetActive(false);
             }
         }
     }

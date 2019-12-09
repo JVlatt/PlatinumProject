@@ -82,7 +82,9 @@ public class Carriage : MonoBehaviour
     private float _fightDuration = 10f;
 
     private bool _fighting = false;
-    private QTEScript _qte;
+    private QTEScript _qteFight;
+    [HideInInspector]
+    public QTERepair _qteFix;
     private ParticleSystem _particle;
     private FixIt _fixItCarriage;
     private FixIt _fixItLight;
@@ -183,7 +185,8 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
-        _qte = GetComponentInChildren<QTEScript>();
+        _qteFight = GetComponentInChildren<QTEScript>();
+        _qteFix = GetComponentInChildren<QTERepair>();
         FixIt[] allFixIt = GetComponentsInChildren<FixIt>(true);
         _fixItCarriage = allFixIt[0];
         _fixItLight = allFixIt[1];
@@ -342,13 +345,13 @@ public class Carriage : MonoBehaviour
                 switch (m_activePeons[0].name)
                 {
                     case "Oni":
-                        _qte.Launch(20, 15, 1, 1);
+                        _qteFight.Launch(20, 15, 1, 1);
                         break;
                     case "Butor":
-                        _qte.Launch(10, 5, 1, 2);
+                        _qteFight.Launch(10, 5, 1, 2);
                         break;
                     case "Taon":
-                        _qte.Launch(15, 7, 1, 1.5f);
+                        _qteFight.Launch(15, 7, 1, 1.5f);
                         break;
                 }
             }
