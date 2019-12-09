@@ -11,6 +11,13 @@ public class PhaseText : Phase
         SPECTATOR,
     }
 
+    public enum emotionType
+    {
+        NORMAL,
+        SAD,
+        ANGRY
+    }
+
     [TextArea]
     [SerializeField]
     private string _text;
@@ -18,6 +25,8 @@ public class PhaseText : Phase
     private string _character;
     [SerializeField]
     private textType _textType;
+    [SerializeField]
+    private emotionType _emotion;
     [SerializeField]
     private bool _isInstant;
 
@@ -88,7 +97,7 @@ public class PhaseText : Phase
         }
         else
         {
-            UIManager.Instance.DisplayText(_text, _character, duration, _isInstant);
+            UIManager.Instance.DisplayText(_text, _character, duration, _isInstant,_emotion);
             if (_isInstant)
                 PhaseManager.Instance.NextPhase();
         }

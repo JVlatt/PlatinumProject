@@ -183,6 +183,7 @@ public class UIManager : MonoBehaviour
     public bool textInstant;
 
     private int voiceId;
+    private PhaseText.emotionType emotionType;
 
     public void UpdateMentalBar()
     {
@@ -335,9 +336,28 @@ public class UIManager : MonoBehaviour
 
             if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
             {
-                if (_speakingCharacter && SoundManager.Instance.isPlaying(_speakingCharacter.name+voiceId))
+                switch (emotionType)
                 {
-                    SoundManager.Instance.StopSound(_speakingCharacter.name+voiceId);
+                    case PhaseText.emotionType.NORMAL:
+                        if (_speakingCharacter && SoundManager.Instance.isPlaying(_speakingCharacter.name + voiceId))
+                        {
+                            SoundManager.Instance.StopSound(_speakingCharacter.name + voiceId);
+                        }
+                        break;
+                    case PhaseText.emotionType.SAD:
+                        if (_speakingCharacter && SoundManager.Instance.isPlaying("sad"+_speakingCharacter.name))
+                        {
+                            SoundManager.Instance.StopSound("sad"+_speakingCharacter.name);
+                        }
+                        break;
+                    case PhaseText.emotionType.ANGRY:
+                        if (_speakingCharacter && SoundManager.Instance.isPlaying("angry"+_speakingCharacter.name))
+                        {
+                            SoundManager.Instance.StopSound("angry"+_speakingCharacter.name);
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
             if (_textDisplayTimer >= _textDisplayDuration)
@@ -450,7 +470,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayText(string text, string character, float duration, bool instant)
+    public void DisplayText(string text, string character, float duration, bool instant,PhaseText.emotionType emotion)
     {
         textInstant = instant;
         _text.SetText(text);
@@ -458,8 +478,23 @@ public class UIManager : MonoBehaviour
         _speakingCharacter.isTalking = true;
         _textTete.sprite = _dictPersoTete[character];
         _textName.sprite = _dictPersoName[character];
-        voiceId = Random.Range(1, 4);
-        SoundManager.Instance.Play(character+voiceId);
+        emotionType = emotion;
+        switch (emotionType)
+        {
+            case PhaseText.emotionType.NORMAL:
+                voiceId = Random.Range(1, 4);
+                SoundManager.Instance.Play(character + voiceId);
+                break;
+            case PhaseText.emotionType.SAD:
+                SoundManager.Instance.Play("sad"+character);
+                break;
+            case PhaseText.emotionType.ANGRY:
+                SoundManager.Instance.Play("angry"+character);
+                break;
+            default:
+                break;
+        }
+        
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
     }
