@@ -119,7 +119,7 @@ public class Carriage : MonoBehaviour
 
     private Animator _light;
 
-    public GameObject _battleUi;
+    public Animator _battleUi;
     private bool _isAnEvent = false;
     public bool isAnEvent
     {
@@ -341,7 +341,7 @@ public class Carriage : MonoBehaviour
                 {
                     SoundManager.Instance.Play("fight");
                 }
-                _battleUi.SetActive(true);
+                _battleUi.gameObject.SetActive(true);
                 switch (m_activePeons[0].name)
                 {
                     case "Oni":
@@ -367,7 +367,6 @@ public class Carriage : MonoBehaviour
     public void Victory()
     {
         _timerBeforeAttack = 0f;
-        _battleUi.SetActive(false);
         if (m_activePeons.Count != 0)
         {
             PhaseManager.Instance.GetPeon(m_activePeons[0]);
@@ -387,13 +386,18 @@ public class Carriage : MonoBehaviour
                 PhaseManager.Instance.EndCondition(true);
         }
         _fighting = false;
+        _battleUi.SetBool("isWin", true);
+        _battleUi.SetTrigger("EndFight");
+        Invoke("DesactiveBattleUi", 2);
     }
 
     public void Defeat()
     {
+        _battleUi.SetBool("isWin", false);
+        _battleUi.SetTrigger("EndFight");
+        Invoke("DesactiveBattleUi", 2);
         _fighting = false;
         _timerBeforeAttack = 0f;
-        _battleUi.SetActive(false);
         PhaseManager.Instance.GetPeon(m_activePeons[0]);
         m_activePeons[0].SetDamage(5);
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
@@ -477,5 +481,11 @@ public class Carriage : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void DesactiveBattleUi()
+    {
+        _battleUi.SetTrigger("Reset");
+        _battleUi.gameObject.SetActive(false);
     }
 }

@@ -673,7 +673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520203072662362864}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.0119, y: -0, z: 0.01775}
+  m_LocalPosition: {x: -0.0119, y: 0, z: 0.01739}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_Children: []
   m_Father: {fileID: 7727126622605590719}
@@ -719,7 +719,7 @@ SpriteRenderer:
   m_SortingOrder: 20
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.96, y: 1.15}
@@ -1660,12 +1660,13 @@ MonoBehaviour:
   _timeBeforeAttack: 2
   _attackDuration: 10
   _fightDuration: 5
+  _qteFix: {fileID: 0}
   m_isBroke: 0
   _monster: {fileID: 0}
   _nextCarriages:
   - {fileID: 7727126622605590718}
   - {fileID: 0}
-  _battleUi: {fileID: 1520203072662362864}
+  _battleUi: {fileID: 143964511337041010}
   autoLoose: 0
   _speed: 1
 --- !u!1 &7833599702345200817
@@ -6598,6 +6599,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7727126622605590719}
     m_Modifications:
+    - target: {fileID: 768238268781143581, guid: 9d7f00b818509284194b7f3c9bceb4ac,
+        type: 3}
+      propertyPath: m_Name
+      value: QTEFight
+      objectReference: {fileID: 0}
+    - target: {fileID: 768238268781143581, guid: 9d7f00b818509284194b7f3c9bceb4ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 768238268781143580, guid: 9d7f00b818509284194b7f3c9bceb4ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6652,16 +6663,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 768238268781143581, guid: 9d7f00b818509284194b7f3c9bceb4ac,
-        type: 3}
-      propertyPath: m_Name
-      value: QTEFight
-      objectReference: {fileID: 0}
-    - target: {fileID: 768238268781143581, guid: 9d7f00b818509284194b7f3c9bceb4ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7f00b818509284194b7f3c9bceb4ac, type: 3}
