@@ -52,6 +52,7 @@ public class QTERepair : MonoBehaviour
     {
         if(!_activeKeys.Find(x => !x.valid))
         {
+            _peon.EndFix(true);
             Reset();
         }
     }
