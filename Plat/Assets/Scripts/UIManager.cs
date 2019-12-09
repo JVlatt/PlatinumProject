@@ -181,7 +181,8 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector]
     public bool textInstant;
-    
+
+    private int voiceId;
 
     public void UpdateMentalBar()
     {
@@ -334,9 +335,9 @@ public class UIManager : MonoBehaviour
 
             if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
             {
-                if (_speakingCharacter && SoundManager.Instance.isPlaying(_speakingCharacter.name))
+                if (_speakingCharacter && SoundManager.Instance.isPlaying(_speakingCharacter.name+voiceId))
                 {
-                    SoundManager.Instance.StopSound(_speakingCharacter.name);
+                    SoundManager.Instance.StopSound(_speakingCharacter.name+voiceId);
                 }
             }
             if (_textDisplayTimer >= _textDisplayDuration)
@@ -457,7 +458,8 @@ public class UIManager : MonoBehaviour
         _speakingCharacter.isTalking = true;
         _textTete.sprite = _dictPersoTete[character];
         _textName.sprite = _dictPersoName[character];
-        SoundManager.Instance.Play(character);
+        voiceId = Random.Range(1, 4);
+        SoundManager.Instance.Play(character+voiceId);
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
     }
