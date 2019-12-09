@@ -4935,6 +4935,13 @@ MonoBehaviour:
   _battleUi: {fileID: 1159906297843996737}
   autoLoose: 0
   _speed: 1
+  damageStates:
+  - mat: {fileID: 2100000, guid: 9dc422ca7ab7da0419bed6f88831d453, type: 2}
+    mesh: {fileID: -594116779133319820, guid: 8b66348242af75144a324a0c00fe203d, type: 3}
+  - mat: {fileID: 2100000, guid: feb59c8ab59e70d48b1f52fcf4a9328d, type: 2}
+    mesh: {fileID: 5483750683050956309, guid: 11ae246be6654854bbab9dd0ef755cc3, type: 3}
+  - mat: {fileID: 2100000, guid: 8673a86df78fe6b41bd6240bf8acd94d, type: 2}
+    mesh: {fileID: -1342604368477119257, guid: d1f4833259bbbaa41a9808300767c449, type: 3}
 --- !u!1 &8921957094069107953
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,7 +7924,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7727126622605590718, guid: fa25018ea109d1e47962c69a2281309c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa25018ea109d1e47962c69a2281309c, type: 3}
 --- !u!4 &8368658322206925681 stripped
 Transform:

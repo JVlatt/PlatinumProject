@@ -183,32 +183,20 @@ public class TrainManager : MonoBehaviour
     {
         switch (currentState)
         {
-            case Carriage.DEGATSTATE.DEGAT20:
-                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4;
+            case Carriage.DEGATSTATE.DEGAT33:
+                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3;
                 break;
-            case Carriage.DEGATSTATE.DEGAT40:
-                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 2;
-                break;
-            case Carriage.DEGATSTATE.DEGAT60:
-                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4) * 3;
-                break;
-            case Carriage.DEGATSTATE.DEGAT80:
-                _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
+            case Carriage.DEGATSTATE.DEGAT66:
+                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3)*2;
                 break;
         }
         switch (newState)
         {
-            case Carriage.DEGATSTATE.DEGAT20:
+            case Carriage.DEGATSTATE.DEGAT33:
                 _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4;
                 break;
-            case Carriage.DEGATSTATE.DEGAT40:
-                _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 2;
-                break;
-            case Carriage.DEGATSTATE.DEGAT60:
-                _speedTarget -= ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4) * 3;
-                break;
-            case Carriage.DEGATSTATE.DEGAT80:
-                _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus);
+            case Carriage.DEGATSTATE.DEGAT66:
+                _speedTarget -= ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3)*2;
                 break;
         }
     }

@@ -92,6 +92,8 @@ public class Carriage : MonoBehaviour
     private bool m_isBroke;
     [SerializeField]
     private Transform _monster;
+
+
     public bool _isBroke
     {
         private get { return m_isBroke; }
@@ -146,10 +148,8 @@ public class Carriage : MonoBehaviour
     public enum DEGATSTATE
     {
         GOOD,
-        DEGAT20,
-        DEGAT40,
-        DEGAT60,
-        DEGAT80
+        DEGAT33,
+        DEGAT66,
     }
     private DEGATSTATE _degatState = DEGATSTATE.GOOD;
     public DEGATSTATE DegatState
@@ -163,28 +163,45 @@ public class Carriage : MonoBehaviour
             {
                 case DEGATSTATE.GOOD:
                     _isBroke = false;
+                    meshRenderer.material = damageStates[0].mat;
+                    meshFilter.mesh = damageStates[0].mesh;
                     break;
-                case DEGATSTATE.DEGAT20:
+                case DEGATSTATE.DEGAT33:
+                    meshRenderer.material = damageStates[1].mat;
+                    meshFilter.mesh = damageStates[1].mesh;
                     _isBroke = true;
                     break;
-                case DEGATSTATE.DEGAT40:
-                    _isBroke = true;
-                    break;
-                case DEGATSTATE.DEGAT60:
-                    _isBroke = true;
-                    break;
-                case DEGATSTATE.DEGAT80:
+                case DEGATSTATE.DEGAT66:
+                    meshRenderer.material = damageStates[2].mat;
+                    meshFilter.mesh = damageStates[2].mesh;
                     _isBroke = true;
                     break;
             }
         }
         get { return _degatState; }
     }
+
+    [Header("damageWagon")]
+    [SerializeField]
+    private List<DamageState> damageStates = new List<DamageState>();
+
+    [System.Serializable]
+    public class DamageState
+    {
+        public Material mat;
+        public Mesh mesh;
+    }
+
+    private MeshRenderer meshRenderer;
+    private MeshFilter meshFilter;
     #endregion
+
     #endregion
 
     private void Start()
     {
+        meshRenderer = transform.parent.GetComponent<MeshRenderer>();
+        meshFilter = transform.parent.GetComponent<MeshFilter>();
         _qteFight = GetComponentInChildren<QTEScript>();
         _qteFix = GetComponentInChildren<QTERepair>();
         FixIt[] allFixIt = GetComponentsInChildren<FixIt>(true);
@@ -434,7 +451,7 @@ public class Carriage : MonoBehaviour
     private void DamageCarriage()
     {
         if (_isDetached) return;
-        if (DegatState == DEGATSTATE.DEGAT80)
+        if (DegatState == DEGATSTATE.DEGAT66)
         {
             TrainManager.Instance.UnclipCarriage(this.id - 1);
         }
