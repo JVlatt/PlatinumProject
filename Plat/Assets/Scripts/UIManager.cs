@@ -51,6 +51,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image _blackScreen;
     [SerializeField]
+    private Image _deathScreen;
+    [SerializeField]
     private float _fadeSpeed;
     [SerializeField]
     private Sprite _boutonPersoSelect;
@@ -274,6 +276,8 @@ public class UIManager : MonoBehaviour
                 _fade = false;
                 if(_fadeType == FADETYPE.ADDCARRIAGE)
                     TrainManager.Instance.AddCarriage();
+                if(_fadeType == FADETYPE.END)
+                    _deathScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
             }
         }
         else
