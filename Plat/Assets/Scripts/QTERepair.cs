@@ -10,19 +10,19 @@ public class QTERepair : MonoBehaviour
 
     private List<QTEKey> _keys = new List<QTEKey>();
     private List<QTEKey> _activeKeys = new List<QTEKey>();
-    private Carriage _carriage;
+    private Peon _peon;
     private GameObject middle;
     private void Awake()
     {
         _keys = HierarchyUtils.GetComponentInDirectChildren<QTEKey>(transform,false);
-        _carriage = GetComponentInParent<Carriage>();
         middle = transform.GetChild(0).gameObject;
     }
-    public void Launch(string character)
+    public void Launch(Peon peon)
     {
+        _peon = peon;
         middle.SetActive(true);
         _activeKeys.Clear();
-        switch (character)
+        switch (peon.name)
         {
             case "Oni":
                 foreach(QTEKey k in _keys)
@@ -52,8 +52,8 @@ public class QTERepair : MonoBehaviour
     {
         if(!_activeKeys.Find(x => !x.valid))
         {
+            _peon.EndFix(true);
             Reset();
-            Debug.Log("gg");
         }
     }
 
@@ -71,6 +71,6 @@ public class QTERepair : MonoBehaviour
 
     public void TestLaunch()
     {
-        Launch("Taon");
+        Launch(PeonManager.Instance._peons.Find(x => x.name == "Taon"));
     }
 }

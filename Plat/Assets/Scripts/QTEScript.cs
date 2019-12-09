@@ -19,6 +19,8 @@ public class QTEScript : MonoBehaviour
     {
         _carriage = GetComponentInParent<Carriage>();
         _eyes = HierarchyUtils.GetComponentInDirectChildren<Eye>(this.transform,false);
+        foreach (Eye e in _eyes)
+            e.gameObject.SetActive(false);
         isActive = false;
         point = 0;
     }
@@ -48,6 +50,7 @@ public class QTEScript : MonoBehaviour
         int rand = Random.Range(0, _eyes.Count);
         if (!_eyes[rand].isOpen)
         {
+            _eyes[rand].gameObject.SetActive(true);
             _eyes[rand].Spawn(eyeDuration);
             amount--;
         }

@@ -17,7 +17,10 @@ public class Eye : MonoBehaviour
             }
             else
             {
-                myAnim.SetTrigger("Close");
+                if (_duration > 0)
+                    myAnim.SetTrigger("Death");
+                else
+                    myAnim.SetTrigger("Close");
             }
             _isOpen = value;
         }
@@ -52,7 +55,6 @@ public class Eye : MonoBehaviour
                 _qte.point++;
                 isOpen = false;
                 _qte.CheckEnd();
-                //this.gameObject.SetActive(false);
             }
         }
     }

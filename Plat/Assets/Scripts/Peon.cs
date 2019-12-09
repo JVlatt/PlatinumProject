@@ -48,6 +48,8 @@ public class Peon : MonoBehaviour
             if (_isFixing && !value)
             {
                 SoundManager.Instance.Play("fix");
+                _currentCarriage._qteFix.Launch(this);
+                transform.forward = Vector3.back;
                 m_fix.SetActive(true);
             }
             else
@@ -158,7 +160,10 @@ public class Peon : MonoBehaviour
         set
         {
             if (_isFixing && !value)
+            {
                 _ACTIVITY = ACTIVITY.NONE;
+                m_currentCarriage._qteFix.Reset();
+            }
             else if (value)
             {
                 _ACTIVITY = ACTIVITY.REPAIR;
@@ -370,32 +375,7 @@ public class Peon : MonoBehaviour
             transform.forward = Vector3.forward;
         if (_fixTimer > _fixCD)
         {
-            float random = Random.Range(0, 100);
-            if (random < _fixLuck)
-            {
-                //c'est reparé
-                if(null != onFixEndedDelegate)
-                    onFixEndedDelegate(true);
-                _fixAnimator.SetTrigger("Win");
-                m_animator.SetBool("FixingWin", true);
-            }
-            else
-            {
-                if(onFixEndedDelegate!=null)
-                    onFixEndedDelegate(false);
-                _fixAnimator.SetTrigger("Fail");
-                m_animator.SetBool("FixingWin", false);
-            }
-            _fixEnded = true;
-            m_animator.SetBool("isFixing", false);
-            m_animator.SetTrigger("EndFix");
-            if (_currentCarriage.isAnEvent)
-            {
-                PhaseManager.Instance.GetPeon(this);
-            }
-            _fixTimer = 0;
-
-
+            EndFix(false);
         }
         else if (_fixEnded)
         {
@@ -407,6 +387,34 @@ public class Peon : MonoBehaviour
             }
 
         }
+    }
+
+    public void EndFix(bool win)
+    {
+        float random = Random.Range(0, 100);
+        if (win)
+        {
+            //c'est reparé
+            if (null != onFixEndedDelegate)
+                onFixEndedDelegate(true);
+            _fixAnimator.SetTrigger("Win");
+            m_animator.SetBool("FixingWin", true);
+        }
+        else
+        {
+            if (onFixEndedDelegate != null)
+                onFixEndedDelegate(false);
+            _fixAnimator.SetTrigger("Fail");
+            m_animator.SetBool("FixingWin", false);
+        }
+        _fixEnded = true;
+        m_animator.SetBool("isFixing", false);
+        m_animator.SetTrigger("EndFix");
+        if (_currentCarriage.isAnEvent)
+        {
+            PhaseManager.Instance.GetPeon(this);
+        }
+        _fixTimer = 0;
     }
 
     private void Recover()

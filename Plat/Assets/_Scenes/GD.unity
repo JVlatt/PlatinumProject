@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17424703, g: 0.21790789, b: 0.30011997, a: 1}
+  m_IndirectSpecularColor: {r: 0.17424707, g: 0.21790828, b: 0.30012047, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -121,6 +121,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1313952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313953}
+  - component: {fileID: 1313954}
+  m_Layer: 0
+  m_Name: Attack (Last Wagon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313952}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1460065506}
+  - {fileID: 708208017}
+  - {fileID: 628495301}
+  - {fileID: 1914015065}
+  - {fileID: 1336114754}
+  - {fileID: 366094588}
+  - {fileID: 697148784}
+  - {fileID: 67263547}
+  - {fileID: 1987986489}
+  - {fileID: 754496873}
+  - {fileID: 569790019}
+  - {fileID: 1512108824}
+  - {fileID: 1417631203}
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 105
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bf8ee6de2ed8b4fb4946e3a0ec1138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 15
+  _freezeControl: 0
+  subPhases: []
+  _timeBeforeAttack: 0
+  _timeBeforeNextEvent: 0
 --- !u!1 &15377667
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +237,54 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &22381460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22381461}
+  - component: {fileID: 22381462}
+  m_Layer: 0
+  m_Name: Blank(1s)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22381461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22381460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 108
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &22381462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22381460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 1
+  _freezeControl: 0
+  subPhases: []
+  waitNextEvent: 0
 --- !u!1001 &32634810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +462,60 @@ MonoBehaviour:
   subPhases: []
   _text: "A \u201Cthing\u201D was trying to hunt us. A thing I...couldn\u2019t describe..."
   _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &67263546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67263547}
+  - component: {fileID: 67263548}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67263547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67263546}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67263548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67263546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Spirits calm down ! I can''t hear myself thinking ! '
+  _character: "Nar\xF9"
   _textType: 0
   _isInstant: 0
   _textOni: 
@@ -5485,7 +5649,7 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
---- !u!1 &136812214
+--- !u!1 &104955455
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5493,8 +5657,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 136812215}
-  - component: {fileID: 136812216}
+  - component: {fileID: 104955456}
+  - component: {fileID: 104955457}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104955456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104955455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 326532663}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104955457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104955455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Quick !  We have to choose! Aaaaaah !! '
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &108859697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108859698}
+  - component: {fileID: 108859699}
   m_Layer: 0
   m_Name: Text (CUSTOM Butor)
   m_TagString: Untagged
@@ -5502,93 +5720,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &136812215
+--- !u!4 &108859698
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136812214}
+  m_GameObject: {fileID: 108859697}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1540170085}
-  m_RootOrder: 64
+  m_RootOrder: 112
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &136812216
+--- !u!114 &108859699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136812214}
+  m_GameObject: {fileID: 108859697}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 4
+  _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: The Thing can catch us easily but we can strenghten us..
+  _text: "Spirits, you must be aware, I have to be honest with both of you. *sigh*
+    The thing makes a grouped attack, it splits to attack us on both sides of the
+    train, as you can see. It's impossible to fight \r\nit. The Thing is too strong
+    right now, we're screwed..."
   _character: Butor
   _textType: 0
-  _isInstant: 0
-  _textOni: 
-  _textTaon: 
-  _textButor: 
---- !u!1 &154738140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 154738141}
-  - component: {fileID: 154738142}
-  m_Layer: 0
-  m_Name: Text (SPECTATOR )
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &154738141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154738140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1750946258}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &154738142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154738140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 1
-  _duration: 4
-  _freezeControl: 0
-  subPhases: []
-  _text: 
-  _character: 
-  _textType: 2
   _isInstant: 0
   _textOni: 
   _textTaon: 
@@ -5914,6 +6081,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1723624948102487166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &197154540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197154541}
+  - component: {fileID: 197154542}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &197154541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197154540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 107
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197154542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197154540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 2
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Spirits ! Look at the carriage ! I''ve never seen this in my life ! '
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &202851317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6398,6 +6619,54 @@ MonoBehaviour:
   _textOni: I saved one c-carriage, maybe i'm not too useless!
   _textTaon: 
   _textButor: 
+--- !u!1 &270989537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270989538}
+  - component: {fileID: 270989539}
+  m_Layer: 0
+  m_Name: Blank(3s)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270989538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270989537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 121
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270989539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270989537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  waitNextEvent: 0
 --- !u!1 &273484104
 GameObject:
   m_ObjectHideFlags: 0
@@ -6823,6 +7092,59 @@ MonoBehaviour:
   subPhases: []
   peonToHeal: {fileID: 2127779224}
   waitTime: 0
+--- !u!1 &326532662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326532663}
+  - component: {fileID: 326532664}
+  m_Layer: 0
+  m_Name: Attack (Wagon 3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326532663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326532662}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1288798118}
+  - {fileID: 104955456}
+  - {fileID: 784457322}
+  - {fileID: 1672898800}
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 128
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326532664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326532662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 10
+  _freezeControl: 0
+  subPhases: []
+  _carriage: 3
+  _timeBeforeAttack: 0
 --- !u!1 &331868978
 GameObject:
   m_ObjectHideFlags: 0
@@ -7074,6 +7396,115 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &366094587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366094588}
+  - component: {fileID: 366094589}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &366094588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366094587}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366094589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366094587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: 'It gonna attack us, hardly than before, and this probably will be a fatal
+    attack for us spirits. I can''t fight that monster ! '
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &370770318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370770319}
+  - component: {fileID: 370770320}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370770319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370770318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1205995763}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370770320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370770318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: Who knows ?? I don't wanna stay here !
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &372140422
 GameObject:
   m_ObjectHideFlags: 0
@@ -7127,6 +7558,60 @@ MonoBehaviour:
   _isInstant: 0
   _textOni: 
   _textTaon: Happily for them, I'm here
+  _textButor: 
+--- !u!1 &422183198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422183199}
+  - component: {fileID: 422183200}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422183199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422183198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 123
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422183200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422183198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Taon, stop that, It''s hard enough as it is. '
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
   _textButor: 
 --- !u!1 &430551297
 GameObject:
@@ -7946,7 +8431,7 @@ MonoBehaviour:
   _textOni: I wanna end t-this..
   _textTaon: 
   _textButor: 
---- !u!1 &568633000
+--- !u!1 &569790018
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7954,51 +8439,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 568633001}
-  - component: {fileID: 568633002}
+  - component: {fileID: 569790019}
+  - component: {fileID: 569790020}
   m_Layer: 0
-  m_Name: Text (ACTOR )
+  m_Name: "Text (CUSTOM Nar\xF9)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &568633001
+--- !u!4 &569790019
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568633000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 569790018}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1757550673}
-  m_RootOrder: 2
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &568633002
+--- !u!114 &569790020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568633000}
+  m_GameObject: {fileID: 569790018}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
-  _duration: 4
+  mode: 0
+  _duration: 3
   _freezeControl: 0
   subPhases: []
-  _text: 
-  _character: 
-  _textType: 1
+  _text: Butor, that's not the good solution, trust me ! Stay here with us !
+  _character: "Nar\xF9"
+  _textType: 0
   _isInstant: 0
   _textOni: 
-  _textTaon: No... It can't happen to me..
+  _textTaon: 
   _textButor: 
 --- !u!1001 &584293329
 PrefabInstance:
@@ -8201,6 +8686,60 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+--- !u!1 &599334507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599334508}
+  - component: {fileID: 599334509}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599334508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599334507}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1205995763}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599334509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599334507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'We have to find a solution..quickly '
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &600077975
 GameObject:
   m_ObjectHideFlags: 0
@@ -8471,6 +9010,55 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &612486061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612486062}
+  - component: {fileID: 612486063}
+  m_Layer: 0
+  m_Name: Attack (Wagon 3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612486062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612486061}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 109
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &612486063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612486061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 15
+  _freezeControl: 0
+  subPhases: []
+  _carriage: 3
+  _timeBeforeAttack: 0
 --- !u!1 &620795350
 GameObject:
   m_ObjectHideFlags: 0
@@ -8634,6 +9222,61 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &628495300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628495301}
+  - component: {fileID: 628495302}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628495301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628495300}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628495302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628495300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: Seems to be the Thing, but it didn't make that noise before ! You know something
+    Butor ??
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &632149306
 GameObject:
   m_ObjectHideFlags: 0
@@ -8777,6 +9420,54 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639013713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0.5
+  _freezeControl: 0
+  subPhases: []
+  waitNextEvent: 0
+--- !u!1 &639252496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639252497}
+  - component: {fileID: 639252498}
+  m_Layer: 0
+  m_Name: Blank(0,5s)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &639252497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639252496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 127
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &639252498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639252496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
@@ -9113,6 +9804,62 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &682196701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682196702}
+  - component: {fileID: 682196703}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682196702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682196701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642363662}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &682196703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682196701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: If we should die tonight, then we should all die together...I can't believe
+    that I'll never see the other world..but..we do our best..I think..*sigh* wait
+    for the end now...
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &688469375
 GameObject:
   m_ObjectHideFlags: 0
@@ -9188,6 +9935,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c88a13c1542944bab28fb90eae8ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &697148783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697148784}
+  - component: {fileID: 697148785}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697148784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697148783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697148785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697148783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: What ?? Why are you telling that ? You're a fighter Butor ! That's your job
+    to try ! Save us ! Right now !
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &708208016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708208017}
+  - component: {fileID: 708208018}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &708208017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708208016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708208018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708208016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: What was that noise ?? Did you heard that ??
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &708210665
 GameObject:
   m_ObjectHideFlags: 0
@@ -9509,6 +10365,60 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &731821378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731821379}
+  - component: {fileID: 731821380}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &731821379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731821378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1205995763}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731821380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731821378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: Oh no no no ! It's a curse ! What we're gonna do spirits ??
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &737814964
 GameObject:
   m_ObjectHideFlags: 0
@@ -9726,6 +10636,60 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &754496872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754496873}
+  - component: {fileID: 754496874}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754496873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754496872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754496874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754496872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Enough ! I''m gonna try ! You both, have to stay here ! '
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &764291727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9866,7 +10830,7 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
---- !u!1 &784995176
+--- !u!1 &784457321
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9874,116 +10838,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 784995177}
-  - component: {fileID: 784995178}
-  m_Layer: 0
-  m_Name: Text (CUSTOM Taon)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &784995177
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784995176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1540170085}
-  m_RootOrder: 61
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &784995178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784995176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  _duration: 4
-  _freezeControl: 0
-  subPhases: []
-  _text: Shh who?? Oh ! Is that a new carriage??
-  _character: Taon
-  _textType: 0
-  _isInstant: 0
-  _textOni: 
-  _textTaon: 
-  _textButor: 
---- !u!1 &790235012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 790235013}
-  - component: {fileID: 790235014}
-  m_Layer: 0
-  m_Name: Text (CUSTOM Taon)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &790235013
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790235012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1540170085}
-  m_RootOrder: 55
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &790235014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790235012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  _duration: 4
-  _freezeControl: 0
-  subPhases: []
-  _text: 'Ok, I''m gonna check the failure. Wait and don''t touch anything! '
-  _character: Taon
-  _textType: 0
-  _isInstant: 1
-  _textOni: 
-  _textTaon: 
-  _textButor: 
---- !u!1 &793209641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 793209642}
-  - component: {fileID: 793209643}
+  - component: {fileID: 784457322}
+  - component: {fileID: 784457323}
   m_Layer: 0
   m_Name: Text (CUSTOM Butor)
   m_TagString: Untagged
@@ -9991,37 +10847,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &793209642
+--- !u!4 &784457322
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793209641}
+  m_GameObject: {fileID: 784457321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1540170085}
-  m_RootOrder: 60
+  m_Father: {fileID: 326532663}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &793209643
+--- !u!114 &784457323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793209641}
+  m_GameObject: {fileID: 784457321}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
-  _duration: 4
+  mode: 1
+  _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: Shh, look at this !
+  _text: 'It hurts! It hurts! '
   _character: Butor
   _textType: 0
   _isInstant: 0
@@ -10144,6 +11000,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64bf01ae808cfc247a653a8b013f933e, type: 3}
+--- !u!1 &813060544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 813060545}
+  - component: {fileID: 813060546}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &813060545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813060544}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 117
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813060546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813060544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: '*swallow* I can feel the Thing. It''s close. Oh no, no no no !'
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &823573150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10413,6 +11323,54 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &853641901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853641902}
+  - component: {fileID: 853641903}
+  m_Layer: 0
+  m_Name: Blank(1s)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853641902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853641901}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 111
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853641903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853641901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 1
+  _freezeControl: 0
+  subPhases: []
+  waitNextEvent: 0
 --- !u!1 &866717277
 GameObject:
   m_ObjectHideFlags: 0
@@ -10461,6 +11419,60 @@ MonoBehaviour:
   _freezeControl: 0
   subPhases: []
   _text: We have to split! Now! Go!
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &868292484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868292485}
+  - component: {fileID: 868292486}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868292485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868292484}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 968076586}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868292486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868292484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'It brokes every carriage ! '
   _character: Taon
   _textType: 0
   _isInstant: 0
@@ -11135,6 +12147,60 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &946748720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946748721}
+  - component: {fileID: 946748722}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946748721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946748720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 124
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946748722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946748720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: We should listen to him, Butor, we're not losing anything.
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &947178469
 GameObject:
   m_ObjectHideFlags: 0
@@ -11336,7 +12402,7 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
---- !u!1 &981336235
+--- !u!1 &968076585
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11344,52 +12410,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 981336236}
-  - component: {fileID: 981336237}
+  - component: {fileID: 968076586}
+  - component: {fileID: 968076587}
   m_Layer: 0
-  m_Name: Text (CUSTOM Oni)
+  m_Name: Detach Last Wagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &981336236
+--- !u!4 &968076586
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981336235}
+  m_GameObject: {fileID: 968076585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1689566185}
+  - {fileID: 1475359913}
+  - {fileID: 868292485}
   m_Father: {fileID: 1540170085}
-  m_RootOrder: 62
+  m_RootOrder: 118
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &981336237
+--- !u!114 &968076587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981336235}
+  m_GameObject: {fileID: 968076585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cd0c2004248b8c4db5783e14c342b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 4
+  _duration: 5
   _freezeControl: 0
   subPhases: []
-  _text: Yes! S-should we take it??
-  _character: Oni
-  _textType: 0
-  _isInstant: 0
-  _textOni: 
-  _textTaon: 
-  _textButor: 
+  _luck: 0
 --- !u!1 &991150018
 GameObject:
   m_ObjectHideFlags: 0
@@ -12076,6 +13139,116 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175b45c06df6a3f4c92739f48afc489b, type: 3}
+--- !u!1 &1058759740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058759741}
+  - component: {fileID: 1058759742}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058759741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058759740}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 114
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1058759742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058759740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: I can't breathe, I can't breathe ! We're really screwed ?? No ! I refuse
+    to admit it ! No ! We gonna try again ! For the other world ! So Oni was right?
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1066647020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066647021}
+  - component: {fileID: 1066647022}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066647021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066647020}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642363662}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1066647022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066647020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: '*sigh* That''s not your fault Butor.This is the end then we should all disappear
+    together, I''m proud to die with my friend..I''m proud to call you my friends. '
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1069568098
 GameObject:
   m_ObjectHideFlags: 0
@@ -12339,6 +13512,64 @@ MonoBehaviour:
   _text: " You\u2019re in bad shape B-Butor, you should come to the infirmary to get
     yourself p-patch-up."
   _character: Oni
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1122505695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122505696}
+  - component: {fileID: 1122505697}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1122505696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122505695}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480376110}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122505697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122505695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: "If one of us die ! The Thing will leave the train ! We're near to the other
+    world ! That's supposed to be the last Thing's attack ! Oni's sacrifice cannot
+    have been for nothing! What should we do in \r\na desperate situation to survive?
+    Quickly! Quickly! We don't have all the time in the world! We have to make a decision
+    now! "
+  _character: Taon
   _textType: 0
   _isInstant: 0
   _textOni: 
@@ -12626,6 +13857,61 @@ MonoBehaviour:
   _isInstant: 1
   _textOni: 
   _textTaon: 
+  _textButor: Hm..what was that sound ?
+--- !u!1 &1144096920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144096921}
+  - component: {fileID: 1144096922}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144096921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144096920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480376110}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144096922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144096920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: ' WHAT ?? Are you serious ? I''m gonna kill you ! Right now ! Before the
+    Thing ! '
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
   _textButor: 
 --- !u!1 &1166420219
 GameObject:
@@ -12789,6 +14075,58 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &1205995762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1205995763}
+  - component: {fileID: 1205995764}
+  m_Layer: 0
+  m_Name: Attack (Wagon 4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1205995763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205995762}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 731821379}
+  - {fileID: 370770319}
+  - {fileID: 599334508}
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 110
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205995764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205995762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 15
+  _freezeControl: 0
+  subPhases: []
+  _carriage: 4
+  _timeBeforeAttack: 0
 --- !u!1001 &1210214174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13691,6 +15029,60 @@ Transform:
   m_Father: {fileID: 1911260901}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1288798117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1288798118}
+  - component: {fileID: 1288798119}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1288798118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288798117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 326532663}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288798119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288798117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'The Thing !!!! '
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1294010960
 GameObject:
   m_ObjectHideFlags: 0
@@ -13747,7 +15139,7 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
---- !u!1 &1308418686
+--- !u!1 &1296683896
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13755,52 +15147,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1308418687}
-  - component: {fileID: 1308418688}
+  - component: {fileID: 1296683897}
+  - component: {fileID: 1296683898}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Blank(3s)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1308418687
+--- !u!4 &1296683897
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308418686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1296683896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1919159053}
-  m_RootOrder: 5
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 106
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1308418688
+--- !u!114 &1296683898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308418686}
+  m_GameObject: {fileID: 1296683896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
-  _duration: 4
+  mode: 0
+  _duration: 3
   _freezeControl: 0
   subPhases: []
-  _text: 
-  _character: 
-  _textType: 2
-  _isInstant: 0
-  _textOni: 'The Thing is far f-from us n-now ! Congrats ! '
-  _textTaon: 
-  _textButor: 
+  waitNextEvent: 0
 --- !u!114 &1330892463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4091646480369767447, guid: 90b3f6ed7da2b844ca401cbc6cff1213,
@@ -13897,6 +15283,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a20483e601822fa47bc92ed8f6fb09ae, type: 3}
+--- !u!1 &1336114753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336114754}
+  - component: {fileID: 1336114755}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1336114754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336114753}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336114755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336114753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: What do you mean ??
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1337333970
 GameObject:
   m_ObjectHideFlags: 0
@@ -14413,6 +15853,60 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &1417631202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417631203}
+  - component: {fileID: 1417631204}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417631203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417631202}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417631204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417631202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: Butor, don't sacrifice yourself for us !
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1451318392
 GameObject:
   m_ObjectHideFlags: 0
@@ -14563,6 +16057,55 @@ MonoBehaviour:
   _freezeControl: 0
   subPhases: []
   waitNextEvent: 0
+--- !u!1 &1460065505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460065506}
+  - component: {fileID: 1460065507}
+  m_Layer: 0
+  m_Name: Attack (Wagon 2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460065506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460065505}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460065507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460065505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 15
+  _freezeControl: 0
+  subPhases: []
+  _carriage: 2
+  _timeBeforeAttack: 0
 --- !u!1 &1474061927
 GameObject:
   m_ObjectHideFlags: 0
@@ -14617,6 +16160,110 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &1475359912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475359913}
+  - component: {fileID: 1475359914}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1475359913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475359912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 968076586}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475359914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475359912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: That was the carriages !
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1480376109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480376110}
+  - component: {fileID: 1480376111}
+  m_Layer: 0
+  m_Name: ShutDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480376110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480376109}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1144096921}
+  - {fileID: 1587661945}
+  - {fileID: 1122505696}
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 126
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480376111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480376109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5de026acc5b00ef44903d694ecfa1ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 2
+  _freezeControl: 0
+  subPhases: []
 --- !u!1 &1481798256
 GameObject:
   m_ObjectHideFlags: 0
@@ -14840,6 +16487,61 @@ MonoBehaviour:
   subPhases: []
   _text: "Hurgh, that thing must have touch me\u2026 but i\u2019ll be f\u2026. "
   _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1512108823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512108824}
+  - component: {fileID: 1512108825}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1512108824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512108823}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512108825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512108823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Shut up ! We know you since few minutes ! You don''t have any rights here
+    ! Butor, listen to me ! I wanna see the other world ! '
+  _character: Taon
   _textType: 0
   _isInstant: 0
   _textOni: 
@@ -15272,6 +16974,30 @@ Transform:
   - {fileID: 185664414}
   - {fileID: 1947974029}
   - {fileID: 188037318}
+  - {fileID: 1313953}
+  - {fileID: 1296683897}
+  - {fileID: 197154541}
+  - {fileID: 22381461}
+  - {fileID: 612486062}
+  - {fileID: 1205995763}
+  - {fileID: 853641902}
+  - {fileID: 108859698}
+  - {fileID: 1746074763}
+  - {fileID: 1058759741}
+  - {fileID: 1788200429}
+  - {fileID: 2136691453}
+  - {fileID: 813060545}
+  - {fileID: 968076586}
+  - {fileID: 1686243453}
+  - {fileID: 1642363662}
+  - {fileID: 270989538}
+  - {fileID: 1690119952}
+  - {fileID: 422183199}
+  - {fileID: 946748721}
+  - {fileID: 2118196477}
+  - {fileID: 1480376110}
+  - {fileID: 639252497}
+  - {fileID: 326532663}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15577,6 +17303,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startPosition: {fileID: 1451318393}
   m_endPosition: {fileID: 1584159932}
+--- !u!1 &1587661944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1587661945}
+  - component: {fileID: 1587661946}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1587661945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587661944}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1480376110}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587661946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587661944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Stop !! Taon, we can''t ! Are you serious ?? You can''t ask us to sacrifice
+    ourselves ! Nobody wants to die ! '
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1609215798
 GameObject:
   m_ObjectHideFlags: 0
@@ -15844,6 +17625,57 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 
   _textButor: 
+--- !u!1 &1642363661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642363662}
+  - component: {fileID: 1642363663}
+  m_Layer: 0
+  m_Name: Sound ()
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642363662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642363661}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1982165504}
+  - {fileID: 1066647021}
+  - {fileID: 682196702}
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 120
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642363663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642363661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dd33639da5ed64fbfcbe56c82ebcf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 6
+  _freezeControl: 0
+  subPhases: []
+  _sound: 
 --- !u!4 &1656032657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
@@ -16014,7 +17846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startPosition: {fileID: 1763777008}
   m_endPosition: {fileID: 430551298}
---- !u!1 &1667421024
+--- !u!1 &1672898799
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16022,52 +17854,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1667421025}
-  - component: {fileID: 1667421026}
+  - component: {fileID: 1672898800}
+  - component: {fileID: 1672898801}
   m_Layer: 0
-  m_Name: Text (CUSTOM Taon)
+  m_Name: Sound ()
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1667421025
+--- !u!4 &1672898800
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667421024}
+  m_GameObject: {fileID: 1672898799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1540170085}
-  m_RootOrder: 65
+  m_Father: {fileID: 326532663}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1667421026
+--- !u!114 &1672898801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667421024}
+  m_GameObject: {fileID: 1672898799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Script: {fileID: 11500000, guid: 80dd33639da5ed64fbfcbe56c82ebcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 4
+  _duration: 5
   _freezeControl: 0
   subPhases: []
-  _text: Ok, Oni, choose for us.
-  _character: Taon
-  _textType: 0
-  _isInstant: 0
-  _textOni: 
-  _textTaon: 
-  _textButor: 
+  _sound: 
 --- !u!1 &1680826567
 GameObject:
   m_ObjectHideFlags: 0
@@ -16098,7 +17924,7 @@ Transform:
   m_Father: {fileID: 280581568}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1689591661
+--- !u!1 &1686243452
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16106,53 +17932,101 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1689591662}
-  - component: {fileID: 1689591663}
+  - component: {fileID: 1686243453}
+  - component: {fileID: 1686243454}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Blank(3s)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1689591662
+--- !u!4 &1686243453
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689591661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1686243452}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1757550673}
-  m_RootOrder: 5
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 119
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1689591663
+--- !u!114 &1686243454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689591661}
+  m_GameObject: {fileID: 1686243452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106121c701e68de40af6623267cc6dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  waitNextEvent: 0
+--- !u!1 &1689566184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1689566185}
+  - component: {fileID: 1689566186}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1689566185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689566184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 968076586}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689566186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689566184}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  _duration: 4
+  _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
-  _character: 
-  _textType: 2
+  _text: ' That noise ! '
+  _character: Taon
+  _textType: 0
   _isInstant: 0
   _textOni: 
-  _textTaon: Good job, lil bitch...
+  _textTaon: 
   _textButor: 
---- !u!1 &1693240859
+--- !u!1 &1690119951
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16160,51 +18034,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1693240860}
-  - component: {fileID: 1693240861}
+  - component: {fileID: 1690119952}
+  - component: {fileID: 1690119953}
   m_Layer: 0
-  m_Name: Text (SPECTATOR )
+  m_Name: Text (CUSTOM Taon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1693240860
+--- !u!4 &1690119952
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693240859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1690119951}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1886223671}
-  m_RootOrder: 5
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 122
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1693240861
+--- !u!114 &1690119953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693240859}
+  m_GameObject: {fileID: 1690119951}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
-  _duration: 4
+  mode: 0
+  _duration: 0
   _freezeControl: 0
   subPhases: []
-  _text: 
-  _character: 
-  _textType: 2
+  _text: "H\xE9 ! H\xE9 ! Wake up ! I have an idea to survive ! Listen to me ! Please
+    ! "
+  _character: Taon
+  _textType: 0
   _isInstant: 0
   _textOni: 
-  _textTaon: Not impressive at all.
+  _textTaon: 
   _textButor: 
 --- !u!1 &1709730127
 GameObject:
@@ -16512,6 +18387,61 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1723624948102487166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1746074762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746074763}
+  - component: {fileID: 1746074764}
+  m_Layer: 0
+  m_Name: "Text (CUSTOM Nar\xF9)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746074763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746074762}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 113
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746074764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746074762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'S-screwed ?? Are you sure about this?? No! There must be a solution! There
+    is always a solution ! '
+  _character: "Nar\xF9"
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1750946257
 GameObject:
   m_ObjectHideFlags: 0
@@ -16981,6 +18911,60 @@ MonoBehaviour:
   subPhases: []
   _text: Maybe we c-could talk about what happened to us, it seems a little p-peaceful.
   _character: Oni
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1788200428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788200429}
+  - component: {fileID: 1788200430}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788200429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788200428}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 115
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788200430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788200428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: Oni knew we weren't going to make it Taon. You understand her choice now..?
+  _character: Butor
   _textType: 0
   _isInstant: 0
   _textOni: 
@@ -18263,6 +20247,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startPosition: {fileID: 1284390751}
   m_endPosition: {fileID: 467409968}
+--- !u!1 &1914015064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914015065}
+  - component: {fileID: 1914015066}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914015065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914015064}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1914015066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914015064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: The Thing comes back, for the last time.
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1914164159
 GameObject:
   m_ObjectHideFlags: 0
@@ -18904,6 +20942,116 @@ MonoBehaviour:
   _textOni: 
   _textTaon: 'Let''s fix the carriage ! Now '
   _textButor: 
+--- !u!1 &1982165503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982165504}
+  - component: {fileID: 1982165505}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982165504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982165503}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642363662}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982165505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982165503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: Spirits, be brave, together *deep breathe* That was a pleasure to know you..both
+    of you, and I'm really sorry there's nothing I can do to save you. I'm not that
+    strong.
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &1987986488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987986489}
+  - component: {fileID: 1987986490}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987986489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987986488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1313953}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987986490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987986488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 3
+  _freezeControl: 0
+  subPhases: []
+  _text: No time for thinking ! Butor ! Please !
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &1996004381
 GameObject:
   m_ObjectHideFlags: 0
@@ -19393,6 +21541,64 @@ Transform:
   m_Father: {fileID: 1865806925}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2118196476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118196477}
+  - component: {fileID: 2118196478}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118196477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118196476}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 125
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118196478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118196476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: "Thanks. If we think logically, the thing only needs one of us! As for Oni!
+    After his suicide, the thing went away! By leaving us alone for a few minutes!
+    So, if one of us offers himself to the thing! \r\nThe others will survive, at
+    least 2 out of 3 will survive! It's our only chance! Of course, I won't sacrifice
+    myself for you! "
+  _character: Taon
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!114 &2127779224 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8276164300588065232, guid: ca2620a17c42f4749b93495bf8c4f31b,
@@ -19405,6 +21611,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd9c346d5779c7498b90a17b991a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2128772283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128772284}
+  - component: {fileID: 2128772285}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128772284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128772283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 57
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128772285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128772283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 4
+  _freezeControl: 0
+  subPhases: []
+  _text: Oh look! I can see an old carriage! We can take it! Oni you decide!
+  _character: Butor
+  _textType: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
 --- !u!1 &2132582342
 GameObject:
   m_ObjectHideFlags: 0
@@ -19509,6 +21769,60 @@ MonoBehaviour:
   _text: Spirits, are you ok ??
   _character: Oni
   _textType: 2
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+--- !u!1 &2136691452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136691453}
+  - component: {fileID: 2136691454}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Taon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136691453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136691452}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1540170085}
+  m_RootOrder: 116
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136691454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136691452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _duration: 0
+  _freezeControl: 0
+  subPhases: []
+  _text: 'Be quiet Butor ! I can''t believe you ! I don''t want to believe you ! '
+  _character: Taon
+  _textType: 0
   _isInstant: 0
   _textOni: 
   _textTaon: 
