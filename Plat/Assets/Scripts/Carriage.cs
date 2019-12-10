@@ -233,6 +233,7 @@ public class Carriage : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
+            SoundManager.Instance.Play("plop");
             PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
