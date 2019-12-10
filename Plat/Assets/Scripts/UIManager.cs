@@ -572,4 +572,15 @@ public class UIManager : MonoBehaviour
             PeonManager.Instance._activePeon = peon;
     }
 
+    public void PassText()
+    {
+                if (!_textCompleted)
+                {
+                    _textCompleted = true;
+                    _text.SetText(_textToWrite);
+                }
+                else
+                    _textDisplayTimer = _textDisplayDuration;
+    }
+
 }
