@@ -321,6 +321,7 @@ public class Carriage : MonoBehaviour
             currentPeon._actionBeforeIdle = true;
         }
         currentPeon._subDestination = freepos.position.position;
+        FXManager.CallDelegate("MovePeon", freepos.position.position);
         freepos.isAvailable = false;
         freepos.peonOnPos = currentPeon;
     }

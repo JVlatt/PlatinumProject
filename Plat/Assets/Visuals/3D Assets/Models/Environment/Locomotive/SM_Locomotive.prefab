@@ -5034,7 +5034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474001259443987051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.685749e-10, y: -0.007500002, z: -0.017999992}
+  m_LocalPosition: {x: 0.000000001227855, y: -0.0075000026, z: -0.020899992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9004228575180981593}
@@ -6038,6 +6038,7 @@ MonoBehaviour:
   _timeBeforeAttack: 2
   _attackDuration: 10
   _fightDuration: 5
+  _qteFix: {fileID: 0}
   m_isBroke: 0
   _monster: {fileID: 0}
   _nextCarriages:
@@ -6045,6 +6046,7 @@ MonoBehaviour:
   _battleUi: {fileID: 310198163704714310}
   autoLoose: 0
   _speed: 10
+  damageStates: []
 --- !u!65 &2826728109035163842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7010,7 +7012,7 @@ Transform:
   m_GameObject: {fileID: 8402912354051620034}
   m_LocalRotation: {x: 0.000000029802322, y: -0.000000044703484, z: 0.0000011771917,
     w: -1}
-  m_LocalPosition: {x: 0.0006, y: 0.0108, z: -0.0177}
+  m_LocalPosition: {x: 0.0006, y: 0.0108, z: -0.0206}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 9004228575180981593}

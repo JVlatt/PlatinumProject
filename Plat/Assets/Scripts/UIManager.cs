@@ -287,6 +287,8 @@ public class UIManager : MonoBehaviour
                 _timer -= Time.deltaTime;
                 _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
             }
+            else if (_blackScreen.gameObject.activeSelf)
+                _blackScreen.gameObject.SetActive(false);
         }
 
         for (int i = 0; i < _UIPeons.Count; i++)
@@ -515,6 +517,7 @@ public class UIManager : MonoBehaviour
     {
         _fadeType = fadeType;
         _fade = true;
+        _blackScreen.gameObject.SetActive(true);
     }
 
     public void SelectPerso(Peon peon)

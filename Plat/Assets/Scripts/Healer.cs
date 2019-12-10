@@ -19,15 +19,14 @@ public class Healer : Peon  //MADE BY CEDRIC
                 m_animator.SetBool("isHealing", true);
                 transform.forward = transform.position - m_peonToHeal.transform.position;
                 _ACTIVITY = ACTIVITY.HEAL;
-                _particle.Play();
-                _particle.transform.position = value.transform.position;
+                FXManager.CallDelegate("HealSomeone", transform.position);
+                FXManager.CallDelegate("OnHeal", value.transform.position);
             }
             else {
                 transform.forward = Vector3.forward ;
                 if (!_isFixing)
                     m_animator.SetBool("isHealing", false);
-                _particle.Stop();
-                _particle.transform.position = transform.position;
+                FXManager.StopDelegate();
             }
         }
     }
@@ -41,13 +40,10 @@ public class Healer : Peon  //MADE BY CEDRIC
             m_infirmary = value;
         }
     }
-    private ParticleSystem _particle;
 
     public override void SpecialStart()
     {
         base.SpecialStart();
-        _particle = GetComponentInChildren<ParticleSystem>();
-        _particle.Stop();
     }
 
     public override void SpecialUpdate()
