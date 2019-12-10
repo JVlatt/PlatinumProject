@@ -60,4 +60,11 @@ public class QTEKey : MonoBehaviour
             }
         }
     }
+    private void LateUpdate()
+    {
+        Vector3 desiredPosition = transform.position;
+        desiredPosition.x =Mathf.Clamp(desiredPosition.x, _qte.topLeft.position.x, _qte.bottomRight.position.x);
+        desiredPosition.y =Mathf.Clamp(desiredPosition.y, _qte.bottomRight.position.y, _qte.topLeft.position.y);
+        transform.position = desiredPosition;
+    }
 }

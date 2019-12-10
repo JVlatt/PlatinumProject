@@ -12,6 +12,9 @@ public class QTERepair : MonoBehaviour
     private List<QTEKey> _activeKeys = new List<QTEKey>();
     private Peon _peon;
     private GameObject middle;
+
+    public Transform topLeft;
+    public Transform bottomRight;
     private void Awake()
     {
         _keys = HierarchyUtils.GetComponentInDirectChildren<QTEKey>(transform,false);
@@ -48,6 +51,7 @@ public class QTERepair : MonoBehaviour
         isActive = true;
     }
 
+    
     public void CheckEnd()
     {
         if(!_activeKeys.Find(x => !x.valid))
