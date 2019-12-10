@@ -7,6 +7,10 @@ public class PhaseFade : Phase
     [Header("Fade Parameter")]
     [SerializeField]
     private bool ActiveFade;
+    private void Start()
+    {
+        controlDuration = false;
+    }
     public override string BuildGameObjectName()
     {
         if (ActiveFade)

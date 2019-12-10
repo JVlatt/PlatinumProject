@@ -105,6 +105,10 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI _text;
     private float _textDisplayTimer = 0f;
     private float _textDisplayDuration = 0f;
+    private float _characterDisplayTimer = 0f;
+    private int _characterIndex;
+    private string _textToWrite;
+    private bool _textCompleted;
     [SerializeField]
     private Image _textTete;
     [SerializeField]
@@ -355,10 +359,28 @@ public class UIManager : MonoBehaviour
         if (_textPannel.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                _textDisplayTimer = _textDisplayDuration;
+            {
+                if(!_textCompleted)
+                {
+                    _textCompleted = true;
+                    _text.SetText(_textToWrite);
+                }
+                else
+                    _textDisplayTimer = _textDisplayDuration;
+            }
 
             _textDisplayTimer += Time.deltaTime;
+            _characterDisplayTimer += Time.deltaTime;
+            if(_characterDisplayTimer >= 0.01f && !_textCompleted)
+            {
+                if (_characterIndex < _textToWrite.Length)
+                    _characterIndex++;
+                else
+                    _textCompleted = true;
+                _characterDisplayTimer = 0f;
+                _text.SetText(_textToWrite.Substring(0, _characterIndex));
 
+            }
             if (_textDisplayTimer >= _textDisplayDuration - 0.5f)
             {
                 switch (emotionType)
@@ -498,7 +520,9 @@ public class UIManager : MonoBehaviour
     public void DisplayText(string text, string character, float duration, bool instant,PhaseText.emotionType emotion)
     {
         textInstant = instant;
-        _text.SetText(text);
+        _textCompleted = false;
+        _characterIndex = 0;
+        _textToWrite = text;
         _speakingCharacter = PeonManager.Instance._peons.Find(x => character == x.name);
         _speakingCharacter.isTalking = true;
         _textTete.sprite = _dictPersoTete[character];
