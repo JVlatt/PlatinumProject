@@ -220,7 +220,7 @@ public class TrainManager : MonoBehaviour
     public void RecupererWagon(bool oui)
     {
         if (oui)
-            UIManager.Instance.fade(UIManager.FADETYPE.ADDCARRIAGE);
+            UIManager.Instance.Fade(UIManager.FADETYPE.ADDCARRIAGE);
         PhaseManager.Instance.EndCondition(oui);
         UIManager.Instance.choicePannel.SetActive(false);
         _timerChoice = 0;

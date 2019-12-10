@@ -81,7 +81,7 @@ public class PeonManager : MonoBehaviour
     private void Update()
     {
         if(!CheckPeon())
-             UIManager.Instance.fade(UIManager.FADETYPE.END);
+             UIManager.Instance.Fade(UIManager.FADETYPE.END);
     }
 
 

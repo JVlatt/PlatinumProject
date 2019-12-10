@@ -162,7 +162,9 @@ public class UIManager : MonoBehaviour
     {
         NULL,
         END,
-        ADDCARRIAGE
+        ADDCARRIAGE,
+        FADEEVENT,
+        ENDFADEEVENT,
     }
     #endregion
 
@@ -267,28 +269,45 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
 
-        if (_fade)
+        if (_fade && _fadeType!= FADETYPE.NULL)
         {
             _timer += Time.deltaTime;
             _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
             if (_timer * _fadeSpeed > 1)
             {
-                _fade = false;
-                if(_fadeType == FADETYPE.ADDCARRIAGE)
-                    TrainManager.Instance.AddCarriage();
-                if(_fadeType == FADETYPE.END)
-                    _deathScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+                if (_fadeType != FADETYPE.FADEEVENT)
+                {
+                    _fade = false;
+                    if (_fadeType == FADETYPE.ADDCARRIAGE)
+                        TrainManager.Instance.AddCarriage();
+                    if (_fadeType == FADETYPE.END)
+                        _deathScreen.color = new Color(1, 1, 1, _timer * _fadeSpeed);
+                }
+                else
+                {
+                    PhaseManager.Instance.NextPhase();
+                    _fadeType = FADETYPE.NULL;
+                }
             }
         }
-        else
+        else if(_fadeType!= FADETYPE.NULL)
         {
             if (_timer > 0)
             {
                 _timer -= Time.deltaTime;
                 _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
             }
-            else if (_blackScreen.gameObject.activeSelf)
-                _blackScreen.gameObject.SetActive(false);
+            else
+            {
+                if (_blackScreen.gameObject.activeSelf)
+                    _blackScreen.gameObject.SetActive(false);
+                if (_fadeType == FADETYPE.ENDFADEEVENT)
+                {
+                    PhaseManager.Instance.NextPhase();
+                    _fadeType = FADETYPE.NULL;
+
+                }
+            }
         }
 
         for (int i = 0; i < _UIPeons.Count; i++)
@@ -513,10 +532,13 @@ public class UIManager : MonoBehaviour
             _UIInfoPersos[ID].button.image.sprite = _boutonPersoNone;
     }
 
-    public void fade(FADETYPE fadeType)
+    public void Fade(FADETYPE fadeType)
     {
         _fadeType = fadeType;
-        _fade = true;
+        if (fadeType == FADETYPE.ENDFADEEVENT)
+            _fade = false;
+        else
+            _fade = true;
         _blackScreen.gameObject.SetActive(true);
     }
 
