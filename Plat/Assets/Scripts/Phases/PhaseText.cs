@@ -46,7 +46,7 @@ public class PhaseText : Phase
             switch (_textType)
             {
                 case textType.ACTOR:
-                    _character = PhaseManager.Instance.eventPeon._peonInfo.name;
+                    _character = PhaseManager.Instance.eventPeon;
                     switch (_character)
                     {
                         case "Oni":
@@ -119,7 +119,7 @@ public class PhaseText : Phase
         {
             foreach (Peon p in PeonManager.Instance._peons)
             {
-                if (p != PhaseManager.Instance.eventPeon)
+                if (p._peonInfo.name != PhaseManager.Instance.eventPeon)
                     spectators.Add(p);
             }
 

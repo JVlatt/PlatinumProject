@@ -412,7 +412,7 @@ public class Peon : MonoBehaviour
         m_animator.SetTrigger("EndFix");
         if (_currentCarriage.isAnEvent)
         {
-            PhaseManager.Instance.GetPeon(this);
+            PhaseManager.Instance.GetPeon(m_peonInfo.name);
         }
         _fixTimer = 0;
     }

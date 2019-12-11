@@ -41,8 +41,8 @@ public class PhaseManager : MonoBehaviour
     private int _phaseId;
     private float _phaseTimer;
 
-    private Peon _eventPeon;
-    public Peon eventPeon
+    private string _eventPeon;
+    public string eventPeon
     {
         get { return _eventPeon; }
         set { _eventPeon = value; }
@@ -144,7 +144,7 @@ public class PhaseManager : MonoBehaviour
         return _phases[_phaseId + 1];
     }
 
-    public void GetPeon(Peon p)
+    public void GetPeon(string p)
     {
         _eventPeon = p;
     }

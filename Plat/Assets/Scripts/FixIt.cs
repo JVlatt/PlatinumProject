@@ -49,7 +49,7 @@ public class FixIt : MonoBehaviour
 
         if (_isAnEvent)
         {
-            PhaseManager.Instance.GetPeon(_activePeon);
+            PhaseManager.Instance.GetPeon(_activePeon._peonInfo.name);
             _isAnEvent = false;
         }
     }
@@ -71,7 +71,7 @@ public class FixIt : MonoBehaviour
 
         if (_isAnEvent)
         {
-            PhaseManager.Instance.GetPeon(_activePeon);
+            PhaseManager.Instance.GetPeon(_activePeon._peonInfo.name);
             _isAnEvent = false;
         }
     }

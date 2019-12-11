@@ -13,7 +13,7 @@ public class PhaseLightOff : Phase
         {
             if(PhaseManager.Instance.eventPeon == null)
             {
-                PhaseManager.Instance.eventPeon = PeonManager.Instance._peons.Find(x => x._peonInfo.name == "Taon");
+                PhaseManager.Instance.eventPeon = "Taon";
             }
             c.isAnEvent = true;
             c.SwitchLights(false, true);

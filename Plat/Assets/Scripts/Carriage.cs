@@ -220,7 +220,7 @@ public class Carriage : MonoBehaviour
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
-            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon;
+            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon._peonInfo.name;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
@@ -234,7 +234,7 @@ public class Carriage : MonoBehaviour
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
             SoundManager.Instance.Play("plop");
-            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon;
+            PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon._peonInfo.name;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
         }
     }
@@ -388,7 +388,7 @@ public class Carriage : MonoBehaviour
         _timerBeforeAttack = 0f;
         if (m_activePeons.Count != 0)
         {
-            PhaseManager.Instance.GetPeon(m_activePeons[0]);
+            PhaseManager.Instance.GetPeon(m_activePeons[0]._peonInfo.name);
             _underAttack = false;
             _particle.Stop();
             m_activePeons[0].SetDamage(2);
@@ -417,7 +417,7 @@ public class Carriage : MonoBehaviour
         Invoke("DesactiveBattleUi", 2);
         _fighting = false;
         _timerBeforeAttack = 0f;
-        PhaseManager.Instance.GetPeon(m_activePeons[0]);
+        PhaseManager.Instance.GetPeon(m_activePeons[0]._peonInfo.name);
         m_activePeons[0].SetDamage(5);
         m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
         m_activePeons[0].BattleAnim(false);
