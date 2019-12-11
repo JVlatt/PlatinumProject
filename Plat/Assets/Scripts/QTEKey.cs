@@ -24,11 +24,11 @@ public class QTEKey : MonoBehaviour
     {
         if (!(Input.GetMouseButton(0) || Input.GetMouseButton(1))) return;
         if (!_qte.isActive || valid) return;
-        float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 rayPoint = ray.GetPoint(distance);
-        Vector3 desiredPosition = rayPoint;
-        desiredPosition.z = transform.position.z;
+        
+
+        Vector3 desiredPosition = Input.mousePosition;
+        desiredPosition.z = 11;
+        desiredPosition = Camera.main.ScreenToWorldPoint(desiredPosition);
         transform.position = desiredPosition;
     }
 #endif
