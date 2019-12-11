@@ -416,10 +416,9 @@ public class UIManager : MonoBehaviour
                     if (nextPhase != null && nextPhase.KillTextBox())
                     {
                         _text.SetText(" ");
-                        _textPannel.SetActive(false);
-                        _speakingCharacter.isTalking = false;
+                        _textPannel.SetActive(false); 
                     }
-
+                    _speakingCharacter.isTalking = false;
                     PhaseManager.Instance.NextPhase();
                 }
                 else
@@ -581,6 +580,12 @@ public class UIManager : MonoBehaviour
                 }
                 else
                     _textDisplayTimer = _textDisplayDuration;
+    }
+
+    public void NextPhase()
+    {
+        if(PhaseManager.Instance.activePhase.GetPhaseType()==Phase.PhaseType.WAITTOUCH)
+            PhaseManager.Instance.NextPhase();
     }
 
 }
