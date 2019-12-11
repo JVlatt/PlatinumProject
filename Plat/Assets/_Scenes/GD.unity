@@ -7351,7 +7351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  mode: 1
   _duration: 10
   _freezeControl: 0
   subPhases: []
@@ -9798,6 +9798,10 @@ PrefabInstance:
       propertyPath: _fadeSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1444003380, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2057329342, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9815,17 +9819,34 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1969889474, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d203e37e0131dac4e902845c87658d53,
+        type: 3}
+    - target: {fileID: 996500116, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 996500117, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 5.4299927
       objectReference: {fileID: 0}
-    - target: {fileID: 1444003380, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 689355461, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 692247440}
+    - target: {fileID: 689355461, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecupererWagon
       objectReference: {fileID: 0}
-    - target: {fileID: 996500116, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1331184213, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 692247440}
+    - target: {fileID: 1331184213, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RecupererWagon
       objectReference: {fileID: 0}
     - target: {fileID: 777815707372283431, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
         type: 3}
@@ -9837,27 +9858,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 5.4299927
       objectReference: {fileID: 0}
-    - target: {fileID: 689355461, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 692247440}
-    - target: {fileID: 689355461, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RecupererWagon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331184213, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 692247440}
-    - target: {fileID: 1331184213, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RecupererWagon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1969889474, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d203e37e0131dac4e902845c87658d53,
-        type: 3}
     - target: {fileID: 8351791634005436691, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
         type: 3}
       propertyPath: m_Sprite
@@ -16208,7 +16208,7 @@ MonoBehaviour:
   _freezeControl: 1
   subPhases: []
   _text: " You\u2019re in bad shape B-Butor, you should come to the infirmary to get
-    yourself p-patch-up."
+    yourself p-patched-up."
   _character: Oni
   _textType: 0
   _emotion: 0
@@ -17346,7 +17346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
+  mode: 1
   _duration: 10
   _freezeControl: 0
   subPhases: []
@@ -27639,11 +27639,6 @@ PrefabInstance:
       propertyPath: m_activePeons.Array.data[2]
       value: 
       objectReference: {fileID: 171797379}
-    - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_carriages.Array.data[1]
-      value: 
-      objectReference: {fileID: 231876122}
     - target: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27699,6 +27694,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_carriages.Array.data[1]
+      value: 
+      objectReference: {fileID: 231876122}
     - target: {fileID: 1916064324, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
       propertyPath: _battleUi
       value: 
