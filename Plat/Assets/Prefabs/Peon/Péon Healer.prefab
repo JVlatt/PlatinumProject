@@ -882,12 +882,12 @@ MonoBehaviour:
     ACTIVITY: 0
     HP: 20
     HPMax: 0
-  _masque: {fileID: -927199367670048503, guid: b34d469746f77ca4fafb9becdd101313, type: 3}
+  _masque: {fileID: -927199367670048503, guid: e7267cc66f8adfe439245dfa7146ea12, type: 3}
   m_percentHpRecoverAfterTreat: 50
   m_percentHpRecoverPerSecond: 5
-  _fixLuck: 79
+  _fixLuck: 20
   _fixCD: 10
-  cdHeal: 15
+  cdHeal: 7.5
 --- !u!136 &7768623713970410661
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1095,6 +1095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 53a81344c6a0bad48964ee030889f8cf,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 53a81344c6a0bad48964ee030889f8cf,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 100.000046
       objectReference: {fileID: 0}
@@ -1102,11 +1107,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 100.000046
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 53a81344c6a0bad48964ee030889f8cf,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100.00002
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 53a81344c6a0bad48964ee030889f8cf,
         type: 3}

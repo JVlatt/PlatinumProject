@@ -56,7 +56,7 @@ MonoBehaviour:
     ACTIVITY: 0
     HP: 20
     HPMax: 0
-  _masque: {fileID: -927199367670048503, guid: d3f5f96088b426b43aa6522b18b7b6c1, type: 3}
+  _masque: {fileID: -927199367670048503, guid: 3da9edee127c1c84cbdbbaf2d365a177, type: 3}
   m_percentHpRecoverAfterTreat: 50
   m_percentHpRecoverPerSecond: 5
   _fixLuck: 80
@@ -202,11 +202,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AM_Taon
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 34fb68dab415ba943b1ddc7316650ebd,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f089b985faffe664a9300d9c4c8effb2, type: 2}
     - target: {fileID: -4216859302048453862, guid: 34fb68dab415ba943b1ddc7316650ebd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,6 +272,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 34fb68dab415ba943b1ddc7316650ebd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f089b985faffe664a9300d9c4c8effb2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34fb68dab415ba943b1ddc7316650ebd, type: 3}
 --- !u!4 &7742655611476649939 stripped
