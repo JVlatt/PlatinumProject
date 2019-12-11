@@ -30,7 +30,8 @@ public abstract class Phase : MonoBehaviour
         NEWCARRIAGE,
         LIGHTOFF,
         ATTACKLAST,
-        KILL
+        KILL,
+        WAITTOUCH,
     }
 
     protected PhaseType type;
