@@ -585,7 +585,7 @@ public class UIManager : MonoBehaviour
     public void NextPhase()
     {
         if(PhaseManager.Instance.activePhase.GetPhaseType()==Phase.PhaseType.WAITTOUCH)
-        PhaseManager.Instance.NextPhase();
+            PhaseManager.Instance.NextPhase();
     }
 
 }
