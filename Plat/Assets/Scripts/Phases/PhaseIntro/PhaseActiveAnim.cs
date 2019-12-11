@@ -21,4 +21,8 @@ public class PhaseActiveAnim : Phase
         animator.SetTrigger(fieldName);
     }
 
+    private void Start()
+    {
+        controlDuration = true;
+    }
 }
