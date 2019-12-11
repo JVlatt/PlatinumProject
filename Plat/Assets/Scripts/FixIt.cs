@@ -104,6 +104,13 @@ public class FixIt : MonoBehaviour
             else
             {
                 _carriage.DegatState = _carriage.DegatState;
+                if (isFixCausedByEvent())
+                {
+                    if (PhaseManager.Instance.activePhase.mode == Phase.PhaseMode.CONDITION)
+                        PhaseManager.Instance.EndCondition(b);
+                    else
+                        PhaseManager.Instance.NextPhase();
+                }
             }
         }
         else if (_fixType == FIXTYPE.LIGHT)

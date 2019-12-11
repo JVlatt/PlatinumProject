@@ -7,7 +7,9 @@ public class PhaseDetach : Phase
     [Header("Detach Phase Parameters")]
     [SerializeField]
     [Range(0,100)]
-    private int _luck;
+    private int _luck = 0;
+    [SerializeField]
+    private bool autoLoose = false;
 
     private void Start()
     {
@@ -16,16 +18,24 @@ public class PhaseDetach : Phase
     public override void LaunchPhase()
     {
         controlDuration = false;
-        int rand = Random.Range(0, 101);
-        Debug.Log("Random = " + rand);
-        if(rand <= _luck)
+        if(!autoLoose)
         {
-            TrainManager.Instance.UnclipCarriage(TrainManager.Instance._carriages.Count - 2);
-            SoundManager.Instance.Play("attack");
-            PhaseManager.Instance.EndCondition(true);
+            int rand = Random.Range(0, 101);
+            Debug.Log("Random = " + rand);
+            if (rand <= _luck)
+            {
+                TrainManager.Instance.UnclipCarriage(TrainManager.Instance._carriages.Count - 2);
+                SoundManager.Instance.Play("attack");
+                PhaseManager.Instance.EndCondition(true);
+            }
+            else
+                PhaseManager.Instance.EndCondition(false);
         }
         else
-            PhaseManager.Instance.EndCondition(false);
+        {
+            TrainManager.Instance.UnclipCarriage(TrainManager.Instance._carriages.Count - 2);
+            PhaseManager.Instance.NextPhase();
+        }
     }
     public override string BuildGameObjectName()
     {

@@ -32,6 +32,7 @@ public abstract class Phase : MonoBehaviour
         ATTACKLAST,
         KILL,
         WAITTOUCH,
+        MOVE,
     }
 
     protected PhaseType type;
