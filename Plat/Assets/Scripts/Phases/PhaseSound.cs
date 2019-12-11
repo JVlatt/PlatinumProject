@@ -10,6 +10,7 @@ public class PhaseSound : Phase
 
     public override void LaunchPhase()
     {
+        controlDuration = true;
         SoundManager.Instance.Play(_sound);
     }
     public override string BuildGameObjectName()

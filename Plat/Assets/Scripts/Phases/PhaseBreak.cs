@@ -8,7 +8,8 @@ public class PhaseBreak : Phase
     public int carriage;
     [SerializeField]
     private Carriage.DEGATSTATE _damageAmount;
-
+    [SerializeField]
+    public bool playSound = true;
     public override void LaunchPhase()
     {
         if (carriage > TrainManager.Instance._carriages.Count - 1)
@@ -21,6 +22,7 @@ public class PhaseBreak : Phase
         {
             c.Break(_damageAmount);
             c.isAnEvent = true;
+            if(playSound)
             SoundManager.Instance.Play("break");
         }
     }
