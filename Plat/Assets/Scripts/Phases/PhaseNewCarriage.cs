@@ -6,16 +6,11 @@ public class PhaseNewCarriage : Phase
 {
     [Header("Phase NewCarriage Parameters")]
     [SerializeField]
-    bool withPeon;
-    [SerializeField]
     GameObject carriagePrefab;
-    [SerializeField]
-    float choiceTimer;
-    [SerializeField]
-    private string _text;
     private void Start()
     {
         type = PhaseType.NEWCARRIAGE;
+        controlDuration = true;
     }
 
     public override string BuildGameObjectName()
@@ -25,7 +20,6 @@ public class PhaseNewCarriage : Phase
 
     public override void LaunchPhase()
     {
-        TrainManager.Instance.EventNewCarriage(carriagePrefab, choiceTimer,withPeon);
-        UIManager.Instance.choiceText = _text;
+        TrainManager.Instance.RecupererWagon(carriagePrefab);
     }
 }

@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance != null)
+        if (_instance != null)
         {
             Destroy(gameObject);
             return;
@@ -120,7 +120,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject _choicePannel;
     private Peon _speakingCharacter;
-
+    public Text _validText;
+    public Text _cancelText;
 
     public GameObject choicePannel
     {
@@ -203,41 +204,41 @@ public class UIManager : MonoBehaviour
         _totalMentalHealth = (total / PeonManager.Instance._peons.Count) / 100;
     }
 
-    public void UpdateUIPeon(Peon.PeonInfo peonInfo,int id)
+    public void UpdateUIPeon(Peon.PeonInfo peonInfo, int id)
     {
-            _UIInfoPersos[id].healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
-            switch (peonInfo.ACTIVITY)
-            {
-                case Peon.ACTIVITY.NONE:
-                    _UIInfoPersos[id].activityImage.sprite = _activity[0];
-                    break;
-                case Peon.ACTIVITY.HEAL:
-                    _UIInfoPersos[id].activityImage.sprite = _activity[1];
-                    break;
-                case Peon.ACTIVITY.WAIT:
-                    _UIInfoPersos[id].activityImage.sprite = _activity[2];
-                    break;
-                case Peon.ACTIVITY.FIGHT:
-                    if(peonInfo.TYPE == Peon.TYPE.FIGHTER)
-                        _UIInfoPersos[id].activityImage.sprite = _activity[3];
-                    else
-                        _UIInfoPersos[id].activityImage.sprite = _activity[4];
-                    break;
-                case Peon.ACTIVITY.REPAIR:
-                    if(peonInfo.TYPE == Peon.TYPE.MECA)
-                        _UIInfoPersos[id].activityImage.sprite = _activity[5];
-                    else
-                        _UIInfoPersos[id].activityImage.sprite = _activity[6];
-                    break;
-                case Peon.ACTIVITY.DRIVE:
-                    _UIInfoPersos[id].activityImage.sprite = _activity[7];
-                    break;
-                case Peon.ACTIVITY.UNCLIP:
-                    _UIInfoPersos[id].activityImage.sprite = _activity[8];
-                    break;
-                default:
-                    break;
-            }
+        _UIInfoPersos[id].healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
+        switch (peonInfo.ACTIVITY)
+        {
+            case Peon.ACTIVITY.NONE:
+                _UIInfoPersos[id].activityImage.sprite = _activity[0];
+                break;
+            case Peon.ACTIVITY.HEAL:
+                _UIInfoPersos[id].activityImage.sprite = _activity[1];
+                break;
+            case Peon.ACTIVITY.WAIT:
+                _UIInfoPersos[id].activityImage.sprite = _activity[2];
+                break;
+            case Peon.ACTIVITY.FIGHT:
+                if (peonInfo.TYPE == Peon.TYPE.FIGHTER)
+                    _UIInfoPersos[id].activityImage.sprite = _activity[3];
+                else
+                    _UIInfoPersos[id].activityImage.sprite = _activity[4];
+                break;
+            case Peon.ACTIVITY.REPAIR:
+                if (peonInfo.TYPE == Peon.TYPE.MECA)
+                    _UIInfoPersos[id].activityImage.sprite = _activity[5];
+                else
+                    _UIInfoPersos[id].activityImage.sprite = _activity[6];
+                break;
+            case Peon.ACTIVITY.DRIVE:
+                _UIInfoPersos[id].activityImage.sprite = _activity[7];
+                break;
+            case Peon.ACTIVITY.UNCLIP:
+                _UIInfoPersos[id].activityImage.sprite = _activity[8];
+                break;
+            default:
+                break;
+        }
     }
     private void Start()
     {
@@ -260,10 +261,10 @@ public class UIManager : MonoBehaviour
         {
             UIInfoPerso infoPerso = new UIInfoPerso();
             infoPerso.conteneur = _UIPeonConteneur.GetChild(i).gameObject;
-            infoPerso.activityImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"ActivityImage");
-            infoPerso.healthBar = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"HealthBar");
-            infoPerso.jobImage= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"JobImage");
-            infoPerso.moralBar= HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform,"MoralBar");
+            infoPerso.activityImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "ActivityImage");
+            infoPerso.healthBar = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "HealthBar");
+            infoPerso.jobImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "JobImage");
+            infoPerso.moralBar = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "MoralBar");
             infoPerso.persoImage = HierarchyUtils.GetComponentUsingName<Image>(infoPerso.conteneur.transform, "Tete");
             infoPerso.button = HierarchyUtils.GetComponentUsingName<Button>(infoPerso.conteneur.transform, "Bouton");
             _UIInfoPersos.Add(infoPerso);
@@ -273,7 +274,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
 
-        if (_fade && _fadeType!= FADETYPE.NULL)
+        if (_fade && _fadeType != FADETYPE.NULL)
         {
             _timer += Time.deltaTime;
             _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
@@ -294,7 +295,7 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-        else if(_fadeType!= FADETYPE.NULL)
+        else if (_fadeType != FADETYPE.NULL)
         {
             if (_timer > 0)
             {
@@ -316,7 +317,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < _UIPeons.Count; i++)
         {
-            if(PeonManager.Instance._peons[i] != null)
+            if (PeonManager.Instance._peons[i] != null)
             {
                 Vector3 offSetPos = PeonManager.Instance._peons[i].transform.position;
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);
@@ -360,7 +361,7 @@ public class UIManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if(!_textCompleted)
+                if (!_textCompleted)
                 {
                     _textCompleted = true;
                     _text.SetText(_textToWrite);
@@ -371,7 +372,7 @@ public class UIManager : MonoBehaviour
 
             _textDisplayTimer += Time.deltaTime;
             _characterDisplayTimer += Time.deltaTime;
-            if(_characterDisplayTimer >= 0.01f && !_textCompleted)
+            if (_characterDisplayTimer >= 0.01f && !_textCompleted)
             {
                 if (_characterIndex < _textToWrite.Length)
                     _characterIndex++;
@@ -392,15 +393,15 @@ public class UIManager : MonoBehaviour
                         }
                         break;
                     case PhaseText.emotionType.SAD:
-                        if (_speakingCharacter && SoundManager.Instance.isPlaying("sad"+_speakingCharacter.name))
+                        if (_speakingCharacter && SoundManager.Instance.isPlaying("sad" + _speakingCharacter.name))
                         {
-                            SoundManager.Instance.StopSound("sad"+_speakingCharacter.name);
+                            SoundManager.Instance.StopSound("sad" + _speakingCharacter.name);
                         }
                         break;
                     case PhaseText.emotionType.ANGRY:
-                        if (_speakingCharacter && SoundManager.Instance.isPlaying("angry"+_speakingCharacter.name))
+                        if (_speakingCharacter && SoundManager.Instance.isPlaying("angry" + _speakingCharacter.name))
                         {
-                            SoundManager.Instance.StopSound("angry"+_speakingCharacter.name);
+                            SoundManager.Instance.StopSound("angry" + _speakingCharacter.name);
                         }
                         break;
                     default:
@@ -410,26 +411,26 @@ public class UIManager : MonoBehaviour
             if (_textDisplayTimer >= _textDisplayDuration)
             {
                 _textDisplayTimer = 0f;
-                if(!textInstant)
+                if (!textInstant)
                 {
                     Phase nextPhase = PhaseManager.Instance.GetNextPhase();
                     if (nextPhase != null && nextPhase.KillTextBox())
                     {
                         _text.SetText(" ");
-                        _textPannel.SetActive(false); 
+                        _textPannel.SetActive(false);
                     }
-                    if(_speakingCharacter)
-                    _speakingCharacter.isTalking = false;
+                    if (_speakingCharacter)
+                        _speakingCharacter.isTalking = false;
                     PhaseManager.Instance.NextPhase();
                 }
                 else
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
-                    if(_speakingCharacter)
-                    _speakingCharacter.isTalking = false;
+                    if (_speakingCharacter)
+                        _speakingCharacter.isTalking = false;
                 }
-                
+
             }
         }
     }
@@ -461,7 +462,7 @@ public class UIManager : MonoBehaviour
         GameObject fix = UI.GetChild(0).gameObject;
         p._fix = fix;
 
-        
+
 
         switch (p._peonInfo.TYPE)
         {
@@ -518,7 +519,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayText(string text, string character, float duration, bool instant,PhaseText.emotionType emotion)
+    public void DisplayText(string text, string character, float duration, bool instant, PhaseText.emotionType emotion)
     {
         textInstant = instant;
         _textCompleted = false;
@@ -536,15 +537,15 @@ public class UIManager : MonoBehaviour
                 SoundManager.Instance.Play(character + voiceId);
                 break;
             case PhaseText.emotionType.SAD:
-                SoundManager.Instance.Play("sad"+character);
+                SoundManager.Instance.Play("sad" + character);
                 break;
             case PhaseText.emotionType.ANGRY:
-                SoundManager.Instance.Play("angry"+character);
+                SoundManager.Instance.Play("angry" + character);
                 break;
             default:
                 break;
         }
-        
+
         _textDisplayDuration = duration;
         _textPannel.SetActive(true);
     }
@@ -569,25 +570,30 @@ public class UIManager : MonoBehaviour
 
     public void SelectPerso(Peon peon)
     {
-        if(peon.CanBeSelect())
+        if (peon.CanBeSelect())
             PeonManager.Instance._activePeon = peon;
     }
 
     public void PassText()
     {
-                if (!_textCompleted)
-                {
-                    _textCompleted = true;
-                    _text.SetText(_textToWrite);
-                }
-                else
-                    _textDisplayTimer = _textDisplayDuration;
+        if (!_textCompleted)
+        {
+            _textCompleted = true;
+            _text.SetText(_textToWrite);
+        }
+        else
+            _textDisplayTimer = _textDisplayDuration;
     }
 
     public void NextPhase()
     {
-        if(PhaseManager.Instance.activePhase.GetPhaseType()==Phase.PhaseType.WAITTOUCH)
+        if (PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.WAITTOUCH)
             PhaseManager.Instance.NextPhase();
     }
 
+    public void EndChoice(bool yes)
+    {
+        PhaseManager.Instance.EndCondition(yes);
+        _choicePannel.SetActive(false);
+    }
 }

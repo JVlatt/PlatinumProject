@@ -73,7 +73,7 @@ public class TrainManager : MonoBehaviour
         {
             AddId(item);
         }
-        if(CameraController.Instance!=null)
+        if (CameraController.Instance != null)
             CameraController.Instance.MajCamera(m_carriages);
         _speedTarget = _speed;
         foreach (var item in m_carriages)
@@ -95,15 +95,6 @@ public class TrainManager : MonoBehaviour
             }
             else
                 _speed += _acceleration * Time.deltaTime;
-        }
-        if (_startTimer)
-        {
-            _timerChoice += Time.deltaTime;
-            UIManager.Instance.choiceClock.fillAmount = _timerChoice / _cDChoice;
-            if (_timerChoice > _cDChoice)
-            {
-                RecupererWagon(false);
-            }
         }
         if (_carriages[0]._activePeons.Count > 0 && TrainManager.Instance._isShutDown)
         {
@@ -188,7 +179,7 @@ public class TrainManager : MonoBehaviour
                 _speedTarget += (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3;
                 break;
             case Carriage.DEGATSTATE.DEGAT66:
-                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3)*2;
+                _speedTarget += ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3) * 2;
                 break;
         }
         switch (newState)
@@ -197,7 +188,7 @@ public class TrainManager : MonoBehaviour
                 _speedTarget -= (_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 4;
                 break;
             case Carriage.DEGATSTATE.DEGAT66:
-                _speedTarget -= ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3)*2;
+                _speedTarget -= ((_maxDamagedWagonSpeedMalus - _wagonSpeedMalus) / 3) * 2;
                 break;
         }
     }
@@ -218,14 +209,11 @@ public class TrainManager : MonoBehaviour
             _speedTarget -= _driverSpeedBonus;
     }
 
-    public void RecupererWagon(bool oui)
+    public void RecupererWagon(GameObject carriage)
     {
-        if (oui)
-            UIManager.Instance.Fade(UIManager.FADETYPE.ADDCARRIAGE);
-        PhaseManager.Instance.EndCondition(oui);
+        _carriageToAdd = carriage;
+        UIManager.Instance.Fade(UIManager.FADETYPE.ADDCARRIAGE);
         UIManager.Instance.choicePannel.SetActive(false);
-        _timerChoice = 0;
-        _startTimer = false;
     }
 
     public void AddCarriage()
@@ -239,16 +227,6 @@ public class TrainManager : MonoBehaviour
         AddId(carriage);
         CameraController.Instance.MajCamera(m_carriages);
     }
-
-    public void EventNewCarriage(GameObject carriage, float timer, bool withPeon)
-    {
-        _withPeon = withPeon;
-        _carriageToAdd = carriage;
-        _cDChoice = timer;
-        _startTimer = true;
-        UIManager.Instance.choicePannel.SetActive(true);
-    }
-
 
     public AttackedCariageDirection CheckAttackedCariageDirection()
     {
