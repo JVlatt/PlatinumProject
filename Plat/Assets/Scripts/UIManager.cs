@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Assets.Script;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -595,5 +596,15 @@ public class UIManager : MonoBehaviour
     {
         PhaseManager.Instance.EndCondition(yes);
         _choicePannel.SetActive(false);
+    }
+
+    public void BoutonRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BoutonQuit()
+    {
+        Application.Quit();
     }
 }
