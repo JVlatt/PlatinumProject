@@ -418,6 +418,7 @@ public class UIManager : MonoBehaviour
                         _text.SetText(" ");
                         _textPannel.SetActive(false); 
                     }
+                    if(_speakingCharacter)
                     _speakingCharacter.isTalking = false;
                     PhaseManager.Instance.NextPhase();
                 }
@@ -425,6 +426,7 @@ public class UIManager : MonoBehaviour
                 {
                     _text.SetText(" ");
                     _textPannel.SetActive(false);
+                    if(_speakingCharacter)
                     _speakingCharacter.isTalking = false;
                 }
                 

@@ -319,8 +319,6 @@ public class Peon : MonoBehaviour
 
     private void Update()
     {
-        if (_HP <= 0)
-            Death();
         if (_canMove)
         {
             if (Vector3.Distance(transform.position, m_destination) <= 0.1f)

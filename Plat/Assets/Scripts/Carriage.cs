@@ -434,6 +434,8 @@ public class Carriage : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             m_activePeons[0]._HP -= 10;
+            if (m_activePeons[0]._HP < 1)
+                m_activePeons[0]._HP = 1;
             m_activePeons[0]._HEALTHSTATE = Peon.HEALTHSTATE.HURT;
             m_activePeons[0].BattleAnim(false);
 

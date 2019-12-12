@@ -27,7 +27,7 @@ public class QTEKey : MonoBehaviour
         
 
         Vector3 desiredPosition = Input.mousePosition;
-        desiredPosition.z = -Camera.main.transform.position.z - 2;
+        desiredPosition.z = -Camera.main.transform.position.z + transform.position.z;
         desiredPosition = Camera.main.ScreenToWorldPoint(desiredPosition);
         transform.position = desiredPosition;
     }

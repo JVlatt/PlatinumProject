@@ -6899,6 +6899,7 @@ MonoBehaviour:
   subPhases: []
   carriage: 4
   _damageAmount: 1
+  playSound: 1
 --- !u!1 &573178665
 GameObject:
   m_ObjectHideFlags: 0
@@ -8154,6 +8155,7 @@ MonoBehaviour:
   subPhases: []
   carriage: 5
   _damageAmount: 1
+  playSound: 1
 --- !u!1001 &803336493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10107,6 +10109,7 @@ MonoBehaviour:
   _freezeControl: 0
   subPhases: []
   _luck: 25
+  autoLoose: 0
 --- !u!1 &1369640407
 GameObject:
   m_ObjectHideFlags: 0
@@ -12663,6 +12666,21 @@ PrefabInstance:
     - target: {fileID: 3301869370014910, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654497384994197810, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654497384994197810, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654497384994197810, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8852919000395797645, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}
