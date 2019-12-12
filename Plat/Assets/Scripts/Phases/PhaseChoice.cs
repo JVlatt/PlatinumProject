@@ -71,6 +71,8 @@ public class PhaseChoice : Phase
                 UIManager.Instance.EndChoice(false);
                 _isLaunched = false;
             }
+            if (PhaseManager.Instance.activePhase != this)
+                _isLaunched = false;
         }
     }
 }

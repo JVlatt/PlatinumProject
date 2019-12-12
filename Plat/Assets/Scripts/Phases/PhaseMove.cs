@@ -20,6 +20,9 @@ public class PhaseMove : Phase
 
     public override void LaunchPhase()
     {
+        if (_carriage >= TrainManager.Instance._carriages.Count)
+            _carriage = TrainManager.Instance._carriages.Count - 1;
+
         switch (_targetType)
         {
             case targetType.CUSTOM:
