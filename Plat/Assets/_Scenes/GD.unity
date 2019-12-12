@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   _duration: 10
-  _freezeControl: 1
+  _freezeControl: 0
   subPhases: []
   _text: Uh! Another problem I guess! C'mon! What was is it that time??
   _character: Taon
@@ -12171,7 +12171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   _duration: 10
-  _freezeControl: 1
+  _freezeControl: 0
   subPhases: []
   _text: 'Ok, I''m gonna check the problem. Wait and don''t touch anything! '
   _character: Taon
@@ -14645,7 +14645,7 @@ MonoBehaviour:
   carriage: 4
   _damageAmount: 1
   playSound: 0
-  _waitFix: 0
+  _waitFix: 1
 --- !u!1 &987352221
 GameObject:
   m_ObjectHideFlags: 0
@@ -16473,7 +16473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   _duration: 10
-  _freezeControl: 1
+  _freezeControl: 0
   subPhases: []
   _text: Hm..what was that sound?
   _character: Butor
@@ -20989,7 +20989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 0
   _duration: 10
-  _freezeControl: 1
+  _freezeControl: 0
   subPhases: []
   _text: I think we hit something, we s-should fix it soon or it will slow us d-down!
   _character: Oni
@@ -26246,7 +26246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1948600102
 Transform:
   m_ObjectHideFlags: 0
@@ -26282,7 +26282,7 @@ MonoBehaviour:
   carriage: 4
   _damageAmount: 1
   playSound: 0
-  _waitFix: 0
+  _waitFix: 1
 --- !u!1 &1949901447
 GameObject:
   m_ObjectHideFlags: 0
@@ -28478,6 +28478,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115658449447325040, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491025127593960528, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215520540504474386, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268523422614766825, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536743489142255829, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071442771834615843, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696977105803169118, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113539877768217042, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409652470168776972, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089642160765501849, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8852919000395797645, guid: 950ab77bcf67b3f48ad907d9fecce19d, type: 3}

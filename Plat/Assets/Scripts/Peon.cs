@@ -366,6 +366,10 @@ public class Peon : MonoBehaviour
     private void Fix()
     {
         if (!_isFixing && !_fixEnded || m_canMove) return;
+        if (_currentCarriage.isAnEvent && PhaseManager.Instance.eventPeon != m_peonInfo.name)
+        {
+            PhaseManager.Instance.GetPeon(m_peonInfo.name);
+        }
         _fixTimer += Time.deltaTime;
         if (!_fixEnded)
             transform.forward = Vector3.back;
@@ -383,12 +387,12 @@ public class Peon : MonoBehaviour
                 _isFixing = false;
                 _canMove = true;
             }
-
         }
     }
 
     public void EndFix(bool win)
     {
+        
         float random = Random.Range(0, 100);
         if (win)
         {
@@ -408,10 +412,7 @@ public class Peon : MonoBehaviour
         _fixEnded = true;
         m_animator.SetBool("isFixing", false);
         m_animator.SetTrigger("EndFix");
-        if (_currentCarriage.isAnEvent)
-        {
-            PhaseManager.Instance.GetPeon(m_peonInfo.name);
-        }
+        
         _fixTimer = 0;
     }
 

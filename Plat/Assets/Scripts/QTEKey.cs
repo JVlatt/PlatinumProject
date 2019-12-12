@@ -7,7 +7,6 @@ public class QTEKey : MonoBehaviour
     QTERepair _qte;
     [HideInInspector]
     public bool valid = true;
-    [HideInInspector]
     public Vector3 startPosition;
     public Transform anchor;
     public float offset;
@@ -15,10 +14,13 @@ public class QTEKey : MonoBehaviour
     private void Awake()
     {
         _qte = GetComponentInParent<QTERepair>();
-        startPosition = transform.position;
+        
         valid = false;
     }
-
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
     private void OnMouseOver()
     {
@@ -66,5 +68,10 @@ public class QTEKey : MonoBehaviour
         desiredPosition.x =Mathf.Clamp(desiredPosition.x, _qte.topLeft.position.x, _qte.bottomRight.position.x);
         desiredPosition.y =Mathf.Clamp(desiredPosition.y, _qte.bottomRight.position.y, _qte.topLeft.position.y);
         transform.position = desiredPosition;
+    }
+
+    public void Reset()
+    {
+        transform.position = startPosition;
     }
 }

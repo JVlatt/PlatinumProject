@@ -11,7 +11,7 @@ public class PhaseBreak : Phase
     [SerializeField]
     private bool playSound = true;
     [SerializeField]
-    private bool _waitFix;
+    private bool _waitFix = true;
     public override void LaunchPhase()
     {
         controlDuration = !_waitFix;

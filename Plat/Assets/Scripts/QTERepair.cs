@@ -20,6 +20,11 @@ public class QTERepair : MonoBehaviour
         _keys = HierarchyUtils.GetComponentInDirectChildren<QTEKey>(transform,false);
         middle = transform.GetChild(0).gameObject;
     }
+    private void Start()
+    {
+        foreach (QTEKey k in _keys)
+            k.gameObject.SetActive(false);
+    }
     public void Launch(Peon peon)
     {
         _peon = peon;
@@ -65,7 +70,7 @@ public class QTERepair : MonoBehaviour
     {
         foreach (QTEKey k in _keys)
         {
-            k.transform.position = k.startPosition;
+            k.Reset();
             k.valid = false;
             k.gameObject.SetActive(false);
         }
