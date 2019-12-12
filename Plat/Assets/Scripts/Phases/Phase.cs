@@ -33,6 +33,7 @@ public abstract class Phase : MonoBehaviour
         KILL,
         WAITTOUCH,
         MOVE,
+        UNCLIP,
     }
 
     protected PhaseType type;

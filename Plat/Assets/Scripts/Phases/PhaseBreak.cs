@@ -9,9 +9,12 @@ public class PhaseBreak : Phase
     [SerializeField]
     private Carriage.DEGATSTATE _damageAmount;
     [SerializeField]
-    public bool playSound = true;
+    private bool playSound = true;
+    [SerializeField]
+    private bool _waitFix;
     public override void LaunchPhase()
     {
+        controlDuration = !_waitFix;
         if (carriage > TrainManager.Instance._carriages.Count - 1)
         {
             carriage = TrainManager.Instance._carriages.Count - 1;
