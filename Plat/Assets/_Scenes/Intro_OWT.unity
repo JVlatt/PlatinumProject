@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 8091284747582436543}
-  m_IndirectSpecularColor: {r: 0.17424738, g: 0.21790868, b: 0.30012125, a: 1}
+  m_IndirectSpecularColor: {r: 0.17424697, g: 0.21790797, b: 0.30011985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1114,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a6f3d59a916d1384c9c67b3f3fb741fb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a6f3d59a916d1384c9c67b3f3fb741fb,
         type: 3}
@@ -2033,7 +2033,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 531b2fc831af3b041869027f7e4af522,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 531b2fc831af3b041869027f7e4af522,
         type: 3}
@@ -3886,7 +3886,7 @@ Transform:
   m_LocalScale: {x: 1.8282753, y: 3.3428197, z: 1.6804}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &459307560
 RectTransform:
@@ -7586,6 +7586,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.000000009536743
       objectReference: {fileID: 0}
+    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.013843484
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.10350333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13184391
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98575485
+      objectReference: {fileID: 0}
     - target: {fileID: 28082130351999058, guid: 182f222ccde76af4588feaf21ccbaf13,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -8225,22 +8241,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.000000012814998
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.013843484
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.10350333
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.13184391
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685297282161206, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.98575485
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182f222ccde76af4588feaf21ccbaf13, type: 3}
@@ -9427,6 +9427,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &1166619001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2905735833931007602, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905735833931007600, guid: a2b543cbcf8129143ae7599bc510f2d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2b543cbcf8129143ae7599bc510f2d7, type: 3}
 --- !u!1 &1201849866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3924461899631757899, guid: a20483e601822fa47bc92ed8f6fb09ae,
@@ -10711,7 +10780,7 @@ Transform:
   m_LocalScale: {x: 18.046331, y: 2.1278, z: 2.0651546}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485485168
 GameObject:
@@ -13896,7 +13965,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928001528
 GameObject:
@@ -14118,7 +14187,7 @@ Transform:
   - {fileID: 2669791462207519204}
   - {fileID: 1736136095}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1975632098
 Transform:
@@ -18566,344 +18635,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1427821208333884780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427821208333884782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1427821208333884782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1427821208333884780}
-  - component: {fileID: 1427821208333884783}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1427821208333884783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427821208333884782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcffc8e05aaf08d47b55c8b7995544e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fx:
-  - clip: {fileID: 8300000, guid: 83691b9cd38d3624089ad1edbe7e1ab4, type: 3}
-    name: growl
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 1
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: f4396657c16dd7b4f81d0a4b6231eeff, type: 3}
-    name: break
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: db5bc5aaadb1c7c43b222a06f9506f71, type: 3}
-    name: fix
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 0.25
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 2185f84c3bbd3fd4f9281a1cbbe8bc03, type: 3}
-    name: attack
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 1
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 1f90f9905d4183244ae4c0ce208fea93, type: 3}
-    name: fight
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: e36ba50857caed34593d7ffd428ecbdb, type: 3}
-    name: Butor1
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 291b86528caa95a4aa75e8ed5fc33db4, type: 3}
-    name: Taon1
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c2bee7057f9d81441b778b84f66e9b0c, type: 3}
-    name: Oni1
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c36185f4a1ef29f449c39a96cefcc609, type: 3}
-    name: energy
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 7e5dbc0b318a0be4a8b45f7b130da570, type: 3}
-    name: shutdown
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: e61801e641758fc438368247de1cbce3, type: 3}
-    name: lightBreak
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 0.2
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: a7733c35be7ee704884f01116846d9ed, type: 3}
-    name: Naru1
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 0d3ff8fb4cbf1b24e846fd022a90ceea, type: 3}
-    name: Butor2
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 5964e97cf7ac2614092b517e1dc201b6, type: 3}
-    name: Butor3
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 0b9551f6247ef6d4cb3ec2d4fc5f5337, type: 3}
-    name: Naru2
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 04f2ff0b54d6b834cbcc3199b8312a49, type: 3}
-    name: Naru3
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 87c292e50f84a994ab60a9f814d10c8f, type: 3}
-    name: Oni2
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 882232c99c4b3d74aba3b5042c42e05b, type: 3}
-    name: Oni3
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 912633f1b169f3847987e3074d6e2d7b, type: 3}
-    name: Taon2
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 52cd443ece5bc6a499d808cab08e5f34, type: 3}
-    name: Taon3
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 0990eb4f35272314eab472fdb0a68c4f, type: 3}
-    name: sadButor
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 1f01b3f2162e8d74d9a20e08041c1ffc, type: 3}
-    name: angryButor
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 84e1fbe64be2235459011dcab0ba4264, type: 3}
-    name: sadNaru
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: cb832023be7e71c4197101fc92516bdf, type: 3}
-    name: angryNaru
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: f080aec3a5ec97c4fa744fc10566a5c8, type: 3}
-    name: angryOni
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: ae038afd8cd701243a5efabbdd3cf7a1, type: 3}
-    name: sadOni
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: d460d3a3910d23145b63f7481986d16d, type: 3}
-    name: sadTaon
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 5627d9f5d06d7874593e134cb8eef2f3, type: 3}
-    name: angryTaon
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: fe17d343349cdbf418723f51db9d0904, type: 3}
-    name: plop
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: f4eb4fb98f38c1a4f86cd04d1289da94, type: 3}
-    name: Speech
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 0.5
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 97a1a5f62b8c31048bcec7d584e51805, type: 3}
-    name: Chuchu
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 0.1
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: d45f118892cf21947ab783d080793888, type: 3}
-    name: Stomps
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: cc915de1a718f424d91f89aeeb0d1e39, type: 3}
-    name: Frein
-    mixer: {fileID: -8067534368336171795, guid: 9de24c079140100419e7a60e935e2140,
-      type: 2}
-    pitch: 1
-    volume: 3
-    loop: 0
-    source: {fileID: 0}
-  ambient:
-  - clip: {fileID: 8300000, guid: 68a50af2697fde3458ac4f93f1f13cfe, type: 3}
-    name: Train
-    mixer: {fileID: 106534656951559206, guid: 9de24c079140100419e7a60e935e2140, type: 2}
-    pitch: 1
-    volume: 3
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: ecc73c436a24a4d4881890f493354887, type: 3}
-    name: Wind
-    mixer: {fileID: 106534656951559206, guid: 9de24c079140100419e7a60e935e2140, type: 2}
-    pitch: 1
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c793f409761684c4ab26a30d2e9137d2, type: 3}
-    name: Ambiance
-    mixer: {fileID: 106534656951559206, guid: 9de24c079140100419e7a60e935e2140, type: 2}
-    pitch: 1
-    volume: 1
-    loop: 1
-    source: {fileID: 0}
-  music:
-    clip: {fileID: 8300000, guid: 32f286ce9bff3b44186fb890d306ba7c, type: 3}
-    name: 
-    mixer: {fileID: 5619386711539596484, guid: 9de24c079140100419e7a60e935e2140, type: 2}
-    pitch: 1
-    volume: 2
-    loop: 1
-    source: {fileID: 0}
 --- !u!4 &1431292933430825473
 Transform:
   m_ObjectHideFlags: 0
