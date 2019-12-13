@@ -73,7 +73,8 @@ public class QTEScript : MonoBehaviour
     {
         if (point >= goal)
         {
-            _carriage.Victory();
+            if(isActive)
+                _carriage.Victory();
             isActive = false;
             if (SoundManager.Instance.isPlaying("fight"))
             {

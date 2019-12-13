@@ -55,6 +55,8 @@ public class Eye : MonoBehaviour
                 _qte.point++;
                 isOpen = false;
                 _qte.CheckEnd();
+                int i = Random.Range(0,3);
+                SoundManager.Instance.Play("Plop " + i);
             }
         }
     }

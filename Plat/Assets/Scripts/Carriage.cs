@@ -48,7 +48,6 @@ public class Carriage : MonoBehaviour
         {
             TrainManager.Instance.UpdateSpeed(_underAttack, value);
             m_underAttack = value;
-            _monster.gameObject.SetActive(value);
             UIManager.Instance._isOnAttack = value;
             _light.SetBool("isAttack", value);
         }
@@ -60,6 +59,11 @@ public class Carriage : MonoBehaviour
         get { return m_willBeAttacked; }
         set
         {
+            if (value)
+            {
+                _monster.gameObject.SetActive(true);
+                _monster.SetTrigger("0");
+            }
             m_willBeAttacked = value;
             _light.SetBool("willBeAttack", value);
             UIManager.Instance._isOnAttack = true;
@@ -91,7 +95,7 @@ public class Carriage : MonoBehaviour
     [SerializeField]
     private bool m_isBroke;
     [SerializeField]
-    private Transform _monster;
+    private Animator _monster;
 
 
     public bool _isBroke
@@ -200,6 +204,8 @@ public class Carriage : MonoBehaviour
 
     private void Start()
     {
+        if(_monster != null)
+            _monster.gameObject.SetActive(false);
         meshRenderer = transform.parent.GetComponent<MeshRenderer>();
         meshFilter = transform.parent.GetComponent<MeshFilter>();
         _qteFight = GetComponentInChildren<QTEScript>();
@@ -421,6 +427,8 @@ public class Carriage : MonoBehaviour
         _battleUi.SetBool("isWin", true);
         _battleUi.SetTrigger("EndFight");
         Invoke("DesactiveBattleUi", 2);
+        _monster.SetTrigger("0");
+        Invoke("DesactiveMonster", 3.5f);
     }
 
     public void Defeat()
@@ -521,5 +529,10 @@ public class Carriage : MonoBehaviour
     {
         _battleUi.SetTrigger("Reset");
         _battleUi.gameObject.SetActive(false);
+    }
+
+    public void DesactiveMonster()
+    {
+        _monster.gameObject.SetActive(false);
     }
 }
