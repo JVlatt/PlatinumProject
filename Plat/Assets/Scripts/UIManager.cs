@@ -207,6 +207,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUIPeon(Peon.PeonInfo peonInfo, int id)
     {
+        if(peonInfo == null) { _UIInfoPersos[id].conteneur.SetActive(false); return; }
         _UIInfoPersos[id].healthBar.fillAmount = peonInfo.HP / peonInfo.HPMax;
         switch (peonInfo.ACTIVITY)
         {
@@ -318,7 +319,7 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < _UIPeons.Count; i++)
         {
-            if (PeonManager.Instance._peons[i] != null)
+            if (i < PeonManager.Instance._peons.Count && PeonManager.Instance._peons[i] != null)
             {
                 Vector3 offSetPos = PeonManager.Instance._peons[i].transform.position;
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(offSetPos);

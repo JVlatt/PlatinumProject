@@ -28,6 +28,10 @@ public class CameraController : MonoBehaviour
     private float zoomSpeed;
     [SerializeField]
     private float travelSpeed;
+    [SerializeField]
+    private float shakeTime;
+    [SerializeField]
+    private AnimationCurve animationCurve;
     private MinMax borderLeft = new MinMax();
     private MinMax currentBorderLeft = new MinMax();
     private MinMax borderRight = new MinMax();
@@ -37,6 +41,7 @@ public class CameraController : MonoBehaviour
     private bool _isMoving = false;
     private Vector3 _startPosition;
     private float lerpRatio;
+    private float offset;
 
     private void Awake()
     {
@@ -108,7 +113,7 @@ public class CameraController : MonoBehaviour
 
                 transform.position = new Vector3(
                     Mathf.Clamp(transform.position.x, left, right),
-                    Mathf.Lerp(y.min, y.max, lerpRatio),
+                    Mathf.Lerp(y.min, y.max, lerpRatio)+offset,
                     Mathf.Clamp(transform.position.z, zoom.min, zoom.max)
                     );
 
@@ -124,7 +129,7 @@ public class CameraController : MonoBehaviour
                 _isMoving = false;
             }
         }
-
+        offset = animationCurve.Evaluate((Time.time%shakeTime) / shakeTime);
     }
 
     public void MoveToCarriage(Carriage carriage)
