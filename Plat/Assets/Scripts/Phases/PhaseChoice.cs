@@ -17,26 +17,20 @@ public class PhaseChoice : Phase
     private string _validateText;
     [SerializeField]
     private string _cancelText;
-
+    [SerializeField]
+    private string _thirdText;
 
     private float _choiceTimer;
     private bool _isLaunched = false;
-    //[Header("New Carriage")]
-    //[SerializeField]
-    //bool withPeon;
-    //[SerializeField]
-    //GameObject carriagePrefab;
-    //[Header("Unclip")]
-    //[SerializeField]
-    //private int _carriageId;
-    //[SerializeField]
-    //private bool _unclipLast;
+    
 
     public enum ChoiceType
     {
         UNCLIP,
         ONI,        
-        NEWCARRIAGE
+        NEWCARRIAGE,
+        LASTCHOICE2,
+        LASTCHOICE3,
     }
 
     private void Start()
@@ -55,9 +49,17 @@ public class PhaseChoice : Phase
         UIManager.Instance.choiceText = _text;
         UIManager.Instance._validText.text = _validateText;
         UIManager.Instance._cancelText.text = _cancelText;
+        if(_choice == ChoiceType.LASTCHOICE3)
+        {
+            UIManager.Instance._thirdText.text = _thirdText;
+            UIManager.Instance._thirdChoiceButton.SetActive(true);
+        }
         UIManager.Instance.choicePannel.SetActive(true);
-        _isLaunched = true;
-        _choiceTimer = 0;
+        if (_choice != ChoiceType.LASTCHOICE2 && _choice != ChoiceType.LASTCHOICE3)
+        {
+            _isLaunched = true;
+            _choiceTimer = 0;
+        }
     }
 
     private void Update()

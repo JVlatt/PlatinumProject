@@ -120,9 +120,13 @@ public class UIManager : MonoBehaviour
     [Header("Choices Pannel")]
     [SerializeField]
     GameObject _choicePannel;
+
+    public GameObject _thirdChoiceButton;
+
     private Peon _speakingCharacter;
     public Text _validText;
     public Text _cancelText;
+    public Text _thirdText;
 
     public GameObject choicePannel
     {
