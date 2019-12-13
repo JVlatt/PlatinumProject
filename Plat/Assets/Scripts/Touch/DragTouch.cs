@@ -43,7 +43,10 @@ public class DragTouch : TouchCustom
         if (DragPara.haveActiveDrag && !IsActive) return;
         if (!DragPara.haveActiveDrag)
             IsActive = true;
-        TouchController.dragDelegate(Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x,touch.position.y,-Camera.main.transform.position.z)));
+        Vector3 desiredPosition = touch.position;
+        desiredPosition.z = -Camera.main.transform.position.z + _collider.transform.position.z;
+        desiredPosition = Camera.main.ScreenToWorldPoint(desiredPosition);
+        TouchController.dragDelegate(desiredPosition);
     }
 
     private TouchController.DragPara DragPara

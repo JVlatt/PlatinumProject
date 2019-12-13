@@ -137,6 +137,7 @@ public class TouchController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(touches.Count);
         foreach (var item in touchesToRemove)
         {
             touches.Remove(item);
@@ -154,10 +155,15 @@ public class TouchController : MonoBehaviour
                 if (touch.fingerId < touches.Count)
                     touches.Insert(touch.fingerId, null);
             }
-            else if (touch.phase == TouchPhase.Ended && touchCustom != null)
+            else if (touch.phase == TouchPhase.Ended)
             {
-                touchCustom.End();
-                touchesToRemove.Add(touchCustom);
+                if (touchCustom == null)
+                    touchToCreate.Remove(touchToCreate.Find(x => x.fingerId == touch.fingerId));
+                else
+                {
+                    touchCustom.End();
+                    touchesToRemove.Add(touchCustom);
+                }
             }
             else if ((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && touchCustom != null)
             {
@@ -167,6 +173,9 @@ public class TouchController : MonoBehaviour
                 }
                 else
                     touchCustom.Update(touch);
+            }else if(touch.phase == TouchPhase.Canceled)
+            {
+
             }
         }
 
@@ -231,7 +240,13 @@ public class TouchController : MonoBehaviour
         }
         else {
             if ((_mask & 1 << 0) != 0)
-                touchCustom = new SampleTouch(GetCollider(touch), _maxDistanceSampleTouch);
+            {
+                Collider collider = GetCollider(touch);
+                if ((_mask & 1 << 2) != 0 && collider != null && collider.tag == _dragTag)
+                    touchCustom = new DragTouch(collider);
+                else
+                    touchCustom = new SampleTouch(collider, _maxDistanceSampleTouch);
+            }
             else if ((_mask & 1 << 1) != 0)
                 touchCustom = new SlideTouch(touch.position);
         }

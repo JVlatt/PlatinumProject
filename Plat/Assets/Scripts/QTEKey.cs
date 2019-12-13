@@ -21,7 +21,7 @@ public class QTEKey : MonoBehaviour
     {
         startPosition = transform.position;
     }
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+#if  UNITY_EDITOR || UNITY_STANDALONE_WIN
     private void OnMouseOver()
     {
         if (!(Input.GetMouseButton(0) || Input.GetMouseButton(1))) return;
@@ -44,9 +44,7 @@ public class QTEKey : MonoBehaviour
     private void Drag(Vector3 position)
     {
         if (!_qte.isActive || valid) return;
-        Vector3 desiredPosition = position;
-        desiredPosition.z = transform.position.z;
-        transform.position = desiredPosition;
+        transform.position = position;
     }
 #endif
     private void Update()

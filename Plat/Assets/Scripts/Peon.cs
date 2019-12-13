@@ -293,7 +293,7 @@ public class Peon : MonoBehaviour
         }
     }
 #endif
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+#if  UNITY_STANDALONE_WIN
     private void OnMouseOver()
     {
         if (!(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)))return;
