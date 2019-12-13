@@ -301,7 +301,7 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-        else if (_fadeType != FADETYPE.NULL)
+        else if (_fadeType != FADETYPE.NULL && _fadeType!=FADETYPE.END)
         {
             if (_timer > 0)
             {

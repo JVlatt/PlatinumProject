@@ -7956,7 +7956,7 @@ GameObject:
   - component: {fileID: 1566074189}
   - component: {fileID: 1566074190}
   m_Layer: 0
-  m_Name: Attack (Wagon 3)
+  m_Name: End Phase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7985,16 +7985,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566074188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
+  m_Script: {fileID: 11500000, guid: 42d0c359bcf03884c82f192e53894116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
-  _duration: 30
+  _duration: 0
   _freezeControl: 0
   subPhases: []
-  _carriage: 3
-  _timeBeforeAttack: 5
-  autoLoose: 0
 --- !u!4 &1656032657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
