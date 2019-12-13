@@ -17,6 +17,7 @@ public class PhaseKill : Phase
 
     public override void LaunchPhase()
     {
+        SoundManager.Instance.Play("kill");
         switch (_targetType)
         {
             case targetType.CUSTOM:

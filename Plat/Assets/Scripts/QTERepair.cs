@@ -36,6 +36,10 @@ public class QTERepair : MonoBehaviour
                 foreach(QTEKey k in _keys)
                     _activeKeys.Add(k);
                 break;
+            case "Naru":
+                foreach (QTEKey k in _keys)
+                    _activeKeys.Add(k);
+                break;
             case "Taon":
                 _activeKeys.Add(_keys[1]);
                 _activeKeys.Add(_keys[3]);

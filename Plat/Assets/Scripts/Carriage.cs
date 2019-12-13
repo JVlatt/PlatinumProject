@@ -366,6 +366,9 @@ public class Carriage : MonoBehaviour
                     case "Oni":
                         _qteFight.Launch(20, 15, 1, 1);
                         break;
+                    case "Naru":
+                        _qteFight.Launch(20, 15, 1, 1);
+                        break;
                     case "Butor":
                         _qteFight.Launch(10, 5, 1, 2);
                         break;
