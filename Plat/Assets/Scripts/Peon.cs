@@ -488,4 +488,9 @@ public class Peon : MonoBehaviour
         m_animator.SetBool("isWin",isWin);
         m_animator.SetTrigger("EndFight");
     }
+
+    public static void ResetStatic()
+    {
+        m_nextID = 0;
+    }
 }
