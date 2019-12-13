@@ -68,13 +68,7 @@ public class PeonManager : MonoBehaviour
     
     public void AddPeon(Peon peonToAdd,int i)
     {
-        if (i >= _peons.Count)
-        {
-            _peons.Add(peonToAdd);
-            
-        }
-        else
-            _peons[i] = peonToAdd;
+        _peons.Insert(i, peonToAdd);
         UIManager.Instance.AddUIPeon(peonToAdd);
     }
 
