@@ -38,6 +38,7 @@ public class PhaseKill : Phase
     private void Start()
     {
         type = PhaseType.KILL;
+        duration = 7;
         controlDuration = true;
     }
 }

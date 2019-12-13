@@ -245,10 +245,6 @@ public class Carriage : MonoBehaviour
         {
             UIManager.Instance.ChangeCursor("attack");
         }
-        if (!_underAttack)
-        {
-            _nameTag.gameObject.SetActive(true);
-        }
     }
 
     private void OnMouseExit()
@@ -257,7 +253,6 @@ public class Carriage : MonoBehaviour
         {
             UIManager.Instance.ChangeCursor("default");
         }
-        _nameTag.gameObject.SetActive(false);
     }
 #endif
     #region List Management
@@ -350,35 +345,50 @@ public class Carriage : MonoBehaviour
                 _attackTimer = 0f;
             }
         }
-        if (m_underAttack)
+        if(isDetached)
+        {
+            if (SoundManager.Instance.isPlaying("fight"))
+            {
+                SoundManager.Instance.StopSound("fight");
+            }
+        }
+        if (m_underAttack && !isDetached)
         {
             _attackTimer += Time.deltaTime;
             if (m_activePeons.Count >= 1 && !_fighting)
             {
-                _fighting = true;
-                if (!SoundManager.Instance.isPlaying("fight"))
+                if(!autoLoose)
                 {
-                    SoundManager.Instance.Play("fight");
+                    _fighting = true;
+                    if (!SoundManager.Instance.isPlaying("fight"))
+                    {
+                        SoundManager.Instance.Play("fight");
+                    }
+                    _battleUi.gameObject.SetActive(true);
+                    switch (m_activePeons[0].name)
+                    {
+                        case "Oni":
+                            _qteFight.Launch(20, 15, 1, 1);
+                            break;
+                        case "Naru":
+                            _qteFight.Launch(20, 15, 1, 1);
+                            break;
+                        case "Butor":
+                            _qteFight.Launch(10, 5, 1, 2);
+                            break;
+                        case "Taon":
+                            _qteFight.Launch(15, 7, 1, 1.5f);
+                            break;
+                    }
                 }
-                _battleUi.gameObject.SetActive(true);
-                switch (m_activePeons[0].name)
+                else
                 {
-                    case "Oni":
-                        _qteFight.Launch(20, 15, 1, 1);
-                        break;
-                    case "Naru":
-                        _qteFight.Launch(20, 15, 1, 1);
-                        break;
-                    case "Butor":
-                        _qteFight.Launch(10, 5, 1, 2);
-                        break;
-                    case "Taon":
-                        _qteFight.Launch(15, 7, 1, 1.5f);
-                        break;
+                    Defeat();
                 }
             }
             if (_attackTimer >= _attackDuration)
             {
+                SoundManager.Instance.Play("break");
                 DamageCarriage();
                 _timeBeforeAttack = 0f;
                 _attackTimer = 0f;

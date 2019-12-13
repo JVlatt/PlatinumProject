@@ -268,6 +268,7 @@ public class Peon : MonoBehaviour
     void Start()
     {
         m_ID = _nextID;
+        transform.parent = null;
         PeonManager.Instance.AddPeon(this,m_ID);
         _meshRenderers = transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         _mentalHealth = 100;

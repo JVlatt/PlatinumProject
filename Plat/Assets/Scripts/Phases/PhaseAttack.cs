@@ -9,7 +9,8 @@ public class PhaseAttack : Phase
     [SerializeField]
     private float _timeBeforeAttack;
     private bool _getTankName = true;
-
+    [SerializeField]
+    bool autoLoose = false;
     private void Start()
     {
         type = PhaseType.ATTACK;
@@ -26,8 +27,11 @@ public class PhaseAttack : Phase
         {
             c.Attack(duration, _timeBeforeAttack);
             c.isAnEvent = _getTankName;
+            c.autoLoose = autoLoose;
             SoundManager.Instance.Play("attack");
             PeonManager.Instance._activePeon = null;
+            if (mode != PhaseMode.CONDITION)
+                PhaseManager.Instance.NextPhase();
         }
         
     }

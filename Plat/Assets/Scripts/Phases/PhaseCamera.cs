@@ -12,6 +12,8 @@ public class PhaseCamera : Phase
     {
         freezeControl = true;
         controlDuration = false;
+        if (_carriage >= TrainManager.Instance._carriages.Count)
+            _carriage = TrainManager.Instance._carriages.Count - 1;
         CameraController.Instance.MoveToCarriage(TrainManager.Instance._carriages.Find(x => x.id == _carriage));
     }
     public override string BuildGameObjectName()
