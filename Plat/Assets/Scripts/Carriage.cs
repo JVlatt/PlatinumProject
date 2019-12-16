@@ -98,7 +98,7 @@ public class Carriage : MonoBehaviour
     [SerializeField]
     private Animator _monster;
 
-
+    private bool _locked = false;
     public bool _isBroke
     {
         private get { return m_isBroke; }
@@ -225,7 +225,7 @@ public class Carriage : MonoBehaviour
     public void Touch()
     {
         if (PhaseManager.Instance.activePhase.freezeControl) return;
-        if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
+        if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon) && !_locked)
         {
             PhaseManager.Instance.eventPeon = PeonManager.Instance._activePeon._peonInfo.name;
             TrainManager.Instance.MovePeonToCarriage(PeonManager.Instance._activePeon, this);
@@ -237,6 +237,7 @@ public class Carriage : MonoBehaviour
     private void OnMouseOver()
     {
         if (!(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))) return;
+        if (_locked) return;
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (PeonManager.Instance._activePeon != null && m_peons.Count < m_capacity && !m_peons.Contains(PeonManager.Instance._activePeon))
         {
@@ -248,6 +249,7 @@ public class Carriage : MonoBehaviour
     private void OnMouseEnter()
     {
         if (PhaseManager.Instance.activePhase.freezeControl) return;
+        if (_locked) return;
         if (_underAttack && m_peons.Count==0)
         {
             UIManager.Instance.ChangeCursor("attack");
@@ -390,6 +392,7 @@ public class Carriage : MonoBehaviour
                 }
                 else
                 {
+                    _locked = true;
                     Defeat();
                 }
             }
