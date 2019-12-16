@@ -72,8 +72,8 @@ public class TrainManager : MonoBehaviour
         foreach (var item in m_carriages)
         {
             AddId(item);
-            AddNeighbor();
         }
+        AddNeighbor();
         if (CameraController.Instance != null)
             CameraController.Instance.MajCamera(m_carriages);
         _speedTarget = _speed;
@@ -140,13 +140,13 @@ public class TrainManager : MonoBehaviour
             {
                 item.nextCarriage.Clear();
             }
-            if (item.id == 1)
+            else if (item.id == 1)
             {
                 item.nextCarriage.Clear();
                 if (m_carriages.Count > 2)
                     item.nextCarriage.Add(m_carriages[2]);
             }
-            if(item.id == m_carriages.Count - 1)
+            else if(item.id == m_carriages.Count - 1)
             {
                 item.nextCarriage.Clear();
                 item.nextCarriage.Add(m_carriages[m_carriages.Count - 2]);

@@ -104,7 +104,7 @@ public class PhaseManager : MonoBehaviour
                 _phaseBuffer.Add(_phases[_phaseId]);
                 break;
             case Phase.PhaseMode.GROUP:
-                _phaseBuffer = _activePhase.subPhases;
+                _phaseBuffer.InsertRange(0,_activePhase.subPhases);
                 break;
             case Phase.PhaseMode.SUB:
                 if(_phaseBuffer.Count < 1)
@@ -127,11 +127,11 @@ public class PhaseManager : MonoBehaviour
         _phaseBuffer.Remove(_activePhase);
         if (isWin)
         {
-            _phaseBuffer.Add(_activePhase.subPhases[0]);
+            _phaseBuffer.Insert(0,_activePhase.subPhases[0]);
         }
         else
         {
-            _phaseBuffer.Add(_activePhase.subPhases[1]);
+            _phaseBuffer.Insert(0, _activePhase.subPhases[1]);
         }
         _activePhase = _phaseBuffer[0];
         _phaseTimer = 0;
@@ -140,8 +140,7 @@ public class PhaseManager : MonoBehaviour
 
     public Phase GetNextPhase()
     {
-        if (_phaseId + 1 > _phases.Count - 1) return null;
-        if (_phases[_phaseId + 1] != null)
+        if (_phaseId+1<_phases.Count && _phases[_phaseId + 1] != null)
             return _phases[_phaseId + 1];
         else
             return _phaseBuffer[1];
