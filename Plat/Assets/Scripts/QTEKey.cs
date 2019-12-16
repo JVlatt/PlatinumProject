@@ -65,6 +65,7 @@ public class QTEKey : MonoBehaviour
             if (dist <= 0.5f)
             {
                 valid = true;
+                SoundManager.Instance.Play("cling");
                 transform.position = anchor.position;
                 _qte.CheckEnd();
             }
