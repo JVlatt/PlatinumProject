@@ -18,7 +18,10 @@ public class ENDPhase : Phase
     public override void LaunchPhase()
     {
         if (isGenerique)
+        {
+            SoundManager.Instance.CutSounds();
             UIManager.Instance.Fade(UIManager.FADETYPE.ENDGENERIQUE);
+        }
         else
             UIManager.Instance.Fade(UIManager.FADETYPE.END);
     }

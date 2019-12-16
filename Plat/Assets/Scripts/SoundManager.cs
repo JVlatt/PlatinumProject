@@ -103,4 +103,12 @@ public class SoundManager : MonoBehaviour
             return false;
     }
 
+    public void CutSounds()
+    {
+        foreach (Sound s in ambient)
+        {
+            s.source.Stop();
+        }
+        music.source.Stop();
+    }
 }
