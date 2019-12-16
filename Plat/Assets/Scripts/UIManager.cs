@@ -176,6 +176,7 @@ public class UIManager : MonoBehaviour
     {
         NULL,
         END,
+        ENDGENERIQUE,
         ADDCARRIAGE,
         FADEEVENT,
         ENDFADEEVENT,
@@ -292,6 +293,8 @@ public class UIManager : MonoBehaviour
         {
             _timer += Time.deltaTime;
             _blackScreen.color = new Color(0, 0, 0, _timer * _fadeSpeed);
+            if (_fadeType == FADETYPE.END)
+                _deathScreen.color = new Color(1, 1, 1, _timer * _fadeSpeed);
             if (_timer * _fadeSpeed > 1)
             {
                 if (_fadeType != FADETYPE.FADEEVENT)
@@ -299,8 +302,9 @@ public class UIManager : MonoBehaviour
                     _fade = false;
                     if (_fadeType == FADETYPE.ADDCARRIAGE)
                         TrainManager.Instance.AddCarriage();
-                    if (_fadeType == FADETYPE.END)
-                        _deathScreen.color = new Color(1, 1, 1, _timer * _fadeSpeed);
+                    else if (_fadeType == FADETYPE.ENDGENERIQUE)
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
                 }
                 else
                 {

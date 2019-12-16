@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ENDPhase : Phase
 {
-
+    [SerializeField]
+    private bool isGenerique;
     private void Start()
     {
         controlDuration = false;
@@ -16,6 +17,9 @@ public class ENDPhase : Phase
 
     public override void LaunchPhase()
     {
-        UIManager.Instance.Fade(UIManager.FADETYPE.END);
+        if (isGenerique)
+            ;
+        else
+            UIManager.Instance.Fade(UIManager.FADETYPE.END);
     }
 }
