@@ -249,13 +249,16 @@ public class Carriage : MonoBehaviour
     private void OnMouseEnter()
     {
         if (PhaseManager.Instance.activePhase.freezeControl) return;
-        if (_locked) return;
-        if (_underAttack && m_peons.Count==0)
+        if (_underAttack && PeonManager.Instance._activePeon)
         {
             UIManager.Instance.ChangeCursor("attack");
         }else if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl)
         {
             UIManager.Instance.ChangeCursor("overlay");
+        }
+        if (_locked)
+        {
+            UIManager.Instance.ChangeCursor("lock");
         }
     }
 
