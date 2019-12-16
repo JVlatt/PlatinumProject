@@ -634,6 +634,7 @@ public class UIManager : MonoBehaviour
 
     public void BoutonRestart()
     {
+        Peon.ResetStatic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
