@@ -377,7 +377,7 @@ public class UIManager : MonoBehaviour
 
         if (_textPannel.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.TEXT)
             {
                 if (!_textCompleted)
                 {
@@ -615,6 +615,7 @@ public class UIManager : MonoBehaviour
 
     public void PassText()
     {
+        if (!(PhaseManager.Instance.activePhase.GetPhaseType() == Phase.PhaseType.TEXT)) return;
         if (!_textCompleted)
         {
             _textCompleted = true;
