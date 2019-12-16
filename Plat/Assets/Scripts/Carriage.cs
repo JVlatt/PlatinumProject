@@ -250,12 +250,15 @@ public class Carriage : MonoBehaviour
         if (_underAttack && m_peons.Count==0)
         {
             UIManager.Instance.ChangeCursor("attack");
+        }else if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl)
+        {
+            UIManager.Instance.ChangeCursor("overlay");
         }
     }
 
     private void OnMouseExit()
     {
-        if (_underAttack && m_peons.Count == 0)
+        if (_underAttack && m_peons.Count == 0 || PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl)
         {
             UIManager.Instance.ChangeCursor("default");
         }

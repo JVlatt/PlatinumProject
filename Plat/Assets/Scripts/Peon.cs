@@ -308,7 +308,7 @@ public class Peon : MonoBehaviour
         if (_currentCarriage._underAttack) return;
         if (PhaseManager.Instance.activePhase.freezeControl) return;
         if (_currentCarriage._underAttack) return;
-        UIManager.Instance.ChangeCursor("peon");
+        UIManager.Instance.ChangeCursor("overlay");
     }
 
     private void OnMouseExit()

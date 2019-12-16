@@ -137,7 +137,6 @@ public class TouchController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(touches.Count);
         foreach (var item in touchesToRemove)
         {
             touches.Remove(item);

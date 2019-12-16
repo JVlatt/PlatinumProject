@@ -84,17 +84,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Cursor")]
     [SerializeField]
-    private Texture2D _cursorDefault;
-    [SerializeField]
-    private Texture2D _cursorPeon;
-    [SerializeField]
-    private Texture2D _cursorFix;
-    [SerializeField]
-    private Texture2D _cursorAttack;
-    [SerializeField]
-    private Texture2D _cursorUnclip;
-    [SerializeField]
-    private Texture2D _cursorTarget;
+    private List<CursorClass> cursorClasses = new List<CursorClass>();
+    private Dictionary<string, CursorClass> dictCursor = new Dictionary<string, CursorClass>();
+    private CursorClass currentCursor;
 
     [Header("Debug")]
     [SerializeField]
@@ -168,6 +160,16 @@ public class UIManager : MonoBehaviour
         public Image moralBar;
         public Image persoImage;
         public Button button;
+    }
+
+    [System.Serializable]
+    class CursorClass
+    {
+        public string name;
+        public List<Texture2D> textures = new List<Texture2D>();
+        public float frameTime;
+        [HideInInspector]
+        public int currentTextureID=-1;
     }
 
     public enum FADETYPE
@@ -250,6 +252,10 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        foreach (var item in cursorClasses)
+        {
+            dictCursor[item.name] = item;
+        }
         _leftAttack = _attack.transform.GetChild(0).GetComponent<Image>();
         _rightAttack = _attack.transform.GetChild(1).GetComponent<Image>();
         foreach (PersoImage item in _persosTetes)
@@ -441,6 +447,7 @@ public class UIManager : MonoBehaviour
 
             }
         }
+        CursorUpdate();
     }
 
     private Color ResetColor(Color color)
@@ -507,26 +514,42 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCursor(string type)
     {
-        switch (type)
+        if (dictCursor.ContainsKey(type))
         {
-            case "default":
-                Cursor.SetCursor(_cursorDefault, Vector2.zero, CursorMode.Auto);
-                break;
-            case "fix":
-                Cursor.SetCursor(_cursorFix, Vector2.zero, CursorMode.Auto);
-                break;
-            case "peon":
-                Cursor.SetCursor(_cursorPeon, Vector2.zero, CursorMode.Auto);
-                break;
-            case "attack":
-                Cursor.SetCursor(_cursorAttack, Vector2.zero, CursorMode.Auto);
-                break;
-            case "unclip":
-                Cursor.SetCursor(_cursorUnclip, Vector2.zero, CursorMode.Auto);
-                break;
-            case "target":
-                Cursor.SetCursor(_cursorTarget, Vector2.zero, CursorMode.Auto);
-                break;
+            if(currentCursor!=null)
+                currentCursor.currentTextureID = -1;
+            currentCursor = dictCursor[type];
+        }
+        else
+            Debug.LogError("Cursor : " + type + " not set");
+    }
+
+    private void CursorUpdate()
+    {
+        if (currentCursor == null) return;
+        if (currentCursor.textures.Count != 1)
+        {
+            float time = (Time.time % (currentCursor.textures.Count*currentCursor.frameTime));
+            float i = 0;
+            int iD = -1;
+            while (i < time)
+            {
+                iD++;
+                i += currentCursor.frameTime;
+            }
+            if (iD != currentCursor.currentTextureID)
+            {
+                Cursor.SetCursor(currentCursor.textures[iD], Vector2.zero, CursorMode.Auto);
+                currentCursor.currentTextureID = iD;
+            }
+        }
+        else
+        {
+            if (currentCursor.currentTextureID != 0)
+            {
+                Cursor.SetCursor(currentCursor.textures[0], Vector2.zero, CursorMode.Auto);
+                currentCursor.currentTextureID = 0;
+            }
         }
     }
 

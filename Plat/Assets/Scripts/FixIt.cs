@@ -82,7 +82,8 @@ public class FixIt : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        UIManager.Instance.ChangeCursor("default");
+        if (PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl && !_carriage._underAttack)
+            UIManager.Instance.ChangeCursor("default");
     }
 #endif
     private void onFixEnded(bool b)

@@ -33,6 +33,16 @@ public class QTEKey : MonoBehaviour
         desiredPosition = Camera.main.ScreenToWorldPoint(desiredPosition);
         transform.position = desiredPosition;
     }
+
+    private void OnMouseEnter()
+    {
+        UIManager.Instance.ChangeCursor("overlay");
+    }
+
+    private void OnMouseExit()
+    {
+        UIManager.Instance.ChangeCursor("default");
+    }
 #endif
 #if UNITY_EDITOR || UNITY_ANDROID
 
