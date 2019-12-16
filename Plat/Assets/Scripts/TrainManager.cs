@@ -72,6 +72,7 @@ public class TrainManager : MonoBehaviour
         foreach (var item in m_carriages)
         {
             AddId(item);
+            AddNeighbor();
         }
         if (CameraController.Instance != null)
             CameraController.Instance.MajCamera(m_carriages);
@@ -129,6 +130,34 @@ public class TrainManager : MonoBehaviour
         c.id = m_carriages.IndexOf(c);
         UIManager.Instance.AddCarriageName(c);
 
+    }
+
+    public void AddNeighbor()
+    {
+        foreach (var item in m_carriages)
+        {
+            if (item.id == 0)
+            {
+                item.nextCarriage.Clear();
+            }
+            if (item.id == 1)
+            {
+                item.nextCarriage.Clear();
+                if (m_carriages.Count > 2)
+                    item.nextCarriage.Add(m_carriages[2]);
+            }
+            if(item.id == m_carriages.Count - 1)
+            {
+                item.nextCarriage.Clear();
+                item.nextCarriage.Add(m_carriages[m_carriages.Count - 2]);
+            }
+            else
+            {
+                item.nextCarriage.Clear();
+                item.nextCarriage.Add(m_carriages[item.id - 1]);
+                item.nextCarriage.Add(m_carriages[item.id + 1]);
+            }
+        }
     }
 
     public void UnclipCarriage(int carriageID)
@@ -225,6 +254,7 @@ public class TrainManager : MonoBehaviour
         carriage.transform.parent.name = "Stockage Room";
         m_carriages.Add(carriage);
         AddId(carriage);
+        AddNeighbor();
         CameraController.Instance.MajCamera(m_carriages);
     }
 
