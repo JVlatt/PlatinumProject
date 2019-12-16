@@ -141,7 +141,10 @@ public class PhaseManager : MonoBehaviour
     public Phase GetNextPhase()
     {
         if (_phaseId + 1 > _phases.Count - 1) return null;
-        return _phaseBuffer[1];
+        if (_phases[_phaseId + 1] != null)
+            return _phases[_phaseId + 1];
+        else
+            return _phaseBuffer[1];
     }
 
     public void GetPeon(string p)
