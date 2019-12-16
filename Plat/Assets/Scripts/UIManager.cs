@@ -303,7 +303,7 @@ public class UIManager : MonoBehaviour
                     if (_fadeType == FADETYPE.ADDCARRIAGE)
                         TrainManager.Instance.AddCarriage();
                     else if (_fadeType == FADETYPE.ENDGENERIQUE)
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                        SceneManager.LoadScene("Generique");
 
                 }
                 else
