@@ -9460,6 +9460,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1723624948102487166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932442537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932442538}
+  - component: {fileID: 932442539}
+  m_Layer: 0
+  m_Name: Text (CUSTOM Butor)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932442538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932442537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1578459047}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932442539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932442537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1404dd4c0ee9240ad216f7e11ed216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  _duration: 10
+  _freezeControl: 1
+  subPhases: []
+  _text: Oni, i'm sorry. Please forgive me...
+  _character: Butor
+  _textType: 0
+  _emotion: 0
+  _isInstant: 0
+  _textOni: 
+  _textTaon: 
+  _textButor: 
+  _textNaru: 
 --- !u!1 &945761846
 GameObject:
   m_ObjectHideFlags: 0
@@ -10786,7 +10842,8 @@ MonoBehaviour:
   _duration: 10
   _freezeControl: 1
   subPhases: []
-  _text: 'Butor come back! Right now! You wanna die too?? '
+  _text: 'Leave her Butor ! Respect her wish. If she wants to end it all then so be
+    it. '
   _character: Taon
   _textType: 0
   _emotion: 2
@@ -11653,7 +11710,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578459047}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1335606395
 MonoBehaviour:
@@ -11929,7 +11986,8 @@ MonoBehaviour:
   _duration: 10
   _freezeControl: 1
   subPhases: []
-  _text: I don't want to see her die! Stay here if you want, but i'm not!
+  _text: No way! I Have a dept to her! I can't leave her like that! I'm going to save
+    her!
   _character: Butor
   _textType: 0
   _emotion: 0
@@ -12205,7 +12263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578459047}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1424652189
 MonoBehaviour:
@@ -12327,7 +12385,7 @@ MonoBehaviour:
   _duration: 10
   _freezeControl: 1
   subPhases: []
-  _text: 'No way! No way! I promess to save your life, and I''m gonna keep my promise! '
+  _text: 'No way! No way! I promess to save your life, and I intend to keep my word! '
   _character: Butor
   _textType: 0
   _emotion: 2
@@ -12604,8 +12662,8 @@ MonoBehaviour:
   _duration: 10
   _freezeControl: 1
   subPhases: []
-  _text: 'The''re crazy! Y''all crazy! What are you doing?? The train can''t go to
-    the other world with only one spirit onboard! Hey! '
+  _text: If you really want to repay her. Respect her wish! That's what she wants.
+    You can't change that pal'.
   _character: Taon
   _textType: 0
   _emotion: 0
@@ -12908,6 +12966,7 @@ Transform:
   - {fileID: 1141902637}
   - {fileID: 1354175656}
   - {fileID: 1483726677}
+  - {fileID: 932442538}
   - {fileID: 1335606394}
   - {fileID: 1686799832}
   - {fileID: 1424652188}
@@ -13724,7 +13783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1578459047}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1686799833
 MonoBehaviour:
