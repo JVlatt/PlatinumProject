@@ -514,6 +514,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCursor(string type)
     {
+        if (currentCursor == dictCursor[type]) return;
         if (dictCursor.ContainsKey(type))
         {
             if(currentCursor!=null)

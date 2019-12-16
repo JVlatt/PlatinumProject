@@ -258,10 +258,7 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_underAttack && m_peons.Count == 0 || PeonManager.Instance._activePeon != null && !PhaseManager.Instance.activePhase.freezeControl)
-        {
             UIManager.Instance.ChangeCursor("default");
-        }
     }
 #endif
     #region List Management

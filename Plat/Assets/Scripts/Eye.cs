@@ -18,7 +18,10 @@ public class Eye : MonoBehaviour
             else
             {
                 if (_duration > 0)
+                {
                     myAnim.SetTrigger("Death");
+                    particle.Play();
+                }
                 else
                     myAnim.SetTrigger("Close");
             }
@@ -27,10 +30,13 @@ public class Eye : MonoBehaviour
     }
     private float _duration;
     private Animator myAnim;
+    private ParticleSystem particle;
     private void Awake()
     {
         _qte = GetComponentInParent<QTEScript>();
         myAnim = GetComponent<Animator>();
+        particle = GetComponentInChildren<ParticleSystem>();
+        particle.Stop();
     }
     public void Spawn(float duration)
     {
