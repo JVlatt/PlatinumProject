@@ -18,7 +18,7 @@ public class ENDPhase : Phase
     public override void LaunchPhase()
     {
         if (isGenerique)
-            ;
+            UIManager.Instance.Fade(UIManager.FADETYPE.ENDGENERIQUE);
         else
             UIManager.Instance.Fade(UIManager.FADETYPE.END);
     }
