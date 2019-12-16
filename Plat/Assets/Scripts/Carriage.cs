@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Assets.Script;
 public class Carriage : MonoBehaviour
 {
     #region Variables
@@ -216,7 +217,7 @@ public class Carriage : MonoBehaviour
         _light = transform.parent.GetComponentInChildren<Light>().GetComponent<Animator>();
         if (_fixItCarriage) _fixItCarriage.Setup(this);
         if (_fixItLight) _fixItLight.Setup(this);
-        _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
+        _particle =  HierarchyUtils.GetComponentInDirectChildren<ParticleSystem>(transform.parent,true);
         _particle.Stop();
     }
 

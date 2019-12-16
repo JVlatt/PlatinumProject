@@ -60,7 +60,7 @@ public class PhaseManager : MonoBehaviour
     }
     private void Start()
     {
-        _phases = HierarchyUtils.GetComponentInDirectChildren<Phase>(this.transform,true);
+        _phases = HierarchyUtils.GetComponentsInDirectChildren<Phase>(this.transform,true);
         _phaseId = 0;
         _activePhase = _phases[_phaseId];
         _phaseBuffer.Add(_activePhase);

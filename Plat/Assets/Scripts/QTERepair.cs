@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
+using UnityEngine.UI;
 
 public class QTERepair : MonoBehaviour
 {
@@ -12,13 +13,17 @@ public class QTERepair : MonoBehaviour
     private List<QTEKey> _activeKeys = new List<QTEKey>();
     private Peon _peon;
     private GameObject middle;
+    private ParticleSystem particle;
 
     public Transform topLeft;
     public Transform bottomRight;
+    public Image Timer;
     private void Awake()
     {
-        _keys = HierarchyUtils.GetComponentInDirectChildren<QTEKey>(transform,false);
+        _keys = HierarchyUtils.GetComponentsInDirectChildren<QTEKey>(transform,false);
         middle = transform.GetChild(0).gameObject;
+        particle = GetComponentInChildren<ParticleSystem>();
+        particle.Stop();
     }
     private void Start()
     {
@@ -27,8 +32,10 @@ public class QTERepair : MonoBehaviour
     }
     public void Launch(Peon peon)
     {
+        peon.fixUpdate += UpdateTimer;
         _peon = peon;
         middle.SetActive(true);
+        Timer.gameObject.SetActive(true);
         _activeKeys.Clear();
         switch (peon.name)
         {
@@ -60,9 +67,14 @@ public class QTERepair : MonoBehaviour
         isActive = true;
     }
 
-    
+    private void UpdateTimer(float time)
+    {
+        Timer.fillAmount = time;
+    }
+
     public void CheckEnd()
     {
+        particle.Play();
         if(!_activeKeys.Find(x => !x.valid))
         {
             _peon.EndFix(true);
@@ -72,6 +84,7 @@ public class QTERepair : MonoBehaviour
 
     public void Reset()
     {
+        _peon.fixUpdate -= UpdateTimer;
         foreach (QTEKey k in _keys)
         {
             k.Reset();
@@ -79,6 +92,7 @@ public class QTERepair : MonoBehaviour
             k.gameObject.SetActive(false);
         }
         middle.SetActive(false);
+        Timer.gameObject.SetActive(false);
         isActive = false;
     }
 

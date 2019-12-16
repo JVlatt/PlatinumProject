@@ -6,7 +6,7 @@ namespace Assets.Script
 {
     public class HierarchyUtils
     {
-        public static List<T> GetComponentInDirectChildren<T>(Transform parent,bool needActive)
+        public static List<T> GetComponentsInDirectChildren<T>(Transform parent,bool needActive)
             where T : Component
         {
             List<T> Tlist = new List<T>();
@@ -26,6 +26,21 @@ namespace Assets.Script
                 }
             }
             return Tlist;
+        }
+
+        public static T GetComponentInDirectChildren<T>(Transform parent, bool needActive)
+            where T: Component
+        {
+            foreach (Transform item in parent)
+            {
+                if (!needActive || item.gameObject.activeSelf)
+                {
+                    T component = item.GetComponent<T>();
+                    if (component != null)
+                        return component;
+                }
+            }
+            return null;
         }
 
         public static T GetComponentUsingName<T>(Transform parent , string name)

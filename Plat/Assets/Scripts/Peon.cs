@@ -249,6 +249,8 @@ public class Peon : MonoBehaviour
 
     public delegate void Del(bool b);
     public Del onFixEndedDelegate;
+    public delegate void FixUpdateDel(float f);
+    public FixUpdateDel fixUpdate;
 
     private bool m_actionBeforIdle;
     public bool _actionBeforeIdle
@@ -373,6 +375,8 @@ public class Peon : MonoBehaviour
             PhaseManager.Instance.GetPeon(m_peonInfo.name);
         }
         _fixTimer += Time.deltaTime;
+        if (fixUpdate != null)
+            fixUpdate(_fixTimer / _fixCD);
         if (!_fixEnded)
             transform.forward = Vector3.back;
         else
@@ -395,7 +399,6 @@ public class Peon : MonoBehaviour
     public void EndFix(bool win)
     {
         
-        float random = Random.Range(0, 100);
         if (win)
         {
             //c'est reparé

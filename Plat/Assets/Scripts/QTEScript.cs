@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script;
@@ -18,7 +18,7 @@ public class QTEScript : MonoBehaviour
     void Start()
     {
         _carriage = GetComponentInParent<Carriage>();
-        _eyes = HierarchyUtils.GetComponentInDirectChildren<Eye>(this.transform,false);
+        _eyes = HierarchyUtils.GetComponentsInDirectChildren<Eye>(this.transform,false);
         foreach (Eye e in _eyes)
             e.gameObject.SetActive(false);
         isActive = false;
