@@ -247,7 +247,7 @@ public class Carriage : MonoBehaviour
     private void OnMouseEnter()
     {
         if (PhaseManager.Instance.activePhase.freezeControl) return;
-        if (_underAttack)
+        if (_underAttack && m_peons.Count==0)
         {
             UIManager.Instance.ChangeCursor("attack");
         }
@@ -255,7 +255,7 @@ public class Carriage : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_underAttack)
+        if (_underAttack && m_peons.Count == 0)
         {
             UIManager.Instance.ChangeCursor("default");
         }

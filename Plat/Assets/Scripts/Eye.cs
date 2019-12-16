@@ -60,4 +60,14 @@ public class Eye : MonoBehaviour
             }
         }
     }
+
+    private void OnMouseEnter()
+    {
+        UIManager.Instance.ChangeCursor("target");
+    }
+
+    private void OnMouseExit()
+    {
+        UIManager.Instance.ChangeCursor("default");
+    }
 }
