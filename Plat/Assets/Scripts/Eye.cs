@@ -36,19 +36,25 @@ public class Eye : MonoBehaviour
         _qte = GetComponentInParent<QTEScript>();
         myAnim = GetComponent<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
-        particle.Stop();
+        
     }
     public void Spawn(float duration)
     {
-        _duration = duration;
-        isOpen = true;
+        if (duration > 0)
+        {
+            _duration = duration;
+            isOpen = true;
+            particle.Stop();
+        }
+        else
+            gameObject.SetActive(false);
     }
     void Update()
     {
         if(_isOpen)
         {
             _duration -= Time.deltaTime;
-            if (_duration <= 0)
+            if (_duration <= 0) 
                 isOpen = false;
         }
     }
@@ -76,4 +82,5 @@ public class Eye : MonoBehaviour
     {
         UIManager.Instance.ChangeCursor("default");
     }
+
 }

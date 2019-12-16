@@ -71,6 +71,7 @@ public class QTEScript : MonoBehaviour
     }
     public void CheckEnd()
     {
+        if (!isActive) return;
         if (point >= goal)
         {
             if(isActive)

@@ -184,6 +184,8 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 2100000, guid: e12735b4864c2174db8e829e0f61c390, type: 2}
+    - time: 0.5
+      value: {fileID: 2100000, guid: cc16b50f49874b547a7dab80a0a9c392, type: 2}
     attribute: m_Materials.Array.data[0]
     path: AM_Monster_Eye
     classID: 23
@@ -232,12 +234,13 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 2100000, guid: e12735b4864c2174db8e829e0f61c390, type: 2}
+    - {fileID: 2100000, guid: cc16b50f49874b547a7dab80a0a9c392, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -790,4 +793,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: Spawn
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: -1
+    intParameter: 0
+    messageOptions: 0
