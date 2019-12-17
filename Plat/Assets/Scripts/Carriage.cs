@@ -357,12 +357,13 @@ public class Carriage : MonoBehaviour
                 _attackTimer = 0f;
             }
         }
-        if(isDetached)
+        if(isDetached && m_underAttack)
         {
             if (SoundManager.Instance.isPlaying("fight"))
             {
                 SoundManager.Instance.StopSound("fight");
             }
+            m_underAttack = false;
         }
         if (m_underAttack && !isDetached)
         {
