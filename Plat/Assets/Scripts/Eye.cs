@@ -54,8 +54,10 @@ public class Eye : MonoBehaviour
         if(_isOpen)
         {
             _duration -= Time.deltaTime;
-            if (_duration <= 0) 
+            if (_duration <= 0)
+            {
                 isOpen = false;
+            }
         }
     }
     private void OnMouseOver()
