@@ -32,7 +32,8 @@ public class PhaseLoadScene : Phase
         loadingScreen.SetActive(true);
         while(!loader.isDone)
         {
-            loadingImg.fillAmount = loader.progress;
+            float progress = Mathf.Clamp01(loader.progress / .9f);
+            loadingImg.fillAmount = progress;
             yield return null;
         }
     }
