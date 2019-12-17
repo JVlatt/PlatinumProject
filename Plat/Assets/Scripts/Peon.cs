@@ -280,6 +280,9 @@ public class Peon : MonoBehaviour
         if(_peonInfo.name == "Butor")
         {
             SetDamage(10);
+        }else if(transform.name == "Naru")
+        {
+            transform.parent = null;
         }
     }
 
@@ -357,8 +360,8 @@ public class Peon : MonoBehaviour
         _currentCarriage.RemovePeon(this);
         UIManager.Instance.UpdateUIPeon(null, _ID);
         GameObject masque = Instantiate(_masque);
-        masque.transform.parent = transform.parent;
-        masque.transform.position = transform.position + new Vector3(0, -0.5f, 0);
+        masque.transform.parent = m_currentCarriage.transform;
+        masque.transform.position = transform.position+Vector3.up*0.05f;
         masque.transform.eulerAngles = new Vector3(0, 90, -90);
         PeonManager.Instance._peons.Remove(this);
         Destroy(gameObject);
