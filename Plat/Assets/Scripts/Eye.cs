@@ -13,6 +13,7 @@ public class Eye : MonoBehaviour
         {
             if(value == true)
             {
+                if (myAnim == null) Awake();
                 myAnim.SetTrigger("Open");
             }
             else
@@ -31,11 +32,13 @@ public class Eye : MonoBehaviour
     private float _duration;
     private Animator myAnim;
     private ParticleSystem particle;
+    private bool _blockTimer;
     private void Awake()
     {
         _qte = GetComponentInParent<QTEScript>();
         myAnim = GetComponent<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
+        particle.Stop();
         
     }
     public void Spawn(float duration)
@@ -45,13 +48,19 @@ public class Eye : MonoBehaviour
             _duration = duration;
             isOpen = true;
             particle.Stop();
+            _blockTimer = false;
         }
         else
-            gameObject.SetActive(false);
+        {
+            _duration = 10;
+            isOpen = true;
+            particle.Stop();
+            _blockTimer = true;
+        }
     }
     void Update()
     {
-        if(_isOpen)
+        if(_isOpen && !_blockTimer)
         {
             _duration -= Time.deltaTime;
             if (_duration <= 0)
