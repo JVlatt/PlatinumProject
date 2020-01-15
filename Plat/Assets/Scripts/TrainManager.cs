@@ -92,7 +92,8 @@ public class TrainManager : MonoBehaviour
             if (dif > 0)
             {
                 //deceleration
-                _speed -= _deceleration * Time.deltaTime;
+                if((_speed - (_deceleration * Time.deltaTime)) > 0)
+                    _speed -= _deceleration * Time.deltaTime;
             }
             else
                 _speed += _acceleration * Time.deltaTime;
