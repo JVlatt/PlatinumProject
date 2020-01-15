@@ -13,7 +13,6 @@ public class Eye : MonoBehaviour
         {
             if(value == true)
             {
-                if (myAnim == null) Awake();
                 myAnim.SetTrigger("Open");
             }
             else
@@ -39,22 +38,22 @@ public class Eye : MonoBehaviour
         myAnim = GetComponent<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
         particle.Stop();
-        
+        gameObject.SetActive(false);
     }
-    public void Spawn(float duration)
+    public void SpawnEye(float duration)
     {
+        gameObject.SetActive(true);
+        particle.Stop();
         if (duration > 0)
         {
             _duration = duration;
             isOpen = true;
-            particle.Stop();
             _blockTimer = false;
         }
         else
         {
             _duration = 10;
             isOpen = true;
-            particle.Stop();
             _blockTimer = true;
         }
     }
@@ -62,6 +61,7 @@ public class Eye : MonoBehaviour
     {
         if(_isOpen && !_blockTimer)
         {
+            myAnim.SetTrigger("Open");
             _duration -= Time.deltaTime;
             if (_duration <= 0)
             {
@@ -94,4 +94,9 @@ public class Eye : MonoBehaviour
         UIManager.Instance.ChangeCursor("default");
     }
 
+
+    public void ActiveFalse()
+    {
+        gameObject.SetActive(false);
+    }
 }

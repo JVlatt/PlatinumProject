@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17424703, g: 0.21790789, b: 0.30011997, a: 1}
+  m_IndirectSpecularColor: {r: 0.17424697, g: 0.21790797, b: 0.30011985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7511,7 +7511,7 @@ GameObject:
   - component: {fileID: 1129628910}
   - component: {fileID: 1129628911}
   m_Layer: 0
-  m_Name: Break (Wagon 2)
+  m_Name: Attack (Wagon 3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7542,17 +7542,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1129628909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9beb97ddd6b614f46bc6993e3fa7c3cb, type: 3}
+  m_Script: {fileID: 11500000, guid: c7b3851aaa7c8984b8b2e33b82e8e408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
   _duration: 50
   _freezeControl: 0
   subPhases: []
-  carriage: 2
-  _damageAmount: 1
-  playSound: 1
-  _waitFix: 1
+  _carriage: 3
+  _timeBeforeAttack: 5
+  autoLoose: 0
 --- !u!1 &1133461597
 GameObject:
   m_ObjectHideFlags: 0
@@ -12663,6 +12662,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8398949499331230846, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464191985214303887, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_SortingLayer
       value: 1

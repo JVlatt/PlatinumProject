@@ -63,7 +63,10 @@ public class QTERepair : MonoBehaviour
                 break;
         }
         foreach (QTEKey k in _activeKeys)
+        {
             k.gameObject.SetActive(true);
+            if (k.transform.childCount == 1) k.transform.GetChild(0).gameObject.SetActive(false);
+        }
         isActive = true;
     }
 

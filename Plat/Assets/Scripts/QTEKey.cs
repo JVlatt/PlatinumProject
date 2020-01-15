@@ -67,6 +67,7 @@ public class QTEKey : MonoBehaviour
                 valid = true;
                 SoundManager.Instance.Play("cling");
                 transform.position = anchor.position;
+                if (transform.childCount == 1) transform.GetChild(0).gameObject.SetActive(false);
                 _qte.CheckEnd();
             }
         }
