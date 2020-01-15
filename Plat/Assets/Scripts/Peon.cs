@@ -192,6 +192,7 @@ public class Peon : MonoBehaviour
         }
     }
     private Animator _fixAnimator;
+    public bool blockFix;
 
     private bool _fixEnded;
     #endregion
@@ -377,7 +378,8 @@ public class Peon : MonoBehaviour
         {
             PhaseManager.Instance.GetPeon(m_peonInfo.name);
         }
-        _fixTimer += Time.deltaTime;
+        if(!blockFix) 
+            _fixTimer += Time.deltaTime;
         if (fixUpdate != null)
             fixUpdate(_fixTimer / _fixCD);
         if (!_fixEnded)

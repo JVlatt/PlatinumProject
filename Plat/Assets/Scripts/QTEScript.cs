@@ -15,6 +15,9 @@ public class QTEScript : MonoBehaviour
     private bool isActive;
     private List<Eye> _eyes = new List<Eye>();
 
+    private static bool firstEye = true;
+    private bool isTimerstop = false;
+
     void Start()
     {
         _carriage = GetComponentInParent<Carriage>();
@@ -28,7 +31,7 @@ public class QTEScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isActive)
+        if (isActive && !isTimerstop)
         {
             timer += Time.deltaTime;
             if (timer >= timeBetweenSpawn)
@@ -50,8 +53,20 @@ public class QTEScript : MonoBehaviour
         int rand = Random.Range(0, _eyes.Count);
         if (!_eyes[rand].isOpen)
         {
-            _eyes[rand].gameObject.SetActive(true);
-            _eyes[rand].Spawn(eyeDuration);
+
+            if (firstEye)
+            {
+                _eyes[3].gameObject.SetActive(true);
+                _eyes[3].Spawn(-1);
+                isTimerstop = true;
+                firstEye = false;
+                timer = timeBetweenSpawn;
+            }
+            else
+            {
+                _eyes[rand].Spawn(eyeDuration);
+                _eyes[rand].gameObject.SetActive(true);
+            }
             amount--;
         }
         else
@@ -72,6 +87,7 @@ public class QTEScript : MonoBehaviour
     public void CheckEnd()
     {
         if (!isActive) return;
+        if (isTimerstop) isTimerstop = false;
         if (point >= goal)
         {
             if(isActive)

@@ -32,6 +32,7 @@ public class FixIt : MonoBehaviour
         CARRIAGE,
         LIGHT
     }
+    private static bool firstFix = true;
 
 #if UNITY_EDITOR || UNITY_ANDROID
     public void Touch()
@@ -68,6 +69,7 @@ public class FixIt : MonoBehaviour
 
         _activePeon._isFixing = true;
         _activePeon.onFixEndedDelegate += onFixEnded;
+        if (firstFix) _activePeon.blockFix = true;
 
         if (_isAnEvent)
         {

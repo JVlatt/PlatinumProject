@@ -75,6 +75,7 @@ public class QTERepair : MonoBehaviour
     public void CheckEnd()
     {
         particle.Play();
+        if (_peon.blockFix) _peon.blockFix = false;
         if(!_activeKeys.Find(x => !x.valid))
         {
             _peon.EndFix(true);
