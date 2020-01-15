@@ -65,7 +65,7 @@ public class QTERepair : MonoBehaviour
         foreach (QTEKey k in _activeKeys)
         {
             k.gameObject.SetActive(true);
-            if (k.transform.childCount == 1) k.transform.GetChild(0).gameObject.SetActive(false);
+            if (k.transform.childCount == 1) k.transform.GetChild(0).gameObject.SetActive(true);
         }
         isActive = true;
     }
