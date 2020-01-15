@@ -204,6 +204,27 @@ public class UIManager : MonoBehaviour
     private int voiceId;
     private PhaseText.emotionType emotionType;
 
+    #region PauseMenu
+    [Header("PauseMenu")]
+    public GameObject pausePannel;
+    private bool _isPaused = false;
+    private float _pauseTimer = 0f;
+
+    public void Pause()
+    {
+        pausePannel.SetActive(true);
+        Time.timeScale = 0f;
+        _isPaused = true;
+    }
+
+    public void Resume()
+    {
+        pausePannel.SetActive(false);
+        Time.timeScale = 1f;
+        _isPaused = false;
+    }
+
+    #endregion
     public void UpdateMentalBar()
     {
         float total = 0;
@@ -253,6 +274,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = 1f;
         foreach (var item in cursorClasses)
         {
             dictCursor[item.name] = item;
@@ -288,7 +310,13 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (_isPaused)
+                Resume();
+            else
+                Pause();
+        }
         if (_fade && _fadeType != FADETYPE.NULL)
         {
             _timer += Time.deltaTime;
@@ -640,7 +668,7 @@ public class UIManager : MonoBehaviour
     public void BoutonRestart()
     {
         Peon.ResetStatic();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BoutonQuit()
