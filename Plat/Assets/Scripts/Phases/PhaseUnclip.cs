@@ -14,9 +14,12 @@ public class PhaseUnclip : Phase
     public override void LaunchPhase()
     {
         if (_unclipLast)
-            _carriage = TrainManager.Instance._carriages.Count - 1;
+        {
+            if(TrainManager.Instance._carriages.Count > 4)
+            TrainManager.Instance.UnclipCarriage(TrainManager.Instance._carriages.Count - 2);
+        }
 
-        if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
+        else if(TrainManager.Instance._carriages.Find(x => x.id == _carriage))
             TrainManager.Instance.UnclipCarriage(_carriage - 1);
     }
     public override string BuildGameObjectName()
