@@ -50,7 +50,6 @@ public class Peon : MonoBehaviour
                 SoundManager.Instance.Play("fix");
                 _currentCarriage._qteFix.Launch(this);
                 transform.forward = Vector3.back;
-                m_fix.SetActive(true);
             }
             else
             {
@@ -176,8 +175,6 @@ public class Peon : MonoBehaviour
             {
                 if(_type == TYPE.HEALER)
                     m_animator.SetBool("Healing", value);
-                if(value)
-                    m_fix.SetActive(value);
             }
         }
     }
@@ -394,6 +391,7 @@ public class Peon : MonoBehaviour
         {
             if (_fixTimer > 0.8f)
             {
+                m_fix.SetActive(false);
                 _fixEnded = false;
                 _isFixing = false;
                 _canMove = true;
@@ -403,7 +401,7 @@ public class Peon : MonoBehaviour
 
     public void EndFix(bool win)
     {
-        
+        m_fix.SetActive(true);
         if (win)
         {
             //c'est reparé

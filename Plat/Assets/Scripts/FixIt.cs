@@ -69,7 +69,11 @@ public class FixIt : MonoBehaviour
 
         _activePeon._isFixing = true;
         _activePeon.onFixEndedDelegate += onFixEnded;
-        if (firstFix) _activePeon.blockFix = true;
+        if (firstFix)
+        {
+            firstFix = false;
+            _activePeon.blockFix = true;
+        }
 
         if (_isAnEvent)
         {
