@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1133461599}
-  m_IndirectSpecularColor: {r: 0.17424703, g: 0.21790789, b: 0.30011997, a: 1}
+  m_IndirectSpecularColor: {r: 0.17424738, g: 0.21790868, b: 0.30012125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12175,6 +12175,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EndChoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8274691884975645553, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 789132130}
+    - target: {fileID: 8274691884975645553, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463182700112572508, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 789132130}
+    - target: {fileID: 8463182700112572508, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BoutonQuit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631411992960456303, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 789132130}
+    - target: {fileID: 2631411992960456303, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422989940784257737, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 789132130}
+    - target: {fileID: 7422989940784257737, guid: 5bac4aee76175a64b83e3ab266ee2f3d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BoutonRestart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bac4aee76175a64b83e3ab266ee2f3d, type: 3}
@@ -36909,11 +36949,6 @@ PrefabInstance:
       propertyPath: m_activePeons.Array.data[2]
       value: 
       objectReference: {fileID: 171797379}
-    - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
-        type: 3}
-      propertyPath: m_carriages.Array.data[1]
-      value: 
-      objectReference: {fileID: 231876122}
     - target: {fileID: 1290182698899155041, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36969,6 +37004,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290182698899155046, guid: 950ab77bcf67b3f48ad907d9fecce19d,
+        type: 3}
+      propertyPath: m_carriages.Array.data[1]
+      value: 
+      objectReference: {fileID: 231876122}
     - target: {fileID: 2294865404506447112, guid: 950ab77bcf67b3f48ad907d9fecce19d,
         type: 3}
       propertyPath: m_IsActive
